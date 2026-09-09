@@ -1,0 +1,679 @@
+{
+  "meta": {
+    "name": "九龙：永生代码",
+    "author": "System07",
+    "version": "1.0.7",
+    "description": "在永恒雨夜的九龙城寨中，你是一名寻找真相的义体医生。揭开永生邪教的阴谋，在机械怪物的追杀下逃出生天。",
+    "style": "Cyberpunk, Neon Noir, High Contrast, Glitch Art, Dark Sci-Fi",
+    "sceneStyle": "Cinematic wide angle, atmospheric neon lighting, wet surfaces, chaotic wires, claustrophobic architecture, volumetric fog, rain streaks",
+    "itemStyle": "Isometric, sharp focus, studio lighting, dark background, technological details, rusty metal textures, holographic elements",
+    "musicStyle": "Industrial Synthwave, Dark Ambient, Rain sounds, Heavy Bass, Distorted Drones",
+    "endingMessage": "随着信号的发送，一架隐形穿梭机破开雨幕悬停在天台上方。你握紧了手中的数据盘，那里有着足以摧毁这个疯狂邪教的证据。雨还在下，但新的风暴已经开始。",
+    "endingSceneId": "scene_ending",
+    "useBannerAsTitleBg": true,
+    "designConfig": {
+      "theme": "故事发生在一座名为“九龙城寨”的赛博朋克风格的废弃公寓楼中，时间停留在永恒的雨夜。玩家扮演一名义体医生，必须通过提取死者大脑芯片中的记忆碎片，拼凑出一场关于永生仪式的邪教阴谋，并在被机械怪物追杀的同时逃离这座迷宫。",
+      "sceneCount": 10,
+      "itemCount": 11,
+      "puzzleCount": 8,
+      "requiredItems": "破碎的记忆芯片, 全息日记记录仪, 生锈的机械义眼, 未知的蓝色注射液, 加密的数据盘",
+      "requiredScenes": "闪烁着红灯的手术室, 漏水的狭窄走廊, 堆满电子垃圾的天台, 被非法改造的神龛, 充满福尔马林气味的地下室"
+    },
+    "bgmUrl": "./assets/bgm.mp3"
+  },
+  "initialState": {
+    "currentSceneId": "scene_op_room",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "系统启动中... 视觉模块校准完毕。",
+      "我醒在一间闪烁着红色警报灯的手术室里。",
+      "空气中弥漫着铁锈和血腥味。",
+      "记忆有些模糊，但我必须立刻离开这里。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_diary": {
+      "id": "item_diary",
+      "name": "全息日记记录仪",
+      "description": "一个破旧的便携式录音设备，似乎记录了死者最后的遗言。",
+      "type": "CLUE",
+      "icon": "📼",
+      "image": "./assets/item_diary.png",
+      "clueForPuzzleId": "puz_door_code"
+    },
+    "item_crowbar": {
+      "id": "item_crowbar",
+      "name": "重型撬棍",
+      "description": "工业级合金撬棍，足以撬开生锈的金属板。",
+      "type": "TOOL",
+      "icon": "⛏️",
+      "image": "./assets/item_crowbar.png"
+    },
+    "item_chip": {
+      "id": "item_chip",
+      "name": "破碎的记忆芯片",
+      "description": "从死者大脑皮层取出的芯片碎片，虽然物理损坏，但数据或许可以修复。",
+      "type": "KEY",
+      "icon": "💾",
+      "image": "./assets/item_chip.png",
+      "clueForPuzzleId": "puz_chip_restore"
+    },
+    "item_injection": {
+      "id": "item_injection",
+      "name": "未知的蓝色注射液",
+      "description": "标签上写着“抑制剂-V9”。液体在管中发出幽幽的蓝光。",
+      "type": "CLUE",
+      "icon": "💉",
+      "image": "./assets/item_injection.png",
+      "clueForPuzzleId": "puz_decrypt"
+    },
+    "item_note": {
+      "id": "item_note",
+      "name": "皱巴巴的便条",
+      "description": "上面潦草地写着：'服务器密码在注射液的批号里，最后四位。'",
+      "type": "CLUE",
+      "icon": "📄",
+      "image": "./assets/item_note.png",
+      "clueForPuzzleId": "puz_decrypt"
+    },
+    "item_eye": {
+      "id": "item_eye",
+      "name": "生锈的机械义眼",
+      "description": "一颗被挖出的义眼，晶状体虽然裂了，但存储单元似乎完好。",
+      "type": "CLUE",
+      "icon": "👁️",
+      "image": "./assets/item_eye.png",
+      "clueForPuzzleId": "puz_safe"
+    },
+    "item_key_basement": {
+      "id": "item_key_basement",
+      "name": "地下室磁卡",
+      "description": "沾满油污的磁卡，上面印着生物危害标志。",
+      "type": "KEY",
+      "icon": "💳",
+      "image": "./assets/item_key_basement.png"
+    },
+    "item_data_disk": {
+      "id": "item_data_disk",
+      "name": "加密的数据盘",
+      "description": "存储着“永生仪式”核心数据的高密度光盘，需要解密。",
+      "type": "KEY",
+      "icon": "💿",
+      "image": "./assets/item_data_disk.png"
+    },
+    "item_battery": {
+      "id": "item_battery",
+      "name": "高能电池",
+      "description": "从医疗设备上拆下来的微型核电池。",
+      "type": "TOOL",
+      "icon": "🔋",
+      "image": "./assets/item_battery.png"
+    },
+    "item_access_card": {
+      "id": "item_access_card",
+      "name": "服务器机房权限卡",
+      "description": "一张红色的高级权限卡，用于访问主要数据中心。",
+      "type": "KEY",
+      "icon": "🪪",
+      "image": "./assets/item_access_card.png"
+    },
+    "item_circuit": {
+      "id": "item_circuit",
+      "name": "电梯电路板碎片",
+      "description": "一堆精密的电路元件，用于修复电梯控制系统。",
+      "type": "TOOL",
+      "icon": "🧩",
+      "image": "./assets/item_circuit.png",
+      "clueForPuzzleId": "puz_circuit"
+    }
+  },
+  "puzzles": {
+    "puz_door_code": {
+      "id": "puz_door_code",
+      "description": "门禁面板闪烁着红光，需要输入4位紧急覆盖代码。",
+      "answer": "7358",
+      "rewardFlag": "flag_op_door_open",
+      "rewardMessage": "气压锁泄气的声音响起，门缓缓滑开。",
+      "type": "numeric"
+    },
+    "puz_chip_restore": {
+      "id": "puz_chip_restore",
+      "description": "将记忆芯片的碎片重新排列，以读取其中的全息影像数据。",
+      "answer": "solved",
+      "rewardFlag": "flag_chip_restored",
+      "rewardMessage": "芯片读取成功，全息投影显示出一组奇怪的符号顺序。",
+      "type": "image_grid",
+      "linkedAssetId": "item_chip",
+      "gridSize": 3
+    },
+    "puz_shrine_symbol": {
+      "id": "puz_shrine_symbol",
+      "description": "神像底座上有三个可按动的符号石板，必须按照正确的顺序按下。",
+      "answer": "▲■●",
+      "rewardFlag": "flag_shrine_open",
+      "rewardMessage": "神像转动，露出了背后的暗格。",
+      "type": "symbol",
+      "choices": [
+        "▲",
+        "▼",
+        "●",
+        "■",
+        "★",
+        "♦"
+      ]
+    },
+    "puz_safe": {
+      "id": "puz_safe",
+      "description": "保险箱需要4位数字密码。密码似乎与某种光学投影有关。",
+      "answer": "9305",
+      "rewardFlag": "flag_safe_open",
+      "rewardMessage": "保险箱咔哒一声打开了。",
+      "type": "numeric"
+    },
+    "puz_decrypt": {
+      "id": "puz_decrypt",
+      "description": "终端屏幕提示：输入解密密钥。提示指向某种医疗用品的批号。",
+      "answer": "1024",
+      "rewardFlag": "flag_disk_decrypted",
+      "rewardMessage": "数据盘解密完成。屏幕上滚动显示出撤离坐标和通讯频率：4499。",
+      "type": "numeric"
+    },
+    "puz_circuit": {
+      "id": "puz_circuit",
+      "description": "重新连接电梯的控制电路，使电流能够通过。",
+      "answer": "solved",
+      "rewardFlag": "flag_elevator_fixed",
+      "rewardMessage": "火花闪过，电梯控制面板恢复了绿灯。",
+      "type": "image_grid",
+      "linkedAssetId": "item_circuit",
+      "gridSize": 3
+    },
+    "puz_hatch": {
+      "id": "puz_hatch",
+      "description": "电梯顶部的逃生舱口被电子锁锁住，上面画着几个箭头符号。",
+      "answer": "←↑→",
+      "rewardFlag": "flag_hatch_open",
+      "rewardMessage": "舱口弹开，雨水灌了进来。",
+      "type": "symbol",
+      "choices": [
+        "↑",
+        "↓",
+        "←",
+        "→",
+        "⚡",
+        "☠"
+      ]
+    },
+    "puz_transmitter": {
+      "id": "puz_transmitter",
+      "description": "输入最终的通讯频率以发送加密数据并呼叫救援。",
+      "answer": "4499",
+      "rewardFlag": "flag_game_won",
+      "rewardMessage": "信号已锁定。正在上传数据包...",
+      "type": "numeric"
+    }
+  },
+  "scenes": {
+    "scene_op_room": {
+      "id": "scene_op_room",
+      "title": "手术室",
+      "imageUrl": "./assets/scene_op_room.jpg",
+      "description": "这间手术室充满了赛博格改造的痕迹。无影灯忽明忽暗，房间中央的手术台上躺着一具被拆解的合成人尸体。",
+      "interactables": [
+        {
+          "id": "int_body",
+          "name": "合成人尸体",
+          "description": "他的胸腔被打开了，手臂上刻着某种序列号。手里紧紧攥着什么。",
+          "itemRewardId": "item_diary",
+          "postInteractionMessage": "尸体的手已经松开了。"
+        },
+        {
+          "id": "int_tray",
+          "name": "手术托盘",
+          "description": "托盘里堆满了沾血的器械，旁边放着一块从设备上拆下的备用电源。",
+          "itemRewardId": "item_battery",
+          "postInteractionMessage": "你拿走了那块高能电池。"
+        },
+        {
+          "id": "int_door_op",
+          "name": "电子安全门",
+          "description": "厚重的金属门，旁边有一个数字键盘。",
+          "lockedMessage": "门锁住了。键盘需要输入密码。",
+          "isPuzzle": true,
+          "puzzleId": "puz_door_code",
+          "postInteractionMessage": "门已经解锁并打开了。"
+        },
+        {
+          "id": "int_diary_play",
+          "name": "播放日记",
+          "description": "你按下了日记记录仪的播放键。",
+          "requiredItemId": "item_diary",
+          "lockedMessage": "我需要找到那个记录仪才能播放。",
+          "audioMessage": "7358",
+          "dialogue": [
+            "沙沙声...",
+            "这是最后一次记录...代码是 7-3-5-8。",
+            "重复，7-3-5-8。他们来了..."
+          ],
+          "clueForPuzzleId": "puz_door_code",
+          "postInteractionMessage": "录音里那个颤抖的声音重复着：7358。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_corridor",
+          "label": "进入走廊",
+          "locked": true,
+          "requiredFlag": "flag_op_door_open"
+        }
+      ]
+    },
+    "scene_corridor": {
+      "id": "scene_corridor",
+      "title": "霓虹走廊",
+      "imageUrl": "./assets/scene_corridor.jpg",
+      "description": "狭窄的走廊里积满了水，墙上的霓虹广告牌滋滋作响。墙壁上画满了奇怪的涂鸦。",
+      "interactables": [
+        {
+          "id": "int_graffiti",
+          "name": "墙壁涂鸦",
+          "description": "荧光喷漆画着一组方向符号：左，上，右。",
+          "clueForPuzzleId": "puz_hatch",
+          "postInteractionMessage": "那些符号在黑暗中发光：← ↑ →"
+        },
+        {
+          "id": "int_toolbox",
+          "name": "遗弃的工具箱",
+          "description": "角落里有一个锈迹斑斑的工具箱。",
+          "itemRewardId": "item_crowbar",
+          "postInteractionMessage": "工具箱空了。"
+        },
+        {
+          "id": "int_trash",
+          "name": "电子垃圾堆",
+          "description": "一堆报废的义体零件。",
+          "itemRewardId": "item_chip",
+          "postInteractionMessage": "垃圾堆里没有什么有价值的东西了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_op_room",
+          "label": "回手术室"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_apt_302",
+          "label": "302室"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "scene_stairs",
+          "label": "楼梯间"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_shrine",
+          "label": "改造神龛"
+        }
+      ]
+    },
+    "scene_apt_302": {
+      "id": "scene_apt_302",
+      "title": "302室",
+      "imageUrl": "./assets/scene_apt_302.jpg",
+      "description": "这是一间狭小的胶囊公寓，被翻得乱七八糟。墙上贴满了关于“永生计划”的剪报。",
+      "interactables": [
+        {
+          "id": "int_fridge",
+          "name": "迷你冰箱",
+          "description": "冰箱门半掩着，里面透出蓝光。",
+          "itemRewardId": "item_injection",
+          "postInteractionMessage": "冰箱里只剩下过期的合成营养膏。"
+        },
+        {
+          "id": "int_desk",
+          "name": "书桌",
+          "description": "桌子上有一张皱巴巴的便条。",
+          "itemRewardId": "item_note",
+          "clueForPuzzleId": "puz_decrypt",
+          "postInteractionMessage": "桌子上现在空空如也。"
+        },
+        {
+          "id": "int_injection_inspect",
+          "name": "检查注射液",
+          "description": "你仔细查看了蓝色注射液的瓶身标签。",
+          "requiredItemId": "item_injection",
+          "lockedMessage": "我没有那支注射液，无法检查。",
+          "dialogue": [
+            "标签上印着生产批号：Batch-1024。",
+            "也许这就是那张便条上提到的数字。"
+          ],
+          "clueForPuzzleId": "puz_decrypt",
+          "postInteractionMessage": "注射液标签上的批号清晰可见：1024。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_corridor",
+          "label": "返回走廊"
+        }
+      ]
+    },
+    "scene_stairs": {
+      "id": "scene_stairs",
+      "title": "楼梯间",
+      "imageUrl": "./assets/scene_stairs.jpg",
+      "description": "楼梯向下延伸至黑暗的地下室。一道铁栅栏门挡住了去路。",
+      "interactables": [
+        {
+          "id": "int_gate",
+          "name": "地下室铁门",
+          "description": "门上挂着一把磁力锁，旁边有一个读卡器。",
+          "lockedMessage": "读卡器闪烁着红光，需要某种特殊的磁卡。",
+          "requiredItemId": "item_key_basement",
+          "postInteractionMessage": "铁门已经打开，通往地下室的路畅通无阻。",
+          "flagReward": "flag_stairs_unlocked"
+        },
+        {
+          "id": "int_rubble",
+          "name": "瓦砾堆",
+          "description": "楼梯角落堆积着沉重的碎石。下面似乎压着什么东西。",
+          "requiredItemId": "item_crowbar",
+          "lockedMessage": "这些碎石太重了，徒手无法搬动。你需要某种撬棍之类的工具。",
+          "itemRewardId": "item_key_basement",
+          "postInteractionMessage": "你用撬棍撬开了碎石，发现了藏在下面的地下室磁卡。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_corridor",
+          "label": "返回走廊"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "scene_basement",
+          "label": "进入地下室",
+          "locked": true,
+          "requiredFlag": "flag_stairs_unlocked"
+        }
+      ]
+    },
+    "scene_shrine": {
+      "id": "scene_shrine",
+      "title": "赛博神龛",
+      "imageUrl": "./assets/scene_shrine.jpg",
+      "description": "一个非法改造的电子神龛，全息佛像手中捧着服务器机箱。空气中弥漫着线香和冷却液混合的味道。",
+      "interactables": [
+        {
+          "id": "int_terminal",
+          "name": "记忆读取终端",
+          "description": "神龛旁的一台旧电脑，有一个芯片插槽。",
+          "lockedMessage": "需要插入记忆芯片才能启动。",
+          "requiredItemId": "item_chip",
+          "isPuzzle": true,
+          "puzzleId": "puz_chip_restore",
+          "clueForPuzzleId": "puz_shrine_symbol",
+          "dialogue": [
+            "检测到碎片化数据...",
+            "请手动修复数据块以还原全息图像。"
+          ],
+          "postInteractionMessage": "屏幕上显示着修复后的全息图：顺序是 ▲■●。"
+        },
+        {
+          "id": "int_statue_puzzle",
+          "name": "神像底座",
+          "description": "底座上有三个刻着符号的按钮。",
+          "isPuzzle": true,
+          "puzzleId": "puz_shrine_symbol",
+          "lockedMessage": "如果你不知道顺序，乱按可能会触发警报。",
+          "postInteractionMessage": "暗格已经打开。"
+        },
+        {
+          "id": "int_cache",
+          "name": "暗格",
+          "description": "神像背后的秘密隔间。",
+          "itemRewardId": "item_access_card",
+          "requiredFlag": "flag_shrine_open",
+          "postInteractionMessage": "你发现了服务器机房权限卡。"
+        },
+        {
+          "id": "int_cache_key",
+          "name": "暗格里的义眼",
+          "description": "一颗生锈的机械义眼。",
+          "itemRewardId": "item_eye",
+          "requiredFlag": "flag_shrine_open",
+          "postInteractionMessage": "你发现了机械义眼。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_corridor",
+          "label": "返回走廊"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_server",
+          "label": "服务器机房"
+        }
+      ]
+    },
+    "scene_basement": {
+      "id": "scene_basement",
+      "title": "福尔马林地下室",
+      "imageUrl": "./assets/scene_basement.jpg",
+      "description": "这里像是一个令人作呕的人体实验室。巨大的玻璃罐里浸泡着各种器官。",
+      "interactables": [
+        {
+          "id": "int_scanner",
+          "name": "义眼扫描仪",
+          "description": "墙上安装着一个视网膜扫描仪，电源指示灯是熄灭的。",
+          "requiredItemId": "item_battery",
+          "lockedMessage": "扫描仪没有电。",
+          "postInteractionMessage": "扫描仪已通电，等待输入样本。",
+          "flagReward": "flag_scanner_powered"
+        },
+        {
+          "id": "int_scanner_eye",
+          "name": "放入义眼",
+          "description": "将生锈的机械义眼放入通电的扫描仪。",
+          "requiredItemId": "item_eye",
+          "requiredFlag": "flag_scanner_powered",
+          "lockedMessage": "扫描仪需要通电且放入义眼才能工作。",
+          "dialogue": [
+            "扫描中...",
+            "视网膜匹配成功。",
+            "投影数据：9305"
+          ],
+          "clueForPuzzleId": "puz_safe",
+          "postInteractionMessage": "扫描仪在墙上投射出一组鲜红的数字：9305。"
+        },
+        {
+          "id": "int_safe",
+          "name": "墙壁保险箱",
+          "description": "嵌入墙体的小型保险箱。",
+          "isPuzzle": true,
+          "puzzleId": "puz_safe",
+          "postInteractionMessage": "保险箱开着。"
+        },
+        {
+          "id": "int_safe_loot",
+          "name": "保险箱物品",
+          "description": "保险箱里有一张光盘。",
+          "itemRewardId": "item_data_disk",
+          "requiredFlag": "flag_safe_open",
+          "postInteractionMessage": "你发现了加密数据盘。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_stairs",
+          "label": "上楼"
+        }
+      ]
+    },
+    "scene_server": {
+      "id": "scene_server",
+      "title": "冷却机房",
+      "imageUrl": "./assets/scene_server.jpg",
+      "description": "巨大的服务器机柜轰鸣着，散发着热浪。这是邪教上传意识到云端的核心枢纽。",
+      "interactables": [
+        {
+          "id": "int_server_door",
+          "name": "维修通道安全门",
+          "description": "机房深处通往维修通道的重型安全门，需要最高权限。",
+          "lockedMessage": "访问被拒绝。需要红色权限卡（服务器机房权限卡）。",
+          "requiredItemId": "item_access_card",
+          "postInteractionMessage": "权限认证通过，维修通道已开启。",
+          "flagReward": "flag_server_unlocked"
+        },
+        {
+          "id": "int_mainframe",
+          "name": "主控终端",
+          "description": "终端屏幕上闪烁着“插入数据盘以解密”的字样。",
+          "requiredItemId": "item_data_disk",
+          "lockedMessage": "你需要那个加密的数据盘。",
+          "isPuzzle": true,
+          "puzzleId": "puz_decrypt",
+          "clueForPuzzleId": "puz_transmitter",
+          "dialogue": [
+            "正在读取加密分区...",
+            "请输入4位解密密钥（提示：关联物品批号）。"
+          ],
+          "postInteractionMessage": "屏幕上显示：撤离频率 4499。"
+        },
+        {
+          "id": "int_box_parts",
+          "name": "维修箱",
+          "description": "地上散落的维修工具。",
+          "itemRewardId": "item_circuit",
+          "postInteractionMessage": "维修箱空了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_shrine",
+          "label": "返回神龛"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_maint",
+          "label": "维修通道",
+          "locked": true,
+          "requiredFlag": "flag_server_unlocked"
+        }
+      ]
+    },
+    "scene_maint": {
+      "id": "scene_maint",
+      "title": "维修管道",
+      "imageUrl": "./assets/scene_maint.jpg",
+      "description": "狭窄压抑的管道，充满了蒸汽和滴水声。尽头是电梯控制板。",
+      "interactables": [
+        {
+          "id": "int_panel",
+          "name": "电梯电路板",
+          "description": "控制电梯的电路板被破坏了，线路断裂。",
+          "lockedMessage": "你需要新的电路元件来修复它。",
+          "requiredItemId": "item_circuit",
+          "isPuzzle": true,
+          "puzzleId": "puz_circuit",
+          "postInteractionMessage": "电路板已修复，电梯供电恢复。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_server",
+          "label": "返回机房"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_elevator",
+          "label": "进入电梯井",
+          "locked": true,
+          "requiredFlag": "flag_elevator_fixed"
+        }
+      ]
+    },
+    "scene_elevator": {
+      "id": "scene_elevator",
+      "title": "故障电梯井",
+      "imageUrl": "./assets/scene_elevator.jpg",
+      "description": "你站在停在半空的电梯轿厢顶上。上方是通往天台的逃生舱口。",
+      "interactables": [
+        {
+          "id": "int_hatch",
+          "name": "逃生舱口",
+          "description": "舱口紧锁，上面的电子锁需要输入一组方向符号。",
+          "lockedMessage": "你需要输入正确的方向序列。",
+          "isPuzzle": true,
+          "puzzleId": "puz_hatch",
+          "clueForPuzzleId": "int_graffiti",
+          "postInteractionMessage": "舱口已打开，雨水落在了你的脸上。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_maint",
+          "label": "爬下去"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_rooftop",
+          "label": "爬上天台",
+          "locked": true,
+          "requiredFlag": "flag_hatch_open"
+        }
+      ]
+    },
+    "scene_rooftop": {
+      "id": "scene_rooftop",
+      "title": "暴雨天台",
+      "imageUrl": "./assets/scene_rooftop.jpg",
+      "description": "暴雨如注，霓虹城市的灯光在雨幕中模糊不清。一台巨大的信号发射器矗立在边缘。",
+      "interactables": [
+        {
+          "id": "int_transmitter",
+          "name": "信号发射器",
+          "description": "这是唯一能联系外界的设备。你需要输入之前解密得到的频率。",
+          "lockedMessage": "你需要输入4位频率代码。",
+          "isPuzzle": true,
+          "puzzleId": "puz_transmitter",
+          "winsGame": true,
+          "postInteractionMessage": "信号已发送，救援即将抵达。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_elevator",
+          "label": "返回电梯井"
+        }
+      ]
+    },
+    "scene_ending": {
+      "id": "scene_ending",
+      "title": "逃出生天",
+      "imageUrl": "./assets/scene_ending.jpg",
+      "description": "穿梭机的探照灯刺破黑暗，你成功逃离了九龙城寨的噩梦.",
+      "interactables": [],
+      "exits": []
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

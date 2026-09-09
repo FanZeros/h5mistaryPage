@@ -1,0 +1,558 @@
+{
+  "meta": {
+    "name": "怨念公寓：九零年代",
+    "author": "System01",
+    "version": "1.0.0",
+    "description": "你被困在了一个时间停滞在90年代雷雨夜的旧公寓里。大门被红线封死，窗外是无尽的黑雾。你必须解开前任住户留下的谜题，平息这里的怨念，才能逃出生天。",
+    "style": "Retro VHS Glitch Art, 90s Hong Kong Horror, Low Fidelity, Grainy, High Contrast",
+    "sceneStyle": "Wide angle lens, dark moody lighting, flickering neon lights, damp textures, claustrophobic composition",
+    "itemStyle": "Isometric view, sharp focus, plain dark background, vhs noise overlay, realistic but gritty",
+    "musicStyle": "Dark Ambient, Drone, Static Noise, Distant Thunder, Slow Heartbeat, Lo-fi Synth",
+    "endingMessage": "随着最后一声脆响，红线断裂。门外的黑雾散去，露出了久违的楼道灯光。你跌跌撞撞地跑下楼，身后的公寓在雷声中逐渐模糊，仿佛从未存在过。但你口袋里那张复原的照片，证明了一切并非梦境。",
+    "endingSceneId": "scene_ending",
+    "useBannerAsTitleBg": true,
+    "bgmUrl": "./assets/bgm.mp3",
+    "designConfig": {
+      "theme": "你在一个停滞于90年代雷雨夜的封闭公寓中醒来，大门被无数红线死死缠绕，窗外只有翻滚的黑雾。房间内的家具随着时间的推移会像活物一样蠕动移位，你必须在理智彻底崩溃前，通过破解前任住户留下的血腥日记，逃离这个由怨念构筑的死循环密室。",
+      "sceneCount": 8,
+      "itemCount": 12,
+      "puzzleCount": 7,
+      "requiredItems": "生锈的剪刀, 染血的日记本, 缺了一角的八卦镜, 奇怪的草人娃娃, 老式手电筒, 一束湿润的头发",
+      "requiredScenes": "被红线封死的玄关, 滴水的破旧卫生间, 供奉着遗像的卧室, 堆满杂物的狭窄走廊, 闪烁着雪花屏的客厅"
+    }
+  },
+  "initialState": {
+    "currentSceneId": "scene_living_room",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "头痛欲裂……你在沙发上醒来。",
+      "窗外雷声轰鸣，这里不是你的家。",
+      "空气中弥漫着霉味和焚香的味道，电视机发出令人烦躁的雪花声。",
+      "门被某种红色的线缠住了……必须想办法离开。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_flashlight": {
+      "id": "item_flashlight",
+      "name": "老式手电筒",
+      "description": "一把沉甸甸的铁皮手电筒，接触不良，光线忽明忽暗。",
+      "type": "TOOL",
+      "icon": "🔦",
+      "image": "./assets/item_flashlight.png"
+    },
+    "item_scissors": {
+      "id": "item_scissors",
+      "name": "生锈的剪刀",
+      "description": "这把剪刀上沾满了暗红色的铁锈，刃口依然锋利。",
+      "type": "TOOL",
+      "icon": "✂️",
+      "image": "./assets/item_scissors.png"
+    },
+    "item_diary": {
+      "id": "item_diary",
+      "name": "染血的日记本",
+      "description": "封皮已经发霉，里面夹杂着令人不安的涂鸦和血手印。",
+      "type": "NOTE",
+      "icon": "📔",
+      "image": "./assets/item_diary.png",
+      "clueForPuzzleId": "puzzle_safe"
+    },
+    "item_mirror": {
+      "id": "item_mirror",
+      "name": "缺了一角的八卦镜",
+      "description": "传统的辟邪法器，边缘锋利，镜面映出的脸似乎有些扭曲。",
+      "type": "TOOL",
+      "icon": "☯️",
+      "image": "./assets/item_mirror.png"
+    },
+    "item_doll": {
+      "id": "item_doll",
+      "name": "奇怪的草人娃娃",
+      "description": "用干枯的稻草扎成的小人，身上贴着一张写着生辰八字的符纸。",
+      "type": "KEY",
+      "icon": "🎎",
+      "image": "./assets/item_doll.png"
+    },
+    "item_hair": {
+      "id": "item_hair",
+      "name": "一束湿润的头发",
+      "description": "摸起来冰冷滑腻，仿佛刚从水里捞出来，散发着河水的腥味。",
+      "type": "KEY",
+      "icon": "💇",
+      "image": "./assets/item_hair.png"
+    },
+    "item_battery": {
+      "id": "item_battery",
+      "name": "旧电池",
+      "description": "一节双鹿牌电池，看起来还有点电。",
+      "type": "TOOL",
+      "icon": "🔋",
+      "image": "./assets/item_battery.png"
+    },
+    "item_cassette": {
+      "id": "item_cassette",
+      "name": "无名录像带",
+      "description": "没有任何标签的黑色VHS录像带，拿在手里感觉很沉重。",
+      "type": "CLUE",
+      "icon": "📼",
+      "image": "./assets/item_cassette.png",
+      "clueForPuzzleId": "puzzle_diary_lock"
+    },
+    "item_key_storage": {
+      "id": "item_key_storage",
+      "name": "储物间钥匙",
+      "description": "一把挂着发黄标签的小铜钥匙。",
+      "type": "KEY",
+      "icon": "🔑",
+      "image": "./assets/item_key_storage.png"
+    },
+    "item_incense": {
+      "id": "item_incense",
+      "name": "三支断香",
+      "description": "还没有点燃的香，似乎是祭祀用的。",
+      "type": "KEY",
+      "icon": "🥢",
+      "image": "./assets/item_incense.png"
+    },
+    "item_photo_scraps": {
+      "id": "item_photo_scraps",
+      "name": "撕碎的照片碎片",
+      "description": "几片黑白照片的碎片，拼起来可能是一张全家福。",
+      "type": "CLUE",
+      "icon": "🧩",
+      "image": "./assets/item_photo_scraps.png",
+      "clueForPuzzleId": "puzzle_portrait"
+    }
+  },
+  "puzzles": {
+    "puzzle_diary_lock": {
+      "id": "puzzle_diary_lock",
+      "description": "日记本上挂着一个三位数的密码锁。",
+      "answer": "444",
+      "rewardFlag": "diary_unlocked",
+      "rewardMessage": "锁‘咔哒’一声开了。你翻开了日记，里面夹着一张撕碎的照片碎片。",
+      "type": "numeric"
+    },
+    "puzzle_safe": {
+      "id": "puzzle_safe",
+      "description": "保险箱上没有数字，只有八卦的符号盘。你需要按正确的顺序按下三个符号。",
+      "answer": "☵☲☳",
+      "rewardFlag": "safe_opened",
+      "rewardMessage": "保险箱沉重地弹开了，里面放着一面缺角的八卦镜。",
+      "type": "symbol",
+      "choices": [
+        "☰",
+        "☱",
+        "☲",
+        "☳",
+        "☴",
+        "☵",
+        "☶",
+        "☷"
+      ]
+    },
+    "puzzle_cabinet": {
+      "id": "puzzle_cabinet",
+      "description": "浴室柜被一把挂锁锁住，锁上刻着'听'字。",
+      "answer": "1997",
+      "rewardFlag": "cabinet_opened",
+      "rewardMessage": "挂锁落地。你在柜子里发现了一把生锈的剪刀。",
+      "type": "numeric"
+    },
+    "puzzle_portrait": {
+      "id": "puzzle_portrait",
+      "description": "遗像被撕碎了，这似乎是怨气的源头。你需要将照片碎片拼回去。",
+      "answer": "fixed",
+      "rewardFlag": "ghost_appeased",
+      "rewardMessage": "随着照片复原，遗像中的人脸似乎露出了一丝诡异的微笑。一束湿润的头发从相框后掉落下来。",
+      "type": "image_grid",
+      "linkedAssetId": "item_photo_scraps",
+      "gridSize": 3
+    },
+    "puzzle_tv_static": {
+      "id": "puzzle_tv_static",
+      "description": "电视只有雪花，需要调到特定的频道才能看到画面。",
+      "answer": "57",
+      "rewardFlag": "tv_channel_found",
+      "rewardMessage": "雪花散去，屏幕上出现了一行血红色的数字：444。",
+      "type": "numeric"
+    },
+    "puzzle_doll_box": {
+      "id": "puzzle_doll_box",
+      "description": "杂物堆里的盒子，上面写着'不要打开'。",
+      "answer": "245",
+      "rewardFlag": "box_opened",
+      "rewardMessage": "盒子打开了，里面躺着一个扎满针的草人娃娃。",
+      "type": "numeric"
+    },
+    "puzzle_door_lock": {
+      "id": "puzzle_door_lock",
+      "description": "红线似乎有着生命。你需要按照某种规律剪断它们（输入剪断的次数）。",
+      "answer": "1",
+      "rewardFlag": "threads_cut",
+      "rewardMessage": "利用八卦镜的反射，你找到了那根主线，一刀剪下。",
+      "type": "numeric"
+    }
+  },
+  "scenes": {
+    "scene_living_room": {
+      "id": "scene_living_room",
+      "title": "闪烁的客厅",
+      "imageUrl": "./assets/scene_living_room.jpg",
+      "description": "一台老式彩电在黑暗中闪烁着雪花屏，光线将你的影子拉得很长。沙发上似乎有人坐过的凹痕。",
+      "interactables": [
+        {
+          "id": "tv_set",
+          "name": "老式彩电",
+          "description": "这台电视连着一台录像机，需要插入录像带才能播放。",
+          "requiredItemId": "item_cassette",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_tv_static",
+          "clueForPuzzleId": "puzzle_diary_lock",
+          "postInteractionMessage": "屏幕上定格着血红色的数字：444。",
+          "dialogue": [
+            "已插入录像带。",
+            "需要调整到正确频道 (01-99)。"
+          ],
+          "lockedMessage": "电视机只有雪花，录像机里是空的，需要一盘录像带。"
+        },
+        {
+          "id": "sofa_cushion",
+          "name": "破旧沙发",
+          "description": "坐垫下似乎藏着什么东西。",
+          "postInteractionMessage": "沙发缝里全是灰尘，已经没东西了。"
+        },
+        {
+          "id": "table_drawer",
+          "name": "茶几抽屉",
+          "description": "抽屉半开着。",
+          "itemRewardId": "item_flashlight",
+          "postInteractionMessage": "抽屉空了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_kitchen",
+          "label": "去厨房"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_hallway",
+          "label": "去走廊"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_balcony",
+          "label": "去阳台"
+        }
+      ]
+    },
+    "scene_hallway": {
+      "id": "scene_hallway",
+      "title": "狭窄走廊",
+      "imageUrl": "./assets/scene_hallway.jpg",
+      "description": "走廊两侧堆满了发霉的纸箱和旧报纸，墙上的壁纸剥落，露出后面发黑的水泥。",
+      "interactables": [
+        {
+          "id": "junk_pile",
+          "name": "杂物堆",
+          "description": "一堆旧报纸和垃圾。仔细翻找也许能发现什么。",
+          "itemRewardId": "item_incense",
+          "postInteractionMessage": "只剩下一堆废纸了。"
+        },
+        {
+          "id": "strange_box",
+          "name": "贴符的盒子",
+          "description": "杂物深处藏着一个贴着封条的木盒。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_doll_box",
+          "itemRewardId": "item_doll",
+          "lockedMessage": "盒子锁住了，上面刻着几个奇怪的符号。",
+          "dialogue": [
+            "盒子上刻着：午时三刻。",
+            "你需要找到对应的时间数字."
+          ],
+          "postInteractionMessage": "盒子打开了，草人娃娃已经被拿走了。",
+          "requiredItemId": ""
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_living_room",
+          "label": "回客厅"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_bathroom",
+          "label": "进卫生间"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_bedroom",
+          "label": "进卧室"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "scene_entrance",
+          "label": "去玄关"
+        }
+      ]
+    },
+    "scene_kitchen": {
+      "id": "scene_kitchen",
+      "title": "阴冷厨房",
+      "imageUrl": "./assets/scene_kitchen.jpg",
+      "description": "水槽里的碗碟已经长毛，冰箱发出沉重的嗡嗡声。窗外的雷光偶尔照亮这里。",
+      "interactables": [
+        {
+          "id": "fridge",
+          "name": "冰箱",
+          "description": "冰箱门上贴着一张外卖单，还有一张便签。",
+          "dialogue": [
+            "便签上写着：别忘了看57频道，今晚有重播。"
+          ],
+          "clueForPuzzleId": "puzzle_tv_static",
+          "postInteractionMessage": "便签上写着：57频道。"
+        },
+        {
+          "id": "radio",
+          "name": "老式收音机",
+          "description": "一台满是油污的收音机，电池槽是空的。",
+          "requiredItemId": "item_battery",
+          "audioMessage": "1997",
+          "clueForPuzzleId": "puzzle_cabinet",
+          "postInteractionMessage": "收音机里不断循环播放着那几个数字：一，九，九，七。",
+          "lockedMessage": "收音机没有电，无法启动，需要一节电池。"
+        },
+        {
+          "id": "jar",
+          "name": "陶瓷罐",
+          "description": "一个腌菜罐子。",
+          "itemRewardId": "item_key_storage",
+          "postInteractionMessage": "你在罐底发现了一把钥匙。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_living_room",
+          "label": "回客厅"
+        }
+      ]
+    },
+    "scene_bedroom": {
+      "id": "scene_bedroom",
+      "title": "供奉卧室",
+      "imageUrl": "./assets/scene_bedroom.jpg",
+      "description": "房间正中摆着一张床，床头柜上放着一个遗像框，前面摆着香炉。南边有一扇通往储物间的门。",
+      "interactables": [
+        {
+          "id": "shrine",
+          "name": "遗像供桌",
+          "description": "遗像被撕毁了，香炉里积满了灰。你需要先点香。",
+          "requiredItemId": "item_incense",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_portrait",
+          "requiredItemId_note": "Puzzle asset linkage handles photo scraps, incense required to start ritual",
+          "itemRewardId": "item_hair",
+          "lockedMessage": "没有香火，无法进行仪式。",
+          "postInteractionMessage": "遗像已经复原，那个女人的眼睛似乎在盯着你看。"
+        },
+        {
+          "id": "wall_safe",
+          "name": "墙壁保险箱",
+          "description": "嵌在墙里的保险箱，上面有八卦图案。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_safe",
+          "itemRewardId": "item_mirror",
+          "lockedMessage": "你需要知道正确的八卦方位组合。",
+          "dialogue": [
+            "保险箱的转盘上刻着八卦符号。",
+            "日记里似乎提到了开启的线索……是关于水、火、雷的方位。"
+          ],
+          "postInteractionMessage": "保险箱开着，里面空空如也。"
+        },
+        {
+          "id": "door_storage_bedroom",
+          "name": "储物间门",
+          "description": "通往储物间的门，上面挂着生锈的锁。",
+          "requiredItemId": "item_key_storage",
+          "rewardFlag": "flag_storage_unlocked",
+          "lockedMessage": "门锁住了，需要储物间的钥匙。",
+          "postInteractionMessage": "门锁打开了，你可以进去了。"
+        },
+        {
+          "id": "inspect_diary",
+          "name": "检查日记本",
+          "description": "你拿出日记本，试图解开上面的密码锁。",
+          "requiredItemId": "item_diary",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_diary_lock",
+          "itemRewardId": "item_photo_scraps",
+          "postInteractionMessage": "日记本已经打开，里面的碎片被你拿走了。",
+          "lockedMessage": "你还没找到那本日记本。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_hallway",
+          "label": "回走廊"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "scene_storage",
+          "label": "进储物间",
+          "locked": true,
+          "requiredFlag": "flag_storage_unlocked"
+        }
+      ]
+    },
+    "scene_bathroom": {
+      "id": "scene_bathroom",
+      "title": "滴水卫生间",
+      "imageUrl": "./assets/scene_bathroom.jpg",
+      "description": "水龙头关不紧，一直滴答滴答。镜子上全是水雾。",
+      "interactables": [
+        {
+          "id": "mirror_fog",
+          "name": "起雾的镜子",
+          "description": "镜子太暗看不清，需要强光照射。",
+          "requiredItemId": "item_flashlight",
+          "dialogue": [
+            "在强光下，你擦了擦镜子，上面显现出：午时三刻 (245)。"
+          ],
+          "clueForPuzzleId": "puzzle_doll_box",
+          "postInteractionMessage": "镜子上写着数字：245。",
+          "lockedMessage": "这里太暗了，看不清镜子上的字迹，需要照明工具。"
+        },
+        {
+          "id": "cabinet",
+          "name": "洗手台柜子",
+          "description": "柜门被一把挂锁锁住了。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_cabinet",
+          "itemRewardId": "item_scissors",
+          "lockedMessage": "挂锁很结实，需要四位密码。",
+          "dialogue": [
+            "锁上刻着一个耳朵的图标，也许需要'听'到密码。"
+          ],
+          "postInteractionMessage": "柜子开着，生锈的剪刀已经被拿走了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_hallway",
+          "label": "回走廊"
+        }
+      ]
+    },
+    "scene_storage": {
+      "id": "scene_storage",
+      "title": "阴暗储物间",
+      "imageUrl": "./assets/scene_storage.jpg",
+      "description": "堆满了旧家具和杂物，空气中充满了霉味。",
+      "interactables": [
+        {
+          "id": "pile_books",
+          "name": "旧书堆",
+          "description": "一堆被粗麻绳捆住的旧书。",
+          "requiredItemId": "item_scissors",
+          "itemRewardId": "item_diary",
+          "postInteractionMessage": "绳子被剪断，你已经拿走了日记本。",
+          "lockedMessage": "粗麻绳绑得很紧，徒手无法解开，需要锐器。"
+        },
+        {
+          "id": "shelf",
+          "name": "架子",
+          "description": "架子上放着一些落满灰尘的录像带。",
+          "itemRewardId": "item_cassette",
+          "postInteractionMessage": "架子上只剩下空盒子了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_bedroom",
+          "label": "回卧室"
+        }
+      ]
+    },
+    "scene_balcony": {
+      "id": "scene_balcony",
+      "title": "风雨阳台",
+      "imageUrl": "./assets/scene_balcony.jpg",
+      "description": "狂风暴雨猛烈地拍打着栏杆。外面是一片翻滚的黑雾，根本看不清楼下的情况。",
+      "interactables": [
+        {
+          "id": "wet_clothes",
+          "name": "湿衣服",
+          "description": "一件红色的连衣裙挂在衣架上，旁边似乎有怨灵守护。",
+          "requiredItemId": "item_doll",
+          "dialogue": [
+            "你把草人娃娃递过去，怨气似乎消散了一些。",
+            "衣服口袋里好像有什么东西……是一节电池。"
+          ],
+          "itemRewardId": "item_battery",
+          "postInteractionMessage": "红裙子依旧在风中狂舞，但怨气已消。",
+          "lockedMessage": "红裙周围怨气太重，无法靠近。也许需要给亡魂一个替身作为交换..."
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_living_room",
+          "label": "回客厅"
+        }
+      ]
+    },
+    "scene_entrance": {
+      "id": "scene_entrance",
+      "title": "被封死的大门",
+      "imageUrl": "./assets/scene_entrance.jpg",
+      "description": "大门被密密麻麻的红线缠绕着，像是某种邪恶的封印。红线似乎在微微搏动。",
+      "interactables": [
+        {
+          "id": "red_threads",
+          "name": "红线封印",
+          "description": "无数根红线死死封住了门，找不到下刀的地方。",
+          "requiredItemId": "item_mirror",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_door_lock",
+          "lockedMessage": "肉眼无法分辨虚实，你需要某种能映照真实的东西。",
+          "postInteractionMessage": "红线被剪断，封印已解。"
+        },
+        {
+          "id": "door_escape",
+          "name": "公寓大门",
+          "description": "逃离这里的唯一出口。",
+          "requiredFlag": "ghost_appeased",
+          "requiredItemId": "item_hair",
+          "lockedMessage": "虽然红线断了，但怨念形成的无形墙壁依然挡着你。你需要拿东西证明你已安抚了亡魂。",
+          "winsGame": true,
+          "dialogue": [
+            "你拿出手中的头发，门上的黑雾散去了。"
+          ],
+          "postInteractionMessage": ""
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_hallway",
+          "label": "回走廊"
+        }
+      ]
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

@@ -1,0 +1,344 @@
+{
+  "meta": {
+    "name": "沉默的宅邸",
+    "author": "喝油工作室",
+    "version": "1.0",
+    "description": "你是一名古建筑修复师，接到委托前往一座百年未开的江南古宅勘察。推开门的瞬间，身后大门轰然关闭……这座宅邸的主人，似乎留下了不愿被发现的秘密。",
+    "style": "中国水墨暗黑风，高对比度，月光与烛火照明，悬疑恐怖氛围",
+    "sceneStyle": "广角第一人称视角，电影感灯光，雾气缭绕，中式古建筑细节，暗色调",
+    "itemStyle": "等轴视图，单一物体，纯白背景，中国古董质感，高清细节",
+    "musicStyle": "Dark ambient, Chinese traditional instruments, erhu, slow tempo, mysterious, haunting",
+    "endingMessage": "随着密室石门缓缓打开，晨光洒入。你带着古宅主人的秘密走出了这座沉默百年的宅邸。真相，终于重见天日。",
+    "endingSceneId": "scene_secret_room",
+    "useBannerAsTitleBg": true,
+    "bgmUrl": "./assets/silent-mansion/bgm.ogg",
+    "designConfig": {
+      "theme": "江南古宅悬疑",
+      "sceneCount": 4,
+      "itemCount": 5,
+      "puzzleCount": 3,
+      "requiredItems": "锈蚀钥匙, 残破族谱, 玉佩, 八卦罗盘, 密函",
+      "requiredScenes": "前厅, 书房, 祠堂, 密室"
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/silent-mansion/marketing_icon.png",
+    "bannerUrl": "./assets/silent-mansion/marketing_banner.jpg"
+  },
+  "initialState": {
+    "currentSceneId": "scene_hall",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "夜色深沉，你推开了古宅的大门。",
+      "身后传来沉闷的'咣当'一声——门已经被锁死了。",
+      "四周寂静无声，只有远处传来的风声……",
+      "你必须找到离开这里的方法。"
+    ],
+    "gameOver": false,
+    "gameWon": false,
+    "difficulty": "EASY"
+  },
+  "items": {
+    "item_rusty_key": {
+      "id": "item_rusty_key",
+      "name": "锈蚀钥匙",
+      "description": "一把布满铜锈的老式钥匙，上面刻着'书'字。应该能打开某扇门。",
+      "type": "KEY",
+      "icon": "🔑",
+      "image": "./assets/silent-mansion/item_rusty_key.png"
+    },
+    "item_torn_genealogy": {
+      "id": "item_torn_genealogy",
+      "name": "残破族谱",
+      "description": "一本被撕碎的沈氏族谱，里面记载着宅邸主人的家族秘密。需要拼合才能阅读完整内容。",
+      "type": "CLUE",
+      "icon": "📜",
+      "image": "./assets/silent-mansion/item_torn_genealogy.png",
+      "clueForPuzzleId": "puz_genealogy"
+    },
+    "item_jade_pendant": {
+      "id": "item_jade_pendant",
+      "name": "玉佩",
+      "description": "一块温润的白玉佩，背面刻着奇怪的八卦符号序列：☰☵☲。这似乎是某种密码。",
+      "type": "CLUE",
+      "icon": "🫧",
+      "image": "./assets/silent-mansion/item_jade_pendant.png",
+      "clueForPuzzleId": "puz_bagua"
+    },
+    "item_compass": {
+      "id": "item_compass",
+      "name": "八卦罗盘",
+      "description": "一面精致的铜质罗盘，中央是可旋转的八卦盘。似乎需要放置到什么地方使用。",
+      "type": "TOOL",
+      "icon": "🧭",
+      "image": "./assets/silent-mansion/item_compass.png"
+    },
+    "item_secret_letter": {
+      "id": "item_secret_letter",
+      "name": "密函",
+      "description": "一封泛黄的信件，上面用毛笔写着：'石门之钥，在于先祖牌位之后。密码乃吾生辰——六七二九。'",
+      "type": "NOTE",
+      "icon": "✉️",
+      "image": "./assets/silent-mansion/item_secret_letter.png",
+      "clueForPuzzleId": "puz_safe"
+    }
+  },
+  "puzzles": {
+    "puz_safe": {
+      "id": "puz_safe",
+      "description": "请输入4位数字密码打开暗格。",
+      "answer": "6729",
+      "rewardFlag": "safe_opened",
+      "rewardMessage": "暗格弹开，里面放着一面精致的八卦罗盘。",
+      "type": "numeric",
+      "requiredClueCount": 1
+    },
+    "puz_bagua": {
+      "id": "puz_bagua",
+      "description": "按照正确的顺序排列八卦符号。",
+      "answer": "☰☵☲",
+      "rewardFlag": "bagua_solved",
+      "rewardMessage": "罗盘与石台完美契合，祠堂后方的暗墙缓缓移开，露出一条通往密室的通道！",
+      "type": "symbol",
+      "choices": [
+        "☰",
+        "☱",
+        "☲",
+        "☳",
+        "☴",
+        "☵",
+        "☶",
+        "☷"
+      ]
+    },
+    "puz_genealogy": {
+      "id": "puz_genealogy",
+      "description": "将撕碎的族谱拼合复原。",
+      "answer": "RESTORED",
+      "rewardFlag": "genealogy_fixed",
+      "rewardMessage": "族谱复原了！最后一页记载着：'玉佩背面藏有祠堂机关之秘。' 你仔细翻看，发现夹层里还藏着一封密函。",
+      "type": "image_grid",
+      "linkedAssetId": "item_torn_genealogy",
+      "gridSize": 3
+    }
+  },
+  "scenes": {
+    "scene_hall": {
+      "id": "scene_hall",
+      "title": "前厅",
+      "imageUrl": "./assets/silent-mansion/scene_hall.jpg",
+      "description": "宽敞的前厅笼罩在月光中，两侧是雕花木柱。正中挂着一幅褪色的山水画，画下是一张落满灰尘的供桌。东侧有一扇木门，门上挂着一把铜锁。",
+      "interactables": [
+        {
+          "id": "int_painting",
+          "name": "褪色山水画",
+          "description": "画框后面似乎藏着什么……",
+          "dialogue": [
+            "你小心地移开画框……",
+            "画框后面的墙壁上，有一个凹槽，里面放着一把锈迹斑斑的钥匙。"
+          ],
+          "itemRewardId": "item_rusty_key",
+          "postInteractionMessage": "画框后面的凹槽已经空了。"
+        },
+        {
+          "id": "int_supply_table",
+          "name": "供桌",
+          "description": "供桌上摆着几个落灰的瓷碗和一个香炉。",
+          "dialogue": [
+            "供桌上积满了灰尘，看起来已经很多年没人祭拜了。",
+            "香炉里的灰烬早已冰冷。"
+          ],
+          "postInteractionMessage": "供桌上没有更多线索了。"
+        },
+        {
+          "id": "int_east_door",
+          "name": "东侧木门",
+          "description": "一扇厚重的木门，上面挂着铜锁。锁孔旁刻着一个'书'字。",
+          "requiredItemId": "item_rusty_key",
+          "lockedMessage": "门被锁住了，锁孔旁刻着一个'书'字，需要找到对应的钥匙。",
+          "flagReward": "study_door_open",
+          "dialogue": [
+            "你用锈蚀钥匙打开了铜锁。",
+            "门'吱呀'一声打开，一股陈旧的墨香扑面而来。"
+          ],
+          "postInteractionMessage": "通往书房的门已经打开。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_study",
+          "label": "书房",
+          "requiredFlag": "study_door_open"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_shrine",
+          "label": "祠堂"
+        }
+      ]
+    },
+    "scene_study": {
+      "id": "scene_study",
+      "title": "书房",
+      "imageUrl": "./assets/silent-mansion/scene_study.jpg",
+      "description": "书房里堆满了古籍，一张紫檀书桌上放着文房四宝。墙角有一个带锁的樟木箱子。书架最高层似乎有一本格外破旧的册子。",
+      "interactables": [
+        {
+          "id": "int_bookshelf",
+          "name": "高层书架",
+          "description": "书架最高处有一本摇摇欲坠的破旧册子。",
+          "dialogue": [
+            "你踮起脚尖……够到了那本册子。",
+            "是一本残破的沈氏族谱，被撕成了好几片。"
+          ],
+          "itemRewardId": "item_torn_genealogy",
+          "postInteractionMessage": "书架最高层已经空了。"
+        },
+        {
+          "id": "int_desk",
+          "name": "紫檀书桌",
+          "description": "书桌上的砚台里还残留着干涸的墨汁。",
+          "dialogue": [
+            "桌面上刻着几道指甲抓过的痕迹……",
+            "抽屉里空空如也，只有一股樟脑的气味。"
+          ],
+          "postInteractionMessage": "书桌上没有更多发现了。"
+        },
+        {
+          "id": "int_wooden_chest",
+          "name": "樟木箱子",
+          "description": "一个精致的樟木箱子，正面有四位数字转盘锁。",
+          "isPuzzle": true,
+          "puzzleId": "puz_safe",
+          "itemRewardId": "item_compass",
+          "lockedMessage": "箱子上有四位数字转盘锁，需要找到密码。",
+          "postInteractionMessage": "箱子已经打开，里面空了。"
+        },
+        {
+          "id": "int_repair_table",
+          "name": "修复台",
+          "description": "书桌旁边有一个专门用于修复古籍的工作台，上面有胶水和工具。",
+          "requiredItemId": "item_torn_genealogy",
+          "lockedMessage": "修复台上有完整的工具，但你手头没有需要修复的东西。",
+          "isPuzzle": true,
+          "puzzleId": "puz_genealogy",
+          "itemRewardId": "item_secret_letter",
+          "postInteractionMessage": "族谱已经修复完毕。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_hall",
+          "label": "前厅"
+        }
+      ]
+    },
+    "scene_shrine": {
+      "id": "scene_shrine",
+      "title": "祠堂",
+      "imageUrl": "./assets/silent-mansion/scene_shrine.jpg",
+      "description": "阴森的祠堂里供奉着数代先祖牌位，正中地面上有一个巨大的八卦石台。石台中央有一个圆形凹槽，似乎少了什么东西。墙壁上挂着的老式铜镜反射着微弱的烛光。",
+      "interactables": [
+        {
+          "id": "int_tablets",
+          "name": "先祖牌位",
+          "description": "密密麻麻的牌位上写着沈氏历代先祖的名字。",
+          "dialogue": [
+            "最后一块牌位上写着：'沈守玄，生于六七二九……'",
+            "牌位背后的墙壁似乎有一处暗格……但需要密码才能打开。"
+          ],
+          "clueForPuzzleId": "puz_safe",
+          "postInteractionMessage": "牌位上记录着沈守玄，生于'六七二九'。"
+        },
+        {
+          "id": "int_jade_mirror",
+          "name": "铜镜",
+          "description": "一面古老的铜镜，镜面已经有些模糊。",
+          "dialogue": [
+            "你凑近铜镜……",
+            "镜面映出你的面容，但你总觉得镜中的影子慢了半拍。",
+            "镜框底部刻着小字：'虚实相生，八卦轮转。'"
+          ],
+          "postInteractionMessage": "铜镜中的影子让人不寒而栗。"
+        },
+        {
+          "id": "int_jade_box",
+          "name": "香案小匣",
+          "description": "香案下方有一个精致的小匣子。",
+          "requiredFlag": "genealogy_fixed",
+          "dialogue": [
+            "你打开小匣，里面静静躺着一枚白玉佩。"
+          ],
+          "itemRewardId": "item_jade_pendant",
+          "hiddenIfFlag": "got_jade",
+          "flagReward": "got_jade",
+          "postInteractionMessage": "小匣已经空了。"
+        },
+        {
+          "id": "int_bagua_platform",
+          "name": "八卦石台",
+          "description": "地面上的八卦石台中央有一个圆形凹槽，大小恰好能放入一面罗盘。",
+          "requiredItemId": "item_compass",
+          "lockedMessage": "石台中央的凹槽空空如也，似乎需要放入什么圆形的东西。",
+          "isPuzzle": true,
+          "puzzleId": "puz_bagua",
+          "flagReward": "secret_passage_open",
+          "postInteractionMessage": "暗墙已经移开，露出通往密室的通道。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_hall",
+          "label": "前厅"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_secret_room",
+          "label": "密室",
+          "requiredFlag": "secret_passage_open"
+        }
+      ]
+    },
+    "scene_secret_room": {
+      "id": "scene_secret_room",
+      "title": "密室",
+      "imageUrl": "./assets/silent-mansion/scene_secret_room.jpg",
+      "description": "狭窄的密室里堆满了金银器物和古画。正对面的墙上有一扇石门，石门旁边的机关似乎已经被解锁了。石门外透进来一丝晨光。",
+      "interactables": [
+        {
+          "id": "int_treasures",
+          "name": "金银器物",
+          "description": "密室里堆满了沈家历代积攒的珍宝。",
+          "dialogue": [
+            "金银珠宝在微光中闪烁……",
+            "这些都是沈家的秘密遗产。难怪主人要如此隐藏。"
+          ],
+          "postInteractionMessage": "这些珍宝已经沉睡了百年。"
+        },
+        {
+          "id": "int_stone_door",
+          "name": "石门（出口）",
+          "description": "沉重的石门，门缝间透着清晨的光。这就是出口。",
+          "dialogue": [
+            "你用力推开石门……",
+            "清晨的阳光刺入眼帘，门外是宅邸后方的竹林小径。",
+            "你终于逃出了这座沉默的宅邸。"
+          ],
+          "winsGame": true,
+          "postInteractionMessage": "你已经逃出了古宅。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_shrine",
+          "label": "返回祠堂"
+        }
+      ]
+    }
+  }
+}

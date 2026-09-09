@@ -1,0 +1,534 @@
+{
+  "meta": {
+    "name": "蚀墨绘卷",
+    "author": "哈基米",
+    "version": "1.0.2",
+    "description": "你是一名古画修复师，在修复一卷名为《蚀墨图》的残卷时，意外被吸入画中世界。这是一个黑白颠倒、水墨横流的诡异空间。你必须收集散落的镇魂印章，利用修复师的工具，修补画中的漏洞，才能逃离这不断吞噬现实的墨色梦魇。",
+    "style": "Traditional Chinese Ink Wash Painting, Horror, Surrealism, High Contrast Black and White",
+    "sceneStyle": "Atmospheric, gloomy, dry brush strokes, splashing ink effects, cinematic wide angle, minimal red accents",
+    "itemStyle": "Isometric, isolated on white background, sharp details, ink texture, antique aesthetic",
+    "musicStyle": "Guzheng, eerie, ambient, slow tempo, dissonant, wooden percussion, dripping water sounds",
+    "endingMessage": "随着最后一笔落下，画卷的裂痕爆发出耀眼的金光。墨色如潮水般退去，你猛然惊醒，发现自己正伏在工作室的案台上，手中的《蚀墨图》已然完好如初，只是画中那座凉亭边，多了一个模糊的人影……",
+    "endingSceneId": "scene_ending",
+    "useBannerAsTitleBg": true,
+    "designConfig": {
+      "theme": "玩家扮演一名误入残破古卷《蚀墨图》的修复师，发现画中水墨竟拥有生命并不断吞噬现实。在黑白交织的诡异村落中，必须寻找散落的镇魂印章，揭开古村献祭的真相并逃离画卷。",
+      "sceneCount": 9,
+      "itemCount": 12,
+      "puzzleCount": 4,
+      "requiredItems": "染血的狼毫笔, 缺角的端砚, 破碎的玉魂佩, 陈旧的黄纸符, 在此刻燃尽的线香, 绣花鞋",
+      "requiredScenes": "被墨淹没的枯井, 无人的宗祠, 迷雾缭绕的竹林, 断裂的石拱桥, 悬浮的画中凉亭, 破败的山神庙"
+    },
+    "bgmUrl": "./assets/bgm.mp3"
+  },
+  "initialState": {
+    "currentSceneId": "scene_bridge",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "在这死寂的墨色世界中，你醒了过来。",
+      "四周是浓得化不开的黑雾，只有手中的修复工具还能带来一丝真实的触感。",
+      "必须在被墨汁完全吞噬前找到出口。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_charm": {
+      "id": "item_charm",
+      "name": "陈旧的黄纸符",
+      "description": "一张画着扭曲符文的纸符，上面写着：‘震为雷，巽为风，雷风相薄’。这似乎是某种机关的线索。",
+      "type": "CLUE",
+      "icon": "📜",
+      "image": "./assets/item_charm.png",
+      "clueForPuzzleId": "puz_bamboo"
+    },
+    "item_shoe": {
+      "id": "item_shoe",
+      "name": "绣花鞋",
+      "description": "一只鲜红的绣花鞋，与周围的黑白世界格格不入。鞋底用血迹写着数字：7-3-5-8。",
+      "type": "CLUE",
+      "icon": "👠",
+      "image": "./assets/item_shoe.png",
+      "clueForPuzzleId": "puz_safe"
+    },
+    "item_key": {
+      "id": "item_key",
+      "name": "生锈的铁钥匙",
+      "description": "一把沉重的铁钥匙，上面沾满了黑色的墨渍。",
+      "type": "KEY",
+      "icon": "🗝️",
+      "image": "./assets/item_key.png"
+    },
+    "item_incense": {
+      "id": "item_incense",
+      "name": "在此刻燃尽的线香",
+      "description": "这柱香似乎永远在燃烧，发出的滋滋声很有节奏，仿佛在传递某种摩尔斯电码信息。",
+      "type": "CLUE",
+      "icon": "🕯️",
+      "image": "./assets/item_incense.png",
+      "clueForPuzzleId": "puz_safe"
+    },
+    "item_brush": {
+      "id": "item_brush",
+      "name": "染血的狼毫笔",
+      "description": "笔尖吸饱了鲜血般的红色颜料，是修复画卷的关键工具。",
+      "type": "TOOL",
+      "icon": "🖌️",
+      "image": "./assets/item_brush.png"
+    },
+    "item_inkstone": {
+      "id": "item_inkstone",
+      "name": "缺角的端砚",
+      "description": "一方古老的砚台，砚底刻着一些细小的数字痕迹，似乎能补全某些丢失的密码线索。",
+      "type": "CLUE",
+      "icon": "⬛",
+      "image": "./assets/item_inkstone.png",
+      "clueForPuzzleId": "puz_safe"
+    },
+    "item_jade": {
+      "id": "item_jade",
+      "name": "破碎的玉魂佩",
+      "description": "一块碎裂的玉佩，拼合后隐约可见‘乾坤’二字。",
+      "type": "CLUE",
+      "icon": "🟢",
+      "image": "./assets/item_jade.png",
+      "clueForPuzzleId": "puz_temple"
+    },
+    "item_puzzle_piece": {
+      "id": "item_puzzle_piece",
+      "name": "墨染的拼图块",
+      "description": "一块被墨汁浸染的画卷残片，似乎属于宗祠里那幅破损的壁画。",
+      "type": "TOOL",
+      "icon": "🧩",
+      "image": "./assets/item_puzzle_piece.png",
+      "clueForPuzzleId": "puz_painting"
+    },
+    "item_cinnabar": {
+      "id": "item_cinnabar",
+      "name": "朱砂墨锭",
+      "description": "极其珍贵的朱砂墨，传说可以用来镇压邪祟。修复画中之笔需要此物开锋。",
+      "type": "TOOL",
+      "icon": "🔴",
+      "image": "./assets/item_cinnabar.png"
+    },
+    "item_seal_heaven": {
+      "id": "item_seal_heaven",
+      "name": "镇魂印章（天）",
+      "description": "刻有‘天官赐福’字样的石印，散发着微弱的金光。似乎能与其他石碑产生共鸣。",
+      "type": "KEY",
+      "icon": "🧊",
+      "image": "./assets/item_seal_heaven.png"
+    },
+    "item_seal_earth": {
+      "id": "item_seal_earth",
+      "name": "镇魂印章（地）",
+      "description": "刻有‘地祗赦罪’字样的石印，触感冰凉。是封印画卷裂痕的关键。",
+      "type": "KEY",
+      "icon": "🗿",
+      "image": "./assets/item_seal_earth.png"
+    },
+    "item_scroll_frag": {
+      "id": "item_scroll_frag",
+      "name": "古卷残页",
+      "description": "记录着村落祭祀真相的残页：‘以墨封魂，画地为牢……’",
+      "type": "NOTE",
+      "icon": "📄",
+      "image": "./assets/item_scroll_frag.png"
+    }
+  },
+  "puzzles": {
+    "puz_bamboo": {
+      "id": "puz_bamboo",
+      "description": "竹林前的石碑上刻着八卦阵图，你需要结合在桥头石狮和纸符上发现的线索，按下正确的符号。",
+      "answer": "☳☴",
+      "rewardFlag": "flag_bamboo_open",
+      "rewardMessage": "随着轰隆一声闷响，迷雾散开，一条通往深处的小径显露出来。",
+      "type": "symbol",
+      "choices": [
+        "☰",
+        "☱",
+        "☲",
+        "☳",
+        "☴",
+        "☵",
+        "☶",
+        "☷"
+      ]
+    },
+    "puz_safe": {
+      "id": "puz_safe",
+      "description": "这是一个精密的机关盒，需要输入四位数字密码。线索散落在绣花鞋、线香甚至砚台的底部。",
+      "answer": "7358",
+      "rewardFlag": "flag_safe_open",
+      "rewardMessage": "机关盒咔哒一声弹开，里面放着一块鲜红的朱砂墨锭。",
+      "type": "numeric"
+    },
+    "puz_temple": {
+      "id": "puz_temple",
+      "description": "神像前的供桌上刻着两个凹槽，似乎需要选出正确的八卦字符填入。提示在破碎的玉佩上。",
+      "answer": "☰☷",
+      "rewardFlag": "flag_temple_solved",
+      "rewardMessage": "神像的眼睛闪过一道红光，暗格打开，露出了里面的镇魂印章。",
+      "type": "symbol",
+      "choices": [
+        "☰",
+        "☷",
+        "☵",
+        "☲"
+      ]
+    },
+    "puz_painting": {
+      "id": "puz_painting",
+      "description": "壁画缺失了一部分，请使用‘墨染的拼图块’并移动图块，将其复原。",
+      "answer": "solved",
+      "rewardFlag": "flag_painting_restored",
+      "rewardMessage": "壁画修复完成，画面中的漩涡开始旋转，竟变成了一个通往画中画的入口！",
+      "type": "image_grid",
+      "linkedAssetId": "item_puzzle_piece",
+      "gridSize": 3
+    }
+  },
+  "scenes": {
+    "scene_bridge": {
+      "id": "scene_bridge",
+      "title": "断裂的石拱桥",
+      "imageUrl": "./assets/scene_bridge.jpg",
+      "description": "一座残破的石桥横跨在墨汁汇成的黑河之上，四周死寂无声。桥头有一尊断首的石狮。",
+      "interactables": [
+        {
+          "id": "int_charm",
+          "name": "地上的纸符",
+          "description": "一张泛黄的纸符被风吹落在桥缝中。",
+          "itemRewardId": "item_charm",
+          "postInteractionMessage": "桥缝里已经空空如也，但那纸符上的‘雷风’二字让你印象深刻。"
+        },
+        {
+          "id": "int_lion",
+          "name": "断首石狮",
+          "description": "石狮底座上刻着两枚模糊的八卦符号：震（雷）和 巽（风）。这是解开竹林机关的关键线索。",
+          "postInteractionMessage": "石狮底座上刻着两枚模糊的八卦符号：震（☳）和 巽（☴）。这是解开竹林机关的关键线索。",
+          "clueForPuzzleId": "puz_bamboo",
+          "dialogue": [],
+          "lockedMessage": "",
+          "requiredItemId": "",
+          "itemRewardId": "",
+          "flagReward": "",
+          "requiredFlag": "",
+          "hiddenIfFlag": "",
+          "audioMessage": "",
+          "winsGame": false,
+          "targetSceneId": ""
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_bamboo",
+          "label": "进入竹林"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "scene_square",
+          "label": "前往广场"
+        }
+      ]
+    },
+    "scene_square": {
+      "id": "scene_square",
+      "title": "荒废的村落广场",
+      "imageUrl": "./assets/scene_square.jpg",
+      "description": "村落中央的广场，房屋倾颓，满地狼藉。中央有一个巨大的香炉，里面插着一柱诡异的香。",
+      "interactables": [
+        {
+          "id": "int_incense_burner",
+          "name": "青铜香炉",
+          "description": "香炉中插着一柱‘在此刻燃尽的线香’，它燃烧的声音非常规律，像是在传达某种信息。",
+          "itemRewardId": "item_incense",
+          "audioMessage": "7358",
+          "clueForPuzzleId": "puz_safe",
+          "postInteractionMessage": "",
+          "dialogue": [],
+          "lockedMessage": "",
+          "requiredItemId": "",
+          "flagReward": "",
+          "requiredFlag": "",
+          "hiddenIfFlag": "",
+          "winsGame": false,
+          "targetSceneId": ""
+        },
+        {
+          "id": "int_shoe_pile",
+          "name": "杂物堆",
+          "description": "一堆破烂的家具和衣物中，有一抹刺眼的红色。",
+          "itemRewardId": "item_shoe",
+          "clueForPuzzleId": "puz_safe",
+          "postInteractionMessage": "杂物堆里只剩下灰尘，那只绣花鞋鞋底的‘7358’令人不寒而栗。"
+        },
+        {
+          "id": "int_bedroom_door_lock",
+          "name": "老宅大门锁",
+          "description": "通往老宅的大门紧闭，挂着一把锈迹斑斑的铁锁。",
+          "requiredItemId": "item_key",
+          "flagReward": "flag_door_unlocked",
+          "lockedMessage": "门锁锈死，需要‘生锈的铁钥匙’才能打开。",
+          "postInteractionMessage": "随着一声脆响，门锁打开了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_bridge",
+          "label": "返回石桥"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_well",
+          "label": "去枯井"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_hall",
+          "label": "去宗祠"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "scene_bedroom",
+          "label": "进老宅",
+          "locked": true,
+          "requiredFlag": "flag_door_unlocked"
+        }
+      ]
+    },
+    "scene_bamboo": {
+      "id": "scene_bamboo",
+      "title": "迷雾缭绕的竹林",
+      "imageUrl": "./assets/scene_bamboo.jpg",
+      "description": "竹子呈现出焦墨般的枯黑色，浓雾遮蔽了前路。一道石门挡住了去路，门上刻着八卦阵盘。",
+      "interactables": [
+        {
+          "id": "int_stone_gate",
+          "name": "八卦石门",
+          "description": "石门紧闭，上面的八卦浮雕似乎可以按动。你需要结合桥头石狮和纸符的线索来解开它。",
+          "isPuzzle": true,
+          "puzzleId": "puz_bamboo",
+          "lockedMessage": "石门纹丝不动，你需要解开八卦谜题。",
+          "postInteractionMessage": "石门已经开启。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_bridge",
+          "label": "返回石桥"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_temple",
+          "label": "进入山神庙",
+          "locked": true,
+          "requiredFlag": "flag_bamboo_open"
+        }
+      ]
+    },
+    "scene_temple": {
+      "id": "scene_temple",
+      "title": "破败的山神庙",
+      "imageUrl": "./assets/scene_temple.jpg",
+      "description": "庙宇早已坍塌，神像面目全非。供桌上布满灰尘。",
+      "interactables": [
+        {
+          "id": "int_altar",
+          "name": "神像供桌",
+          "description": "供桌上有两个凹槽，仿佛在等待某种符号的填入。",
+          "isPuzzle": true,
+          "puzzleId": "puz_temple",
+          "lockedMessage": "没有线索，无法解开机关。",
+          "postInteractionMessage": "暗格已开，空空如也。"
+        },
+        {
+          "id": "int_debris",
+          "name": "瓦砾堆",
+          "description": "你在瓦砾中发现了一样闪光的东西。",
+          "itemRewardId": "item_key",
+          "postInteractionMessage": "瓦砾中只有碎石了。"
+        },
+        {
+          "id": "int_hidden_seal",
+          "name": "暗格",
+          "description": "神像开启的暗格中放着一枚印章。",
+          "requiredFlag": "flag_temple_solved",
+          "itemRewardId": "item_seal_heaven",
+          "postInteractionMessage": "暗格已空。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_bamboo",
+          "label": "返回竹林"
+        }
+      ]
+    },
+    "scene_well": {
+      "id": "scene_well",
+      "title": "被墨淹没的枯井",
+      "imageUrl": "./assets/scene_well.jpg",
+      "description": "井口不断涌出浓稠的黑墨，井边散发着不祥的气息。似乎有冤魂在井底哭泣。",
+      "interactables": [
+        {
+          "id": "int_well_mist",
+          "name": "驱散墨雾",
+          "description": "井口的墨雾凝而不散，无法靠近。也许由于‘陈旧的黄纸符’可以驱邪？",
+          "requiredItemId": "item_charm",
+          "lockedMessage": "墨雾太浓，直接靠近会被吞噬。你需要法器驱散它。",
+          "flagReward": "flag_well_cleared",
+          "postInteractionMessage": "纸符燃烧后，井口的墨雾散去了。"
+        },
+        {
+          "id": "int_well_bucket",
+          "name": "打捞",
+          "description": "墨雾散去后，你可以尝试拉起井绳。",
+          "requiredFlag": "flag_well_cleared",
+          "itemRewardId": "item_puzzle_piece",
+          "postInteractionMessage": "井绳上挂着的木桶已经空了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_square",
+          "label": "返回广场"
+        }
+      ]
+    },
+    "scene_hall": {
+      "id": "scene_hall",
+      "title": "无人的宗祠",
+      "imageUrl": "./assets/scene_hall.jpg",
+      "description": "宗祠内阴森恐怖，正面的墙壁上画着一幅巨大的古画，但缺了一块。角落里有一个精致的木盒。",
+      "interactables": [
+        {
+          "id": "int_safe_box",
+          "name": "机关木盒",
+          "description": "木盒被一层土黄色的光晕笼罩，锁孔处有一个印章凹槽。需要‘镇魂印章（地）’解除封印，才能输入密码。",
+          "requiredItemId": "item_seal_earth",
+          "isPuzzle": true,
+          "puzzleId": "puz_safe",
+          "lockedMessage": "盒子被地气封印，你需要一枚特殊的印章来激活它。",
+          "postInteractionMessage": "盒子打开了，里面只有红色的粉末痕迹。",
+          "itemRewardId": "item_cinnabar"
+        },
+        {
+          "id": "int_painting",
+          "name": "残缺壁画",
+          "description": "壁画上画着一座悬浮的凉亭，但中心位置缺了一块。需要‘墨染的拼图块’来修补。",
+          "requiredItemId": "item_puzzle_piece",
+          "lockedMessage": "壁画缺损严重，无法看清全貌。",
+          "isPuzzle": true,
+          "puzzleId": "puz_painting",
+          "postInteractionMessage": "壁画已修复，变成了一个漩涡般的入口。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_square",
+          "label": "返回广场"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_pavilion",
+          "label": "进入画中界",
+          "locked": true,
+          "requiredFlag": "flag_painting_restored"
+        }
+      ]
+    },
+    "scene_bedroom": {
+      "id": "scene_bedroom",
+      "title": "老宅卧房",
+      "imageUrl": "./assets/scene_bedroom.jpg",
+      "description": "一间尘封已久的卧房，梳妆台上放着一面破碎的铜镜。",
+      "interactables": [
+        {
+          "id": "int_vanity",
+          "name": "梳妆台",
+          "description": "梳妆台的抽屉半开着。",
+          "itemRewardId": "item_inkstone",
+          "postInteractionMessage": "抽屉里只剩下厚厚的灰尘。"
+        },
+        {
+          "id": "int_bed",
+          "name": "雕花木床",
+          "description": "枕头下压着一样东西。",
+          "itemRewardId": "item_jade",
+          "clueForPuzzleId": "puz_temple",
+          "postInteractionMessage": "枕头下什么也没有了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_square",
+          "label": "返回广场"
+        }
+      ]
+    },
+    "scene_pavilion": {
+      "id": "scene_pavilion",
+      "title": "悬浮的画中凉亭",
+      "imageUrl": "./assets/scene_pavilion.jpg",
+      "description": "这里是画卷的核心，四周是虚无的白纸。凉亭中央悬浮着一支笔。远处的天空有一道巨大的黑色裂痕。",
+      "interactables": [
+        {
+          "id": "int_floating_brush",
+          "name": "悬浮的毛笔",
+          "description": "那是一支‘染血的狼毫笔’，但它现在干枯无光。需要朱砂墨锭为其开锋，方能取用。",
+          "itemRewardId": "item_brush",
+          "requiredItemId": "item_cinnabar",
+          "lockedMessage": "笔尖干枯，无法使用。你需要找到‘朱砂墨锭’来唤醒它。",
+          "postInteractionMessage": "朱砂化开，毛笔吸饱了红墨，已被你取走。"
+        },
+        {
+          "id": "int_stone_slab",
+          "name": "石碑",
+          "description": "凉亭边有一块残缺的石碑，上面有一个凹槽。需要放入‘镇魂印章（天）’来激活机关。",
+          "itemRewardId": "item_seal_earth",
+          "requiredItemId": "item_seal_heaven",
+          "lockedMessage": "石碑上的机关紧锁，需要一枚印章来开启。",
+          "postInteractionMessage": "放入印章后，石碑轰然裂开，里面露出了第二枚印章‘镇魂印章（地）’。"
+        },
+        {
+          "id": "int_sky_rift",
+          "name": "天空裂痕",
+          "description": "画卷的边缘正在崩塌。你已集齐印章并唤醒神笔，请用‘染血的狼毫笔’在此处绘出出口，封印画卷！",
+          "requiredItemId": "item_brush",
+          "lockedMessage": "你还需要‘染血的狼毫笔’才能修补这道裂痕。",
+          "postInteractionMessage": "你左手持印，右手挥毫，金光乍现！",
+          "winsGame": true,
+          "targetSceneId": "scene_ending"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_hall",
+          "label": "返回宗祠"
+        }
+      ]
+    },
+    "scene_ending": {
+      "id": "scene_ending",
+      "title": "现实工作室",
+      "imageUrl": "./assets/scene_ending.jpg",
+      "description": "温暖的阳光洒在案台上，一切噩梦都结束了。",
+      "interactables": [],
+      "exits": []
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

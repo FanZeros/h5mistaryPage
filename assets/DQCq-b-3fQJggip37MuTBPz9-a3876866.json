@@ -1,0 +1,948 @@
+{
+  "meta": {
+    "name": "千禧倒计时：Y2K末日机房",
+    "author": "AI Designer",
+    "version": "1.0.0",
+    "description": "1999年12月31日23:00，你是一名值班系统管理员，被困在即将因Y2K千年虫崩溃的核心机房中。倒计时一小时，你必须重启主机、修复系统，从天台逃离。",
+    "style": "90年代末赛博复古风，CRT荧光绿搭配深蓝色调，老式服务器指示灯闪烁，磁带存储架，灰色工业地板砖",
+    "sceneStyle": "第一人称视角，电影感构图，90年代数据中心机房氛围。CRT显示器的绿色荧光映照在灰色墙面上，服务器指示灯闪烁如星，粗壮的网线蜘蛛网般缠绕。色调以深蓝、荧光绿、暗灰为主，点缀橙色警示灯。场景有千年虫倒计时的紧迫感。画面带有90年代胶片颗粒感。",
+    "itemStyle": "90年代IT设备风格，像素感边缘，居中展示，白色背景。物品具有年代感：软盘、IDE线、CRT显示器、老式钥匙卡。色调偏冷，金属质感。清晰的轮廓，无复杂背景。",
+    "endingMessage": "主机重启成功！Y2K危机解除。当新千年的第一缕阳光从天台照射进来时，你知道——世界没有毁灭。欢迎来到2000年。",
+    "endingSceneId": "rooftop_exit",
+    "musicUrl": "./assets/millennium-countdown/bgm.ogg",
+    "icon": "./assets/millennium-countdown/icon.png",
+    "banner": "./assets/millennium-countdown/banner.jpg",
+    "musicStyle": "synthwave, retro computer beeps, tension building, countdown clock ticking, 90s electronic ambient, dark cyberpunk atmosphere",
+    "designConfig": {
+      "theme": "千禧年Y2K末日机房逃脱",
+      "sceneCount": 12,
+      "itemCount": 12,
+      "puzzleCount": 8,
+      "requiredItems": "主管钥匙卡,服务器机柜钥匙,天台逃生钥匙",
+      "requiredScenes": "主控制室,天台出口"
+    }
+  },
+  "initialState": {
+    "currentSceneId": "main_control_room",
+    "inventory": [],
+    "flags": {},
+    "log": [],
+    "gameOver": false,
+    "gameWon": false,
+    "difficulty": "STANDARD"
+  },
+  "items": {
+    "coffee_mug_note": {
+      "id": "coffee_mug_note",
+      "name": "咖啡杯底便签",
+      "description": "马克杯底部贴着一张便签纸，写着：\"BIOS启动顺序: 磁带→硬盘→网络 (记住：7-2-9)\"",
+      "type": "CLUE",
+      "icon": "☕",
+      "imageUrl": "./assets/millennium-countdown/item_coffee_mug_note.png",
+      "clueForPuzzleId": "puzzle_bios_sequence",
+      "image": "./assets/millennium-countdown/item_coffee_mug_note.png"
+    },
+    "debug_log_printout": {
+      "id": "debug_log_printout",
+      "name": "调试日志打印纸",
+      "description": "点阵打印机输出的错误日志，其中用荧光笔标注了管理端口号：4-1-8-6",
+      "type": "CLUE",
+      "icon": "📄",
+      "clueForPuzzleId": "puzzle_login_terminal",
+      "imageUrl": "./assets/millennium-countdown/item_debug_log_printout.png",
+      "image": "./assets/millennium-countdown/item_debug_log_printout.png"
+    },
+    "supervisor_keycard": {
+      "id": "supervisor_keycard",
+      "name": "主管钥匙卡",
+      "description": "蓝色磁条门禁卡，印着\"李工 - 系统主管 - A级权限\"",
+      "type": "KEY",
+      "icon": "🪪",
+      "imageUrl": "./assets/millennium-countdown/item_supervisor_keycard.png",
+      "image": "./assets/millennium-countdown/item_supervisor_keycard.png"
+    },
+    "cable_crimper": {
+      "id": "cable_crimper",
+      "name": "网线压接钳",
+      "description": "黄色手柄的RJ45压线钳，可以制作和修复网线",
+      "type": "TOOL",
+      "icon": "🔧",
+      "imageUrl": "./assets/millennium-countdown/item_cable_crimper.png",
+      "image": "./assets/millennium-countdown/item_cable_crimper.png"
+    },
+    "server_rack_key": {
+      "id": "server_rack_key",
+      "name": "服务器机柜钥匙",
+      "description": "小巧的金属钥匙，标签写着\"MF-CORE-001\"",
+      "type": "KEY",
+      "icon": "🔑",
+      "imageUrl": "./assets/millennium-countdown/item_server_rack_key.png",
+      "image": "./assets/millennium-countdown/item_server_rack_key.png"
+    },
+    "bios_chip": {
+      "id": "bios_chip",
+      "name": "备用BIOS芯片",
+      "description": "28针DIP封装的EEPROM芯片，标签写着\"Y2K PATCH v2.0\"",
+      "type": "TOOL",
+      "icon": "🔲",
+      "imageUrl": "./assets/millennium-countdown/item_bios_chip.png",
+      "image": "./assets/millennium-countdown/item_bios_chip.png"
+    },
+    "ups_battery": {
+      "id": "ups_battery",
+      "name": "UPS备用电池",
+      "description": "沉重的铅酸蓄电池，12V/7Ah，可为关键设备提供应急电力",
+      "type": "TOOL",
+      "icon": "🔋",
+      "imageUrl": "./assets/millennium-countdown/item_ups_battery.png",
+      "image": "./assets/millennium-countdown/item_ups_battery.png"
+    },
+    "security_vhs_tape": {
+      "id": "security_vhs_tape",
+      "name": "监控录像带",
+      "description": "标签写着\"12/31 20:00-22:00\"的VHS磁带，记录了主管离开前的操作",
+      "type": "CLUE",
+      "icon": "📼",
+      "clueForPuzzleId": "puzzle_security_override",
+      "imageUrl": "./assets/millennium-countdown/item_security_vhs_tape.png",
+      "image": "./assets/millennium-countdown/item_security_vhs_tape.png"
+    },
+    "rooftop_key": {
+      "id": "rooftop_key",
+      "name": "天台逃生钥匙",
+      "description": "红色标签的应急钥匙，连着一个\"仅限紧急撤离\"的挂牌",
+      "type": "KEY",
+      "icon": "🗝️",
+      "imageUrl": "./assets/millennium-countdown/item_rooftop_key.png",
+      "image": "./assets/millennium-countdown/item_rooftop_key.png"
+    },
+    "pressure_gauge_manual": {
+      "id": "pressure_gauge_manual",
+      "name": "冷却系统手册",
+      "description": "《IBM 3090冷却系统维护指南》第7章：正常运行PSI=53，超过72触发紧急停机",
+      "type": "CLUE",
+      "icon": "📘",
+      "clueForPuzzleId": "puzzle_coolant_valve",
+      "imageUrl": "./assets/millennium-countdown/item_pressure_gauge_manual.png",
+      "image": "./assets/millennium-countdown/item_pressure_gauge_manual.png"
+    },
+    "repair_floppy": {
+      "id": "repair_floppy",
+      "name": "系统修复软盘",
+      "description": "3.5英寸软盘，手写标签\"MILLENNIUM FIX - DO NOT FORMAT\"",
+      "type": "TOOL",
+      "icon": "💾",
+      "imageUrl": "./assets/millennium-countdown/item_repair_floppy.png",
+      "image": "./assets/millennium-countdown/item_repair_floppy.png"
+    },
+    "circuit_wiring_diagram": {
+      "id": "circuit_wiring_diagram",
+      "name": "线路接线图",
+      "description": "发电机配电箱内侧贴着的接线示意图，标注了正确的电力线路连接路径",
+      "type": "CLUE",
+      "icon": "📐",
+      "clueForPuzzleId": "puzzle_power_routing",
+      "imageUrl": "./assets/millennium-countdown/item_circuit_wiring_diagram.png",
+      "image": "./assets/millennium-countdown/item_circuit_wiring_diagram.png"
+    }
+  },
+  "scenes": {
+    "main_control_room": {
+      "id": "main_control_room",
+      "title": "主控制室",
+      "imageUrl": "./assets/millennium-countdown/scene_main_control_room.jpg",
+      "description": "巨大的CRT监控墙闪烁着绿色字符，倒计时数字在屏幕中央跳动。操作台上散落着空咖啡杯和打印纸，空气中弥漫着臭氧和焦虑的气息。",
+      "interactables": [
+        {
+          "id": "login_terminal",
+          "name": "登录终端",
+          "description": "主操作台上的VT100终端正在闪烁光标，提示输入管理员密码",
+          "icon": "🖥️",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_login_terminal",
+          "lockedMessage": "终端要求输入4位管理员端口密码"
+        },
+        {
+          "id": "coffee_mug",
+          "name": "马克杯",
+          "description": "印着\"I survived Y2K\"的马克杯，底部似乎贴着什么东西",
+          "icon": "☕",
+          "itemRewardId": "coffee_mug_note",
+          "hiddenIfFlag": "got_coffee_note",
+          "flagReward": "got_coffee_note",
+          "postInteractionMessage": "你翻过马克杯，底部贴着一张便签纸，写着BIOS启动代码"
+        },
+        {
+          "id": "dot_matrix_printer",
+          "name": "点阵打印机",
+          "description": "Epson LQ-680K打印机，出纸托盘里有一叠刚打印的错误日志",
+          "icon": "🖨️",
+          "itemRewardId": "debug_log_printout",
+          "hiddenIfFlag": "got_debug_log",
+          "flagReward": "got_debug_log",
+          "postInteractionMessage": "你取出打印纸——是今晚的系统错误日志，某些端口号被荧光笔圈了出来"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "server_corridor",
+          "label": "进入服务器走廊"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "network_hub",
+          "label": "前往网络枢纽间"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "break_room",
+          "label": "去休息室"
+        }
+      ]
+    },
+    "server_corridor": {
+      "id": "server_corridor",
+      "title": "服务器走廊",
+      "imageUrl": "./assets/millennium-countdown/scene_server_corridor.jpg",
+      "description": "狭长的走廊两侧是高耸的服务器机柜，蓝色LED指示灯如星河般闪烁。冷风从高架地板的缝隙中呼啸而出，脚步声在金属地板上回响。",
+      "interactables": [
+        {
+          "id": "fire_extinguisher_box",
+          "name": "消防箱",
+          "description": "红色消防箱的玻璃后面，除了灭火器，还挂着一把贴了标签的小钥匙",
+          "icon": "🧯",
+          "itemRewardId": "server_rack_key",
+          "hiddenIfFlag": "got_rack_key",
+          "flagReward": "got_rack_key",
+          "postInteractionMessage": "你打破玻璃，取出了标有\"MF-CORE-001\"的机柜钥匙"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "main_control_room",
+          "label": "回到主控制室"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "mainframe_core",
+          "label": "前往主机核心区",
+          "locked": true,
+          "requiredFlag": "corridor_unlocked"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "tape_storage",
+          "label": "进入磁带存储室"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "cooling_chamber",
+          "label": "进入冷却机房"
+        }
+      ]
+    },
+    "tape_storage": {
+      "id": "tape_storage",
+      "title": "磁带存储室",
+      "imageUrl": "./assets/millennium-countdown/scene_tape_storage.jpg",
+      "description": "高耸的磁带存储架排列如图书馆书架。巨大的磁带机缓缓转动，发出催眠般的嗡嗡声。空气中有磁粉和老化塑料的气味。",
+      "interactables": [
+        {
+          "id": "tape_sequence_panel",
+          "name": "磁带装载面板",
+          "description": "面板上有5个磁带卡槽，需要按正确顺序装载备份磁带来执行逆序回滚",
+          "icon": "📼",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_tape_sequence",
+          "lockedMessage": "需要按正确顺序插入磁带才能执行数据回滚"
+        },
+        {
+          "id": "tape_terminal",
+          "name": "磁带管理终端",
+          "description": "旁边的终端屏幕上显示着磁带加载协议",
+          "icon": "📟",
+          "clueForPuzzleId": "puzzle_tape_sequence",
+          "dialogue": [
+            "屏幕显示磁带编号与工作日的对应关系：",
+            "\"周一=◆  周二=●  周三=★  周四=▲  周五=■\"",
+            "\"今日为周五，执行逆序回滚需从周五磁带开始倒序装载\"",
+            "也就是说顺序应该是: ■▲★●◆"
+          ]
+        },
+        {
+          "id": "floppy_output_slot",
+          "name": "软盘输出槽",
+          "description": "磁带机下方的软盘驱动器弹出了一张软盘",
+          "icon": "💾",
+          "requiredFlag": "backup_loaded",
+          "itemRewardId": "repair_floppy",
+          "hiddenIfFlag": "got_floppy",
+          "flagReward": "got_floppy",
+          "postInteractionMessage": "数据回滚完成后，系统将修复补丁写入了这张软盘"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "server_corridor",
+          "label": "返回服务器走廊"
+        }
+      ]
+    },
+    "network_hub": {
+      "id": "network_hub",
+      "title": "网络枢纽间",
+      "imageUrl": "./assets/millennium-countdown/scene_network_hub.jpg",
+      "description": "密密麻麻的网线如彩色瀑布从天花板倾泻而下。交换机和路由器的LED疯狂闪烁，发出噼啪声。墙上的网络拓扑图标注着错综复杂的连接关系。",
+      "interactables": [
+        {
+          "id": "network_patch_panel",
+          "name": "配线架",
+          "description": "一段关键网线被老鼠咬断了，导致主机无法连接外部验证服务器",
+          "icon": "🔌",
+          "requiredItemId": "cable_crimper",
+          "lockedMessage": "网线断裂处需要压接钳才能修复",
+          "flagReward": "network_restored",
+          "postInteractionMessage": "你用压接钳修复了断裂的网线，网络连接恢复！交换机指示灯变为稳定绿色。"
+        },
+        {
+          "id": "topology_map",
+          "name": "网络拓扑图",
+          "description": "墙上贴着的手绘网络拓扑图，标注了各节点之间的电力依赖关系",
+          "icon": "🗺️",
+          "clueForPuzzleId": "puzzle_power_routing",
+          "dialogue": [
+            "拓扑图底部用红笔标注了电力路由规则：",
+            "\"发电机→UPS→配电板→主机\"",
+            "\"注意：必须经过每个节点且不能重复走线\"",
+            "\"否则浪涌保护器会跳闸！\""
+          ]
+        },
+        {
+          "id": "router_config_terminal",
+          "name": "路由器配置终端",
+          "description": "一台连接核心路由器的配置终端，显示着协议栈初始化界面",
+          "icon": "📡",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_network_config",
+          "requiredFlag": "network_restored",
+          "lockedMessage": "物理线路还没修复，无法访问路由器配置界面"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "main_control_room",
+          "label": "回到主控制室"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "supervisor_office",
+          "label": "前往主管办公室"
+        }
+      ]
+    },
+    "cooling_chamber": {
+      "id": "cooling_chamber",
+      "title": "冷却机房",
+      "imageUrl": "./assets/millennium-countdown/scene_cooling_chamber.jpg",
+      "description": "巨大的工业冷却塔在阴暗中轰鸣，管道从天花板蜿蜒如金属蟒蛇。地上有冷凝水积聚，温度低得能看见呼出的白气。压力表指针在危险区晃动。",
+      "interactables": [
+        {
+          "id": "coolant_valve_panel",
+          "name": "冷却液阀门控制台",
+          "description": "控制台上有压力表和数字键盘，需要输入正确的PSI值才能手动泄压",
+          "icon": "🌡️",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_coolant_valve",
+          "requiredItemId": "pressure_gauge_manual",
+          "lockedMessage": "你不确定安全的PSI范围，贸然操作可能导致管道爆裂。需要查阅技术手册。"
+        },
+        {
+          "id": "maintenance_shelf",
+          "name": "维护工具架",
+          "description": "架子上堆满了扳手和管件，角落里有一把网线压接钳",
+          "icon": "🔧",
+          "itemRewardId": "cable_crimper",
+          "hiddenIfFlag": "got_crimper",
+          "flagReward": "got_crimper",
+          "postInteractionMessage": "你在工具架角落找到了一把RJ45网线压接钳"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "server_corridor",
+          "label": "返回服务器走廊"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "generator_room",
+          "label": "下到发电机房"
+        }
+      ]
+    },
+    "break_room": {
+      "id": "break_room",
+      "title": "休息室",
+      "imageUrl": "./assets/millennium-countdown/scene_break_room.jpg",
+      "description": "几张旧办公桌拼在一起，微波炉上贴着\"请勿加热鱼类\"的纸条。墙上挂着1999年日历和跨年派对海报，角落里的电视播放着雪花屏。",
+      "interactables": [
+        {
+          "id": "locker_supervisor",
+          "name": "主管储物柜",
+          "description": "金属储物柜上贴着\"李工\"的名牌，电子锁面板亮着红灯",
+          "icon": "🚪",
+          "requiredFlag": "login_success",
+          "lockedMessage": "储物柜电子锁亮着红灯。也许登录系统后可以远程解锁？",
+          "itemRewardId": "supervisor_keycard",
+          "hiddenIfFlag": "got_keycard",
+          "flagReward": "got_keycard",
+          "postInteractionMessage": "电子锁变绿，柜门弹开！里面有一张蓝色磁条门禁卡。"
+        },
+        {
+          "id": "vending_machine",
+          "name": "自动售货机",
+          "description": "老式可乐售货机，LED显示屏在滚动错误信息",
+          "icon": "🥤",
+          "clueForPuzzleId": "puzzle_security_override",
+          "dialogue": [
+            "售货机的LED显示屏反复滚动：",
+            "\"ERROR: DATE OVERFLOW\"",
+            "\"CALL SECURITY EXT.5387\"",
+            "\"MAINTENANCE CODE: 5387\"",
+            "这个数字出现了两次，看起来很重要..."
+          ]
+        },
+        {
+          "id": "bulletin_board",
+          "name": "公告栏",
+          "description": "公告栏上贴满了通知、剪报和值班表",
+          "icon": "📋",
+          "clueForPuzzleId": "puzzle_coolant_valve",
+          "dialogue": [
+            "一张手写便签引起你的注意：",
+            "\"跨年值班提醒——\"",
+            "\"冷却系统正常运行PSI=53\"",
+            "\"超过72或低于35会触发紧急停机！\"",
+            "\"有问题找李工，别自己瞎搞 ——张三\""
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "main_control_room",
+          "label": "回到主控制室"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "security_booth",
+          "label": "前往安保监控室"
+        }
+      ]
+    },
+    "supervisor_office": {
+      "id": "supervisor_office",
+      "title": "主管办公室",
+      "imageUrl": "./assets/millennium-countdown/scene_supervisor_office.jpg",
+      "description": "典型的90年代办公室——巨大的CRT显示器、成堆的技术手册、塞满烟头的烟灰缸。桌上摆着全家福照片和一个\"千年虫应急小组组长\"的铭牌。",
+      "interactables": [
+        {
+          "id": "desk_drawer",
+          "name": "办公桌抽屉",
+          "description": "抽屉半开着，里面有一本厚重的技术手册",
+          "icon": "🗄️",
+          "itemRewardId": "pressure_gauge_manual",
+          "hiddenIfFlag": "got_manual",
+          "flagReward": "got_manual",
+          "postInteractionMessage": "你找到了《IBM 3090冷却系统维护指南》"
+        },
+        {
+          "id": "supervisor_pc",
+          "name": "主管电脑",
+          "description": "Gateway 2000台式机，屏幕显示着登录界面，需要磁卡认证",
+          "icon": "💻",
+          "requiredItemId": "supervisor_keycard",
+          "lockedMessage": "电脑锁屏了，需要磁卡刷卡认证才能访问",
+          "flagReward": "corridor_unlocked",
+          "dialogue": [
+            "你刷卡登录，看到一封未发送的邮件草稿：",
+            "\"张总：Y2K补丁芯片已备好，存放在主机区保险柜。\"",
+            "\"密码是我书架上那几本书脊标注的数字：8-0-5-3\"",
+            "\"P.S. 我已远程解除主机走廊门禁，密码太长记不住。\""
+          ],
+          "postInteractionMessage": "系统提示：服务器走廊→主机核心区 门禁已解除"
+        },
+        {
+          "id": "bookshelf",
+          "name": "技术书架",
+          "description": "满是O'Reilly动物书的书架，有几本书脊被马克笔标注了数字",
+          "icon": "📚",
+          "clueForPuzzleId": "puzzle_tape_safe",
+          "dialogue": [
+            "书脊上用马克笔标注了数字：",
+            "\"TCP/IP Illustrated → 8\"",
+            "\"UNIX Network Programming → 0\"",
+            "\"The C Programming Language → 5\"",
+            "\"Advanced Programming in UNIX → 3\"",
+            "按从左到右的顺序是：8-0-5-3"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "network_hub",
+          "label": "返回网络枢纽间"
+        }
+      ]
+    },
+    "security_booth": {
+      "id": "security_booth",
+      "title": "安保监控室",
+      "imageUrl": "./assets/millennium-countdown/scene_security_booth.jpg",
+      "description": "9台黑白监控画面在墙上排列，大部分已经变成雪花。桌上的VCR录像机嗡嗡作响，红色REC指示灯还在闪烁。",
+      "interactables": [
+        {
+          "id": "vcr_player",
+          "name": "VCR录像机",
+          "description": "JVC品牌的录像机，卡槽是空的，可以播放VHS磁带",
+          "icon": "📹",
+          "requiredItemId": "security_vhs_tape",
+          "lockedMessage": "录像机卡槽是空的，需要插入录像带",
+          "flagReward": "watched_security_tape",
+          "clueForPuzzleId": "puzzle_security_override",
+          "dialogue": [
+            "画面显示主管在安保覆写面板前操作：",
+            "他输入了一串数字：5-3-8-7",
+            "然后所有监控画面同时切断。",
+            "看来5387就是安保覆写授权码。"
+          ]
+        },
+        {
+          "id": "guard_desk",
+          "name": "保安桌",
+          "description": "桌面凌乱，抽屉里有一盒标注了日期的VHS录像带",
+          "icon": "🎬",
+          "itemRewardId": "security_vhs_tape",
+          "hiddenIfFlag": "got_vhs",
+          "flagReward": "got_vhs",
+          "postInteractionMessage": "你找到一盒标注着\"12/31 20:00-22:00\"的监控录像带"
+        },
+        {
+          "id": "security_override_panel",
+          "name": "安保覆写面板",
+          "description": "墙上的红色紧急面板，标注着\"SECURITY OVERRIDE - AUTHORIZED ONLY\"",
+          "icon": "🔐",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_security_override",
+          "lockedMessage": "面板要求输入4位安保覆写授权码"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "break_room",
+          "label": "返回休息室"
+        }
+      ]
+    },
+    "generator_room": {
+      "id": "generator_room",
+      "title": "发电机房",
+      "imageUrl": "./assets/millennium-countdown/scene_generator_room.jpg",
+      "description": "柴油发电机在黑暗中如沉睡的巨兽般矗立。空气中弥漫着机油和柴油的气味。配电箱上的红色警示灯频繁闪烁，供电很不稳定。",
+      "interactables": [
+        {
+          "id": "power_routing_panel",
+          "name": "电力路由配电箱",
+          "description": "配电箱打开着，里面的线路连接混乱，需要按正确路径重新走线",
+          "icon": "⚡",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_power_routing",
+          "requiredItemId": "circuit_wiring_diagram",
+          "lockedMessage": "线路错综复杂，没有接线图你不敢贸然操作，可能会触电"
+        },
+        {
+          "id": "ups_shelf",
+          "name": "UPS备件架",
+          "description": "架子上整齐排列着几块备用UPS铅酸电池",
+          "icon": "🔋",
+          "itemRewardId": "ups_battery",
+          "hiddenIfFlag": "got_battery",
+          "flagReward": "got_battery",
+          "postInteractionMessage": "你取下一块完好的12V/7Ah备用电池，很沉"
+        },
+        {
+          "id": "wiring_diagram_box",
+          "name": "资料盒",
+          "description": "配电箱旁边墙上挂着的防水塑料资料盒",
+          "icon": "📁",
+          "itemRewardId": "circuit_wiring_diagram",
+          "hiddenIfFlag": "got_diagram",
+          "flagReward": "got_diagram",
+          "postInteractionMessage": "你从资料盒中取出了线路接线图，标注着正确的电力路径"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "cooling_chamber",
+          "label": "上到冷却机房"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "cable_tunnel",
+          "label": "爬入电缆隧道"
+        }
+      ]
+    },
+    "cable_tunnel": {
+      "id": "cable_tunnel",
+      "title": "电缆隧道",
+      "imageUrl": "./assets/millennium-countdown/scene_cable_tunnel.jpg",
+      "description": "低矮潮湿的地下通道，头顶密布着粗大的电缆线束。应急灯每隔几秒闪烁一次，墙壁上有水渍和喷漆涂鸦：\"Y2K IS COMING\"。",
+      "interactables": [
+        {
+          "id": "tunnel_graffiti",
+          "name": "墙壁涂鸦",
+          "description": "有人用白色喷漆留下了字迹",
+          "icon": "🎨",
+          "dialogue": [
+            "墙上的涂鸦写着：",
+            "\"如果你在读这行字——说明值班第一定律生效了：\"",
+            "\"永远不要在跨年夜值班。\"",
+            "\"——1998年的前任 留\""
+          ]
+        },
+        {
+          "id": "osi_poster",
+          "name": "OSI模型海报",
+          "description": "隧道墙上贴着一张已经发霉的《OSI网络七层模型》教学海报",
+          "icon": "📊",
+          "clueForPuzzleId": "puzzle_network_config",
+          "dialogue": [
+            "海报上列出了网络协议栈的初始化顺序：",
+            "\"启动序列必须从物理层(◆)开始\"",
+            "\"→ 数据链路层(●) → 网络层(★)\"",
+            "\"→ 传输层(▲) → 应用层(■)\"",
+            "\"跳过任何一层都将导致协议栈崩溃！\""
+          ]
+        },
+        {
+          "id": "fuse_box",
+          "name": "应急供电箱",
+          "description": "隧道尽头通往天台楼梯的应急照明供电箱，电池仓是空的",
+          "icon": "🔌",
+          "requiredItemId": "ups_battery",
+          "requiredFlag": "power_stable",
+          "lockedMessage": "供电箱电池仓是空的，而且配电系统也不稳定。需要稳定的电力供应和备用电池。",
+          "flagReward": "tunnel_powered",
+          "postInteractionMessage": "你装上备用电池，结合稳定的电力供应，隧道深处的应急灯全部亮起，露出了通往天台的楼梯！"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "generator_room",
+          "label": "返回发电机房"
+        },
+        {
+          "direction": "up",
+          "targetSceneId": "rooftop_exit",
+          "label": "爬楼梯到天台",
+          "locked": true,
+          "requiredFlag": "tunnel_powered"
+        }
+      ]
+    },
+    "mainframe_core": {
+      "id": "mainframe_core",
+      "title": "主机核心区",
+      "imageUrl": "./assets/millennium-countdown/scene_mainframe_core.jpg",
+      "description": "IBM 3090大型机如神殿中的方碑占据了整个房间。控制面板上无数按钮和指示灯排列如星图，中央显示屏闪烁着红色Y2K倒计时警告。",
+      "interactables": [
+        {
+          "id": "tape_safe",
+          "name": "嵌墙保险柜",
+          "description": "嵌在主机旁墙壁中的小型保险柜，4位数字密码锁",
+          "icon": "🔒",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_tape_safe",
+          "requiredFlag": "security_overridden",
+          "lockedMessage": "保险柜被安保系统锁定了。需要先覆写安保系统才能尝试输入密码。"
+        },
+        {
+          "id": "safe_contents",
+          "name": "保险柜内的芯片",
+          "description": "保险柜内放着一块防静电袋包裹的BIOS芯片",
+          "icon": "🔲",
+          "requiredFlag": "safe_opened",
+          "itemRewardId": "bios_chip",
+          "hiddenIfFlag": "got_chip",
+          "flagReward": "got_chip",
+          "postInteractionMessage": "你小心取出防静电袋中的Y2K补丁BIOS芯片"
+        },
+        {
+          "id": "floppy_drive",
+          "name": "主机软驱",
+          "description": "主机面板上的3.5英寸软盘驱动器，指示灯熄灭",
+          "icon": "💾",
+          "requiredItemId": "repair_floppy",
+          "requiredFlag": "backup_loaded",
+          "lockedMessage": "软驱需要修复软盘。而且需要先完成磁带数据回滚，获取校验数据。",
+          "flagReward": "patch_loaded",
+          "postInteractionMessage": "软盘插入，驱动器嗡嗡作响...修复补丁数据加载完成！"
+        },
+        {
+          "id": "bios_socket",
+          "name": "BIOS芯片插槽",
+          "description": "主板上空出的28针DIP插槽，标注着\"BIOS ROM - Y2K PATCH\"",
+          "icon": "🔲",
+          "requiredItemId": "bios_chip",
+          "requiredFlag": "patch_loaded",
+          "lockedMessage": "插槽是空的，需要BIOS芯片。而且需要先加载补丁数据到缓冲区。",
+          "flagReward": "bios_installed",
+          "postInteractionMessage": "你将Y2K补丁芯片对准引脚，按入插槽——指示灯由红转绿！"
+        },
+        {
+          "id": "bios_config_panel",
+          "name": "BIOS配置面板",
+          "description": "主机上方的启动顺序配置拨码开关",
+          "icon": "🖲️",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_bios_sequence",
+          "requiredFlag": "bios_installed",
+          "lockedMessage": "需要先安装BIOS芯片才能配置启动顺序"
+        },
+        {
+          "id": "mainframe_final_switch",
+          "name": "主机总开关",
+          "description": "红色的大型拉闸开关，标注\"MASTER POWER - KEY REQUIRED\"",
+          "icon": "🔴",
+          "requiredFlag": "reboot_configured",
+          "requiredItemId": "server_rack_key",
+          "lockedMessage": "总开关被机械锁锁住，需要机柜钥匙。而且必须先完成BIOS启动配置。",
+          "flagReward": "mainframe_rebooted",
+          "itemRewardId": "rooftop_key",
+          "dialogue": [
+            "你转动钥匙，用力扳下总开关——",
+            "主机发出深沉的嗡鸣，所有指示灯依次亮起...",
+            "中央屏幕显示：",
+            "\"SYSTEM REBOOT SUCCESSFUL\"",
+            "\"Y2K PATCH APPLIED - ALL SYSTEMS NOMINAL\"",
+            "\"DATE: 2000-01-01 00:00:12\"",
+            "机柜底部的应急舱\"咔哒\"一声弹开，里面是天台逃生钥匙！"
+          ],
+          "postInteractionMessage": "主机重启成功！Y2K倒计时停止。应急舱弹出了天台钥匙。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "server_corridor",
+          "label": "返回服务器走廊"
+        }
+      ]
+    },
+    "rooftop_exit": {
+      "id": "rooftop_exit",
+      "title": "天台",
+      "imageUrl": "./assets/millennium-countdown/scene_rooftop_exit.jpg",
+      "description": "2000年1月1日凌晨的天台。城市远处的烟花还在绽放，冷冽的空气带着自由和新生的味道。脚下机房的通风口透出温暖的光芒。",
+      "interactables": [
+        {
+          "id": "exit_door",
+          "name": "天台逃生门",
+          "description": "通往建筑外部的厚重防火门，需要应急钥匙才能打开",
+          "icon": "🚪",
+          "requiredItemId": "rooftop_key",
+          "lockedMessage": "防火门锁死了，红色的\"EMERGENCY EXIT\"标识旁边有钥匙孔",
+          "winsGame": true,
+          "dialogue": [
+            "你将红色钥匙插入锁孔，用力转动——",
+            "防火门缓缓打开，2000年的第一缕寒风扑面而来。",
+            "远处城市的跨年烟花照亮了整片夜空。",
+            "你深吸一口气。千禧年的世界，安然无恙。",
+            "你成功了。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "down",
+          "targetSceneId": "cable_tunnel",
+          "label": "回到电缆隧道"
+        }
+      ]
+    }
+  },
+  "puzzles": {
+    "puzzle_login_terminal": {
+      "id": "puzzle_login_terminal",
+      "type": "numeric",
+      "description": "输入4位管理员端口密码",
+      "answer": "4186",
+      "rewardFlag": "login_success",
+      "rewardMessage": "终端登录成功！系统显示：主管储物柜远程解锁指令已发送。",
+      "requiredClueCount": 1
+    },
+    "puzzle_tape_sequence": {
+      "id": "puzzle_tape_sequence",
+      "type": "symbol",
+      "description": "按正确顺序装载备份磁带执行逆序回滚（从周五开始倒序）",
+      "answer": "■▲★●◆",
+      "choices": [
+        "★",
+        "●",
+        "▲",
+        "■",
+        "◆"
+      ],
+      "rewardFlag": "backup_loaded",
+      "rewardMessage": "磁带逆序回滚成功！备份数据校验通过，修复补丁已写入软盘。",
+      "requiredClueCount": 1
+    },
+    "puzzle_coolant_valve": {
+      "id": "puzzle_coolant_valve",
+      "type": "numeric",
+      "description": "输入冷却系统安全运行PSI值进行泄压（2位数字）",
+      "answer": "53",
+      "rewardFlag": "cooling_stable",
+      "rewardMessage": "冷却系统压力恢复到安全范围！警报解除，管道停止震动。",
+      "requiredClueCount": 2
+    },
+    "puzzle_security_override": {
+      "id": "puzzle_security_override",
+      "type": "numeric",
+      "description": "输入安保覆写授权码（4位数字）",
+      "answer": "5387",
+      "rewardFlag": "security_overridden",
+      "rewardMessage": "安保覆写成功！保险柜安全锁定已解除，现在可以尝试输入密码了。",
+      "requiredClueCount": 2
+    },
+    "puzzle_tape_safe": {
+      "id": "puzzle_tape_safe",
+      "type": "numeric",
+      "description": "输入保险柜4位密码",
+      "answer": "8053",
+      "rewardFlag": "safe_opened",
+      "rewardMessage": "保险柜\"咔哒\"打开了！里面存放着Y2K补丁BIOS芯片。",
+      "requiredClueCount": 1
+    },
+    "puzzle_power_routing": {
+      "id": "puzzle_power_routing",
+      "type": "one_line",
+      "description": "按正确路径连接电力线路，不能重复走线（一笔画经过所有连接）",
+      "answer": "auto",
+      "points": [
+        {
+          "x": 400,
+          "y": 200
+        },
+        {
+          "x": 325,
+          "y": 70
+        },
+        {
+          "x": 175,
+          "y": 70
+        },
+        {
+          "x": 100,
+          "y": 200
+        },
+        {
+          "x": 175,
+          "y": 330
+        },
+        {
+          "x": 325,
+          "y": 330
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          1
+        ]
+      ],
+      "rewardFlag": "power_stable",
+      "rewardMessage": "电力路由连接正确！发电机供电稳定，浪涌保护正常。",
+      "requiredClueCount": 1
+    },
+    "puzzle_bios_sequence": {
+      "id": "puzzle_bios_sequence",
+      "type": "numeric",
+      "description": "配置BIOS启动顺序代码：磁带→硬盘→网络对应的3位数字",
+      "answer": "729",
+      "rewardFlag": "reboot_configured",
+      "rewardMessage": "BIOS启动顺序配置完成！主机已准备好执行最终重启。",
+      "requiredClueCount": 1
+    },
+    "puzzle_network_config": {
+      "id": "puzzle_network_config",
+      "type": "symbol",
+      "description": "按正确顺序配置网络协议栈启动序列（从底层到应用层）",
+      "answer": "◆●★▲■",
+      "choices": [
+        "★",
+        "●",
+        "▲",
+        "■",
+        "◆",
+        "◇"
+      ],
+      "rewardFlag": "network_configured",
+      "rewardMessage": "协议栈启动完成！DNS解析正常，外部验证服务器已连接。",
+      "requiredClueCount": 1
+    }
+  }
+}

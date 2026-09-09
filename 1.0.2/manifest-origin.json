@@ -1,0 +1,5435 @@
+{
+  "format": 1,
+  "target": "origin",
+  "project_id": "m_3oc3",
+  "files": [
+    {
+      "uuid": "8B5sOWnZTgKJ5exlUjuw_A",
+      "ext": ".json",
+      "hash": "903d4f81",
+      "size": 2269,
+      "fs_path": "i18n.json",
+      "prefix": "."
+    },
+    {
+      "uuid": "A-F4oYRo0eTsq5kZG8817lQl",
+      "ext": ".png",
+      "hash": "d5795a53",
+      "size": 118695,
+      "fs_path": "games/saint-lily-academy/item_scissors.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "A-FAGbVHdUpxXSlckoBsO3G5",
+      "ext": ".png",
+      "hash": "c5d268dd",
+      "size": 92332,
+      "fs_path": "games/century-end-cinema/item_i_vcd_player.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "A-Iw4YqWNAFD-k4arm_Kg3qp",
+      "ext": ".jpg",
+      "hash": "c0b89f0d",
+      "size": 136423,
+      "fs_path": "games/liyuan-opera/scene_stage.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "A-mUsV_lSirwL3rAqnrV119M",
+      "ext": ".png",
+      "hash": "edba6d6e",
+      "size": 278913,
+      "fs_path": "games/millennium-countdown/item_repair_floppy.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "A0KPia2rx2CMJHrlnIJwxVy1",
+      "ext": ".mp3",
+      "hash": "1af9f90a",
+      "size": 2880621,
+      "fs_path": "games/tanglang-academy/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "A0SdgQZBx8HZNPpHB_ViW77v",
+      "ext": ".jpg",
+      "hash": "673c400d",
+      "size": 199810,
+      "fs_path": "games/out-of-print-screening/scene_distorted_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "A0UT8bJ074G9lSIhwsQAVyuB",
+      "ext": ".png",
+      "hash": "62a81949",
+      "size": 244976,
+      "fs_path": "games/century-end-cinema/item_i_photo.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "A0qFiRGzh70qbfHTwaRVtSS5",
+      "ext": ".jpg",
+      "hash": "b600a588",
+      "size": 221063,
+      "fs_path": "games/silent-monastery/scene_library.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "A0t9-Typ7dyc4_O2SXUJ6AXu",
+      "ext": ".png",
+      "hash": "06628fad",
+      "size": 168180,
+      "fs_path": "games/tanglang-academy/item_bad_food.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "A4c26b4I43OPAzcaEkAIqoCO",
+      "ext": ".png",
+      "hash": "88280535",
+      "size": 130071,
+      "fs_path": "games/out-of-print-screening/item_storyboard.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "A4n4kR-ABS2F6i3Wr-tlgU-s",
+      "ext": ".png",
+      "hash": "26cb3ead",
+      "size": 405738,
+      "fs_path": "games/silent-mansion/item_compass.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "A5iIQeOOvFhDoay6hOFRIU5w",
+      "ext": ".jpg",
+      "hash": "81609701",
+      "size": 229061,
+      "fs_path": "games/endless-rain-alley/scene_attic.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "A6RhQSfkfdR6Wm3SvgImX5W-",
+      "ext": ".jpg",
+      "hash": "d10ece93",
+      "size": 215729,
+      "fs_path": "games/echo-cocoon/scene_scene_storage.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "A6krwVsLytJXBFzPsAigQvlA",
+      "ext": ".png",
+      "hash": "b329f163",
+      "size": 132301,
+      "fs_path": "games/puppet-theater/item_incense.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "A7694QJ1fBeeVocfe_eQydB5",
+      "ext": ".jpg",
+      "hash": "1fb4ea54",
+      "size": 177230,
+      "fs_path": "games/endless-rain-alley/scene_ending.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "A8-_CZlDjHxer0iiiJLz5zuS",
+      "ext": ".png",
+      "hash": "4b65c207",
+      "size": 28641,
+      "fs_path": "games/endless-rain-alley/item_brush.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "A891KWd2HW6A4WCj_U8td0wN",
+      "ext": ".jpg",
+      "hash": "dc6fc83f",
+      "size": 145249,
+      "fs_path": "games/millennium-countdown/scene_mainframe_core.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AASgOSMastbQayY0Vu0-NQMB",
+      "ext": ".png",
+      "hash": "452f2360",
+      "size": 203908,
+      "fs_path": "games/deep-echo/item_shadow_mask.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AAXYiRlIn9L7AzzdBSUzz8fI",
+      "ext": ".png",
+      "hash": "b7c3fdf2",
+      "size": 104318,
+      "fs_path": "games/out-of-print-screening/item_gloves.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ADNOqcEdJmHF3GecI3GJwWwO",
+      "ext": ".jpg",
+      "hash": "170b3e70",
+      "size": 353540,
+      "fs_path": "games/grudge-apartment/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AEPf8UZlpjithHSSguPaxhFg",
+      "ext": ".jpg",
+      "hash": "505a7648",
+      "size": 220432,
+      "fs_path": "games/tanglang-academy/scene_expert_apt_interior.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AEr10cCfaQRC7VYasW-qlQGC",
+      "ext": ".png",
+      "hash": "5c38fa24",
+      "size": 209560,
+      "fs_path": "games/abyss/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AFTVEUt4XPKlk6XYWQtXlv1u",
+      "ext": ".jpg",
+      "hash": "d7cdfe63",
+      "size": 305099,
+      "fs_path": "games/endless-rain-alley/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AFh3yaS37uuSrutcM1lE6zNL",
+      "ext": ".jpg",
+      "hash": "8d518789",
+      "size": 239113,
+      "fs_path": "games/silent-monastery/scene_monastery_exterior.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AFwT4Q_Y95ZL6XT0YHUsg9JT",
+      "ext": ".jpg",
+      "hash": "5cc94a41",
+      "size": 165117,
+      "fs_path": "games/echo-library/scene_entrance_hall.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AGWVkXFymOK-cSKEByRYWNZO",
+      "ext": ".jpg",
+      "hash": "0920ffd2",
+      "size": 174709,
+      "fs_path": "games/abyss-town/scene_altar.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AGZaOXswMDDCkBuf_cJKdKdn",
+      "ext": ".jpg",
+      "hash": "38edfb5a",
+      "size": 232115,
+      "fs_path": "games/grudge-apartment/scene_entrance.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AGf5yfgfVsQKH0IObJHglFVF",
+      "ext": ".xml",
+      "hash": "685fba4a",
+      "size": 62,
+      "fs_path": "Fonts/FusionPixel-12px-Mono-zh_hans.xml",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AHD4-Yh00xr-YKfBR7TiFZCx",
+      "ext": ".png",
+      "hash": "fa96ea63",
+      "size": 114506,
+      "fs_path": "games/endless-rain-alley/item_key_tea.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AHeHwR0eLr80ND-zY7l5VZgz",
+      "ext": ".png",
+      "hash": "ca6d59a0",
+      "size": 126969,
+      "fs_path": "games/abyss/item_paper_boat.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AIlnCVDiaxJfuCuj1cq5VDvb",
+      "ext": ".png",
+      "hash": "2bcac74f",
+      "size": 143888,
+      "fs_path": "games/ink-erosion-scroll/item_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AKAUMSH8WVTLKa8ALupVxTAn",
+      "ext": ".jpg",
+      "hash": "f10c28cc",
+      "size": 378823,
+      "fs_path": "games/silent-sanatorium/scene_spiral_greenhouse.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AKUSCbWnBxk06cTtgg7RUDel",
+      "ext": ".lua",
+      "hash": "e0af7ab3",
+      "size": 6876,
+      "fs_path": "GameState.lua",
+      "prefix": "../scripts"
+    },
+    {
+      "uuid": "AL8RkcaRx-10Nvp31E9EsHu4",
+      "ext": ".jpg",
+      "hash": "27f2c2eb",
+      "size": 177723,
+      "fs_path": "games/huichuntang/scene_study.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ANE9sRH12eYxG-n4cjSymw4s",
+      "ext": ".png",
+      "hash": "42c2af7a",
+      "size": 40800,
+      "fs_path": "games/kowloon-immortal-code/item_injection.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ANyByTJisQ5a99KWPa7VZS_9",
+      "ext": ".png",
+      "hash": "5365f945",
+      "size": 49391,
+      "fs_path": "games/puppet-town/item_red_thread.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ARRYkej061IgLGQFZYsX_4e6",
+      "ext": ".jpg",
+      "hash": "20e5fb68",
+      "size": 191313,
+      "fs_path": "games/puppet-town/scene_workshop.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ARwRAVa4i0U9BIGsk0hRi4Mi",
+      "ext": ".png",
+      "hash": "38cf7d95",
+      "size": 242622,
+      "fs_path": "games/deep-echo/item_diary_page.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ASTDYYICbzcUpMzP_sitGdtG",
+      "ext": ".png",
+      "hash": "4a4c1721",
+      "size": 82261,
+      "fs_path": "games/tanglang-academy/item_uv_light.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ASUqGbizCkbPbk-pNymgD7hm",
+      "ext": ".jpg",
+      "hash": "5e94460d",
+      "size": 188253,
+      "fs_path": "games/saint-lily-academy/scene_entrance.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ATdOUdDXIUnjegZP6uz4sxLU",
+      "ext": ".ttf",
+      "hash": "5abdfda5",
+      "size": 6908552,
+      "fs_path": "Fonts/FusionPixel-12px-Mono-zh_hans.ttf",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ATgd-ew2xX3E5-pbvaqR81vP",
+      "ext": ".mp3",
+      "hash": "099ed9c2",
+      "size": 2880621,
+      "fs_path": "games/silent-monastery/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ATyVwfpXgm9faovzgILsykMm",
+      "ext": ".jpg",
+      "hash": "28332b63",
+      "size": 181752,
+      "fs_path": "games/abyss-town/scene_sunrise.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AUNeWbgTo_RHd2waZZz2jh1-",
+      "ext": ".jpg",
+      "hash": "aa4ed3c0",
+      "size": 189485,
+      "fs_path": "games/tanglang-academy/scene_teaching_2_hall.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AV4bUZWcolmiN4_T8E_omlyY",
+      "ext": ".jpg",
+      "hash": "28a95854",
+      "size": 138380,
+      "fs_path": "games/liyuan-opera/scene_shrine.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AVpskXewkKPEPYi-hQdQ78sT",
+      "ext": ".jpg",
+      "hash": "c7da48bf",
+      "size": 302518,
+      "fs_path": "games/curse-of-perfection/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AWX1gf41yKQkS4m9GeCt1yk-",
+      "ext": ".jpg",
+      "hash": "9a4dfe6c",
+      "size": 222056,
+      "fs_path": "games/puppet-town/scene_sunken_house.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AXDfsbfrUh4fNIfru0SHxBoz",
+      "ext": ".jpg",
+      "hash": "e5775099",
+      "size": 202136,
+      "fs_path": "games/millennium-countdown/scene_tape_storage.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AXcpaTSBxY8oPu8Lz_-kWSSB",
+      "ext": ".png",
+      "hash": "6ee51f33",
+      "size": 208855,
+      "fs_path": "games/out-of-print-screening/item_vhs_tape.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AXpn8cvYWJyhDvHs6lUaKHwL",
+      "ext": ".png",
+      "hash": "2f803a48",
+      "size": 202011,
+      "fs_path": "games/abyss-town/item_river_god_seal.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AY8HYddkm-819tq85yiP4vbi",
+      "ext": ".png",
+      "hash": "78ff9a5a",
+      "size": 75134,
+      "fs_path": "games/dream-archive/item_broken_recorder.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AYgioU37ging0usqH50osR9g",
+      "ext": ".png",
+      "hash": "1bf67089",
+      "size": 97422,
+      "fs_path": "games/endless-rain-alley/item_candle.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AZFESWLuZI42P4Ewqeu6kpAf",
+      "ext": ".jpg",
+      "hash": "febe9520",
+      "size": 216029,
+      "fs_path": "games/tanglang-academy/scene_teaching_2_lab.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AZnakb5p_SJzX56i8zCdM-ry",
+      "ext": ".mp3",
+      "hash": "67ae98fe",
+      "size": 1237581,
+      "fs_path": "games/duet-of-time/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "A_SAKR5fSXgpm5fk1ZcuYshV",
+      "ext": ".png",
+      "hash": "acfdaa0a",
+      "size": 204794,
+      "fs_path": "games/duet-of-time/item_cookie_box.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "A_syIeMEI1n06_kD5NEOdlK1",
+      "ext": ".jpg",
+      "hash": "ba27d168",
+      "size": 303442,
+      "fs_path": "games/tanglang-academy/scene_expert_apt_exterior.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Aa5C8fbIqAqS399ZOvqE1PL4",
+      "ext": ".jpg",
+      "hash": "c734468e",
+      "size": 223126,
+      "fs_path": "games/deep-echo/scene_garden.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AbVEGXMhtVW666LE30Zq9wnD",
+      "ext": ".png",
+      "hash": "a767abe3",
+      "size": 131167,
+      "fs_path": "games/liyuan-opera/item_jade.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AbqT0QXgNcmpw9lZhATAF29J",
+      "ext": ".jpg",
+      "hash": "85da6e8f",
+      "size": 148649,
+      "fs_path": "games/puppet-town/scene_ending.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Abz8GUYCU4GHrrCwfJszHCXn",
+      "ext": ".jpg",
+      "hash": "db599788",
+      "size": 287838,
+      "fs_path": "games/silent-monastery/scene_courtyard.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AdIh8UTUKfYeIOaOqMegSbYK",
+      "ext": ".png",
+      "hash": "d82d5480",
+      "size": 150779,
+      "fs_path": "games/silent-monastery/item_ancient_ritual_book.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Ae3OqWTwBCNbK7ULAkxt96jr",
+      "ext": ".png",
+      "hash": "239ef6b5",
+      "size": 145000,
+      "fs_path": "games/saint-lily-academy/item_score.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AeZIOfZrSQhrWu52HzACfXDC",
+      "ext": ".png",
+      "hash": "c65e7412",
+      "size": 61403,
+      "fs_path": "games/reverse-entropy-greenhouse/item_lobotomy_pick.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AfQ-oYNp5TcP_yArOSCeYgdg",
+      "ext": ".png",
+      "hash": "be7c2801",
+      "size": 131450,
+      "fs_path": "games/curse-of-perfection/item_ribbon.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AfX-cYFCHYOPQWI7KPPFBTyO",
+      "ext": ".jpg",
+      "hash": "8121c456",
+      "size": 228396,
+      "fs_path": "games/deep-echo/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AfY6CQBwYfZgBiT-SWoYrq_m",
+      "ext": ".jpg",
+      "hash": "292d1e4e",
+      "size": 371721,
+      "fs_path": "games/out-of-print-screening/scene_incinerator.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AgY1wSI8kT-Hp4j5YTxT8Jl6",
+      "ext": ".png",
+      "hash": "27489e4a",
+      "size": 250509,
+      "fs_path": "games/silent-monastery/item_plague_sample.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Ah1fUWriMbgcmCcwxZrxx7LF",
+      "ext": ".png",
+      "hash": "69d22a81",
+      "size": 73452,
+      "fs_path": "games/abyss/item_jade_eye.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AhMl2WDmux7Xvls2hEC0sRLw",
+      "ext": ".jpg",
+      "hash": "07214221",
+      "size": 220030,
+      "fs_path": "games/kowloon-immortal-code/scene_stairs.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Ah_B6UD5ch0n_zwZPyKgRHOz",
+      "ext": ".png",
+      "hash": "28768fd2",
+      "size": 105036,
+      "fs_path": "games/puppet-town/item_morse_chart.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AhgEyeeuQVLNwIjZZefVaMRD",
+      "ext": ".jpg",
+      "hash": "bb04e236",
+      "size": 215702,
+      "fs_path": "games/dream-archive/scene_broken_elevator.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AhthYZefHrRXrIBEJ_hYm-rV",
+      "ext": ".png",
+      "hash": "93f9629a",
+      "size": 204566,
+      "fs_path": "games/out-of-print-screening/item_red_cel.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AiHE6TsWxe4M8UtKYf8Ji_ge",
+      "ext": ".jpg",
+      "hash": "a61db444",
+      "size": 278601,
+      "fs_path": "games/duet-of-time/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AiYG8ZBP-TujkQDSIq-ohIlt",
+      "ext": ".png",
+      "hash": "89f38143",
+      "size": 72391,
+      "fs_path": "games/century-end-cinema/item_i_cable.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AjfRufDSRU-hpOdUvemU31vi",
+      "ext": ".png",
+      "hash": "d7f293ce",
+      "size": 80685,
+      "fs_path": "games/curse-of-perfection/item_emblem.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AmVC-Tgqs_loUoFYhc7MmTbr",
+      "ext": ".png",
+      "hash": "e40cd970",
+      "size": 200158,
+      "fs_path": "games/tanglang-academy/item_cloth.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AmtLQe4-lWV1HkTIOrViCU6F",
+      "ext": ".png",
+      "hash": "1725f3c6",
+      "size": 184542,
+      "fs_path": "games/echo-library/item_console_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AmtXCdUiT-b1i92wdBP3FQE7",
+      "ext": ".jpg",
+      "hash": "9cc105fe",
+      "size": 221572,
+      "fs_path": "games/echo-library/scene_memory_storage.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AmvEOWVoMl7ewfiyRstkMwoI",
+      "ext": ".png",
+      "hash": "6ad81d84",
+      "size": 154397,
+      "fs_path": "games/silent-monastery/item_monk_insignia.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ApE92S66hANid80Cs0v7l6F8",
+      "ext": ".png",
+      "hash": "31a9e4cd",
+      "size": 218276,
+      "fs_path": "games/dream-archive/item_curator_seal.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Apvu8dObVDyzQ3tq-TDnANRo",
+      "ext": ".jpg",
+      "hash": "652ea8aa",
+      "size": 269549,
+      "fs_path": "games/century-end-cinema/scene_s_screening_room_a.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Aq4j-ZYQ-QKyJzb_lk02WbrG",
+      "ext": ".lua",
+      "hash": "a491e9f2",
+      "size": 41840,
+      "fs_path": "UI_Game.lua",
+      "prefix": "../scripts"
+    },
+    {
+      "uuid": "AqxDgSuryGYX0vd5Rs8hyld6",
+      "ext": ".png",
+      "hash": "1cdd40ce",
+      "size": 187301,
+      "fs_path": "games/echo-library/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AsD42S6-KHZDK2ldOE3mnQWL",
+      "ext": ".png",
+      "hash": "4166a36f",
+      "size": 163865,
+      "fs_path": "games/tanglang-academy/item_lab_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AvgZOa3EhA_TCJ20yWbuJQ3C",
+      "ext": ".jpg",
+      "hash": "044416c4",
+      "size": 273322,
+      "fs_path": "games/kowloon-immortal-code/scene_rooftop.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Aw-oUcepzzKhiIHhc5ws_QIW",
+      "ext": ".png",
+      "hash": "a8223913",
+      "size": 233271,
+      "fs_path": "games/dream-archive/item_prism.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AxGvoeXK6mWKrI76kB8zhu3T",
+      "ext": ".png",
+      "hash": "01aad677",
+      "size": 41217,
+      "fs_path": "games/tanglang-academy/item_dorm_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AxUema8noyPgUMWKjeZ4H4ia",
+      "ext": ".jpg",
+      "hash": "53253c1d",
+      "size": 336848,
+      "fs_path": "games/millennium-countdown/scene_network_hub.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AyBpSWdc6-XFGukjy89szpcV",
+      "ext": ".jpg",
+      "hash": "ffc65b51",
+      "size": 201109,
+      "fs_path": "games/ink-erosion-scroll/scene_temple.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Az6zaaaIut2KNkZQvHrOo8z0",
+      "ext": ".png",
+      "hash": "2961b58b",
+      "size": 64357,
+      "fs_path": "games/deep-echo/item_heavy_hammer.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "AzS9YW-fSd85J9c8G-l4I17d",
+      "ext": ".jpg",
+      "hash": "0705b400",
+      "size": 206065,
+      "fs_path": "games/echo-cocoon/scene_scene_reactor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "B-3y4XMVymsQ0kFB990bdmzE",
+      "ext": ".jpg",
+      "hash": "da4dc315",
+      "size": 410880,
+      "fs_path": "games/tanglang-academy/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "B-Obqaavm3gSTuv_s444OvOl",
+      "ext": ".png",
+      "hash": "82572321",
+      "size": 236159,
+      "fs_path": "games/puppet-town/item_genealogy.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "B-nxgcmO7Sbx7G61YMxz2wf5",
+      "ext": ".png",
+      "hash": "f1c70ecf",
+      "size": 204742,
+      "fs_path": "games/duet-of-time/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "B0Y0ASx87elrUlBYrPHzElGy",
+      "ext": ".png",
+      "hash": "4698bacb",
+      "size": 161393,
+      "fs_path": "games/duet-of-time/item_sapling.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "B0jw4cb_yILeBu46xmv5fyjO",
+      "ext": ".png",
+      "hash": "7ff432ba",
+      "size": 279132,
+      "fs_path": "games/out-of-print-screening/item_hole_punch.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "B30VkT3p5CzAWWeq-ETtRcuL",
+      "ext": ".jpg",
+      "hash": "197a507d",
+      "size": 227468,
+      "fs_path": "games/silent-monastery/scene_basement_entrance.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "B4HiAXomhMK6ZNS61hHsy6Qq",
+      "ext": ".jpg",
+      "hash": "1b49108a",
+      "size": 144466,
+      "fs_path": "games/liyuan-opera/scene_box.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "B4Vg-dOMM4LXtUfz9p7xCyfT",
+      "ext": ".png",
+      "hash": "8da21d11",
+      "size": 38115,
+      "fs_path": "games/century-end-cinema/item_i_entrance_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "B67-qf5fHzTTgH6YdMI7XF4R",
+      "ext": ".png",
+      "hash": "fc45e4b0",
+      "size": 268013,
+      "fs_path": "games/echo-cocoon/item_item_diary.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "B7TSiQWKh8BhasoafzHjtzsg",
+      "ext": ".png",
+      "hash": "fafa1d2c",
+      "size": 650309,
+      "fs_path": "games/puppet-town/item_torn_poster.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "B8atwR_r5Qa6LkBhl1a-nPcF",
+      "ext": ".png",
+      "hash": "c52b61f4",
+      "size": 191201,
+      "fs_path": "games/century-end-cinema/item_i_vhs_forbidden.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "B8ks-YRQtjpDVchnE8wvFydz",
+      "ext": ".png",
+      "hash": "c01b94f2",
+      "size": 225280,
+      "fs_path": "games/echo-library/item_damaged_tape.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "B8tjWYPxhfWC9WufzIw8QbmM",
+      "ext": ".png",
+      "hash": "0a25d331",
+      "size": 85999,
+      "fs_path": "games/abyss-town/item_medical_diary.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "B9Gecd4tpy21lb1Tbcm6pjWr",
+      "ext": ".jpg",
+      "hash": "4bd44367",
+      "size": 316721,
+      "fs_path": "games/silent-monastery/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BAGUITwhtUVc1Mc4ZqOH8r_l",
+      "ext": ".png",
+      "hash": "3d7051a3",
+      "size": 108464,
+      "fs_path": "games/kowloon-immortal-code/item_eye.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BAJMaQ0Bu49vm9keH0zCwnAK",
+      "ext": ".png",
+      "hash": "91a98a18",
+      "size": 251058,
+      "fs_path": "games/millennium-countdown/item_coffee_mug_note.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BCgR4Y4YExVM9tRMaBFouABJ",
+      "ext": ".png",
+      "hash": "806975d7",
+      "size": 205269,
+      "fs_path": "games/liyuan-opera/item_script.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BEe7wYynKBSptd6mpLzoh3st",
+      "ext": ".png",
+      "hash": "122c341d",
+      "size": 55682,
+      "fs_path": "games/dream-archive/item_dream_core.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BFQ5idwZX6EALIgBJw1Rdk6-",
+      "ext": ".json",
+      "hash": "721fd2eb",
+      "size": 21754,
+      "fs_path": "games/endless-rain-alley/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BFQr8f-Ng_0qWbFgw0YG1QRf",
+      "ext": ".json",
+      "hash": "76849ac1",
+      "size": 19959,
+      "fs_path": "games/abyss-town/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BGN0gdpWeufFq1Rlm6be-Xd-",
+      "ext": ".png",
+      "hash": "4106213a",
+      "size": 131026,
+      "fs_path": "games/deep-echo/item_hall_of_mirrors_reality_gate.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BI4KEWq4RRjszqIQ03sSkB3d",
+      "ext": ".lua",
+      "hash": "1ee74287",
+      "size": 17972,
+      "fs_path": "Data.lua",
+      "prefix": "../scripts"
+    },
+    {
+      "uuid": "BICB8T_Vy5Cv5SPeGeM3VoeL",
+      "ext": ".mp3",
+      "hash": "2c1ec4e6",
+      "size": 1672173,
+      "fs_path": "games/grudge-apartment/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BIYMGZqGIXmBQ184a7NY9rZr",
+      "ext": ".jpg",
+      "hash": "36deffb4",
+      "size": 300120,
+      "fs_path": "games/century-end-cinema/scene_s_hallway.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BIzlEU0CEM37zlp2APPt_HNX",
+      "ext": ".jpg",
+      "hash": "aa891008",
+      "size": 220286,
+      "fs_path": "games/silent-monastery/scene_storage_room.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BKUb2Zt69o8smAX2xh8sGutU",
+      "ext": ".png",
+      "hash": "2e26fc2f",
+      "size": 74120,
+      "fs_path": "games/silent-monastery/item_empty_vial.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BLlgsZgjpG7auqWXKjOVHp6a",
+      "ext": ".png",
+      "hash": "ec79b7f1",
+      "size": 51536,
+      "fs_path": "games/tanglang-academy/item_coins.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BLpaSTh1NRdHMOwrnotLmVjk",
+      "ext": ".json",
+      "hash": "60c657aa",
+      "size": 21146,
+      "fs_path": "games/ink-erosion-scroll/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BM4OyQAaS37RJiDIeOBpaVCy",
+      "ext": ".jpg",
+      "hash": "559d7dce",
+      "size": 233854,
+      "fs_path": "games/tanglang-academy/scene_business_lobby.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BNLksa3zsrEeCZByiOyZHsJc",
+      "ext": ".mp3",
+      "hash": "0981a348",
+      "size": 2880621,
+      "fs_path": "games/liyuan-opera/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BNZ1EbOYCEGM_DYvckYXO5XF",
+      "ext": ".png",
+      "hash": "8969dbb9",
+      "size": 295786,
+      "fs_path": "games/echo-cocoon/item_item_sample.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BNmxeRbBf8_LgtxceHgzDpbO",
+      "ext": ".png",
+      "hash": "3b912700",
+      "size": 126405,
+      "fs_path": "games/deep-echo/item_hall_of_mirrors_shadow_entity.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BPG8gWhu0reQpxzBTmr1wWTi",
+      "ext": ".py",
+      "hash": "ffc08549",
+      "size": 8669,
+      "fs_path": "sync-pack.py",
+      "prefix": "../scripts"
+    },
+    {
+      "uuid": "BPcDOQNMZ4UcyhlYEGftF6Fl",
+      "ext": ".png",
+      "hash": "ecfe9e58",
+      "size": 63913,
+      "fs_path": "games/kowloon-immortal-code/item_crowbar.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BQQuIT6jwj8-UsYdP50To6Xk",
+      "ext": ".png",
+      "hash": "4a1c90bb",
+      "size": 244210,
+      "fs_path": "games/grudge-apartment/item_cassette.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BQfrET8kwDEAyX8jQRsGsCKX",
+      "ext": ".jpg",
+      "hash": "d0374d04",
+      "size": 171496,
+      "fs_path": "games/grudge-apartment/scene_bathroom.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BRAR6Xub9-4v-R8TmVbMgy3m",
+      "ext": ".png",
+      "hash": "fc083e69",
+      "size": 70003,
+      "fs_path": "games/silent-monastery/item_candlestick.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BUJfCYEtWx3ALPjwDIHnpg-x",
+      "ext": ".jpg",
+      "hash": "e3ab4feb",
+      "size": 149904,
+      "fs_path": "games/abyss-town/scene_hall_gate.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BUR_GaNK_BomWdB01RxmxE4r",
+      "ext": ".png",
+      "hash": "a3ee87d5",
+      "size": 84884,
+      "fs_path": "games/deep-echo/item_rusty_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BUmPkaM8FhaHJDODxRwuoYcA",
+      "ext": ".jpg",
+      "hash": "672f26b5",
+      "size": 159397,
+      "fs_path": "games/liyuan-opera/scene_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BUtjIYFedxTIhE85I1qOc2A7",
+      "ext": ".jpg",
+      "hash": "ce771263",
+      "size": 210416,
+      "fs_path": "games/tanglang-academy/scene_engineering_workshop.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BWDQgUBV5qK2vHZiAZsKDlHv",
+      "ext": ".jpg",
+      "hash": "3c2a057a",
+      "size": 235548,
+      "fs_path": "games/tanglang-academy/scene_canteen.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BWHfAbxNdqq6j9b1TnTPD52B",
+      "ext": ".png",
+      "hash": "ec10727b",
+      "size": 89937,
+      "fs_path": "games/grudge-apartment/item_hair.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BYMoCUS5WHFg3kYU90ftNZMy",
+      "ext": ".jpg",
+      "hash": "b429dbee",
+      "size": 281096,
+      "fs_path": "games/silent-sanatorium/scene_twisted_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BZ5fgTvk-jO1uLNbK1pyTmnf",
+      "ext": ".jpg",
+      "hash": "e10cdfa0",
+      "size": 193620,
+      "fs_path": "games/puppet-theater/scene_dressing_room.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BZVsiRawG-vpLnV115ah_ySm",
+      "ext": ".jpg",
+      "hash": "1c8eb75e",
+      "size": 192450,
+      "fs_path": "games/tanglang-academy/scene_admin_office.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "B_3A2bqzJ4jreQmR4sKLlgBI",
+      "ext": ".png",
+      "hash": "24efecfe",
+      "size": 644859,
+      "fs_path": "games/kowloon-immortal-code/item_chip.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "B_Jb8QPu4dpFN1TrS0hjNwKj",
+      "ext": ".png",
+      "hash": "72bc1c68",
+      "size": 161892,
+      "fs_path": "games/reverse-entropy-greenhouse/item_history_scroll.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BaYAKcL99NCmprOlmo2venPy",
+      "ext": ".jpg",
+      "hash": "738243e7",
+      "size": 299797,
+      "fs_path": "games/kowloon-immortal-code/scene_ending.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BawymX8ukizup5ykk05VK3O0",
+      "ext": ".json",
+      "hash": "45210459",
+      "size": 35937,
+      "fs_path": "games/silent-monastery/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Bb8O0ZC5MKqQULrvBeKuY2tc",
+      "ext": ".jpg",
+      "hash": "3b23e528",
+      "size": 272179,
+      "fs_path": "games/curse-of-perfection/scene_ritual.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BbMKmf7PRWPzNdYvH_hzfYfV",
+      "ext": ".png",
+      "hash": "50fef4f2",
+      "size": 75828,
+      "fs_path": "games/dream-archive/item_blank_diary.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BbvrMfahK_huq7-faHaEdds5",
+      "ext": ".jpg",
+      "hash": "9c5b2579",
+      "size": 192667,
+      "fs_path": "games/tanglang-academy/scene_campus_road_south.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Bbx4IYC1v2oVkh9YCR5agudj",
+      "ext": ".png",
+      "hash": "a708f474",
+      "size": 134926,
+      "fs_path": "games/saint-lily-academy/item_photo.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Bbxwaa6cWBF_nQ3lPb4nP7Vk",
+      "ext": ".png",
+      "hash": "a43415ce",
+      "size": 102129,
+      "fs_path": "games/puppet-theater/item_battery.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Bd0Dscv9GCl-Y1MUM7_RndFi",
+      "ext": ".mp3",
+      "hash": "5b61e40a",
+      "size": 1619181,
+      "fs_path": "games/out-of-print-screening/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Bd4ZKXT3eK5fTB9sSlT56qx-",
+      "ext": ".png",
+      "hash": "d4ce5b23",
+      "size": 716435,
+      "fs_path": "games/liyuan-opera/item_poster_scraps.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Bdn-kTdRuQiMj7Pdl5qltelP",
+      "ext": ".jpg",
+      "hash": "7231c72c",
+      "size": 277595,
+      "fs_path": "games/kowloon-immortal-code/scene_apt_302.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Be3Asf9c25sI6gEVizc88QtE",
+      "ext": ".png",
+      "hash": "b7cbc74f",
+      "size": 139822,
+      "fs_path": "games/ink-erosion-scroll/item_charm.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BeHNiW_qQDIqvBhoezSXareh",
+      "ext": ".png",
+      "hash": "86b02f8b",
+      "size": 768117,
+      "fs_path": "games/huichuntang/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BeTFiXQoHKMwMlA7JPkR1HzB",
+      "ext": ".png",
+      "hash": "7cdb6227",
+      "size": 100657,
+      "fs_path": "games/static-dimension/item_morse_device.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BfNmgabHy0cR8X2bJMbbiWUT",
+      "ext": ".png",
+      "hash": "9391e3ea",
+      "size": 108514,
+      "fs_path": "games/duet-of-time/item_necklace.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BfnYIWWmULZKRoi1uBb4nAhC",
+      "ext": ".png",
+      "hash": "a19e0b35",
+      "size": 100957,
+      "fs_path": "games/silent-sanatorium/item_star_watch.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BfowyZfgXo2K0Zaj8tWGgXd2",
+      "ext": ".png",
+      "hash": "13ea923d",
+      "size": 97379,
+      "fs_path": "games/millennium-countdown/item_server_rack_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Bg49wVDQEWbFEE1lU5ueMFPJ",
+      "ext": ".jpg",
+      "hash": "9cbcfba8",
+      "size": 158272,
+      "fs_path": "games/millennium-countdown/scene_cooling_chamber.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Bh2YkTgIMaSwS2EJiwr3DrcX",
+      "ext": ".png",
+      "hash": "5791a503",
+      "size": 108897,
+      "fs_path": "games/reverse-entropy-greenhouse/item_control_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BiO8IZOw2OJA54VcDvx8aY-I",
+      "ext": ".jpg",
+      "hash": "bf34428d",
+      "size": 301942,
+      "fs_path": "games/living-mansion/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Bjg-mdxk3EV1xwqQi2NNY07k",
+      "ext": ".jpg",
+      "hash": "b8e10378",
+      "size": 202065,
+      "fs_path": "games/puppet-theater/scene_main_gate.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BkFTUavlkBivBxsmif7YPf_T",
+      "ext": ".png",
+      "hash": "fec3a267",
+      "size": 136947,
+      "fs_path": "games/silent-mansion/marketing_icon.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Bl0riUKWH04b5xea-wyhlJsa",
+      "ext": ".png",
+      "hash": "0e2d6b2e",
+      "size": 154431,
+      "fs_path": "games/abyss/item_bloody_shoe.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BlfHAT7ZZcMQJq0JMAQDRqiG",
+      "ext": ".png",
+      "hash": "20e68da9",
+      "size": 105776,
+      "fs_path": "games/deep-echo/item_study_clock_mechanism.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BmWnyS3xmfo9Sz57AyoILUls",
+      "ext": ".png",
+      "hash": "b04da3ec",
+      "size": 220105,
+      "fs_path": "games/reverse-entropy-greenhouse/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BnmhCT5yoXPukEYLI--eUx2H",
+      "ext": ".png",
+      "hash": "376d9b93",
+      "size": 201198,
+      "fs_path": "games/tanglang-academy/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BnnG2ZI_YU9ANA0dLGDh5zDG",
+      "ext": ".png",
+      "hash": "cf17f17a",
+      "size": 167215,
+      "fs_path": "games/puppet-town/item_diary.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BolRuTvX3mHDaFonWvnNrUs5",
+      "ext": ".jpg",
+      "hash": "a39a4945",
+      "size": 271982,
+      "fs_path": "games/tanglang-academy/scene_liyuan.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BpKyKYtFxID05RPVtBCe--E1",
+      "ext": ".png",
+      "hash": "7ecc171c",
+      "size": 115261,
+      "fs_path": "games/deep-echo/item_nursery_secret_passage.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BpVK2anpWevnRJ4Xdaxv8XkU",
+      "ext": ".jpg",
+      "hash": "17ea80d3",
+      "size": 207246,
+      "fs_path": "games/reverse-entropy-greenhouse/scene_specimen_library.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BqYHkSzSFbP7Q_shjkyskGXh",
+      "ext": ".jpg",
+      "hash": "a43da22f",
+      "size": 538643,
+      "fs_path": "games/reverse-entropy-greenhouse/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BqzHSXH2K6T68voo5Q5g5VrB",
+      "ext": ".jpg",
+      "hash": "c133e4b3",
+      "size": 249448,
+      "fs_path": "games/silent-monastery/scene_apothecary.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BruqkeXs1y771EGSa6ju2TSD",
+      "ext": ".json",
+      "hash": "bf0fa9df",
+      "size": 19431,
+      "fs_path": "games/saint-lily-academy/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BstneWcyaaO8IFAKzBArrBMu",
+      "ext": ".jpg",
+      "hash": "71a46742",
+      "size": 312960,
+      "fs_path": "games/kowloon-immortal-code/scene_shrine.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Bt6GKUyplpziYJL0XE0eWgsX",
+      "ext": ".png",
+      "hash": "b2869117",
+      "size": 73516,
+      "fs_path": "games/century-end-cinema/item_i_crowbar.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BtRp6dJw8rj_W8Ww3zG7lE76",
+      "ext": ".png",
+      "hash": "f7b4f659",
+      "size": 147918,
+      "fs_path": "games/grudge-apartment/item_flashlight.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BtxkUddC8M66eeAZLg3OIi8P",
+      "ext": ".png",
+      "hash": "483abf87",
+      "size": 77441,
+      "fs_path": "games/dream-archive/item_faded_card.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Bv7RmRGXUPfy6jHlrzqSvCV9",
+      "ext": ".jpg",
+      "hash": "fbfd82bb",
+      "size": 280200,
+      "fs_path": "games/static-dimension/scene_flesh_junction.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Bw2PYQMB9Uc5f9ZSPs3u2SuM",
+      "ext": ".jpg",
+      "hash": "cdbc8c5f",
+      "size": 197217,
+      "fs_path": "games/puppet-town/scene_street.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BwK1WWOYL7xnQ_Xyij_pY476",
+      "ext": ".jpg",
+      "hash": "370416bf",
+      "size": 252262,
+      "fs_path": "games/ink-erosion-scroll/scene_bridge.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Bx5RISt3ynwGlXwXGK5hK5Zv",
+      "ext": ".png",
+      "hash": "e18220c3",
+      "size": 69856,
+      "fs_path": "games/kowloon-immortal-code/item_diary.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "By5WgSzbLD24xzXMK07e2WrX",
+      "ext": ".jpg",
+      "hash": "c1bdee5f",
+      "size": 192908,
+      "fs_path": "games/abyss/scene_underwater_altar.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "By62OduMBFOoR2c-p6AY81M4",
+      "ext": ".mp3",
+      "hash": "f8ca3e82",
+      "size": 2880621,
+      "fs_path": "games/saint-lily-academy/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ByDDgeduENFuvIRZKUHmYuEV",
+      "ext": ".jpg",
+      "hash": "5e6b0364",
+      "size": 193909,
+      "fs_path": "games/dream-archive/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Bye70d57R_S2s3zrciYaHF1s",
+      "ext": ".jpg",
+      "hash": "09989b5a",
+      "size": 168869,
+      "fs_path": "games/abyss-town/scene_dock.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Bz1kgSeS0wVs1cjmu-IKuiFv",
+      "ext": ".png",
+      "hash": "c4126b5b",
+      "size": 122009,
+      "fs_path": "games/deep-echo/item_bedroom_photo_frame.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "BzluMRwVweBYDyzX88ao4jdp",
+      "ext": ".png",
+      "hash": "ed3182b9",
+      "size": 257577,
+      "fs_path": "games/static-dimension/item_future_tape.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "C-4peZLnyOCcYeK48SvXrmVS",
+      "ext": ".png",
+      "hash": "345e153f",
+      "size": 141707,
+      "fs_path": "games/silent-monastery/item_sealed_box.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "C0K0Ce3Ne2YZwNeJv6YQi8Az",
+      "ext": ".png",
+      "hash": "ff5a0ae3",
+      "size": 98025,
+      "fs_path": "games/tanglang-academy/item_old_photo.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "C0KfUQcVDmTSL_C6J4UmCc_R",
+      "ext": ".png",
+      "hash": "f6ab0e04",
+      "size": 126955,
+      "fs_path": "games/echo-cocoon/item_item_datapad.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "C0VlGcdPnL5Jql1wws6HEM2g",
+      "ext": ".png",
+      "hash": "81a09627",
+      "size": 59037,
+      "fs_path": "games/century-end-cinema/item_i_fuse.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "C0iN8QONHh2zSw3ugOEOz2ew",
+      "ext": ".json",
+      "hash": "927c93cb",
+      "size": 45815,
+      "fs_path": "games/tanglang-academy/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "C2oy2V0_gx14CI_rYq_yqWIA",
+      "ext": ".png",
+      "hash": "4723676d",
+      "size": 170135,
+      "fs_path": "games/millennium-countdown/item_ups_battery.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "C2pmMZgXJ-3_p5eRI-o7kFxX",
+      "ext": ".jpg",
+      "hash": "646bff39",
+      "size": 193386,
+      "fs_path": "games/abyss-town/scene_hall_interior.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "C3q8ySDB_PpRZgFsB4RvqA2H",
+      "ext": ".jpg",
+      "hash": "bba33044",
+      "size": 284711,
+      "fs_path": "games/reverse-entropy-greenhouse/scene_grafting_table.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "C4zRqfj0gLY6tnOXyvCWbuHL",
+      "ext": ".jpg",
+      "hash": "bf7dd893",
+      "size": 141077,
+      "fs_path": "games/liyuan-opera/scene_backstage.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "C7Np6XwwP8sIwGIwKPJJgH-u",
+      "ext": ".png",
+      "hash": "d8b07d11",
+      "size": 158958,
+      "fs_path": "games/century-end-cinema/item_i_nokia.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "C7tCeVsKZBfZzWi43g2-i4jH",
+      "ext": ".ttf",
+      "hash": "13da9e7c",
+      "size": 6923212,
+      "fs_path": "Fonts/FusionPixel-12px-Prop-zh_hans.ttf",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "C8NM4e06gWDdkS5vSZCTKAfz",
+      "ext": ".jpg",
+      "hash": "b2a7370e",
+      "size": 232129,
+      "fs_path": "games/out-of-print-screening/scene_sound_booth.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "C8QIMRFv0yqPFCVSAvKBs7Aq",
+      "ext": ".png",
+      "hash": "ec8797b3",
+      "size": 178689,
+      "fs_path": "games/liyuan-opera/item_notebook.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "C9FwCcSsVHGc23TDXuHrC7lz",
+      "ext": ".png",
+      "hash": "0b492f4e",
+      "size": 79450,
+      "fs_path": "games/tanglang-academy/item_strange_statue.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "C9LMofX-g_Bg8fkC4xSyIIYd",
+      "ext": ".lua",
+      "hash": "285ef31a",
+      "size": 2292,
+      "fs_path": "UI_Message.lua",
+      "prefix": "../scripts"
+    },
+    {
+      "uuid": "CA23-Y1KXkvV0afvEXhjracK",
+      "ext": ".png",
+      "hash": "3ea2e24a",
+      "size": 222781,
+      "fs_path": "games/reverse-entropy-greenhouse/item_liquid_hourglass.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CA3m4a9u8GrhYJjnIKyCudnW",
+      "ext": ".png",
+      "hash": "bac31c0f",
+      "size": 205355,
+      "fs_path": "games/silent-sanatorium/item_diary_page.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CAWJeSAZlzAH6cPdNGAy3GB6",
+      "ext": ".png",
+      "hash": "3c1b3046",
+      "size": 121542,
+      "fs_path": "games/out-of-print-screening/item_cue_sheet.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CAlQgd7UNi0G4mjfevpyu9A5",
+      "ext": ".jpg",
+      "hash": "ffc47b72",
+      "size": 261849,
+      "fs_path": "games/century-end-cinema/scene_s_reception.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CEHhiZfB7yhly6jU77rzDCr3",
+      "ext": ".png",
+      "hash": "3d9fad78",
+      "size": 58501,
+      "fs_path": "games/tanglang-academy/item_rusty_handle.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CEKP-e0v6Ho15bwrg4hJ-Vzd",
+      "ext": ".jpg",
+      "hash": "c88d6b9e",
+      "size": 280888,
+      "fs_path": "games/static-dimension/scene_echo_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CFTHCaSh_tPhsHwnJPCOTxMS",
+      "ext": ".png",
+      "hash": "36d40af8",
+      "size": 63582,
+      "fs_path": "games/tanglang-academy/item_vhs_tape.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CH3V2cn1iUbf_Dy2gshygh-l",
+      "ext": ".png",
+      "hash": "5b2d0dc7",
+      "size": 720985,
+      "fs_path": "games/curse-of-perfection/item_doll_arm.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CIpkkZaqMbgoUBFvNeahH5G-",
+      "ext": ".png",
+      "hash": "cfb02148",
+      "size": 118403,
+      "fs_path": "games/echo-cocoon/item_item_core.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CMNZwWNlEbwlBfwMWkwtzSfe",
+      "ext": ".png",
+      "hash": "ff2268bf",
+      "size": 43592,
+      "fs_path": "games/saint-lily-academy/item_doll_arm.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CNM7YWyLR5pONjbqG1hfZX5q",
+      "ext": ".png",
+      "hash": "f1b59ea1",
+      "size": 322631,
+      "fs_path": "games/abyss-town/item_rusty_bell.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "COq46Y1NCFDVsZthjH3lM6CE",
+      "ext": ".jpg",
+      "hash": "51b781d0",
+      "size": 289160,
+      "fs_path": "games/silent-sanatorium/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CQ3-YcBEzBj0Ss470elHWBYr",
+      "ext": ".png",
+      "hash": "e0132f56",
+      "size": 89622,
+      "fs_path": "games/century-end-cinema/item_i_flashlight.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CRJTkVGDk0NxmgH1O05eRQ0v",
+      "ext": ".png",
+      "hash": "b186dd96",
+      "size": 51052,
+      "fs_path": "games/static-dimension/item_severed_finger.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CRfGaQaEtJtibFzCN1U-Spqt",
+      "ext": ".jpg",
+      "hash": "91317d60",
+      "size": 281300,
+      "fs_path": "games/silent-sanatorium/scene_flesh_archive.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CRupIUzJN3hlBnB3jtQnZSJA",
+      "ext": ".png",
+      "hash": "dc9d3fae",
+      "size": 216607,
+      "fs_path": "games/silent-mansion/item_jade_pendant.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CSWc0dyEJSRzbfy3M9ZLBsVW",
+      "ext": ".png",
+      "hash": "0c4ba7d6",
+      "size": 191528,
+      "fs_path": "games/deep-echo/item_study_open_compartment.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CTzrca2OxRFf8F2ZdyUIcYCO",
+      "ext": ".jpg",
+      "hash": "8f5e3682",
+      "size": 240820,
+      "fs_path": "games/tanglang-academy/scene_teaching_1_hall.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CUGoGQN802Lzt7j3vhWVax1h",
+      "ext": ".png",
+      "hash": "3d9ec1ae",
+      "size": 85297,
+      "fs_path": "games/ink-erosion-scroll/item_inkstone.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CVYTQZ5uoDUaCQdzHBhGYOgk",
+      "ext": ".png",
+      "hash": "9f7f4fba",
+      "size": 110638,
+      "fs_path": "games/echo-library/item_glowing_crystal.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CYROgTjkVK_9Q8sNq3mZhk2n",
+      "ext": ".png",
+      "hash": "b5dce8b9",
+      "size": 190215,
+      "fs_path": "games/puppet-town/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CYTcmWfKjfFCAZdF06DVui9l",
+      "ext": ".png",
+      "hash": "e102ec60",
+      "size": 86358,
+      "fs_path": "games/abyss/item_cinnabar_brush.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CZvMcRyL--oEl-0JbyFPl4hd",
+      "ext": ".png",
+      "hash": "bee9d15a",
+      "size": 175480,
+      "fs_path": "games/abyss-town/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "C_UIwS9ECx2ZCMaNZ5hB8gUM",
+      "ext": ".png",
+      "hash": "69799696",
+      "size": 90231,
+      "fs_path": "games/huichuntang/item_copper_furnace.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CaSxMfmruDXq6FmmFW29jAuc",
+      "ext": ".png",
+      "hash": "57b8eb64",
+      "size": 113133,
+      "fs_path": "games/tanglang-academy/item_alcohol.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CaXAYU_LueRwsoHs2VWnz8_k",
+      "ext": ".jpg",
+      "hash": "ed5445ad",
+      "size": 128892,
+      "fs_path": "games/deep-echo/scene_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Cb6kWWnm0tcZzWm8naiSCTWC",
+      "ext": ".png",
+      "hash": "e90f6e91",
+      "size": 119997,
+      "fs_path": "games/liyuan-opera/item_mask.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Cc0PiU5hScW_pMZsxhJyt3mq",
+      "ext": ".mp3",
+      "hash": "886a33be",
+      "size": 772939,
+      "fs_path": "games/echo-cocoon/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CdrbIfCeN9nSyGmN1NLJ10SI",
+      "ext": ".jpg",
+      "hash": "e94faacb",
+      "size": 327656,
+      "fs_path": "games/silent-sanatorium/scene_mirror_surgery.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CeAcea1C9hbRvM9OWMwqmt2U",
+      "ext": ".png",
+      "hash": "6f9010af",
+      "size": 230479,
+      "fs_path": "games/deep-echo/item_glowing_pebble.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ChAD-Zn67tWsrFHh2KPo5emO",
+      "ext": ".jpg",
+      "hash": "48bed5ff",
+      "size": 211404,
+      "fs_path": "games/abyss/scene_audience_area.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Ci3ZiaflAVGEByPssPg0fm0j",
+      "ext": ".jpg",
+      "hash": "dd63d4f9",
+      "size": 296988,
+      "fs_path": "games/out-of-print-screening/scene_director_office.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CiPAOdvk6RnP7tnbBgT9Awch",
+      "ext": ".png",
+      "hash": "cdb4f9af",
+      "size": 327359,
+      "fs_path": "games/silent-mansion/item_torn_genealogy.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CihkmTjGW19eVfzEse3oXY_Q",
+      "ext": ".lua",
+      "hash": "d683bf3c",
+      "size": 9490,
+      "fs_path": "UI_GameSelect.lua",
+      "prefix": "../scripts"
+    },
+    {
+      "uuid": "Cl7_-XjOeZAmm01Nw0Co92Cv",
+      "ext": ".jpg",
+      "hash": "d459b31b",
+      "size": 238645,
+      "fs_path": "games/silent-monastery/scene_archives.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Clvf-V0qxiJLr3GWDjcnzf3_",
+      "ext": ".png",
+      "hash": "96c52835",
+      "size": 622487,
+      "fs_path": "games/huichuntang/item_torn_photo.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CmJa8WuvhJ5GiKDQt6-2-x_R",
+      "ext": ".mp3",
+      "hash": "90046062",
+      "size": 2880621,
+      "fs_path": "games/reverse-entropy-greenhouse/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CnT8ASpoeOeapZhuazHeOr3E",
+      "ext": ".png",
+      "hash": "96c4dde3",
+      "size": 181605,
+      "fs_path": "games/saint-lily-academy/item_diary.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CnXl8ZBIKX0-90COIBcbDY-F",
+      "ext": ".json",
+      "hash": "b7163774",
+      "size": 21845,
+      "fs_path": "games/reverse-entropy-greenhouse/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CnujgaAaMOrhwcsJSiwa6CMB",
+      "ext": ".ttf",
+      "hash": "c455d240",
+      "size": 7006220,
+      "fs_path": "Fonts/FusionPixel-12px-Prop-zh_hans-Bold.ttf",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CoJNUW_z-T-Cr7-mrP-O2jUX",
+      "ext": ".png",
+      "hash": "a99df69e",
+      "size": 107697,
+      "fs_path": "games/millennium-countdown/item_cable_crimper.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CqEsIa03wT5BMrIOqhwe0vQm",
+      "ext": ".lua",
+      "hash": "cc6e01c5",
+      "size": 4943,
+      "fs_path": "Audio.lua",
+      "prefix": "../scripts"
+    },
+    {
+      "uuid": "CrK56V-iYoFMNqE_5qNi312p",
+      "ext": ".png",
+      "hash": "ea8c318c",
+      "size": 204123,
+      "fs_path": "games/tanglang-academy/item_security_card.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CsEc0Zw1zjN3S4jo5v8q2oow",
+      "ext": ".mp3",
+      "hash": "6bd1ae5b",
+      "size": 2880621,
+      "fs_path": "games/abyss-town/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Cu1kKX30wljD1MM99ULxTFew",
+      "ext": ".png",
+      "hash": "6dbc9f68",
+      "size": 94643,
+      "fs_path": "games/tanglang-academy/item_torn_page_2.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "CuQgGaCykUD4oSHVh0b-np_l",
+      "ext": ".png",
+      "hash": "f07ef0a4",
+      "size": 136148,
+      "fs_path": "games/dream-archive/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Cv4uOU_9YHMmcWp_vZm42qcj",
+      "ext": ".png",
+      "hash": "68cce0c8",
+      "size": 112907,
+      "fs_path": "games/echo-cocoon/item_item_fleshtool.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Cvxl2UPzpq5_-glM96voqNLY",
+      "ext": ".png",
+      "hash": "a0a5461c",
+      "size": 215965,
+      "fs_path": "games/out-of-print-screening/item_flashlight.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Cz4lGU_E8DXC2bVspUn2W-Eo",
+      "ext": ".png",
+      "hash": "e96d11af",
+      "size": 179446,
+      "fs_path": "games/endless-rain-alley/item_paper.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Czt6AWQSJ3FRngI-Zz5RL6Qa",
+      "ext": ".jpg",
+      "hash": "66c70706",
+      "size": 469613,
+      "fs_path": "games/out-of-print-screening/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D0q0cSY77SSRWysHDamV6sCM",
+      "ext": ".jpg",
+      "hash": "a2cf41e2",
+      "size": 336799,
+      "fs_path": "games/millennium-countdown/scene_generator_room.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D1x1AYM2EgfMwv0iMdMQoKgU",
+      "ext": ".jpg",
+      "hash": "5aa3d1e2",
+      "size": 215812,
+      "fs_path": "games/grudge-apartment/scene_storage.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D2GVIaTKXlVShS1IcSpyJBEG",
+      "ext": ".jpg",
+      "hash": "7c866131",
+      "size": 222533,
+      "fs_path": "games/century-end-cinema/scene_s_storage.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D2VnKYHR4FN8KlEI4IYYNwoD",
+      "ext": ".png",
+      "hash": "aca0b80a",
+      "size": 48854,
+      "fs_path": "games/dream-archive/item_rusty_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D2gQGUYVGYOzFyzkcVjSvixh",
+      "ext": ".jpg",
+      "hash": "96ad506e",
+      "size": 242107,
+      "fs_path": "games/out-of-print-screening/scene_reality_exit.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D2pn2WBTK4fSRNUcfhociULc",
+      "ext": ".json",
+      "hash": "0f51a924",
+      "size": 19108,
+      "fs_path": "games/curse-of-perfection/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D2rumSTIluNrs9ptvFdUak8h",
+      "ext": ".json",
+      "hash": "aec64e0b",
+      "size": 707,
+      "fs_path": "pack-config.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D35wic7m-pxIl_I42k3ZAO5a",
+      "ext": ".png",
+      "hash": "82fd1874",
+      "size": 162481,
+      "fs_path": "games/living-mansion/item_vitreous_lens.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D3uE2QDM8KMz8y3Rzuf6-RiK",
+      "ext": ".json",
+      "hash": "ca437da6",
+      "size": 21801,
+      "fs_path": "games/abyss/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D47C8fLoYdKOfUiU1K_rFUv9",
+      "ext": ".png",
+      "hash": "370b8f40",
+      "size": 75620,
+      "fs_path": "games/static-dimension/item_resonance_fork.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D5Ku4TFrLNjrmBmUFywYqRvS",
+      "ext": ".png",
+      "hash": "6d048af0",
+      "size": 77544,
+      "fs_path": "games/ink-erosion-scroll/item_cinnabar.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D5k5gYwEB8SvPGjj9kAP4nc7",
+      "ext": ".jpg",
+      "hash": "cf69e375",
+      "size": 274561,
+      "fs_path": "games/saint-lily-academy/scene_art.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D5lKQZYh5RoIh8WMC4BujBKt",
+      "ext": ".png",
+      "hash": "ab4f136a",
+      "size": 198575,
+      "fs_path": "games/echo-cocoon/item_item_lightstick.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D6FpuahPKoviSHfqW_BhcPL6",
+      "ext": ".jpg",
+      "hash": "87d6ff04",
+      "size": 185116,
+      "fs_path": "games/dream-archive/scene_forbidden_library.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D6QFsRTW_0CsnBnwhP8k4FCG",
+      "ext": ".jpg",
+      "hash": "99a57ef7",
+      "size": 212669,
+      "fs_path": "games/deep-echo/scene_study.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D6c2McDz7ZLZvsAotieui2v-",
+      "ext": ".jpg",
+      "hash": "a0148d7a",
+      "size": 219346,
+      "fs_path": "games/endless-rain-alley/scene_effigy_room.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D78foUi5zwQiv4iJTVKPrZ8G",
+      "ext": ".png",
+      "hash": "93d41c72",
+      "size": 417699,
+      "fs_path": "games/tanglang-academy/item_eng_blueprint.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D8C7ST-2iMQ2pmaqq2gkURKu",
+      "ext": ".jpg",
+      "hash": "07e6c70f",
+      "size": 296890,
+      "fs_path": "games/static-dimension/scene_frozen_studio.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D8F7IeoqehwD89fACaDDjElh",
+      "ext": ".jpg",
+      "hash": "06c697dc",
+      "size": 287073,
+      "fs_path": "games/ink-erosion-scroll/scene_pavilion.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D8UCUcheW-O2Okz-9onvOZsT",
+      "ext": ".jpg",
+      "hash": "bbef20b1",
+      "size": 230046,
+      "fs_path": "games/endless-rain-alley/scene_courtyard.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D958YW3ULTVz9nRiArqPU6ox",
+      "ext": ".jpg",
+      "hash": "6e5684af",
+      "size": 233814,
+      "fs_path": "games/endless-rain-alley/scene_well.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D9glUXMXsd_6-MQVz9Iz7zP4",
+      "ext": ".png",
+      "hash": "d108b573",
+      "size": 111264,
+      "fs_path": "games/ink-erosion-scroll/item_scroll_frag.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DCvbeU0TFQu1MfV3qenTAk4N",
+      "ext": ".png",
+      "hash": "6a98fcf0",
+      "size": 204341,
+      "fs_path": "games/tanglang-academy/item_torn_page_1.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DDruScuKEem_47Siz0_zHHaV",
+      "ext": ".jpg",
+      "hash": "9dfe6370",
+      "size": 246394,
+      "fs_path": "games/reverse-entropy-greenhouse/scene_root_control.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DFMuMTd-0PFM3OaSgsb2roC2",
+      "ext": ".png",
+      "hash": "852d5539",
+      "size": 126983,
+      "fs_path": "games/tanglang-academy/item_sci_report.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DFcYIYWF_YgSnkxTRIQ32DPt",
+      "ext": ".mp3",
+      "hash": "ddd16606",
+      "size": 2880621,
+      "fs_path": "games/dream-archive/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DFmzocrJJoYpKccNDbFE0O60",
+      "ext": ".png",
+      "hash": "454ad8d4",
+      "size": 77164,
+      "fs_path": "games/century-end-cinema/item_i_control_handle.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DFrvkW6476pralPtcyUebftD",
+      "ext": ".mp3",
+      "hash": "3fbabe55",
+      "size": 2880621,
+      "fs_path": "games/ink-erosion-scroll/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DIKHybKHyU-kLkUyDf-i-pq0",
+      "ext": ".jpg",
+      "hash": "99d7dd68",
+      "size": 221008,
+      "fs_path": "games/echo-cocoon/scene_scene_biolab.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DIkxkRF0YvnguhBscN_CHCxf",
+      "ext": ".png",
+      "hash": "1cab6304",
+      "size": 703515,
+      "fs_path": "games/grudge-apartment/item_photo_scraps.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DLX6aaVqsYqGvszRpXX7wxXt",
+      "ext": ".jpg",
+      "hash": "b06e1057",
+      "size": 203577,
+      "fs_path": "games/out-of-print-screening/scene_final_cinema.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DLZ_cdctzqBMHrUSm2Rewtn6",
+      "ext": ".png",
+      "hash": "2163d22d",
+      "size": 93088,
+      "fs_path": "games/reverse-entropy-greenhouse/item_void_prism.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DLc4eWrh7q02tQZ4ocQV8CeV",
+      "ext": ".jpg",
+      "hash": "617701a0",
+      "size": 426333,
+      "fs_path": "games/static-dimension/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DLq6-ULJLh6vdaXhMMFMR1Ra",
+      "ext": ".jpg",
+      "hash": "b04437c7",
+      "size": 252340,
+      "fs_path": "games/millennium-countdown/scene_server_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DPtTeZcOyklLQ5ijjxCK0STp",
+      "ext": ".png",
+      "hash": "b5159c4f",
+      "size": 76773,
+      "fs_path": "games/endless-rain-alley/item_knife.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DQCq-b-3fQJggip37MuTBPz9",
+      "ext": ".json",
+      "hash": "82c3e1be",
+      "size": 38065,
+      "fs_path": "games/millennium-countdown/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DQLyccNsMm8pkIBnM3J9cBLg",
+      "ext": ".png",
+      "hash": "e4914c18",
+      "size": 204349,
+      "fs_path": "games/puppet-theater/item_system_disk.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DQWDEbM7NqUTCAJGQShhZ1xc",
+      "ext": ".jpg",
+      "hash": "0d365548",
+      "size": 182498,
+      "fs_path": "games/deep-echo/scene_hall_of_mirrors.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DRzbGUmEwKVfA-A10HXBGpOn",
+      "ext": ".png",
+      "hash": "4edc2767",
+      "size": 39808,
+      "fs_path": "games/silent-monastery/item_silver_crucifix.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DS5QmXJW6q4xE9ILZRTWkYwc",
+      "ext": ".jpg",
+      "hash": "dc38efe8",
+      "size": 211738,
+      "fs_path": "games/duet-of-time/scene_crossroad.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DS86wajuusKJ8dArxVihsQsU",
+      "ext": ".json",
+      "hash": "b63dc356",
+      "size": 21835,
+      "fs_path": "games/century-end-cinema/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DTLnMTZS-hw4whkRQ-6AmVAx",
+      "ext": ".png",
+      "hash": "c6c90383",
+      "size": 52229,
+      "fs_path": "games/puppet-town/item_crowbar.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DTOj8eGrwcZdqSxHRhRSYu8B",
+      "ext": ".jpg",
+      "hash": "f9154fd8",
+      "size": 244490,
+      "fs_path": "games/millennium-countdown/banner.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DVN72cuODCOr2ZKy3wLnPoZI",
+      "ext": ".png",
+      "hash": "3005b839",
+      "size": 312164,
+      "fs_path": "games/millennium-countdown/item_pressure_gauge_manual.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DVeL0eTMjnWk9qgOro8muIfw",
+      "ext": ".png",
+      "hash": "2a930ca8",
+      "size": 92826,
+      "fs_path": "games/curse-of-perfection/item_key_art.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DVyh-S9QpgaBPqO_VddFDu7D",
+      "ext": ".png",
+      "hash": "20ae5800",
+      "size": 224309,
+      "fs_path": "games/liyuan-opera/item_cylinder.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DXgD0Wo3Ybn8sXi9w4VB6WOd",
+      "ext": ".png",
+      "hash": "53bc59ec",
+      "size": 82503,
+      "fs_path": "games/saint-lily-academy/item_courtyard_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DZlOqfFV3VH9NDZ6gnrcn_1B",
+      "ext": ".png",
+      "hash": "b9b38d51",
+      "size": 181915,
+      "fs_path": "games/silent-monastery/item_old_map.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D_2DuYmubrp32UpbQ5m9OPYk",
+      "ext": ".png",
+      "hash": "02979f05",
+      "size": 69268,
+      "fs_path": "games/liyuan-opera/item_talisman.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "D_81UYyroEmM-P5hNoIpx-TZ",
+      "ext": ".jpg",
+      "hash": "8d84b752",
+      "size": 299887,
+      "fs_path": "games/saint-lily-academy/scene_principal.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DaqHoflYTF6QNrobt5hU6BZg",
+      "ext": ".jpg",
+      "hash": "87a9a9b2",
+      "size": 202196,
+      "fs_path": "games/silent-monastery/scene_altar_chamber.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Db4I6bYkePBzY5OE1Wfirspe",
+      "ext": ".jpg",
+      "hash": "e020533b",
+      "size": 198494,
+      "fs_path": "games/tanglang-academy/scene_ending_dawn.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DdVHwZAnHhaAQ9xr-Lr6MWYV",
+      "ext": ".jpg",
+      "hash": "f761bb9c",
+      "size": 218480,
+      "fs_path": "games/endless-rain-alley/scene_shrine.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "De8Xmdnk3r9_95E6_G_xfmmp",
+      "ext": ".json",
+      "hash": "6ff67164",
+      "size": 13795,
+      "fs_path": "games/silent-mansion/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Dgm0-XCxZrE_iQ4bFFgZFEvl",
+      "ext": ".jpg",
+      "hash": "e852d33c",
+      "size": 259505,
+      "fs_path": "games/out-of-print-screening/scene_paint_storage.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DgnHUYFIacdm38i6R1MRmdX0",
+      "ext": ".png",
+      "hash": "bd196340",
+      "size": 96628,
+      "fs_path": "games/endless-rain-alley/item_key_attic.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DhK6camKhnHPA5zegvqfmnn-",
+      "ext": ".png",
+      "hash": "ac8c160b",
+      "size": 64500,
+      "fs_path": "games/puppet-town/item_lamp.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DhmAwfgd-eqgORKVVOIrVTpQ",
+      "ext": ".jpg",
+      "hash": "ababe241",
+      "size": 401413,
+      "fs_path": "games/century-end-cinema/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DigEaSsBo0nZifGEW2PQb4sP",
+      "ext": ".png",
+      "hash": "fbcfd674",
+      "size": 136112,
+      "fs_path": "games/abyss/item_soaked_script.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DjI_-VctNdSfQzxicidYPCiN",
+      "ext": ".png",
+      "hash": "cc0f9757",
+      "size": 101576,
+      "fs_path": "games/liyuan-opera/item_backstage_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DjXN4aTj3clbgD4tBxVGeCHp",
+      "ext": ".png",
+      "hash": "aeccdd2d",
+      "size": 196913,
+      "fs_path": "games/echo-cocoon/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DkJMSZpqq8VmhNrnnJd63zci",
+      "ext": ".jpg",
+      "hash": "66c83e4b",
+      "size": 153661,
+      "fs_path": "games/dream-archive/scene_empty_gallery.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Dl9iWYt8SlprQYq-n2FPNfnd",
+      "ext": ".jpg",
+      "hash": "1bd2127c",
+      "size": 209492,
+      "fs_path": "games/huichuntang/scene_cabinets.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Dlfh2VRdDrU7-mcSvGsZXnA-",
+      "ext": ".png",
+      "hash": "2fe2f09e",
+      "size": 88333,
+      "fs_path": "games/static-dimension/item_voice_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DmbRmTzyogfB_v8aSr5y0UIW",
+      "ext": ".jpg",
+      "hash": "23f51e7a",
+      "size": 248845,
+      "fs_path": "games/kowloon-immortal-code/scene_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DmmBQdLZga8hCXsrjtO2mxsh",
+      "ext": ".png",
+      "hash": "db8ff2b7",
+      "size": 202294,
+      "fs_path": "games/silent-monastery/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Dn9g0QPJCNy8EW7LRwAtloID",
+      "ext": ".jpg",
+      "hash": "a2595647",
+      "size": 145601,
+      "fs_path": "games/ink-erosion-scroll/scene_hall.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Dn9gOd9qgaYOcJ9paRSSfxPM",
+      "ext": ".png",
+      "hash": "cc0dcb74",
+      "size": 513416,
+      "fs_path": "games/ink-erosion-scroll/item_puzzle_piece.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DouPeTEoJE20genf0k-GfAT2",
+      "ext": ".png",
+      "hash": "9e88f30f",
+      "size": 233137,
+      "fs_path": "games/reverse-entropy-greenhouse/item_star_chart.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DpqDqTcy8BZlD3JcJYjHFkAP",
+      "ext": ".png",
+      "hash": "bdc282ef",
+      "size": 149351,
+      "fs_path": "games/silent-monastery/item_broken_reliquary.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DqpdIS3x0yftdI1G-imLe0R3",
+      "ext": ".png",
+      "hash": "094ed68c",
+      "size": 152983,
+      "fs_path": "games/huichuntang/item_paper_slip.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DsJLsWlduBzxowchlj6ZEIPB",
+      "ext": ".json",
+      "hash": "c5068649",
+      "size": 21884,
+      "fs_path": "games/silent-sanatorium/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DtGaUWZlgr6Yc6dHXYSHhS41",
+      "ext": ".lua",
+      "hash": "ea15434a",
+      "size": 24569,
+      "fs_path": "GameEngine.lua",
+      "prefix": "../scripts"
+    },
+    {
+      "uuid": "DtIoMa6PKsOPeeymaC9IAn-E",
+      "ext": ".jpg",
+      "hash": "2e1c3bdf",
+      "size": 200151,
+      "fs_path": "games/saint-lily-academy/scene_broadcast.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DulUIfmC7i7KgWbSNvjqrvPN",
+      "ext": ".jpg",
+      "hash": "a1399ccf",
+      "size": 181320,
+      "fs_path": "games/abyss/scene_stage_flooded.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DwQQ0WoXfF2AZFuKCGTvCl_V",
+      "ext": ".png",
+      "hash": "edaac3ff",
+      "size": 214235,
+      "fs_path": "games/curse-of-perfection/item_diary.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "DxgZ0co2_pxqBPfeJ7d9yKZd",
+      "ext": ".jpg",
+      "hash": "2b31ca18",
+      "size": 208716,
+      "fs_path": "games/echo-cocoon/scene_scene_observation.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "E-1x2fVgVhT9YKWdrpnhLRJS",
+      "ext": ".jpg",
+      "hash": "74f345e7",
+      "size": 309471,
+      "fs_path": "games/century-end-cinema/scene_s_bulletin_board.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "E-FUybM9v6V6PCck2ezW6MM5",
+      "ext": ".jpg",
+      "hash": "a8e57420",
+      "size": 231381,
+      "fs_path": "games/living-mansion/scene_valvular_hall.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "E-HEgWqofPqgGMco97jTNhEj",
+      "ext": ".jpg",
+      "hash": "6bda108c",
+      "size": 186349,
+      "fs_path": "games/silent-monastery/scene_monastery_main_gate.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "E-gjObEp2jDy7LFBtWjoqy0s",
+      "ext": ".jpg",
+      "hash": "a6189a02",
+      "size": 209296,
+      "fs_path": "games/duet-of-time/scene_path.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "E-qD0dZ_tDqzO8pygSxUUOTu",
+      "ext": ".jpg",
+      "hash": "fb142e7c",
+      "size": 354978,
+      "fs_path": "games/saint-lily-academy/scene_dance.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "E0y6aV9qc4L_USiCfA5QC0oJ",
+      "ext": ".jpg",
+      "hash": "613e6e5c",
+      "size": 345355,
+      "fs_path": "games/ink-erosion-scroll/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "E1cdWRJHl0GPIUNtJgPt1FpV",
+      "ext": ".png",
+      "hash": "f032ce4f",
+      "size": 83682,
+      "fs_path": "games/tanglang-academy/item_chemical_b.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "E3PCIVgrt_IhK_CuNfqbmEoQ",
+      "ext": ".png",
+      "hash": "4e0527ed",
+      "size": 92526,
+      "fs_path": "games/static-dimension/item_optic_vacuum.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "E5QdgfzDUlA6t2aWGeYFye0S",
+      "ext": ".png",
+      "hash": "38880cd2",
+      "size": 125756,
+      "fs_path": "games/curse-of-perfection/item_rose.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "E5WPCZJ1iuiV3e8EZoyrOb5d",
+      "ext": ".jpg",
+      "hash": "5feec914",
+      "size": 384971,
+      "fs_path": "games/saint-lily-academy/scene_courtyard.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "E5Y-ccPg5shtxuLgKFb6-w3N",
+      "ext": ".jpg",
+      "hash": "e2f1a861",
+      "size": 203027,
+      "fs_path": "games/curse-of-perfection/scene_dorm.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "E70ziQrtrGuB9LHRu_hJAkWy",
+      "ext": ".jpg",
+      "hash": "50d9ec16",
+      "size": 215000,
+      "fs_path": "games/silent-monastery/scene_monk_dormitory.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "E7CziSpG8KmGnzOIxtpurlgF",
+      "ext": ".png",
+      "hash": "021bd7da",
+      "size": 192833,
+      "fs_path": "games/out-of-print-screening/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "E9zeKa1z7Ch3uln_yUvLlc7v",
+      "ext": ".png",
+      "hash": "714d20de",
+      "size": 117104,
+      "fs_path": "games/kowloon-immortal-code/item_note.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EAMJqVPJ3hIBYcTvHpTmDNhh",
+      "ext": ".png",
+      "hash": "b39260cd",
+      "size": 47157,
+      "fs_path": "games/saint-lily-academy/item_art_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EAT6IYA8XdnPZL_oElOPdkwG",
+      "ext": ".png",
+      "hash": "5ed749d5",
+      "size": 132080,
+      "fs_path": "games/abyss/item_ritual_dagger.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EAsfoUiUuDnwGsZ8S3jw1VKo",
+      "ext": ".jpg",
+      "hash": "ccc2a6fa",
+      "size": 275161,
+      "fs_path": "games/kowloon-immortal-code/scene_server.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EC60SQAHQNOyT4uChYHpD4wG",
+      "ext": ".png",
+      "hash": "1fad3b34",
+      "size": 89714,
+      "fs_path": "games/tanglang-academy/item_memory_shard.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ECT-aZTE9XLTy4EgU9uL5dS8",
+      "ext": ".png",
+      "hash": "ee35dbd5",
+      "size": 189885,
+      "fs_path": "games/deep-echo/item_family_photo.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ECnhEYXzi3JXXJrs5xrdimTR",
+      "ext": ".jpg",
+      "hash": "da168405",
+      "size": 140740,
+      "fs_path": "games/millennium-countdown/scene_break_room.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EDB8me8LL77zbns5aXHeiF3A",
+      "ext": ".png",
+      "hash": "ca7aeb10",
+      "size": 204325,
+      "fs_path": "games/century-end-cinema/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EDG1aSDtT0XNhrqK8sxZQDvC",
+      "ext": ".xml",
+      "hash": "685fba4a",
+      "size": 62,
+      "fs_path": "Fonts/FusionPixel-12px-Prop-zh_hans-Bold.xml",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EDtWiV1ju7dXgtqqtYyDbLQN",
+      "ext": ".png",
+      "hash": "35ef9734",
+      "size": 36470,
+      "fs_path": "games/silent-monastery/item_iron_crowbar.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EEFfCaobtb8JEr3W4mQqz7sw",
+      "ext": ".jpg",
+      "hash": "26c86e5c",
+      "size": 214134,
+      "fs_path": "games/dream-archive/scene_archive_storage.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EENdYZCByMZt6KuUp1iCFeuR",
+      "ext": ".jpg",
+      "hash": "d25076ed",
+      "size": 162332,
+      "fs_path": "games/liyuan-opera/scene_ticket_office.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EEuhKSEszluFcLPUB4iMS_bL",
+      "ext": ".jpg",
+      "hash": "2776a4ea",
+      "size": 275662,
+      "fs_path": "games/silent-mansion/marketing_banner.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EILKsXu2ADWkigFF6pC8NRxv",
+      "ext": ".png",
+      "hash": "7ce96269",
+      "size": 171060,
+      "fs_path": "games/silent-monastery/item_purified_holy_water.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EJ5x4Se5NoYgSllnSRmbWyMK",
+      "ext": ".png",
+      "hash": "c27da53a",
+      "size": 66224,
+      "fs_path": "games/puppet-theater/item_scalpel.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EJJcKfT8CwLWmZOPx8ElbXyV",
+      "ext": ".png",
+      "hash": "9716735c",
+      "size": 126777,
+      "fs_path": "games/echo-cocoon/item_item_keycard.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EJNz0dKlhGa8DEqbSQyZ6t6G",
+      "ext": ".png",
+      "hash": "be9b2d40",
+      "size": 145850,
+      "fs_path": "games/century-end-cinema/item_i_booth_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EJsfybB5NJyX5ZNYEXYEr_CY",
+      "ext": ".jpg",
+      "hash": "c51d5b54",
+      "size": 162104,
+      "fs_path": "games/deep-echo/scene_bedroom.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EKQHSQYOVYibyon-VmPcyNUZ",
+      "ext": ".ogg",
+      "hash": "71fb4502",
+      "size": 3793714,
+      "fs_path": "games/millennium-countdown/bgm.ogg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EL4ScZNVKoW2Cd3FAs5L5x2a",
+      "ext": ".jpg",
+      "hash": "5b1c4118",
+      "size": 254759,
+      "fs_path": "games/grudge-apartment/scene_hallway.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ELOisQ9_1eF9Q3J1QdRnUkd5",
+      "ext": ".jpg",
+      "hash": "67fe4d35",
+      "size": 302582,
+      "fs_path": "games/century-end-cinema/scene_s_projection_booth.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EOmaOf09wFOreHM_cE_L58Gx",
+      "ext": ".mp3",
+      "hash": "cfd2c71e",
+      "size": 1191501,
+      "fs_path": "games/echo-library/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EPkBiZawoudXoNLXjyXVUopF",
+      "ext": ".png",
+      "hash": "eb5e3c68",
+      "size": 148003,
+      "fs_path": "games/static-dimension/item_maintenance_log.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EPpdKZZ0q0-K7_qEquRsdQ-R",
+      "ext": ".png",
+      "hash": "ee66631e",
+      "size": 215898,
+      "fs_path": "games/living-mansion/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ERYFCXLMOR_KK9bOzQPvl6Ll",
+      "ext": ".json",
+      "hash": "4faae6d5",
+      "size": 13583,
+      "fs_path": "games/echo-cocoon/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ETPUoS1OEUB2fwEsdJtQj_cR",
+      "ext": ".png",
+      "hash": "1283710c",
+      "size": 267736,
+      "fs_path": "games/grudge-apartment/item_diary.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ETbkEahn_0TqEh6SGoe4Xx7S",
+      "ext": ".jpg",
+      "hash": "90a499c5",
+      "size": 191068,
+      "fs_path": "games/echo-cocoon/scene_scene_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ETpH2Y6F03lPwXy3CDj8TXOd",
+      "ext": ".jpg",
+      "hash": "ce5e611c",
+      "size": 72200,
+      "fs_path": "games/silent-mansion/scene_shrine.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "ETs0qei0GQp3fdQuI9-ZBM0P",
+      "ext": ".jpg",
+      "hash": "0915fc4d",
+      "size": 211726,
+      "fs_path": "games/puppet-town/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EU0mCWtpT8A50dr4n4YwM0QK",
+      "ext": ".jpg",
+      "hash": "f20d3ac2",
+      "size": 251098,
+      "fs_path": "games/echo-cocoon/scene_scene_comms.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EUMhyS79Ucpl5WK9oP_M68eu",
+      "ext": ".json",
+      "hash": "347d364d",
+      "size": 22545,
+      "fs_path": "games/static-dimension/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EW1GSfnUT2XBzw2v_VFNI0gl",
+      "ext": ".png",
+      "hash": "1b7cd908",
+      "size": 85912,
+      "fs_path": "games/liyuan-opera/item_incenser.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EXAzqZI5ml3XMgzlIbjNA4W0",
+      "ext": ".png",
+      "hash": "f0e39d8e",
+      "size": 239683,
+      "fs_path": "games/duet-of-time/item_scarf.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EXNr-ZNEKTKMWuPBuN20uzWx",
+      "ext": ".jpg",
+      "hash": "0e91845d",
+      "size": 195848,
+      "fs_path": "games/abyss-town/scene_street.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EXn2EZv96OtVXqa4n0nmHwWp",
+      "ext": ".json",
+      "hash": "785ea5ba",
+      "size": 25445,
+      "fs_path": "games/kowloon-immortal-code/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EY9LWbfnTBWqcCJ4_7J6N-3p",
+      "ext": ".jpg",
+      "hash": "759f0d31",
+      "size": 146302,
+      "fs_path": "games/living-mansion/scene_throat_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Ea5ZyVzvLUJtqI-UfUcvbQfZ",
+      "ext": ".png",
+      "hash": "b8c15809",
+      "size": 193569,
+      "fs_path": "games/endless-rain-alley/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EcLiobTvI1mIODdB2_-RPNcS",
+      "ext": ".jpg",
+      "hash": "3ecbcc2f",
+      "size": 175468,
+      "fs_path": "games/abyss-town/scene_river_bed.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EcQJoSGrb67CEOP8r_bbhoXk",
+      "ext": ".json",
+      "hash": "946950d4",
+      "size": 21116,
+      "fs_path": "games/puppet-town/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EcdoaWmOCktYzsxkzgrn0UYg",
+      "ext": ".jpg",
+      "hash": "e08ea1c0",
+      "size": 247159,
+      "fs_path": "games/kowloon-immortal-code/scene_basement.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Ed_gwXCOygAobUjMEH9ugDsf",
+      "ext": ".png",
+      "hash": "82bc7107",
+      "size": 59428,
+      "fs_path": "games/endless-rain-alley/item_shoe.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Ee6zEYqpkruLoA13oLzNa6c1",
+      "ext": ".mp3",
+      "hash": "718aa8f8",
+      "size": 2880621,
+      "fs_path": "games/static-dimension/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EeU6KQJZ0qMfPmfquQGvjJZf",
+      "ext": ".jpg",
+      "hash": "a87ac06c",
+      "size": 341482,
+      "fs_path": "games/abyss/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Ef7C4Vw9olC_RetaGY29pXNA",
+      "ext": ".png",
+      "hash": "751ce2f6",
+      "size": 725132,
+      "fs_path": "games/duet-of-time/item_portrait.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EfcloUw2rQA_SX7m7slaKH_R",
+      "ext": ".png",
+      "hash": "6908cb43",
+      "size": 100771,
+      "fs_path": "games/silent-monastery/item_alchemy_manual.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EfjhefYlwOrnLp5GKtViB2vt",
+      "ext": ".jpg",
+      "hash": "8bc661ed",
+      "size": 179454,
+      "fs_path": "games/silent-monastery/scene_grand_hall.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EfmW-W-2396L6ErihhP-2INn",
+      "ext": ".png",
+      "hash": "0b86263a",
+      "size": 232487,
+      "fs_path": "games/duet-of-time/item_watch.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Eh198QfqOkEFFzKHV9phkOEv",
+      "ext": ".jpg",
+      "hash": "f2ed88ee",
+      "size": 245820,
+      "fs_path": "games/century-end-cinema/scene_s_bathroom.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Ehqo-YPcgF3apULAAF3ruDxF",
+      "ext": ".png",
+      "hash": "db950895",
+      "size": 129695,
+      "fs_path": "games/tanglang-academy/item_flashlight.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EilteQ7grMvu-MojJYHuTjcF",
+      "ext": ".jpg",
+      "hash": "e5aef02f",
+      "size": 211149,
+      "fs_path": "games/echo-cocoon/scene_scene_cryo.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EjpP4YxmbzfNVu5_qCOW8Wdz",
+      "ext": ".png",
+      "hash": "262f33dd",
+      "size": 130007,
+      "fs_path": "games/millennium-countdown/item_rooftop_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EkjmqZ_mDbbkoDmHHUIHpSkb",
+      "ext": ".png",
+      "hash": "1acba3ea",
+      "size": 73942,
+      "fs_path": "games/living-mansion/item_coagulated_memory_serum.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Ekv4aZMsyVWpS98fEfPCJssj",
+      "ext": ".jpg",
+      "hash": "f59868ae",
+      "size": 394258,
+      "fs_path": "games/kowloon-immortal-code/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EmKVSaqBKjicntorlKKSRG7P",
+      "ext": ".png",
+      "hash": "e883f067",
+      "size": 34382,
+      "fs_path": "games/tanglang-academy/item_crowbar.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EmWssRT3_J_nNRDC3i-iSdjf",
+      "ext": ".png",
+      "hash": "1bccdb19",
+      "size": 171724,
+      "fs_path": "games/duet-of-time/item_shard.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EmZ6Cb6VJBgHf98peaVYsoIL",
+      "ext": ".jpg",
+      "hash": "50a37c61",
+      "size": 184771,
+      "fs_path": "games/saint-lily-academy/scene_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EoDRIZxegq5oUzTfZs-hnayB",
+      "ext": ".png",
+      "hash": "a5a014cd",
+      "size": 111929,
+      "fs_path": "games/out-of-print-screening/item_ruler.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EowaWWIMgGSmlB3TJeruGwox",
+      "ext": ".jpg",
+      "hash": "cbf5137b",
+      "size": 281894,
+      "fs_path": "games/echo-cocoon/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Ep8n2YRPfDJPGygT5CtbIVFK",
+      "ext": ".png",
+      "hash": "7af7102d",
+      "size": 67306,
+      "fs_path": "games/abyss-town/item_copper_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EqaGWdcr1AxLOTq6Hqaateuj",
+      "ext": ".json",
+      "hash": "bea78da1",
+      "size": 12967,
+      "fs_path": "games.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EqxpQSGSoCExEhDQNvYzQqrW",
+      "ext": ".png",
+      "hash": "7d583b39",
+      "size": 112488,
+      "fs_path": "games/deep-echo/item_study_grandfather_clock.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EsuzYXsdWbHoK3qzIdRRjgJG",
+      "ext": ".png",
+      "hash": "3f8d983f",
+      "size": 38308,
+      "fs_path": "games/grudge-apartment/item_incense.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EtOuYWIo7Itgaa98RLxE9EnJ",
+      "ext": ".png",
+      "hash": "54e4b9fa",
+      "size": 174771,
+      "fs_path": "games/curse-of-perfection/item_rules.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EuHWCQq2LTy-I6vaD9BDDTcl",
+      "ext": ".png",
+      "hash": "28448bfd",
+      "size": 122020,
+      "fs_path": "games/century-end-cinema/item_i_diary.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EuSu-dMk5avZK5Fqm4huuY_5",
+      "ext": ".jpg",
+      "hash": "b254c732",
+      "size": 133382,
+      "fs_path": "games/dream-archive/scene_memory_hallway.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Eut4qQoTz7dfIFCrYJUhqwGl",
+      "ext": ".jpg",
+      "hash": "ff33ecdc",
+      "size": 370691,
+      "fs_path": "games/static-dimension/scene_broadcast_tower.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EwrQAYzfvmDL_HeELdQV79cf",
+      "ext": ".png",
+      "hash": "34d86c6e",
+      "size": 349714,
+      "fs_path": "games/echo-library/item_purification_protocol.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Ex-NaVMVMdCdZwEVarWOeRCN",
+      "ext": ".png",
+      "hash": "0637187d",
+      "size": 141379,
+      "fs_path": "games/silent-sanatorium/item_spore_sample.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EydC8bUYmT0o8rbFm9X6YEu-",
+      "ext": ".jpg",
+      "hash": "d7364716",
+      "size": 214450,
+      "fs_path": "games/tanglang-academy/scene_teaching_1_room.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Eyr58W9Psmgj4tU2mKnCPaft",
+      "ext": ".mp3",
+      "hash": "24f2ef5a",
+      "size": 2387853,
+      "fs_path": "games/century-end-cinema/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EziSQat6c_WbalWa52NYcn1D",
+      "ext": ".png",
+      "hash": "1f60fb35",
+      "size": 121210,
+      "fs_path": "games/millennium-countdown/item_supervisor_keycard.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "EzoyWbj3-W0Op2_ki-piGQDE",
+      "ext": ".png",
+      "hash": "0420eeaa",
+      "size": 167435,
+      "fs_path": "games/kowloon-immortal-code/item_battery.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F-qsmW-rO0zV89SOjjfDGViK",
+      "ext": ".json",
+      "hash": "f80c6bd6",
+      "size": 19777,
+      "fs_path": "games/puppet-theater/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F-zB0eJaKOl1cb_kSPU5GDz9",
+      "ext": ".png",
+      "hash": "13547e75",
+      "size": 197135,
+      "fs_path": "games/silent-monastery/item_blood_stained_cloth.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F05vwX-srSQvTgwx8Iv7_Lt2",
+      "ext": ".png",
+      "hash": "cdb0c771",
+      "size": 185873,
+      "fs_path": "games/liyuan-opera/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F08ZaWBmLwuUpXnsYRfNhHV7",
+      "ext": ".png",
+      "hash": "7cc1bb31",
+      "size": 115121,
+      "fs_path": "games/abyss/item_broken_mask.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F0DcIchVIIyDj7OSfPH9wQLg",
+      "ext": ".jpg",
+      "hash": "90d93640",
+      "size": 254605,
+      "fs_path": "games/ink-erosion-scroll/scene_bedroom.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F0MeyVLV1c0wgyNE1iminq0q",
+      "ext": ".jpg",
+      "hash": "a76c8642",
+      "size": 279812,
+      "fs_path": "games/echo-library/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F0koGRiLmGt0FafCRQMuDi53",
+      "ext": ".jpg",
+      "hash": "f2ec2771",
+      "size": 257087,
+      "fs_path": "games/curse-of-perfection/scene_artroom.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F0tTAVR2jvnCpcP0e7W41Gup",
+      "ext": ".png",
+      "hash": "4af80038",
+      "size": 143875,
+      "fs_path": "games/huichuntang/item_dried_gecko.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F24JOerDTm3YkLrUsCTm5v42",
+      "ext": ".png",
+      "hash": "1b7bf8d8",
+      "size": 106323,
+      "fs_path": "games/liyuan-opera/item_flashlight.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F28hUTwcVY-Zk7_ZbhJv14J9",
+      "ext": ".png",
+      "hash": "fc124135",
+      "size": 112091,
+      "fs_path": "games/puppet-theater/item_keycard.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F2k_cVZk6oBX8ZX5pvJkVd59",
+      "ext": ".jpg",
+      "hash": "a3d881ba",
+      "size": 313260,
+      "fs_path": "games/puppet-theater/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F33ueREMR1lLz_-MmRl1PqXF",
+      "ext": ".png",
+      "hash": "c7da318f",
+      "size": 348852,
+      "fs_path": "games/millennium-countdown/item_circuit_wiring_diagram.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F33wuRDJ2PJ3ONnRCNkzXvVG",
+      "ext": ".jpg",
+      "hash": "88add8d7",
+      "size": 193549,
+      "fs_path": "games/huichuntang/scene_underground.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F35jIQCwaart6F5tFNPEGnny",
+      "ext": ".png",
+      "hash": "d9cd74df",
+      "size": 85296,
+      "fs_path": "games/huichuntang/item_iron_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F4fdSYVZcA7iL-D7cNR0b1ga",
+      "ext": ".jpg",
+      "hash": "1a5140c2",
+      "size": 160620,
+      "fs_path": "games/endless-rain-alley/scene_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F5JDuRxUNlVmmj5Usjbf8-KZ",
+      "ext": ".json",
+      "hash": "e9744f7f",
+      "size": 17974,
+      "fs_path": "games/huichuntang/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F7x8wToBndYVsyZWNBEoSeVQ",
+      "ext": ".png",
+      "hash": "f544d855",
+      "size": 103403,
+      "fs_path": "games/kowloon-immortal-code/item_key_basement.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F8EJCU43S6U7MhPIJ8a3Iaqt",
+      "ext": ".png",
+      "hash": "966b92d5",
+      "size": 136885,
+      "fs_path": "games/liyuan-opera/item_newspaper.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F8POUR_ofC8z8lTp3D8nuMHX",
+      "ext": ".png",
+      "hash": "b964ee64",
+      "size": 46300,
+      "fs_path": "games/abyss-town/item_incense.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FA9IsZKdLJyWumlrj5GYmtaZ",
+      "ext": ".jpg",
+      "hash": "bfc9472f",
+      "size": 163498,
+      "fs_path": "games/tanglang-academy/scene_lakeside.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FCT6GcYux0HX1VX_4ieB5nn7",
+      "ext": ".jpg",
+      "hash": "c381a1a1",
+      "size": 149743,
+      "fs_path": "games/millennium-countdown/scene_security_booth.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FCXbWfnL1OIKB7CDNR9b_Lgj",
+      "ext": ".jpg",
+      "hash": "9c4de545",
+      "size": 177926,
+      "fs_path": "games/abyss-town/scene_bedroom.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FDfuOQRiiyxPBR0lK0KiQb-R",
+      "ext": ".jpg",
+      "hash": "2da616c2",
+      "size": 268275,
+      "fs_path": "games/out-of-print-screening/scene_lightbox_room.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FDif4RSsGzsKAmezKSju6T4R",
+      "ext": ".jpg",
+      "hash": "3dc58f3c",
+      "size": 306465,
+      "fs_path": "games/endless-rain-alley/scene_study.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FDmQsRK8NSXOPSqBXTXOhtOJ",
+      "ext": ".png",
+      "hash": "454e0472",
+      "size": 182600,
+      "fs_path": "games/saint-lily-academy/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FDqSAShAIVw3PMMypVocQ6Lv",
+      "ext": ".jpg",
+      "hash": "63343e03",
+      "size": 235423,
+      "fs_path": "games/curse-of-perfection/scene_basement.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FEWGOXhiUSM5e4SR9XmGAjsv",
+      "ext": ".jpg",
+      "hash": "63b3b05d",
+      "size": 147507,
+      "fs_path": "games/deep-echo/scene_nursery.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FFXVmdPzpx_FtBlhuA9jEqgA",
+      "ext": ".png",
+      "hash": "87caa9ac",
+      "size": 83407,
+      "fs_path": "games/reverse-entropy-greenhouse/item_tuning_fork.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FFxiWXgs0pCCXUPNhLcfVOUz",
+      "ext": ".png",
+      "hash": "04e7354f",
+      "size": 69411,
+      "fs_path": "games/curse-of-perfection/item_scissors.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FG14ofovYcG24uq_QC_ByCCk",
+      "ext": ".png",
+      "hash": "0a4b0826",
+      "size": 99271,
+      "fs_path": "games/ink-erosion-scroll/item_seal_earth.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FG1M6VjD-ODDa2lb6KHEgiMr",
+      "ext": ".png",
+      "hash": "7d553d43",
+      "size": 72599,
+      "fs_path": "games/century-end-cinema/item_i_lighter.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FGCWQcom8rE0_dtAq4I0Ebxb",
+      "ext": ".jpg",
+      "hash": "c438c84b",
+      "size": 182044,
+      "fs_path": "games/millennium-countdown/scene_main_control_room.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FGbGAV78lj4MF3mcu8HmzEWY",
+      "ext": ".png",
+      "hash": "d46a9e47",
+      "size": 418768,
+      "fs_path": "games/millennium-countdown/item_debug_log_printout.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FGp_gbCnA-4MsN8Elpj6AZw2",
+      "ext": ".png",
+      "hash": "542a716f",
+      "size": 163283,
+      "fs_path": "games/abyss/item_spirit_mirror.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FH6KwQ-BLyTVuySvLwnXOo9U",
+      "ext": ".json",
+      "hash": "79106f48",
+      "size": 24176,
+      "fs_path": "games/out-of-print-screening/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FHF78WorDP98Tn-yRb0e1vYO",
+      "ext": ".png",
+      "hash": "30bcc002",
+      "size": 175170,
+      "fs_path": "games/saint-lily-academy/item_tape.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FI8ZCYFZ_beizP5WX9QAjPLL",
+      "ext": ".jpg",
+      "hash": "428dcff4",
+      "size": 182299,
+      "fs_path": "games/grudge-apartment/scene_living_room.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FIBlEUIgfAJ74docpZS9NF8i",
+      "ext": ".png",
+      "hash": "abc41c4a",
+      "size": 49251,
+      "fs_path": "games/ink-erosion-scroll/item_brush.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FIE0MXi5bQeu99AKyofQeVUi",
+      "ext": ".json",
+      "hash": "1f3cc206",
+      "size": 21557,
+      "fs_path": "games/grudge-apartment/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FIkVqbLrv_q98fC1yF61eGAb",
+      "ext": ".png",
+      "hash": "3c19a963",
+      "size": 87804,
+      "fs_path": "games/ink-erosion-scroll/item_jade.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FIv5eTT-4YQpBhcP8pDWIs6E",
+      "ext": ".png",
+      "hash": "ee4cfe55",
+      "size": 95854,
+      "fs_path": "games/living-mansion/item_synaptic_connector.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FJ7dYUPGNNcC17dvOv0rzcTA",
+      "ext": ".png",
+      "hash": "8dcf94b6",
+      "size": 103949,
+      "fs_path": "games/tanglang-academy/item_muddy_id.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FJA7ec9DuEeKyvbD8jgsxLAc",
+      "ext": ".png",
+      "hash": "6544349a",
+      "size": 98035,
+      "fs_path": "games/deep-echo/item_bedroom_bed_stand.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FKpkYYvbKS1HSgVKenaGBq8o",
+      "ext": ".jpg",
+      "hash": "ebcff380",
+      "size": 223857,
+      "fs_path": "games/endless-rain-alley/scene_tea_room.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FKqaEY3aMr-kC4T0wUVjEY5K",
+      "ext": ".mp3",
+      "hash": "725a49b2",
+      "size": 5761581,
+      "fs_path": "games/kowloon-immortal-code/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FNQ7ecn65mnO8OMisUAqcVp4",
+      "ext": ".png",
+      "hash": "cb22e8c2",
+      "size": 202598,
+      "fs_path": "games/puppet-town/item_paper_money.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FNRQ2UaMjyZUPTM6-zfoECkN",
+      "ext": ".jpg",
+      "hash": "afca8400",
+      "size": 110288,
+      "fs_path": "games/silent-mansion/scene_secret_room.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FPXjISV-PSR8h8hUjFttMZrw",
+      "ext": ".png",
+      "hash": "2eaafbcf",
+      "size": 201494,
+      "fs_path": "games/silent-monastery/item_mysterious_liquid.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FPzIifDyti-7hVQYEq2Dl0n3",
+      "ext": ".png",
+      "hash": "805f4a25",
+      "size": 115010,
+      "fs_path": "games/abyss-town/item_stone_eye.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FQJfgY_x8FwgTfDbPEvtn2eO",
+      "ext": ".jpg",
+      "hash": "39ee4ca9",
+      "size": 236350,
+      "fs_path": "games/saint-lily-academy/scene_biology.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FR6IIRF-zMm6UINrcNPRDtD_",
+      "ext": ".lua",
+      "hash": "d0a1e803",
+      "size": 15166,
+      "fs_path": "main.lua",
+      "prefix": "../scripts"
+    },
+    {
+      "uuid": "FRcp-RfUhdZq4emz2lt_i1Oh",
+      "ext": ".png",
+      "hash": "507f8c3b",
+      "size": 70818,
+      "fs_path": "games/grudge-apartment/item_doll.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FT3IMRszQXc89JGwD2Gl1El6",
+      "ext": ".png",
+      "hash": "e63c4aba",
+      "size": 151621,
+      "fs_path": "games/tanglang-academy/item_expert_diary.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FTnIgbiUXZfYQsVZay4wh93a",
+      "ext": ".png",
+      "hash": "1896063d",
+      "size": 159862,
+      "fs_path": "games/huichuntang/item_bloody_needles.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FUqroVn7LwGAo_ZYcx64e9v3",
+      "ext": ".png",
+      "hash": "5a4fcff1",
+      "size": 212174,
+      "fs_path": "games/saint-lily-academy/item_mirror_shard.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FV0oWTbq0_UvR6Bfrt7KV8l0",
+      "ext": ".png",
+      "hash": "ef434521",
+      "size": 125939,
+      "fs_path": "games/puppet-town/item_bloody_puppet.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FVPRgWPGH1JgxES04Is3cbd_",
+      "ext": ".png",
+      "hash": "4fd0fbeb",
+      "size": 283261,
+      "fs_path": "games/liyuan-opera/item_shoes.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FXb62Y4xa2xHeLdM4dkTSYQ_",
+      "ext": ".jpg",
+      "hash": "f98e55f9",
+      "size": 305506,
+      "fs_path": "games/liyuan-opera/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FZ0QUdWSi3559K6lhRpqcqLA",
+      "ext": ".jpg",
+      "hash": "482ea357",
+      "size": 178090,
+      "fs_path": "games/dream-archive/scene_escape_sunrise.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FZbUWcSNu5K4Bj1w85MUEoIq",
+      "ext": ".mp3",
+      "hash": "be471711",
+      "size": 2880621,
+      "fs_path": "games/puppet-theater/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FZnuge5oLP4n5j_0SbpcTJpZ",
+      "ext": ".png",
+      "hash": "e39ac12a",
+      "size": 120358,
+      "fs_path": "games/silent-sanatorium/item_brass_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "F_pY6e2xpfTAUyAb8T8-0_j3",
+      "ext": ".jpg",
+      "hash": "01ba328b",
+      "size": 234395,
+      "fs_path": "games/reverse-entropy-greenhouse/scene_entropy_core.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Fa-JIW6ep1Ghbc7hLzUNVLhu",
+      "ext": ".png",
+      "hash": "c7079fbb",
+      "size": 57907,
+      "fs_path": "games/liyuan-opera/item_box_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FbQBYbrmcm0DFshqzJt9rlFp",
+      "ext": ".jpg",
+      "hash": "39499e66",
+      "size": 335504,
+      "fs_path": "games/static-dimension/scene_pulsing_control.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Fbea6WM8Sa47lMCiqLCXUiP_",
+      "ext": ".png",
+      "hash": "bd8e9a61",
+      "size": 120902,
+      "fs_path": "games/deep-echo/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FbefOd203v-Q6LmBpCueKP_9",
+      "ext": ".jpg",
+      "hash": "64939315",
+      "size": 150457,
+      "fs_path": "games/liyuan-opera/scene_prop_room.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FdGtCdPrpTIvEuv_YqyO_SlT",
+      "ext": ".lua",
+      "hash": "21a977ad",
+      "size": 1653,
+      "fs_path": "Ads.lua",
+      "prefix": "../scripts"
+    },
+    {
+      "uuid": "Fe7B2Qm4se1DtLgsz5QpsBYs",
+      "ext": ".jpg",
+      "hash": "e8740045",
+      "size": 260088,
+      "fs_path": "games/duet-of-time/scene_cabin.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FecMCXJ45HJ_q-OaEQfip8fO",
+      "ext": ".jpg",
+      "hash": "ce86770f",
+      "size": 229713,
+      "fs_path": "games/puppet-town/scene_hall.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Ffkm2eR77RgG11enItXyIBnj",
+      "ext": ".png",
+      "hash": "ba170563",
+      "size": 96046,
+      "fs_path": "games/century-end-cinema/item_i_coin.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Ffu4kU4pZAb52yYrHyKiifn1",
+      "ext": ".png",
+      "hash": "5d45fd9f",
+      "size": 212344,
+      "fs_path": "games/silent-mansion/item_secret_letter.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FgWJAa3AuAsWEKXFopT7LBEP",
+      "ext": ".jpg",
+      "hash": "581cb6ee",
+      "size": 205018,
+      "fs_path": "games/tanglang-academy/scene_science_lab.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FglLGYVtf6U17pAcXsJb_1SK",
+      "ext": ".xml",
+      "hash": "685fba4a",
+      "size": 62,
+      "fs_path": "Fonts/FusionPixel-12px-Prop-zh_hans.xml",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FgwNiaed9xm7_6p9ermPlWkb",
+      "ext": ".jpg",
+      "hash": "cfcf61c8",
+      "size": 188778,
+      "fs_path": "games/abyss/scene_ancestral_hall.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FhXLOV5Lfv4Hw-_czA6XchA2",
+      "ext": ".png",
+      "hash": "561cffff",
+      "size": 263570,
+      "fs_path": "games/abyss/item_wood_comb.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FhkVOcmgc636KIRFPDh48zQc",
+      "ext": ".png",
+      "hash": "94264ffb",
+      "size": 334754,
+      "fs_path": "games/echo-library/item_decoder_manual.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FiAE4XXH6qgT9w5eb8fUwHtM",
+      "ext": ".jpg",
+      "hash": "35a57c48",
+      "size": 161955,
+      "fs_path": "games/huichuntang/scene_hall.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FiaVqdYcQTPhb-lTOIYBi95a",
+      "ext": ".jpg",
+      "hash": "55819270",
+      "size": 172542,
+      "fs_path": "games/millennium-countdown/scene_rooftop_exit.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Fj8zsRL19IhHB9jWyHHIPOz9",
+      "ext": ".jpg",
+      "hash": "f31224c9",
+      "size": 206495,
+      "fs_path": "games/puppet-theater/scene_incense_hall.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Fj_q4a0-9NLUR2y7m5zVqEYJ",
+      "ext": ".png",
+      "hash": "ffb29b64",
+      "size": 89748,
+      "fs_path": "games/silent-sanatorium/item_brain_jar.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Fjv8catxqKMF4arq63emYghY",
+      "ext": ".jpg",
+      "hash": "bfc321d3",
+      "size": 199872,
+      "fs_path": "games/duet-of-time/scene_old_tree.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FkeEQYn494GvW-kUOn-E9sSd",
+      "ext": ".jpg",
+      "hash": "af6c539a",
+      "size": 229979,
+      "fs_path": "games/grudge-apartment/scene_kitchen.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FkhZQbCCFj3XeOPNIXOnN0VI",
+      "ext": ".jpg",
+      "hash": "f9169452",
+      "size": 228585,
+      "fs_path": "games/kowloon-immortal-code/scene_maint.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FlDtaYhtbxhixYPHFlBj5or9",
+      "ext": ".jpg",
+      "hash": "d5dadac7",
+      "size": 242671,
+      "fs_path": "games/silent-monastery/scene_secret_passage.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Flk00aRsGGLO50nUYr1mYrop",
+      "ext": ".png",
+      "hash": "f356d77f",
+      "size": 191789,
+      "fs_path": "games/silent-sanatorium/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Fll0gb4jhuFOD7gGukoJw_Qm",
+      "ext": ".png",
+      "hash": "5a95e1aa",
+      "size": 82852,
+      "fs_path": "games/reverse-entropy-greenhouse/item_prosthetic_eye.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FmAt8Qtg0_9UHG5AMALuJFwq",
+      "ext": ".png",
+      "hash": "eb485f1e",
+      "size": 187745,
+      "fs_path": "games/kowloon-immortal-code/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FmMeseTr9Wn5YyvAnID_4jBD",
+      "ext": ".jpg",
+      "hash": "fd262601",
+      "size": 242629,
+      "fs_path": "games/curse-of-perfection/scene_exhibition.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FmlVaeM0hFT32NdqcPbI_AsC",
+      "ext": ".png",
+      "hash": "07adf903",
+      "size": 84804,
+      "fs_path": "games/kowloon-immortal-code/item_access_card.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Fn9jse960_B9qY9s_w1TEav3",
+      "ext": ".png",
+      "hash": "44fa7c86",
+      "size": 108367,
+      "fs_path": "games/millennium-countdown/icon.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Fq9RQXfZt21fWLTSo5KIrKwN",
+      "ext": ".png",
+      "hash": "54f95df0",
+      "size": 120108,
+      "fs_path": "games/echo-library/item_old_memory_reader.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FrL3oSuouWQSbghikX9YsUW6",
+      "ext": ".jpg",
+      "hash": "d8f2d225",
+      "size": 209097,
+      "fs_path": "games/abyss-town/scene_apothecary.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FrRE6TQNqNRaTziob7lBpZcR",
+      "ext": ".png",
+      "hash": "6422dab4",
+      "size": 116539,
+      "fs_path": "games/out-of-print-screening/item_key_director.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FrRGgYRc_AAX-tcOxG8UtqSS",
+      "ext": ".jpg",
+      "hash": "9d40efd0",
+      "size": 180951,
+      "fs_path": "games/duet-of-time/scene_ending.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FraTCTWtKlhy6ZUu4_J5DPHX",
+      "ext": ".mp3",
+      "hash": "3a3eb1c2",
+      "size": 2880621,
+      "fs_path": "games/huichuntang/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FtK2OShLkF1pw-iBV-ccIbhQ",
+      "ext": ".png",
+      "hash": "c50f185d",
+      "size": 204063,
+      "fs_path": "games/deep-echo/item_nursery_dark_corner.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FuE0cYQfNKmu3n2MPpvQPg-U",
+      "ext": ".png",
+      "hash": "eeac5af8",
+      "size": 95382,
+      "fs_path": "games/tanglang-academy/item_battery.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FuqJaZk_tajrxO72e6rnqlvW",
+      "ext": ".png",
+      "hash": "83bcd613",
+      "size": 193565,
+      "fs_path": "games/echo-library/item_corrupted_data_chip.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Fv6NkV7NysOrX3wzfoZW9Dy_",
+      "ext": ".jpg",
+      "hash": "88cee38a",
+      "size": 245406,
+      "fs_path": "games/abyss/scene_secret_room.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FvH2AcJjHl8PYXrfg3hxZeef",
+      "ext": ".png",
+      "hash": "863ff497",
+      "size": 97361,
+      "fs_path": "games/abyss/item_old_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FwAz-dWLEN7uUoMx8DLLNrzF",
+      "ext": ".jpg",
+      "hash": "997c2d26",
+      "size": 199654,
+      "fs_path": "games/abyss/scene_backstage_ruins.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FxEUOfDxY0w0gjzaTpeQ3iHw",
+      "ext": ".png",
+      "hash": "3d37d17f",
+      "size": 147080,
+      "fs_path": "games/grudge-apartment/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FxFfib7w46p8Rwz5AyGLm5S7",
+      "ext": ".jpg",
+      "hash": "4bdec202",
+      "size": 313506,
+      "fs_path": "games/saint-lily-academy/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FyQRsQal2oNkA0EP5SWI8R54",
+      "ext": ".mp3",
+      "hash": "0587231d",
+      "size": 2880621,
+      "fs_path": "games/abyss/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "FzwnufMums1VWehG7L3IhFU9",
+      "ext": ".jpg",
+      "hash": "4b12c581",
+      "size": 261737,
+      "fs_path": "games/silent-monastery/scene_kitchen.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "G-NEmTYIAB4bSNIXPz5L50NU",
+      "ext": ".png",
+      "hash": "a47bff69",
+      "size": 92868,
+      "fs_path": "games/deep-echo/item_broken_watch.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "G0IX-QL7E-1MdjPvicWo6sZf",
+      "ext": ".json",
+      "hash": "4bbe6c5f",
+      "size": 22888,
+      "fs_path": "games/liyuan-opera/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "G0WmQY7C07AXkQYWOIQMsZWl",
+      "ext": ".mp3",
+      "hash": "067b3c56",
+      "size": 2880621,
+      "fs_path": "games/silent-sanatorium/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "G0gJgcjlsGu59aKLADlUv80c",
+      "ext": ".png",
+      "hash": "c0edd135",
+      "size": 227981,
+      "fs_path": "games/grudge-apartment/item_mirror.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "G0wOQeZHLCAR3QjOM5ZBFQXW",
+      "ext": ".png",
+      "hash": "92934304",
+      "size": 162759,
+      "fs_path": "games/echo-library/item_broken_archive_card.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "G3FbARDRCC00yNHSbE_S6Ij2",
+      "ext": ".png",
+      "hash": "db406de8",
+      "size": 177074,
+      "fs_path": "games/tanglang-academy/item_lighter.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "G3deMSsvbd-j32di1QmpZyJF",
+      "ext": ".png",
+      "hash": "d30303b6",
+      "size": 129227,
+      "fs_path": "games/puppet-town/item_rusty_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "G4bI0Ttj1IbhpH0wW7zQrH07",
+      "ext": ".jpg",
+      "hash": "23db3b2f",
+      "size": 184870,
+      "fs_path": "games/living-mansion/scene_optic_observatory.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "G55XIY36zSJ6cFU4R3FkFZJb",
+      "ext": ".jpg",
+      "hash": "06b41796",
+      "size": 198461,
+      "fs_path": "games/puppet-theater/scene_workshop.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "G6svsXcM5jhgg3dnWHkPBSeH",
+      "ext": ".png",
+      "hash": "0a8c0e1d",
+      "size": 162844,
+      "fs_path": "games/abyss-town/item_opera_mask.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "G7VBoZ9nHdsyiZpT0Z_OAQBL",
+      "ext": ".png",
+      "hash": "a040c368",
+      "size": 117892,
+      "fs_path": "games/deep-echo/item_garden_tool_shed.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "G7s-8aI8wqamGscpQKRhEfn8",
+      "ext": ".png",
+      "hash": "db0aac03",
+      "size": 72999,
+      "fs_path": "games/grudge-apartment/item_battery.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "G9CSYU6aYp_qHg9XmaUguUGU",
+      "ext": ".png",
+      "hash": "98a22522",
+      "size": 144292,
+      "fs_path": "games/tanglang-academy/item_usb_drive.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GAkHCcazz-EEZXHLITrUNjyo",
+      "ext": ".png",
+      "hash": "d1855334",
+      "size": 215691,
+      "fs_path": "games/silent-monastery/item_parchment_scroll.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GBZnaZy8IJOekUg029LR0D0H",
+      "ext": ".png",
+      "hash": "b60d2c98",
+      "size": 160766,
+      "fs_path": "games/ink-erosion-scroll/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GBcb-SI8dfubwofc_2qrR8r-",
+      "ext": ".jpg",
+      "hash": "072f6990",
+      "size": 276126,
+      "fs_path": "games/ink-erosion-scroll/scene_ending.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GBpOMcBPpCNcuF7yJpi10gOn",
+      "ext": ".lua",
+      "hash": "f854fc2d",
+      "size": 8751,
+      "fs_path": "Hint.lua",
+      "prefix": "../scripts"
+    },
+    {
+      "uuid": "GCUGcRdMxI-7lHECTxTma2qa",
+      "ext": ".png",
+      "hash": "21105518",
+      "size": 92109,
+      "fs_path": "games/abyss/item_incense_sticks.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GDO2-WzIlyVtKXD3mL3gkETL",
+      "ext": ".png",
+      "hash": "8f49b756",
+      "size": 163896,
+      "fs_path": "games/curse-of-perfection/item_eye.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GDrnSW4r2459SaKO05gtNssH",
+      "ext": ".png",
+      "hash": "2cb648ee",
+      "size": 129466,
+      "fs_path": "games/silent-sanatorium/item_vinyl_record.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GFaYgVLHefe9i_mpS5qRKXFR",
+      "ext": ".jpg",
+      "hash": "52cba4d4",
+      "size": 236220,
+      "fs_path": "games/out-of-print-screening/scene_break_room.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GG3TsSrKzke6mBp5hzx2SNbc",
+      "ext": ".jpg",
+      "hash": "351933ff",
+      "size": 178306,
+      "fs_path": "games/puppet-town/scene_ferry.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GGwMcRIBdczOk8sCFnA1PHoS",
+      "ext": ".jpg",
+      "hash": "fa2f05cc",
+      "size": 196965,
+      "fs_path": "games/ink-erosion-scroll/scene_well.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GHQk2WxOSTWDMXvnA3i6kHpX",
+      "ext": ".jpg",
+      "hash": "b893ce29",
+      "size": 172863,
+      "fs_path": "games/duet-of-time/scene_hill.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GHc2mfcReQzrZiVSuOxKOO_C",
+      "ext": ".png",
+      "hash": "3384ca6c",
+      "size": 116492,
+      "fs_path": "games/tanglang-academy/item_admin_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GI7KITqX7kWyi7tfI6pncblh",
+      "ext": ".png",
+      "hash": "303d4bc0",
+      "size": 76368,
+      "fs_path": "games/endless-rain-alley/item_mask.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GJ1CmRB2-lOK1TXTj-TW4iPr",
+      "ext": ".jpg",
+      "hash": "9f466172",
+      "size": 190269,
+      "fs_path": "games/dream-archive/scene_entrance.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GKH_QRQN4-EbcoRXnXiQg9Mh",
+      "ext": ".jpg",
+      "hash": "cbb023ef",
+      "size": 239762,
+      "fs_path": "games/tanglang-academy/scene_science_lobby.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GN1y0bbpfxjXaZ3efgFX6daP",
+      "ext": ".json",
+      "hash": "c677792b",
+      "size": 23314,
+      "fs_path": "games/dream-archive/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GNrPkaM1B6KpA4Y8w7LUosb6",
+      "ext": ".json",
+      "hash": "1ea22b02",
+      "size": 22228,
+      "fs_path": "games/echo-library/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GOwwobGfNH9F3tGvKsPRPpAw",
+      "ext": ".png",
+      "hash": "c35582fd",
+      "size": 77648,
+      "fs_path": "games/tanglang-academy/item_screwdriver.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GPWJoQy9MV08Jw9InuWpbcfi",
+      "ext": ".jpg",
+      "hash": "d1eab63e",
+      "size": 77026,
+      "fs_path": "games/silent-mansion/scene_hall.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GRo5qe7Lv29yL8_vYJkM2utQ",
+      "ext": ".png",
+      "hash": "f5747f96",
+      "size": 80037,
+      "fs_path": "games/static-dimension/item_bone_pliers.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GSyreVqqYwNiJ2B0znkPfraN",
+      "ext": ".png",
+      "hash": "8dd41e2f",
+      "size": 124536,
+      "fs_path": "games/liyuan-opera/item_comb.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GVYsoVMx0VCnBoBlkzHPFpE5",
+      "ext": ".png",
+      "hash": "9629f171",
+      "size": 650477,
+      "fs_path": "games/out-of-print-screening/item_film_reel.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GVti4dSO7JQ0g5c2rr8PZ844",
+      "ext": ".jpg",
+      "hash": "7f7ee909",
+      "size": 267932,
+      "fs_path": "games/kowloon-immortal-code/scene_op_room.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GWZugQ3AdFC9st1h6FXbFH2t",
+      "ext": ".jpg",
+      "hash": "bca66261",
+      "size": 229371,
+      "fs_path": "games/tanglang-academy/scene_business_office.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GWcrETsWKGaMQj_I0_Dc9zgt",
+      "ext": ".png",
+      "hash": "20cf06d7",
+      "size": 171636,
+      "fs_path": "games/huichuntang/item_materia_medica.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GWdg0dia9zTFFTNn6d8c3qc5",
+      "ext": ".jpg",
+      "hash": "ef044598",
+      "size": 299921,
+      "fs_path": "games/century-end-cinema/scene_s_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GXX9QQQ4dlD2ZZQgKFHzUM1H",
+      "ext": ".png",
+      "hash": "e2979122",
+      "size": 663107,
+      "fs_path": "games/kowloon-immortal-code/item_circuit.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GY3QkVeopaOA49qQTz5uxtmk",
+      "ext": ".png",
+      "hash": "941570be",
+      "size": 101823,
+      "fs_path": "games/static-dimension/item_slime_probe.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GYi0eceWyoFKlY-LyJBZzZz6",
+      "ext": ".png",
+      "hash": "1b1f4eaf",
+      "size": 337237,
+      "fs_path": "games/puppet-theater/item_eye.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "G_79iUbr5ciiUduuwYbnlcN5",
+      "ext": ".jpg",
+      "hash": "a0d7891e",
+      "size": 269812,
+      "fs_path": "games/dream-archive/scene_curator_office.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Gc72WQrVKjb0vAiGyFPMr8Or",
+      "ext": ".png",
+      "hash": "8d3058e6",
+      "size": 51021,
+      "fs_path": "games/grudge-apartment/item_scissors.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GcNZIffUh_KlWGiI8u36udAq",
+      "ext": ".jpg",
+      "hash": "d9dec0f9",
+      "size": 159522,
+      "fs_path": "games/living-mansion/scene_acid_library.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GcXwmaC7GopjvQPcQ3-cZ6Zi",
+      "ext": ".jpg",
+      "hash": "192763f6",
+      "size": 203406,
+      "fs_path": "games/puppet-theater/scene_control_room.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GdM9oeycCM2QxTIondwoux7K",
+      "ext": ".jpg",
+      "hash": "71bf4381",
+      "size": 212986,
+      "fs_path": "games/silent-sanatorium/scene_entry_hall.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GeSC6cqfMRHJYBXiEfPdEXf3",
+      "ext": ".png",
+      "hash": "3b1db066",
+      "size": 196881,
+      "fs_path": "games/puppet-theater/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GeiLac0Sq762Zk9Dspp5Uhr5",
+      "ext": ".png",
+      "hash": "1137f929",
+      "size": 237288,
+      "fs_path": "games/silent-sanatorium/item_security_log.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Gez1sQzAIny40OmQBJDscFk9",
+      "ext": ".png",
+      "hash": "db660fe1",
+      "size": 138281,
+      "fs_path": "games/century-end-cinema/item_i_batteries.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GfJAoZ50Ml3VubEu3PFIHINT",
+      "ext": ".jpg",
+      "hash": "cab9cf47",
+      "size": 219335,
+      "fs_path": "games/grudge-apartment/scene_balcony.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Gg_kKc6M-qF5fE_zZBBUWO54",
+      "ext": ".png",
+      "hash": "27a46003",
+      "size": 89454,
+      "fs_path": "games/silent-sanatorium/item_torn_photo.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GhmveV0sATyj-nQHjccKhIOK",
+      "ext": ".jpg",
+      "hash": "833f2079",
+      "size": 255933,
+      "fs_path": "games/silent-monastery/scene_catacombs.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Ghs2ec-2rTHQhQH4o-4qMwWJ",
+      "ext": ".png",
+      "hash": "325ba152",
+      "size": 112968,
+      "fs_path": "games/grudge-apartment/item_remote.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GibhWS6EjsKGS2d1JSgXtA2c",
+      "ext": ".png",
+      "hash": "d350e79e",
+      "size": 636386,
+      "fs_path": "games/endless-rain-alley/item_fragment.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GjFgWWwXb7x5-GWbrWyx_bK6",
+      "ext": ".png",
+      "hash": "df61a6ea",
+      "size": 154316,
+      "fs_path": "games/living-mansion/item_calcified_bone_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GjZmKQCvdACjDJ8sqqagfb14",
+      "ext": ".jpg",
+      "hash": "718d3c39",
+      "size": 193075,
+      "fs_path": "games/millennium-countdown/scene_cable_tunnel.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GjsfacASugOBlUPv8tyQ0E9S",
+      "ext": ".jpg",
+      "hash": "98c3ded5",
+      "size": 378231,
+      "fs_path": "games/static-dimension/scene_static_observatory.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Gk4msdbu8YrG2zEfLJdHIdwj",
+      "ext": ".png",
+      "hash": "ed115114",
+      "size": 226799,
+      "fs_path": "games/puppet-theater/item_talisman.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GkQbAe5CRSJyhNeCveq1gtu9",
+      "ext": ".jpg",
+      "hash": "9cc102cf",
+      "size": 273922,
+      "fs_path": "games/curse-of-perfection/scene_gate.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GksUOcKZoB67GmVxScFI8wqB",
+      "ext": ".png",
+      "hash": "7826dea7",
+      "size": 154575,
+      "fs_path": "games/curse-of-perfection/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GlJfQWYuhbDV2E_bBY0X6JTG",
+      "ext": ".jpg",
+      "hash": "ff762306",
+      "size": 224432,
+      "fs_path": "games/dream-archive/scene_reflection_chamber.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GlMXSXarRaoFib1535d6xoOm",
+      "ext": ".jpg",
+      "hash": "9e195652",
+      "size": 173358,
+      "fs_path": "games/liyuan-opera/scene_ending.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Go4cGdH0rfDUVZ9HZwe6w2Zo",
+      "ext": ".png",
+      "hash": "c722d4b4",
+      "size": 218593,
+      "fs_path": "games/abyss/item_copper_bell.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Go73sa3R-Q_WPmkPF12Efpg0",
+      "ext": ".png",
+      "hash": "fb9ac127",
+      "size": 112034,
+      "fs_path": "games/millennium-countdown/item_bios_chip.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GoTS8SMFPf5akIh8JVnFh-Yh",
+      "ext": ".jpg",
+      "hash": "08d98ca2",
+      "size": 190094,
+      "fs_path": "games/reverse-entropy-greenhouse/scene_broken_observatory.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Gp8KcSHspKXsaLOrtWSFA2q7",
+      "ext": ".png",
+      "hash": "5961acae",
+      "size": 114516,
+      "fs_path": "games/ink-erosion-scroll/item_incense.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Gp_xGZF-JUDGdxX2y1woLrHZ",
+      "ext": ".jpg",
+      "hash": "77e62133",
+      "size": 192627,
+      "fs_path": "games/huichuntang/scene_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GqTuMUyV7gvPrsXwBEUwvMY9",
+      "ext": ".jpg",
+      "hash": "d47f8426",
+      "size": 280788,
+      "fs_path": "games/huichuntang/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GqXomfBxEklF7QTwmOgYp_pQ",
+      "ext": ".png",
+      "hash": "f41690b4",
+      "size": 147263,
+      "fs_path": "games/silent-monastery/item_carved_stone_tablet.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GrB0gbCeTzuT7JZAQgf210Wx",
+      "ext": ".png",
+      "hash": "6d69ee01",
+      "size": 103827,
+      "fs_path": "games/silent-monastery/item_worn_diary.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GribWZ6ujZWi8itP4NJpXT3N",
+      "ext": ".jpg",
+      "hash": "7f8fd910",
+      "size": 293059,
+      "fs_path": "games/century-end-cinema/scene_s_screening_room_b.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GtnTQcFZf0lltN2ofTmfXQJZ",
+      "ext": ".png",
+      "hash": "fdc80d6b",
+      "size": 76258,
+      "fs_path": "games/living-mansion/item_runic_scalpel.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GuHe2dPyTWmh9Bw6LOZhpVBt",
+      "ext": ".png",
+      "hash": "cc7443a2",
+      "size": 96877,
+      "fs_path": "games/out-of-print-screening/item_thinner.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GueG-akWhte_P7hTwr2yN20a",
+      "ext": ".png",
+      "hash": "b1413f35",
+      "size": 287932,
+      "fs_path": "games/curse-of-perfection/item_sketchbook.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GvyHUeRkYVfyjkbBJHwTwds4",
+      "ext": ".png",
+      "hash": "dbda9979",
+      "size": 183799,
+      "fs_path": "games/kowloon-immortal-code/item_data_disk.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GwGZ4WMSJr9uFOsGkIPJvbdZ",
+      "ext": ".jpg",
+      "hash": "51cdb8fe",
+      "size": 165027,
+      "fs_path": "games/duet-of-time/scene_lake.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GwJk0RcFcjGW2JCFcGpiGHPj",
+      "ext": ".mp3",
+      "hash": "fd80b248",
+      "size": 2880621,
+      "fs_path": "games/puppet-town/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GwQ16TsMVZS91COOcogApc3a",
+      "ext": ".lua",
+      "hash": "e2e3dfc3",
+      "size": 8962,
+      "fs_path": "UI_Title.lua",
+      "prefix": "../scripts"
+    },
+    {
+      "uuid": "GzToIQRR14VVU8Vv8EJC_J8i",
+      "ext": ".jpg",
+      "hash": "c1099d03",
+      "size": 204155,
+      "fs_path": "games/living-mansion/scene_amniotic_power.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "GzWlgQ3AwU7svzz9pQuFADCq",
+      "ext": ".png",
+      "hash": "256afa70",
+      "size": 125480,
+      "fs_path": "games/abyss-town/item_diving_talisman.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "H-r0eaflnh81IaeH41-ITF7i",
+      "ext": ".lua",
+      "hash": "5c2bf7cd",
+      "size": 4600,
+      "fs_path": "Storage.lua",
+      "prefix": "../scripts"
+    },
+    {
+      "uuid": "H0W98YlTXSqgbMrgwPR2rL6Y",
+      "ext": ".lua",
+      "hash": "8a0c5347",
+      "size": 13624,
+      "fs_path": "UI_Puzzle.lua",
+      "prefix": "../scripts"
+    },
+    {
+      "uuid": "H360EVzsUKmPZ9r2hf-4a_tM",
+      "ext": ".jpg",
+      "hash": "751258ba",
+      "size": 188211,
+      "fs_path": "games/huichuntang/scene_decoction.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "H5ZgUTOCA6RHF6Robi7r5cYz",
+      "ext": ".png",
+      "hash": "1c2335f2",
+      "size": 131618,
+      "fs_path": "games/deep-echo/item_study_desk.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "H7eIaZlnow2qSaXn-geuQ_23",
+      "ext": ".jpg",
+      "hash": "ca1a9b9b",
+      "size": 321403,
+      "fs_path": "games/reverse-entropy-greenhouse/scene_glass_dome.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "H9XJwWAEcIkaKqpTBOrCz_ZO",
+      "ext": ".png",
+      "hash": "380d9a70",
+      "size": 112653,
+      "fs_path": "games/puppet-town/item_diving_weight.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HBJxOZONKz-v-GubE0lrR5zM",
+      "ext": ".jpg",
+      "hash": "104dd591",
+      "size": 222262,
+      "fs_path": "games/silent-monastery/scene_east_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HCAuwevDZkdYwaqJOC4EFlG9",
+      "ext": ".jpg",
+      "hash": "f6db1d1d",
+      "size": 224977,
+      "fs_path": "games/silent-monastery/scene_ritual_chamber.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HCBj0TKYFhEXxXWVIMchXRgp",
+      "ext": ".png",
+      "hash": "2a50c51d",
+      "size": 49749,
+      "fs_path": "games/curse-of-perfection/item_flashlight.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HCDa2f3yqtVV2PdNJyCUKzCy",
+      "ext": ".png",
+      "hash": "9b68e4b9",
+      "size": 197531,
+      "fs_path": "games/static-dimension/game_icon_512.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HEo2oXaWFj3dL9dT8ZOvJfZ1",
+      "ext": ".jpg",
+      "hash": "100ef94c",
+      "size": 223055,
+      "fs_path": "games/duet-of-time/scene_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HEsygS6SY5iZGuOKBy1hXMrW",
+      "ext": ".jpg",
+      "hash": "3bc14cee",
+      "size": 151311,
+      "fs_path": "games/tanglang-academy/scene_admin_entrance.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HGNh2VeAyU3m4_uFkTuEcDGX",
+      "ext": ".png",
+      "hash": "5d589b9c",
+      "size": 202628,
+      "fs_path": "games/duet-of-time/item_diary.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HGUs6cZXg-6aj7owsq1I0Dad",
+      "ext": ".jpg",
+      "hash": "e7a2899e",
+      "size": 200544,
+      "fs_path": "games/huichuntang/scene_exit.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HGiGIUuEKZSJXoOlht1oozGK",
+      "ext": ".jpg",
+      "hash": "a6144bf5",
+      "size": 209025,
+      "fs_path": "games/puppet-town/scene_stage.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HJPVmSvR2BHZZLgya_ISyW6r",
+      "ext": ".png",
+      "hash": "3ced8c4e",
+      "size": 178814,
+      "fs_path": "games/tanglang-academy/item_biz_ledger.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HJXyoX8bcmnkO0Qivl_BH95A",
+      "ext": ".png",
+      "hash": "fabaa005",
+      "size": 41178,
+      "fs_path": "games/grudge-apartment/item_key_storage.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HKA4WR2-hsrbRVYCTb92qzig",
+      "ext": ".jpg",
+      "hash": "866cbd4d",
+      "size": 288815,
+      "fs_path": "games/silent-sanatorium/scene_frozen_tower.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HKlfwQQHSBR6t_u8qHQ7noYF",
+      "ext": ".png",
+      "hash": "41b4a1d4",
+      "size": 49304,
+      "fs_path": "games/puppet-town/item_incense.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HLa8aQV8_f4RRLrvCl1MdLgH",
+      "ext": ".jpg",
+      "hash": "b8eef8a3",
+      "size": 349383,
+      "fs_path": "games/static-dimension/scene_cable_abyss.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HM8LWbP2O6BkI04W529l994v",
+      "ext": ".png",
+      "hash": "31e1fba1",
+      "size": 703856,
+      "fs_path": "games/saint-lily-academy/item_portrait_pieces.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HN3hGRLD1go5eQJNA9cxaY53",
+      "ext": ".jpg",
+      "hash": "de7ab34e",
+      "size": 315489,
+      "fs_path": "games/static-dimension/scene_bone_server.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HNkD6RZkHKvX5cWytbEp_Knf",
+      "ext": ".jpg",
+      "hash": "1d7cd2e3",
+      "size": 79628,
+      "fs_path": "games/silent-mansion/scene_study.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HO_V2evRwWux3cSSbL5enhQ0",
+      "ext": ".jpg",
+      "hash": "6560a9ea",
+      "size": 238308,
+      "fs_path": "games/century-end-cinema/scene_s_manager_office.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HOsYgQYYQQAKIpbFTln5j2y6",
+      "ext": ".png",
+      "hash": "80007c14",
+      "size": 53916,
+      "fs_path": "games/tanglang-academy/item_circuit_fuse.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HQLwyZivoBsru4pMW5eMNdNB",
+      "ext": ".png",
+      "hash": "e73270e6",
+      "size": 77790,
+      "fs_path": "games/reverse-entropy-greenhouse/item_petrified_heart.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HQbPAVojR-ss5f1uXeTsH-E0",
+      "ext": ".png",
+      "hash": "62b2f06c",
+      "size": 175645,
+      "fs_path": "games/silent-mansion/item_rusty_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HRAxWXvXcJ_1ypaCQ_8xJBkE",
+      "ext": ".jpg",
+      "hash": "92fcef20",
+      "size": 238042,
+      "fs_path": "games/ink-erosion-scroll/scene_square.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HRy_ye3nqjSwAcyhdr7sxWKJ",
+      "ext": ".jpg",
+      "hash": "d0353a59",
+      "size": 276424,
+      "fs_path": "games/reverse-entropy-greenhouse/scene_circular_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HS7PYYyNAsgpWw113IL-Em-7",
+      "ext": ".json",
+      "hash": "75e1ed52",
+      "size": 13926,
+      "fs_path": "games/deep-echo/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HU0NARvSVUqIJNaUtOOBsKPW",
+      "ext": ".jpg",
+      "hash": "9b899f69",
+      "size": 187026,
+      "fs_path": "games/abyss/scene_river_dead.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HVhkyQYwVHUIoKiVI73DBpLS",
+      "ext": ".png",
+      "hash": "100bc62c",
+      "size": 391216,
+      "fs_path": "games/out-of-print-screening/item_poster_scraps.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HVlnwRIBTJHK6QE8XOnhrIGw",
+      "ext": ".png",
+      "hash": "15d625d8",
+      "size": 81395,
+      "fs_path": "games/static-dimension/item_circuit_diagram.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HVvOSXBXfQY_PQFnTj0mnK38",
+      "ext": ".mp3",
+      "hash": "6787680e",
+      "size": 2880621,
+      "fs_path": "games/curse-of-perfection/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HW9b6VLnRCWNby7HrLiwXgQ0",
+      "ext": ".png",
+      "hash": "c6d4ae21",
+      "size": 147578,
+      "fs_path": "games/silent-sanatorium/item_soul_camera.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HYQpkcvC2iJeYB0EHDRtPJp4",
+      "ext": ".png",
+      "hash": "24e34558",
+      "size": 63616,
+      "fs_path": "games/silent-sanatorium/item_rusty_scalpel.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HYX9QaxI4jY7JpMRdYhFOchS",
+      "ext": ".png",
+      "hash": "30c70274",
+      "size": 109567,
+      "fs_path": "games/silent-monastery/item_rusted_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HZYssd2_MYTLJn-Oib0QnRs8",
+      "ext": ".png",
+      "hash": "2b1a9a57",
+      "size": 60784,
+      "fs_path": "games/static-dimension/item_bio_circuit.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "H_ba2Xmp9rrNONgCFqIdyMBM",
+      "ext": ".jpg",
+      "hash": "2606486b",
+      "size": 168150,
+      "fs_path": "games/curse-of-perfection/scene_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HaGCsQcRxfJnU46UM-abDZ1I",
+      "ext": ".png",
+      "hash": "9d70f6ea",
+      "size": 199761,
+      "fs_path": "games/tanglang-academy/item_chemical_a.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HaSN0ek1wpqb0l5FqQ_N81Tm",
+      "ext": ".jpg",
+      "hash": "397a0187",
+      "size": 232894,
+      "fs_path": "games/tanglang-academy/scene_campus_road_north.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Hc7TWVuhi6vfkFs79xtmyS_W",
+      "ext": ".jpg",
+      "hash": "fce0b3b7",
+      "size": 275353,
+      "fs_path": "games/out-of-print-screening/scene_archive_hall.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HcT1kVV4wFpbAl_-Uz5Cs_w5",
+      "ext": ".png",
+      "hash": "48e092b5",
+      "size": 130406,
+      "fs_path": "games/deep-echo/item_corridor_nursery_door.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HcXDgdvf5np5kYRetN5js_q4",
+      "ext": ".jpg",
+      "hash": "4d337ca0",
+      "size": 237296,
+      "fs_path": "games/ink-erosion-scroll/scene_bamboo.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HdPP-bMQMKQZoUGJ32q6ihQd",
+      "ext": ".json",
+      "hash": "74bc3c31",
+      "size": 15475,
+      "fs_path": "games/living-mansion/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HdZ1kQxCfUlU0e0mCxPol7pf",
+      "ext": ".jpg",
+      "hash": "a9de16c0",
+      "size": 214200,
+      "fs_path": "games/silent-monastery/scene_west_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Hel54dcs1DFW_ToRf_zuES7B",
+      "ext": ".png",
+      "hash": "7a60e8d3",
+      "size": 124622,
+      "fs_path": "games/silent-monastery/item_prayer_text.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HfyTMYyDZ5jPRun5SQJF56dc",
+      "ext": ".json",
+      "hash": "333b9c79",
+      "size": 17696,
+      "fs_path": "games/duet-of-time/game.json",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HgV0AfvrGFlcfdoZfg2ZsYaK",
+      "ext": ".png",
+      "hash": "f5b41344",
+      "size": 121493,
+      "fs_path": "games/reverse-entropy-greenhouse/item_root_cutting.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HgdXSea5BYKSOkR5oPNt8nd_",
+      "ext": ".png",
+      "hash": "24919400",
+      "size": 80197,
+      "fs_path": "games/puppet-theater/item_iron_key.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Hgs2uTouHlFNSMEspaXtN3J8",
+      "ext": ".png",
+      "hash": "fe0aab45",
+      "size": 81191,
+      "fs_path": "games/endless-rain-alley/item_seal.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Hh-3yWryRqcyiAInBkOO6UEg",
+      "ext": ".png",
+      "hash": "4e659d25",
+      "size": 164862,
+      "fs_path": "games/living-mansion/item_pulsating_vein_fuse.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HiCFWYqgycqhnStB0kyE2GEz",
+      "ext": ".png",
+      "hash": "6d990f9f",
+      "size": 77340,
+      "fs_path": "games/ink-erosion-scroll/item_shoe.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HiVBaaePfuGoaMPNdh4mRTdr",
+      "ext": ".jpg",
+      "hash": "7048a7fd",
+      "size": 182577,
+      "fs_path": "games/puppet-theater/scene_corridor.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HjXC-UQNJc2htOPMag7-Cu6Z",
+      "ext": ".jpg",
+      "hash": "6422ea93",
+      "size": 284322,
+      "fs_path": "games/kowloon-immortal-code/scene_elevator.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Hkl_qYqzI3iI3ON28XK_-KXh",
+      "ext": ".jpg",
+      "hash": "1d2559cd",
+      "size": 260561,
+      "fs_path": "games/endless-rain-alley/scene_stage.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Hkouma11O_129qSqZN2_fFRE",
+      "ext": ".jpg",
+      "hash": "db8d9fce",
+      "size": 209673,
+      "fs_path": "games/grudge-apartment/scene_bedroom.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HmHz6alDV4kSJA3pyGDaJtt8",
+      "ext": ".jpg",
+      "hash": "309f56bd",
+      "size": 196393,
+      "fs_path": "games/puppet-theater/scene_stage_server.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Hmq5sWd7N2iGsGI07r9MetHz",
+      "ext": ".jpg",
+      "hash": "3740c342",
+      "size": 276219,
+      "fs_path": "games/silent-sanatorium/scene_abyss_cell.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HnDAeYUjxd8CI15Ydp3j0C5N",
+      "ext": ".mp3",
+      "hash": "6927aeee",
+      "size": 2880621,
+      "fs_path": "games/endless-rain-alley/bgm.mp3",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HnDjQaokbwpHWpteg5sVfrRr",
+      "ext": ".png",
+      "hash": "26cc2984",
+      "size": 236280,
+      "fs_path": "games/millennium-countdown/item_security_vhs_tape.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HnW9Gcs8by8QMuTbZ9VycA0z",
+      "ext": ".jpg",
+      "hash": "5b14180e",
+      "size": 202441,
+      "fs_path": "games/echo-library/scene_abandoned_archive_room.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HnduebIu7ve3X9gjkOWODz2z",
+      "ext": ".jpg",
+      "hash": "fc4feb4f",
+      "size": 280012,
+      "fs_path": "games/abyss-town/game_banner_1080.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Hogq6aHRjsL_B3CUjnEW8It9",
+      "ext": ".png",
+      "hash": "e2a4297a",
+      "size": 112479,
+      "fs_path": "games/ink-erosion-scroll/item_seal_heaven.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HpTIyTDSz-QWa_HuwMpqoj-l",
+      "ext": ".jpg",
+      "hash": "92e8afb5",
+      "size": 251198,
+      "fs_path": "games/echo-library/scene_server_core.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Hq9EqSEkUbQP44HjOHEcJ8hb",
+      "ext": ".jpg",
+      "hash": "4a2c6788",
+      "size": 154549,
+      "fs_path": "games/puppet-theater/scene_repository.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HrCqsXyHft_08sRkh1sBeUi3",
+      "ext": ".jpg",
+      "hash": "45ae9372",
+      "size": 173040,
+      "fs_path": "games/abyss-town/scene_opera.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HrruGacb6vFP23lh3vR-OyNP",
+      "ext": ".png",
+      "hash": "f9cc901a",
+      "size": 592022,
+      "fs_path": "games/static-dimension/item_waveform_record.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Hsw5-d-kjstRDH0-Hq0kCe8N",
+      "ext": ".png",
+      "hash": "388b4d62",
+      "size": 201318,
+      "fs_path": "games/silent-monastery/item_runic_stone_block.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HuCFecZt8LrgIh_0RK9sewSl",
+      "ext": ".png",
+      "hash": "f645a8ae",
+      "size": 164157,
+      "fs_path": "games/dream-archive/item_star_fragment.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HuQKEcxPR7P_V-km9L2HRykf",
+      "ext": ".png",
+      "hash": "d12b8dfa",
+      "size": 152703,
+      "fs_path": "games/abyss-town/item_wet_note.png",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HvTVkTgtt1mZLlGKX31lbqol",
+      "ext": ".jpg",
+      "hash": "1f5b7c12",
+      "size": 202824,
+      "fs_path": "games/echo-library/scene_processing_center.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HvjGwQZE-8vVx97b_AOen6E3",
+      "ext": ".jpg",
+      "hash": "36b6d950",
+      "size": 234779,
+      "fs_path": "games/curse-of-perfection/scene_garden.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HwTMMXQIFJTtWq1f_bxu4Ob7",
+      "ext": ".jpg",
+      "hash": "9a00ad0a",
+      "size": 249205,
+      "fs_path": "games/millennium-countdown/scene_supervisor_office.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HwpvWbPnPhh8HFhnwvRk2i9k",
+      "ext": ".jpg",
+      "hash": "e95f2edf",
+      "size": 216704,
+      "fs_path": "games/tanglang-academy/scene_xinyuan.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "HxfAwYW6QRHLRjCfvaWXhBvm",
+      "ext": ".jpg",
+      "hash": "84c3c2d5",
+      "size": 225479,
+      "fs_path": "games/tanglang-academy/scene_engineering_hall.jpg",
+      "prefix": "../assets"
+    },
+    {
+      "uuid": "Min96h_7SSy9zsbab6XEgw",
+      "ext": ".json",
+      "hash": "4dd6fccc",
+      "size": 2126,
+      "fs_path": "project.json",
+      "prefix": "."
+    },
+    {
+      "uuid": "XvrPhUh0T3GZLyWyqjXo4g",
+      "ext": ".json",
+      "hash": "4e2ea2bb",
+      "size": 135,
+      "fs_path": "resources.json",
+      "prefix": "."
+    },
+    {
+      "uuid": "fALdXbvZQRuI8WoucajbOA",
+      "ext": ".json",
+      "hash": "21d733ec",
+      "size": 1007,
+      "fs_path": "settings.json",
+      "prefix": "."
+    }
+  ],
+  "metadata": {
+    "total_files": 678,
+    "total_size": 202911072
+  }
+}

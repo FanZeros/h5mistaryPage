@@ -1,0 +1,1219 @@
+{
+  "meta": {
+    "name": "塘朗技术学院",
+    "author": "零殇",
+    "version": "1.2.0",
+    "description": "在被暴雨和迷雾封锁的塘朗职业技术学院中，揭开多年前专家公寓失踪案的真相，逃离诡异的时间循环。",
+    "style": "Gloomy realism, 90s VHS glitch aesthetic, high contrast cold tones, cyber-ruins atmosphere",
+    "sceneStyle": "Cinematic wide angle, dark atmospheric lighting, heavy rain, fog effects, VHS noise overlay, desaturated blue and green color palette",
+    "itemStyle": "Isometric, harsh flash photography style, high contrast, plain dark background, retro technology aesthetic",
+    "musicStyle": "Dark ambient, industrial drone, rain sounds, lo-fi synthesizer, suspenseful, 90s horror soundtrack",
+    "endingMessage": "随着那扇尘封已久的大门缓缓打开，刺眼的晨光穿透了浓重的迷雾。雨停了。你手中的日记本在阳光下化为灰烬，耳边的电流噪嘴声终于消失。你回头望去，塘朗职业技术学院依然矗立在那里，学生们的喧闹声逐渐响起，仿佛那个死寂的‘里世界’从未存在过。但你知道，你已经打破了循环。",
+    "endingSceneId": "scene_ending_dawn",
+    "useBannerAsTitleBg": true,
+    "designConfig": {
+      "theme": "在塘朗职业技术学院的午夜，一场突如其来的暴雨将校园与外界隔绝，原本熟悉的行政楼与荔园被诡异的迷雾吞噬。你需要在扭曲的时间循环中探索空无一人的教学楼与阴森的湖畔，收集散落的记忆碎片，揭开专家公寓多年前失踪案的真相并逃离这个‘里世界’。",
+      "sceneCount": 20,
+      "itemCount": 30,
+      "puzzleCount": 8,
+      "requiredItems": "沾满泥土的学生证, 生锈的行政楼钥匙, 难吃的食堂剩饭, 受潮的专家公寓日记本",
+      "requiredScenes": "行政楼, 第一教学楼, 第二教学楼, 湖畔, 专家公寓, 欣园, 荔园, 学生餐厅, 工学院, 商学院, 理学院"
+    },
+    "bgmUrl": "./assets/bgm.mp3"
+  },
+  "initialState": {
+    "currentSceneId": "scene_lakeside",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "暴雨如注，冰冷的雨水拍打在你的脸上。",
+      "你从昏迷中醒来，发现自己躺在塘朗湖畔的淤泥中。",
+      "周围一片死寂，只有电流的滋滋声和雨声。",
+      "熟悉的校园被诡异的浓雾笼罩，空气中弥漫着陈旧录像带的磁粉味。",
+      "无论如何，你必须先找到避雨的地方，并搞清楚发生了什么。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_muddy_id": {
+      "id": "item_muddy_id",
+      "name": "沾满泥土的学生证",
+      "description": "一张模糊的学生证，背面刻着一串符号：---.. ..... ..--- ....-\n【滴：学生卡】",
+      "type": "CLUE",
+      "icon": "🆔",
+      "image": "./assets/item_muddy_id.png",
+      "clueForPuzzleId": "puzzle_locker_t1"
+    },
+    "item_admin_key": {
+      "id": "item_admin_key",
+      "name": "生锈的行政楼钥匙",
+      "description": "一把沉重的黄铜钥匙，标签上写着“院长室”。",
+      "type": "KEY",
+      "icon": "🗝️",
+      "image": "./assets/item_admin_key.png"
+    },
+    "item_bad_food": {
+      "id": "item_bad_food",
+      "name": "难吃的食堂剩饭",
+      "description": "餐盘底部粘着一张甚至没撕掉的收据，金额显示：￥3.69。",
+      "type": "CLUE",
+      "icon": "🍛",
+      "image": "./assets/item_bad_food.png",
+      "clueForPuzzleId": "puzzle_vending"
+    },
+    "item_expert_diary": {
+      "id": "item_expert_diary",
+      "name": "受潮的专家公寓日记本",
+      "description": "纸张已经受潮。最后一页画着几个奇怪的符号：▲ ■ ★ ...。最后面的图案被人擦掉了。",
+      "type": "CLUE",
+      "icon": "📓",
+      "image": "./assets/item_expert_diary.png",
+      "clueForPuzzleId": "puzzle_final_gate"
+    },
+    "item_flashlight": {
+      "id": "item_flashlight",
+      "name": "老式手电筒",
+      "description": "沉甸甸的铁皮手电筒，开关接触不良。",
+      "type": "TOOL",
+      "icon": "🔦",
+      "image": "./assets/item_flashlight.png"
+    },
+    "item_battery": {
+      "id": "item_battery",
+      "name": "1号电池",
+      "description": "一节漏液的电池，勉强还能用。",
+      "type": "TOOL",
+      "icon": "🔋",
+      "image": "./assets/item_battery.png"
+    },
+    "item_crowbar": {
+      "id": "item_crowbar",
+      "name": "红色撬棍",
+      "description": "消防柜里的工具，是对付卡死门锁的好帮手。",
+      "type": "TOOL",
+      "icon": "🥖",
+      "image": "./assets/item_crowbar.png"
+    },
+    "item_screwdriver": {
+      "id": "item_screwdriver",
+      "name": "十字螺丝刀",
+      "description": "手柄处缠着绝缘胶带。",
+      "type": "TOOL",
+      "icon": "🔧",
+      "image": "./assets/item_screwdriver.png"
+    },
+    "item_lab_key": {
+      "id": "item_lab_key",
+      "name": "实验室门卡",
+      "description": "理学院化学实验室的磁卡。",
+      "type": "KEY",
+      "icon": "💳",
+      "image": "./assets/item_lab_key.png"
+    },
+    "item_dorm_key": {
+      "id": "item_dorm_key",
+      "name": "欣园宿舍钥匙",
+      "description": "挂着一个小熊玩偶的钥匙。",
+      "type": "KEY",
+      "icon": "🔑",
+      "image": "./assets/item_dorm_key.png"
+    },
+    "item_eng_blueprint": {
+      "id": "item_eng_blueprint",
+      "name": "工学院电路图",
+      "description": "一张复杂的蓝图，角落里用红笔标注着序列：1(⚡) -> 3(Ω) -> 5...",
+      "type": "CLUE",
+      "icon": "🗺️",
+      "image": "./assets/item_eng_blueprint.png",
+      "clueForPuzzleId": "puzzle_power_grid"
+    },
+    "item_biz_ledger": {
+      "id": "item_biz_ledger",
+      "name": "商学院旧账本",
+      "description": "记录着不明资金流向。封面上写着密码提示：♦ ♣ ♥ ...，最后一个图案已经模糊不清了",
+      "type": "CLUE",
+      "icon": "📒",
+      "image": "./assets/item_biz_ledger.png",
+      "clueForPuzzleId": "puzzle_computer"
+    },
+    "item_sci_report": {
+      "id": "item_sci_report",
+      "name": "理学院实验报告",
+      "description": "关于“迷雾成分”的分析报告。结论处写着样本编号：7, 4, 1。",
+      "type": "CLUE",
+      "icon": "📄",
+      "image": "./assets/item_sci_report.png",
+      "clueForPuzzleId": "puzzle_lab_safe"
+    },
+    "item_torn_page_1": {
+      "id": "item_torn_page_1",
+      "name": "日记残页（上）",
+      "description": "“今天是10月2...”后面的字迹模糊不清。",
+      "type": "CLUE",
+      "icon": "📃",
+      "image": "./assets/item_torn_page_1.png",
+      "clueForPuzzleId": "puzzle_box_code"
+    },
+    "item_torn_page_2": {
+      "id": "item_torn_page_2",
+      "name": "日记残页（下）",
+      "description": "后面写着：“...月24日，他们把那东西埋在了欣园地下。”",
+      "type": "CLUE",
+      "icon": "📃",
+      "image": "./assets/item_torn_page_2.png",
+      "clueForPuzzleId": "puzzle_box_code"
+    },
+    "item_usb_drive": {
+      "id": "item_usb_drive",
+      "name": "加密U盘",
+      "description": "黑色的U盘，上面贴着“绝密”。",
+      "type": "TOOL",
+      "icon": "💾",
+      "image": "./assets/item_usb_drive.png"
+    },
+    "item_uv_light": {
+      "id": "item_uv_light",
+      "name": "紫光灯",
+      "description": "可以照出肉眼看不见的痕迹。",
+      "type": "TOOL",
+      "icon": "🔦",
+      "image": "./assets/item_uv_light.png"
+    },
+    "item_circuit_fuse": {
+      "id": "item_circuit_fuse",
+      "name": "陶瓷保险丝",
+      "description": "老式电路保险丝，看起来很脆弱。",
+      "type": "TOOL",
+      "icon": "🔌",
+      "image": "./assets/item_circuit_fuse.png"
+    },
+    "item_security_card": {
+      "id": "item_security_card",
+      "name": "安保门禁卡",
+      "description": "级别很高的红色门禁卡。",
+      "type": "KEY",
+      "icon": "🪪",
+      "image": "./assets/item_security_card.png"
+    },
+    "item_vhs_tape": {
+      "id": "item_vhs_tape",
+      "name": "诡异的录像带",
+      "description": "没有标签的VHS录像带，拿在手里感觉冰凉。",
+      "type": "CLUE",
+      "icon": "📼",
+      "image": "./assets/item_vhs_tape.png"
+    },
+    "item_rusty_handle": {
+      "id": "item_rusty_handle",
+      "name": "生锈的摇把",
+      "description": "某种机械装置的操作杆。",
+      "type": "TOOL",
+      "icon": "🦾",
+      "image": "./assets/item_rusty_handle.png"
+    },
+    "item_chemical_a": {
+      "id": "item_chemical_a",
+      "name": "未知试剂A",
+      "description": "红色液体，散发着甜腻的味道。",
+      "type": "TOOL",
+      "icon": "🧪",
+      "image": "./assets/item_chemical_a.png"
+    },
+    "item_chemical_b": {
+      "id": "item_chemical_b",
+      "name": "未知试剂B",
+      "description": "蓝色液体，极易挥发。",
+      "type": "TOOL",
+      "icon": "🧪",
+      "image": "./assets/item_chemical_b.png"
+    },
+    "item_old_photo": {
+      "id": "item_old_photo",
+      "name": "泛黄的合影",
+      "description": "一群专家在行政楼前的合影，背面写着年份：200...。",
+      "type": "CLUE",
+      "icon": "🖼️",
+      "image": "./assets/item_old_photo.png",
+      "clueForPuzzleId": "puzzle_luggage_lock"
+    },
+    "item_coins": {
+      "id": "item_coins",
+      "name": "几枚硬币",
+      "description": "刚好够买一瓶饮料。",
+      "type": "TOOL",
+      "icon": "🪙",
+      "image": "./assets/item_coins.png"
+    },
+    "item_lighter": {
+      "id": "item_lighter",
+      "name": "防风打火机",
+      "description": "燃油不多了，甚至火苗无法发出明亮的光。",
+      "type": "TOOL",
+      "icon": "🔥",
+      "image": "./assets/item_lighter.png"
+    },
+    "item_alcohol": {
+      "id": "item_alcohol",
+      "name": "去污剂",
+      "description": "高强度的去污剂，禁止明火！",
+      "type": "TOOL",
+      "icon": "🧴",
+      "image": "./assets/item_alcohol.png"
+    },
+    "item_cloth": {
+      "id": "item_cloth",
+      "name": "脏破布",
+      "description": "一块吸水性很好的布。",
+      "type": "TOOL",
+      "icon": "🧣",
+      "image": "./assets/item_cloth.png"
+    },
+    "item_strange_statue": {
+      "id": "item_strange_statue",
+      "name": "奇怪的雕像",
+      "description": "从湖里捞出来的，造型扭曲，看着让人不舒服。",
+      "type": "CLUE",
+      "icon": "🗿",
+      "image": "./assets/item_strange_statue.png",
+      "clueForPuzzleId": "puzzle_safe_statue"
+    },
+    "item_memory_shard": {
+      "id": "item_memory_shard",
+      "name": "发光的记忆碎片",
+      "description": "触摸时能看到过去的幻影。它似乎是某种钥匙。",
+      "type": "KEY",
+      "icon": "✨",
+      "image": "./assets/item_memory_shard.png"
+    }
+  },
+  "puzzles": {
+    "puzzle_locker_t1": {
+      "id": "puzzle_locker_t1",
+      "description": "储物柜挂着一把密码锁，需要输入四位数字。",
+      "answer": "8524",
+      "rewardFlag": "locker_opened",
+      "rewardMessage": "锁咔哒一声打开了。",
+      "type": "numeric"
+    },
+    "puzzle_vending": {
+      "id": "puzzle_vending",
+      "description": "自动贩卖机的维修面板需要输入调试代码。",
+      "answer": "369",
+      "rewardFlag": "vending_hacked",
+      "rewardMessage": "贩卖机发出一阵怪声，吐出了一件物品。",
+      "type": "numeric"
+    },
+    "puzzle_box_code": {
+      "id": "puzzle_box_code",
+      "description": "这个旧铁盒的密码锁需要四位日期数字。",
+      "answer": "1024",
+      "rewardFlag": "box_opened",
+      "rewardMessage": "铁盒打开了，里面有一股霉味。",
+      "type": "numeric",
+      "requiredClueCount": 2
+    },
+    "puzzle_lab_safe": {
+      "id": "puzzle_lab_safe",
+      "description": "保险箱需要输入三位配方编号。",
+      "answer": "741",
+      "rewardFlag": "safe_opened",
+      "rewardMessage": "保险箱开启，里面放着关键道具。",
+      "type": "numeric"
+    },
+    "puzzle_luggage_lock": {
+      "id": "puzzle_luggage_lock",
+      "description": "行李箱的密码锁看起来很久没动过了，需要四位年份。",
+      "answer": "2005",
+      "rewardFlag": "luggage_opened",
+      "rewardMessage": "行李箱弹开了。",
+      "type": "numeric"
+    },
+    "puzzle_power_grid": {
+      "id": "puzzle_power_grid",
+      "description": "输入电力恢复序列（三位数字）。",
+      "answer": "135",
+      "rewardFlag": "power_restored",
+      "rewardMessage": "电机轰鸣着启动了，灯光亮起。",
+      "type": "numeric"
+    },
+    "puzzle_computer": {
+      "id": "puzzle_computer",
+      "description": "电脑屏幕闪烁，要求输入四个花色符号进行验证。",
+      "answer": "♦♣♥♠",
+      "rewardFlag": "computer_unlocked",
+      "rewardMessage": "访问权限已通过，机密文件已打开。",
+      "type": "symbol",
+      "choices": [
+        "♦",
+        "♣",
+        "♥",
+        "♠",
+        "★",
+        "●",
+        "■",
+        "▲"
+      ]
+    },
+    "puzzle_final_gate": {
+      "id": "puzzle_final_gate",
+      "description": "专家公寓的大门控制面板，需要输入正确的图形序列。",
+      "answer": "▲■★●",
+      "rewardFlag": "gate_opened",
+      "rewardMessage": "沉重的大门缓缓开启，露出了通往外界的光。",
+      "type": "symbol",
+      "choices": [
+        "▲",
+        "▼",
+        "●",
+        "■",
+        "★",
+        "♦",
+        "☾",
+        "☀"
+      ]
+    }
+  },
+  "scenes": {
+    "scene_lakeside": {
+      "id": "scene_lakeside",
+      "title": "湖畔",
+      "imageUrl": "./assets/scene_lakeside.jpg",
+      "description": "黑色的湖水拍打着岸边，这里是校园的中心枢纽。北面通往教学区，南面是第一教学楼方向，西面是食堂，东面连接工学院。",
+      "interactables": [
+        {
+          "id": "int_muddy_body",
+          "name": "淤泥中的物体",
+          "description": "有什么东西半埋在泥土里，反光。",
+          "itemRewardId": "item_muddy_id",
+          "postInteractionMessage": "你从泥水中摸出了一张沾满污泥的学生证。"
+        },
+        {
+          "id": "int_statue_debris",
+          "name": "沉没的起重机",
+          "description": "一个简易的滑轮装置，连着湖底的重物。摇把不见了。",
+          "requiredItemId": "item_rusty_handle",
+          "lockedMessage": "缺少操作杆，无法转动绞盘。",
+          "itemRewardId": "item_strange_statue",
+          "postInteractionMessage": "你摇动把手，从湖底拉起了一个奇怪的雕像。"
+        },
+        {
+          "id": "int_lakeside_bench",
+          "name": "湿润的长椅",
+          "description": "长椅上刻着一行模糊的小字：不要相信眼睛。",
+          "postInteractionMessage": "字迹让人感到不安。"
+        },
+        {
+          "id": "int_muddy_sign",
+          "name": "被泥覆盖的警示牌",
+          "description": "湖边的警示牌被泥浆糊住了，看不清字。",
+          "requiredItemId": "item_cloth",
+          "lockedMessage": "太脏了，需要找块布擦一下。",
+          "postInteractionMessage": "擦干净后，除了警示语，你发现角落里还刻着一组符号：...β-γ。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_campus_road_north",
+          "label": "前往大道北段"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "scene_campus_road_south",
+          "label": "前往一教方向"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_canteen",
+          "label": "前往食堂"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_engineering_hall",
+          "label": "前往工学院"
+        }
+      ]
+    },
+    "scene_campus_road_south": {
+      "id": "scene_campus_road_south",
+      "title": "校园大道南段",
+      "imageUrl": "./assets/scene_campus_road_south.jpg",
+      "description": "宽阔的柏油路位于湖畔南侧。路边的第一教学楼。昏暗的路灯下有些杂物。",
+      "interactables": [
+        {
+          "id": "int_broken_lamp",
+          "name": "路灯基座",
+          "description": "基座盖板松动了，里面似乎塞着东西。",
+          "itemRewardId": "item_battery",
+          "postInteractionMessage": "你在基座的空隙里找到了一节电池。"
+        },
+        {
+          "id": "int_lost_bag",
+          "name": "遗落的书包",
+          "description": "长椅上有一个被雨淋湿的书包，拉链敞开着。",
+          "itemRewardId": "item_dorm_key",
+          "postInteractionMessage": "你在书包的侧袋里摸到了一把挂着小熊的钥匙。"
+        },
+        {
+          "id": "int_payphone",
+          "name": "公用电话",
+          "description": "老式IC卡电话，听筒垂在半空。",
+          "requiredItemId": "item_coins",
+          "lockedMessage": "没有硬币，无法拨通。",
+          "postInteractionMessage": "电话接通了，那头传来机械的声音：‘专家...公寓..那里藏着....惊人的....秘密’。",
+          "dialogue": [
+            "硬币滚入投币口。",
+            "电话接通了，那头传来机械的声音：‘专家...公寓..那里藏着....惊人的....秘密’。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_lakeside",
+          "label": "返回湖畔"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_teaching_1_hall",
+          "label": "进入一教"
+        }
+      ]
+    },
+    "scene_teaching_1_hall": {
+      "id": "scene_teaching_1_hall",
+      "title": "第一教学楼大厅",
+      "imageUrl": "./assets/scene_teaching_1_hall.jpg",
+      "description": "空旷的大厅回荡着雨声，一排储物柜立在墙边。东侧通往行政区域。",
+      "interactables": [
+        {
+          "id": "int_locker",
+          "name": "生锈的储物柜",
+          "description": "柜门紧锁，上面挂着一把密码锁。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_locker_t1",
+          "itemRewardId": "item_crowbar",
+          "postInteractionMessage": "柜门大开，你拿到了一把红色的撬棍。"
+        },
+        {
+          "id": "int_morse_hint",
+          "name": "墙壁上的字迹",
+          "description": "墙角处有一行不起眼的小字。",
+          "postInteractionMessage": "写着：作为塘朗职业技术学院的学生，如果忘记密码了，就上楼去教室看看吧",
+          "dialogue": [],
+          "lockedMessage": "",
+          "requiredItemId": ""
+        },
+        {
+          "id": "int_tv_set",
+          "name": "旧电视机",
+          "description": "放在保安桌上的老式显像管电视，满是雪花。",
+          "requiredItemId": "item_vhs_tape",
+          "lockedMessage": "只有雪花点，也许需要放入录像带。",
+          "postInteractionMessage": "监控录像显示：一个黑影在专家公寓前徘徊，随后消失在院长室的墙壁中。",
+          "dialogue": [
+            "画面抖动，播放出一段模糊的监控录像",
+            "一个黑影在专家公寓前徘徊，随后消失在院长室的墙壁中。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_campus_road_south",
+          "label": "返回大道"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_teaching_1_room",
+          "label": "上楼"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_admin_entrance",
+          "label": "前往行政楼"
+        }
+      ]
+    },
+    "scene_teaching_1_room": {
+      "id": "scene_teaching_1_room",
+      "title": "第一教学楼教室",
+      "imageUrl": "./assets/scene_teaching_1_room.jpg",
+      "description": "桌椅凌乱地堆叠在一起，黑板上写着摩斯密码的对照表。",
+      "interactables": [
+        {
+          "id": "int_desk_drawer",
+          "name": "讲台抽屉",
+          "description": "抽屉半开着。",
+          "itemRewardId": "item_torn_page_1",
+          "postInteractionMessage": "你在抽屉夹缝中发现了一张被撕下的日记残页。",
+          "dialogue": []
+        },
+        {
+          "id": "int_messy_desk",
+          "name": "堆满杂物的课桌",
+          "description": "桌洞里塞满了垃圾，中间夹着一个打火机。",
+          "itemRewardId": "item_lighter",
+          "postInteractionMessage": "你捡起了打火机。"
+        },
+        {
+          "id": "int_wall_clock",
+          "name": "停摆的挂钟",
+          "description": "指针停在12点，电池仓盖打开着。",
+          "requiredItemId": "item_battery",
+          "lockedMessage": "没有电源，钟表不会走。",
+          "postInteractionMessage": "指针疯狂转动，似乎永远无法停止。",
+          "dialogue": [
+            "装上电池后，指针疯狂转动，似乎永远无法停止。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_teaching_1_hall",
+          "label": "下楼"
+        }
+      ]
+    },
+    "scene_campus_road_north": {
+      "id": "scene_campus_road_north",
+      "title": "校园大道北段",
+      "imageUrl": "./assets/scene_campus_road_north.jpg",
+      "description": "道路在此分岔，连接着湖畔与北部各大建筑。路边的排水设施似乎有些堵塞。北面通往理学院，东面连接荔园。",
+      "interactables": [
+        {
+          "id": "int_drain",
+          "name": "排水沟",
+          "description": "格栅下面卡着一个金属把手。格栅锈死了，徒手打不开。",
+          "requiredItemId": "item_crowbar",
+          "lockedMessage": "格栅纹丝不动。需要工具撬开。",
+          "itemRewardId": "item_rusty_handle",
+          "postInteractionMessage": "你撬开了格栅，拿到了里面的把手。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_lakeside",
+          "label": "返回湖畔"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_science_lobby",
+          "label": "前往理学院与北部"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_liyuan",
+          "label": "前往荔园"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_business_lobby",
+          "label": "前往商学院"
+        }
+      ]
+    },
+    "scene_canteen": {
+      "id": "scene_canteen",
+      "title": "学生餐厅",
+      "imageUrl": "./assets/scene_canteen.jpg",
+      "description": "位于湖畔西侧。空气中弥漫着馊味，桌子上满是未收拾的餐盘。",
+      "interactables": [
+        {
+          "id": "int_food_pile",
+          "name": "餐盘堆",
+          "description": "一堆腐烂的食物。",
+          "itemRewardId": "item_bad_food",
+          "postInteractionMessage": "你忍着恶心，从食物堆里找出了一张沾着剩饭的收据。"
+        },
+        {
+          "id": "int_vending_machine",
+          "name": "故障的贩卖机",
+          "description": "屏幕闪烁着乱码，似乎要确认一个价格",
+          "requiredItemId": "item_circuit_fuse",
+          "lockedMessage": "贩卖机屏幕漆黑，似乎保险丝烧断了。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_vending",
+          "itemRewardId": "item_coins",
+          "postInteractionMessage": "贩卖机不再有任何互动",
+          "dialogue": [
+            "贩卖机咔哒一声，吐出了几枚硬币。"
+          ]
+        },
+        {
+          "id": "int_dirty_table",
+          "name": "油腻的餐桌",
+          "description": "桌上有一块脏兮兮的抹布。",
+          "itemRewardId": "item_cloth",
+          "postInteractionMessage": "你拿起了那块抹布。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_lakeside",
+          "label": "返回湖畔"
+        }
+      ]
+    },
+    "scene_xinyuan": {
+      "id": "scene_xinyuan",
+      "title": "欣园",
+      "imageUrl": "./assets/scene_xinyuan.jpg",
+      "description": "地图的最北端，这里人迹罕至，只有一座荒废的宿舍楼。",
+      "interactables": [
+        {
+          "id": "int_mail_box",
+          "name": "信箱",
+          "description": "塞满了废纸。",
+          "itemRewardId": "item_torn_page_2",
+          "postInteractionMessage": "你在废纸堆里找到了一张日记残页。"
+        },
+        {
+          "id": "int_dorm_door",
+          "name": "宿舍大门",
+          "description": "宿舍门紧锁着，你需要找到对应的钥匙。",
+          "requiredItemId": "item_dorm_key",
+          "lockedMessage": "门锁上了，钥匙孔旁边画着一只小熊。",
+          "itemRewardId": "item_vhs_tape",
+          "postInteractionMessage": "你打开门进入宿舍，在桌上发现了一盘诡异的录像带。",
+          "flagReward": "dorm_unlocked"
+        },
+        {
+          "id": "int_metal_box",
+          "name": "旧铁盒",
+          "description": "在花坛边发现的一个生锈铁盒。",
+          "hiddenIfFlag": "box_opened",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_box_code",
+          "itemRewardId": "item_old_photo",
+          "postInteractionMessage": "盒子打开了，里面是一张泛黄的照片。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_science_lobby",
+          "label": "返回理学院"
+        }
+      ]
+    },
+    "scene_liyuan": {
+      "id": "scene_liyuan",
+      "title": "荔园",
+      "imageUrl": "./assets/scene_liyuan.jpg",
+      "description": "每当荔园漫出浓雾的时候，总是会爬出一堆小强。",
+      "interactables": [
+        {
+          "id": "int_luggage",
+          "name": "遗落的行李箱",
+          "description": "看起来很结实，挂着密码锁。你需要四位数的年份密码。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_luggage_lock",
+          "itemRewardId": "item_flashlight",
+          "postInteractionMessage": "行李箱打开了，你拿到了里面的手电筒。"
+        },
+        {
+          "id": "int_cat_toy",
+          "name": "破旧的猫爬架",
+          "description": "上面全是抓痕，也许这里曾经有猫。",
+          "postInteractionMessage": "什么也没有发现。",
+          "dialogue": [
+            "上面全是抓痕，也许这里曾经有猫。"
+          ],
+          "lockedMessage": "",
+          "requiredItemId": ""
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_campus_road_north",
+          "label": "返回大道"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_teaching_2_hall",
+          "label": "前往二教"
+        }
+      ]
+    },
+    "scene_teaching_2_hall": {
+      "id": "scene_teaching_2_hall",
+      "title": "第二教学楼大厅",
+      "imageUrl": "./assets/scene_teaching_2_hall.jpg",
+      "description": "位于荔园北侧。阴森的走廊尽头是实验室。",
+      "interactables": [
+        {
+          "id": "int_notice_board",
+          "name": "公告栏",
+          "description": "贴着一张工学院的电路蓝图。",
+          "itemRewardId": "item_eng_blueprint",
+          "postInteractionMessage": "你取下了那张电路蓝图。"
+        },
+        {
+          "id": "int_lost_box",
+          "name": "失物招领箱",
+          "description": "角落里的箱子，里面似乎有一张磁卡。",
+          "itemRewardId": "item_lab_key",
+          "postInteractionMessage": "你拿到了实验室的磁卡。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_liyuan",
+          "label": "返回荔园"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_teaching_2_lab",
+          "label": "上楼"
+        }
+      ]
+    },
+    "scene_teaching_2_lab": {
+      "id": "scene_teaching_2_lab",
+      "title": "第二教学楼实验室",
+      "imageUrl": "./assets/scene_teaching_2_lab.jpg",
+      "description": "二楼的实验室，充满了化学试剂的味道。",
+      "interactables": [
+        {
+          "id": "int_shelf",
+          "name": "试剂架",
+          "description": "一瓶红色的液体很显眼。",
+          "itemRewardId": "item_chemical_a",
+          "postInteractionMessage": "你小心翼翼地收起了这瓶红色试剂。"
+        },
+        {
+          "id": "int_blackboard_chem",
+          "name": "黑板",
+          "description": "上面写着一些复杂的化学分子式，似乎暗示着某种配方。",
+          "postInteractionMessage": "你看不懂这些公式。",
+          "dialogue": [
+            "你不是专业的，看不懂这些公式。"
+          ],
+          "lockedMessage": "",
+          "requiredItemId": ""
+        },
+        {
+          "id": "int_dirty_microscope",
+          "name": "污浊的显微镜",
+          "description": "镜头被不明油脂糊住了。",
+          "requiredItemId": "item_alcohol",
+          "lockedMessage": "看不清，需要用酒精擦拭。",
+          "postInteractionMessage": "镜头清晰了。切片上的细胞排列成了奇怪的形状：... ■ ★ ●。"
+        },
+        {
+          "id": "int_spirit_lamp",
+          "name": "熄灭的酒精灯",
+          "description": "实验台上有一盏没油的酒精灯。",
+          "requiredItemId": "item_chemical_b",
+          "lockedMessage": "灯芯是干的，需要添加易挥发燃料。",
+          "postInteractionMessage": "加入了蓝色试剂，火焰燃起诡异的幽蓝色光芒，墙上映出一个清晰的符号投影：...-Ω-⏚。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_teaching_2_hall",
+          "label": "下楼"
+        }
+      ]
+    },
+    "scene_engineering_hall": {
+      "id": "scene_engineering_hall",
+      "title": "工学院大厅",
+      "imageUrl": "./assets/scene_engineering_hall.jpg",
+      "description": "到处是机械零件和机油味。配电室就在旁边。",
+      "interactables": [
+        {
+          "id": "int_power_box",
+          "name": "总配电箱",
+          "description": "控制着某个区域的电力，需要正确连接线路。",
+          "requiredItemId": "item_screwdriver",
+          "lockedMessage": "配电箱面板被螺丝锁死了，无法打开。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_power_grid",
+          "itemRewardId": "item_circuit_fuse",
+          "postInteractionMessage": "配电箱指示灯已变绿，你取下了一枚备用保险丝。"
+        },
+        {
+          "id": "int_corroded_box",
+          "name": "腐蚀的铁箱",
+          "description": "角落里有一个被严重锈蚀的保险箱，锁孔已经锈死了。",
+          "requiredItemId": "item_chemical_a",
+          "lockedMessage": "物理方式无法打开，也许需要某种化学试剂溶解锈迹。",
+          "postInteractionMessage": "里面是一张多年前的旧报纸，头版照片上的年份被红笔圈了出来：...05。",
+          "dialogue": [
+            "红色液体腐蚀了锁芯。箱子打开了，里面是一张多年前的旧报纸",
+            "头版照片上的年份后俩位被红笔圈了出来：05。",
+            "前面的年份已经看不清了"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_lakeside",
+          "label": "返回湖畔"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_engineering_workshop",
+          "label": "进入车间"
+        }
+      ]
+    },
+    "scene_engineering_workshop": {
+      "id": "scene_engineering_workshop",
+      "title": "工学院车间",
+      "imageUrl": "./assets/scene_engineering_workshop.jpg",
+      "description": "巨大的机床停在黑暗中。",
+      "interactables": [
+        {
+          "id": "int_lathe",
+          "name": "旧车床",
+          "description": "黑暗中似乎放着什么东西。需要照明才能看清。",
+          "requiredItemId": "item_flashlight",
+          "lockedMessage": "车床周围太暗了，看不清上面的东西。你需要照明工具。",
+          "itemRewardId": "item_admin_key",
+          "postInteractionMessage": "灯光下，你发现车床的卡盘上夹着一把钥匙。"
+        },
+        {
+          "id": "int_tool_box",
+          "name": "工具箱",
+          "description": "翻找一下。",
+          "itemRewardId": "item_screwdriver",
+          "postInteractionMessage": "你找到了一把十字螺丝刀。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_engineering_hall",
+          "label": "返回大厅"
+        }
+      ]
+    },
+    "scene_business_lobby": {
+      "id": "scene_business_lobby",
+      "title": "商学院大堂",
+      "imageUrl": "./assets/scene_business_lobby.jpg",
+      "description": "装饰豪华但如今破败不堪。大理石地面布满裂纹。",
+      "interactables": [
+        {
+          "id": "int_reception",
+          "name": "前台",
+          "description": "抽屉里有一本旧账本。",
+          "itemRewardId": "item_biz_ledger",
+          "postInteractionMessage": "你翻出一本可疑的账本。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_campus_road_north",
+          "label": "离开商学院"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_business_office",
+          "label": "进入办公室"
+        }
+      ]
+    },
+    "scene_business_office": {
+      "id": "scene_business_office",
+      "title": "商学院办公室",
+      "imageUrl": "./assets/scene_business_office.jpg",
+      "description": "办公桌上有一台老式电脑还在运行。",
+      "interactables": [
+        {
+          "id": "int_computer",
+          "name": "老式电脑",
+          "description": "屏幕保护程序是一个旋转的几何体。需要密码登录。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_computer",
+          "itemRewardId": "item_usb_drive",
+          "postInteractionMessage": "电脑屏幕显示“数据已导出”，弹出了一个加密U盘。"
+        },
+        {
+          "id": "int_file_cabinet",
+          "name": "文件柜",
+          "description": "柜门虚掩，里面发出紫色的光。",
+          "itemRewardId": "item_uv_light",
+          "postInteractionMessage": "你拿到了一个便携式紫光灯。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_business_lobby",
+          "label": "返回大堂"
+        }
+      ]
+    },
+    "scene_science_lobby": {
+      "id": "scene_science_lobby",
+      "title": "理学院大堂",
+      "imageUrl": "./assets/scene_science_lobby.jpg",
+      "description": "巨大的DNA双螺旋模型倒在地上。东面连接着欣园，楼上是实验室。",
+      "interactables": [
+        {
+          "id": "int_glass_case",
+          "name": "展示柜",
+          "description": "玻璃碎了，里面有一份实验报告。",
+          "itemRewardId": "item_sci_report",
+          "postInteractionMessage": "你小心翼翼地取出了那份实验报告。"
+        },
+        {
+          "id": "int_first_aid",
+          "name": "箱子",
+          "description": "墙上挂着的箱子半开着。",
+          "itemRewardId": "item_alcohol",
+          "postInteractionMessage": "你找到了一瓶去污剂",
+          "dialogue": [],
+          "lockedMessage": "",
+          "requiredItemId": ""
+        },
+        {
+          "id": "int_lab_door_panel",
+          "name": "实验室门禁",
+          "description": "红灯亮着，刷卡处写着“请出示权限卡”。",
+          "requiredItemId": "item_lab_key",
+          "flagReward": "lab_unlocked",
+          "postInteractionMessage": "滴——绿灯亮起，门锁开了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_campus_road_north",
+          "label": "返回大道"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_science_lab",
+          "label": "进入实验室",
+          "locked": true,
+          "requiredFlag": "lab_unlocked",
+          "lockedMessage": "门禁系统锁死了通道。"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_xinyuan",
+          "label": "前往欣园"
+        }
+      ]
+    },
+    "scene_science_lab": {
+      "id": "scene_science_lab",
+      "title": "理学院实验室",
+      "imageUrl": "./assets/scene_science_lab.jpg",
+      "description": "这里似乎进行过某种危险的实验。墙角的保险箱很显眼，谁会在校园放保险箱？",
+      "interactables": [
+        {
+          "id": "int_safe",
+          "name": "墙角保险箱",
+          "description": "需要三位符号密码。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_lab_safe",
+          "itemRewardId": "item_security_card",
+          "postInteractionMessage": "保险箱已打开，里面是一张高级安保卡。",
+          "dialogue": [
+            "看上去是某个学生存的物品"
+          ]
+        },
+        {
+          "id": "int_bench",
+          "name": "实验台",
+          "description": "上面有一瓶蓝色的试剂。写着配方未知。",
+          "itemRewardId": "item_chemical_b",
+          "postInteractionMessage": "你收起了蓝色试剂。",
+          "dialogue": []
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_science_lobby",
+          "label": "下楼"
+        }
+      ]
+    },
+    "scene_admin_entrance": {
+      "id": "scene_admin_entrance",
+      "title": "行政楼入口",
+      "imageUrl": "./assets/scene_admin_entrance.jpg",
+      "description": "庄严的行政楼大门紧闭，只有通过特殊权限才能进入。最豪华的厕所就在里面，快来！",
+      "interactables": [
+        {
+          "id": "int_admin_main_door",
+          "name": "行政楼大门",
+          "description": "厚重的双开木门，锁孔生锈。",
+          "requiredItemId": "item_admin_key",
+          "lockedMessage": "门锁上了，需要一把特定的钥匙。",
+          "postInteractionMessage": "锁被打开了，快去看看吧。",
+          "flagReward": "admin_unlocked",
+          "dialogue": [
+            "门锁打开了。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_teaching_1_hall",
+          "label": "离开行政楼"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_admin_office",
+          "label": "进入院长室",
+          "locked": true,
+          "requiredFlag": "admin_unlocked"
+        }
+      ]
+    },
+    "scene_admin_office": {
+      "id": "scene_admin_office",
+      "title": "行政楼院长室",
+      "imageUrl": "./assets/scene_admin_office.jpg",
+      "description": "这里藏着所有的秘密。墙上挂着一张被取下的照片印记。",
+      "interactables": [
+        {
+          "id": "int_drawer_admin",
+          "name": "办公桌抽屉",
+          "description": "没有锁。",
+          "itemRewardId": "item_expert_diary",
+          "postInteractionMessage": "你找到了一本受潮的日记本。"
+        },
+        {
+          "id": "int_blank_wall",
+          "name": "空白的墙壁",
+          "description": "照片印记处看起来什么都没有，但隐约有反光。",
+          "requiredItemId": "item_uv_light",
+          "lockedMessage": "肉眼看不出什么。",
+          "postInteractionMessage": "墙上显现出一行血红的字：‘...梅花、红桃、黑桃’。",
+          "dialogue": [
+            "紫光灯照射下，墙上显现出一行血红的字：‘...梅花、红桃、黑桃’。"
+          ]
+        },
+        {
+          "id": "int_statue_pedestal",
+          "name": "空底座",
+          "description": "房间角落有一个空的展示底座，形状扭曲。",
+          "requiredItemId": "item_strange_statue",
+          "lockedMessage": "似乎缺少了某个雕像。",
+          "postInteractionMessage": "雕像归位，底座发出一声轻响，弹出一个暗格，里面记录着实验的真正起始日期。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_admin_entrance",
+          "label": "返回大厅"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_expert_apt_exterior",
+          "label": "进入暗道",
+          "requiredFlag": "computer_unlocked"
+        }
+      ]
+    },
+    "scene_expert_apt_exterior": {
+      "id": "scene_expert_apt_exterior",
+      "title": "专家公寓外围",
+      "imageUrl": "./assets/scene_expert_apt_exterior.jpg",
+      "description": "现在已经是被铁丝网包围的禁区，杂草丛生。一扇带有电子锁的铁门挡住了去路。",
+      "interactables": [
+        {
+          "id": "int_gate_control",
+          "name": "大门控制面板",
+          "description": "需要安保门禁卡激活，并输入符号序列解锁。",
+          "requiredItemId": "item_security_card",
+          "lockedMessage": "面板未激活，需要插入安保门禁卡。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_final_gate",
+          "postInteractionMessage": "面板绿灯亮起，门锁接触。"
+        },
+        {
+          "id": "int_glowing_grass",
+          "name": "草丛中的微光",
+          "description": "铁丝网旁边的草丛里有什么东西在闪烁。杂草太茂密了，无法伸手进去。也许可以烧掉它们。",
+          "requiredItemId": "item_lighter",
+          "lockedMessage": "杂草太密了，带刺的藤蔓挡住了手。",
+          "itemRewardId": "item_memory_shard",
+          "postInteractionMessage": "火光燃尽了杂草，你捡起了发光的碎片。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_admin_office",
+          "label": "返回密道"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_expert_apt_interior",
+          "label": "进入公寓",
+          "locked": true,
+          "requiredFlag": "gate_opened",
+          "lockedMessage": "大门紧闭，需要破解门禁系统。"
+        }
+      ]
+    },
+    "scene_expert_apt_interior": {
+      "id": "scene_expert_apt_interior",
+      "title": "专家公寓内部",
+      "imageUrl": "./assets/scene_expert_apt_interior.jpg",
+      "description": "这里是多年前失踪专家的住所。空气中凝固着压抑的气息，墙壁上写满了疯狂的算式，桌上放着一台正在运转的奇怪仪器。",
+      "interactables": [
+        {
+          "id": "int_loop_machine",
+          "name": "时间机器原型",
+          "description": "屏幕上闪烁着警告：'循环临界值已达'。旁边有一个USB接口和紧急终止按钮。",
+          "requiredItemId": "item_usb_drive",
+          "lockedMessage": "系统拒绝访问，需要插入商学院的加密U盘重写协议。",
+          "winsGame": true,
+          "postInteractionMessage": "你插入U盘并按下了按钮。周围的空间开始剧烈震动，光芒吞噬了一切..."
+        },
+        {
+          "id": "int_memory_projector",
+          "name": "全息投影仪",
+          "description": "一台布满灰尘的设备，似乎需要某种记忆媒介才能激活。",
+          "requiredItemId": "item_memory_shard",
+          "lockedMessage": "缺少记忆核心。",
+          "postInteractionMessage": "一位科学家的影像，他绝望地记录着：‘实验失败了，我们创造了一个吞噬现实的怪物。’",
+          "dialogue": [
+            "空气中浮现出一位科学家的影像，他绝望地记录着：‘实验失败了，我们创造了一个吞噬现实的怪物。’"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_expert_apt_exterior",
+          "label": "离开公寓"
+        }
+      ]
+    },
+    "scene_ending_dawn": {
+      "id": "scene_ending_dawn",
+      "title": "黎明",
+      "imageUrl": "./assets/scene_ending_dawn.jpg",
+      "description": "你终于通关了。",
+      "interactables": [],
+      "exits": []
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

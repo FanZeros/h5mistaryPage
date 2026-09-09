@@ -1,0 +1,438 @@
+{
+  "meta": {
+    "name": "回春堂：死生局",
+    "author": "AI",
+    "version": "1.0.4",
+    "description": "你在一家停业已久的民国中药铺中醒来，空气中弥漫着陈旧的艾草与腐烂气息。为了逃离成为“药引”的命运，你必须在午夜前解开疯癫大夫的秘密。",
+    "style": "复古录像带（VHS）故障艺术风格，阴冷潮湿，中式民俗恐怖，低饱和度，噪点颗粒感。",
+    "sceneStyle": "广角畸变镜头，幽闭恐惧视角，昏暗摇曳的烛光照明，墙壁斑驳发霉，充满生活痕迹与诡异细节的背景。",
+    "itemStyle": "写实油画质感，单一物体，深色晕影背景，边缘锐利，戏剧性顶光，带有陈旧磨损的细节。",
+    "musicStyle": "Dark ambient, drone, rain sounds, distorted radio static, distant sobbing, heavy heartbeats",
+    "endingMessage": "随着最后一道符咒燃尽，地下室沉重的石门轰然开启。清晨的第一缕阳光刺破了百年的阴霾，你跌跌撞撞地逃出了回春堂。身后的老宅在晨雾中若隐若现，仿佛那只窥视的眼睛从未闭上。",
+    "endingSceneId": "scene_exit",
+    "useBannerAsTitleBg": true,
+    "designConfig": {
+      "theme": "你在一个停滞于90年代雷雨夜的封闭公寓中醒来，大门被无数红线死死缠绕，窗外只有翻滚的黑雾。房间内的家具随着时间的推移会像活物一样蠕动移位，你必须在理智彻底崩溃前，通过破解前任住户留下的血腥日记，逃离这个由怨念构筑的死循环密室。",
+      "sceneCount": 7,
+      "itemCount": 12,
+      "puzzleCount": 7,
+      "requiredItems": "生锈的剪刀, 染血的日记本, 缺了一角的八卦镜, 奇怪的草人娃娃, 老式手电筒, 一束湿润的头发",
+      "requiredScenes": "被红线封死的玄关, 滴水的破旧卫生间, 供奉着遗像的卧室, 堆满杂物的狭窄走廊, 闪烁着雪花屏的客厅"
+    },
+    "bgmUrl": "./assets/bgm.mp3"
+  },
+  "initialState": {
+    "currentSceneId": "scene_hall",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "头痛欲裂……你缓缓睁开眼。",
+      "四周一片死寂，只有墙上的老式挂钟发出沉闷的滴答声。",
+      "空气中混合着发霉的中药味和某种……肉类腐烂的甜腥气。",
+      "大门紧锁，窗户被厚木板焊死。你被困在了这间早已荒废的药铺里。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_bloody_needles": {
+      "id": "item_bloody_needles",
+      "name": "沾血的银针包",
+      "description": "一套针灸用的银针，针尖发黑，布包上有着暗红色的污渍。看着它让人指尖发麻。",
+      "type": "TOOL",
+      "icon": "📍",
+      "image": "./assets/item_bloody_needles.png",
+      "clueForPuzzleId": "puzzle_acupuncture"
+    },
+    "item_materia_medica": {
+      "id": "item_materia_medica",
+      "name": "残缺的本草纲目",
+      "description": "一本被虫蛀得很严重的古书。角落里画着人体穴位图，‘百会’穴被红笔圈出。书中关于“五行相生”的记载（木火土金水）被特意折角标记了。",
+      "type": "NOTE",
+      "icon": "📖",
+      "image": "./assets/item_materia_medica.png",
+      "clueForPuzzleId": "puzzle_final_gate"
+    },
+    "item_copper_furnace": {
+      "id": "item_copper_furnace",
+      "name": "紫铜炼丹炉",
+      "description": "一尊便携式的小型炼丹炉，通体紫红，雕刻着狰狞的兽首。炉壁还是温热的。",
+      "type": "TOOL",
+      "icon": "🔥",
+      "image": "./assets/item_copper_furnace.png",
+      "clueForPuzzleId": "puzzle_altar"
+    },
+    "item_dried_gecko": {
+      "id": "item_dried_gecko",
+      "name": "风干的壁虎尸体",
+      "description": "极其干燥的壁虎尸体。奇怪的是，当你敲击它时，它会发出'三下，三下，一下'的空洞回响。",
+      "type": "CLUE",
+      "icon": "🦎",
+      "image": "./assets/item_dried_gecko.png",
+      "clueForPuzzleId": "puzzle_eye_door"
+    },
+    "item_torn_photo": {
+      "id": "item_torn_photo",
+      "name": "撕碎的全家福",
+      "description": "一张黑白照片的碎片，照片上的人脸被刮花了，只能依稀辨认出背景是这间药铺。",
+      "type": "CLUE",
+      "icon": "🧩",
+      "image": "./assets/item_torn_photo.png",
+      "clueForPuzzleId": "puzzle_jigsaw_photo"
+    },
+    "item_iron_key": {
+      "id": "item_iron_key",
+      "name": "生铁钥匙",
+      "description": "一把沉重的生铁钥匙，上面沾满了油污。",
+      "type": "KEY",
+      "icon": "🗝️",
+      "image": "./assets/item_iron_key.png"
+    },
+    "item_paper_slip": {
+      "id": "item_paper_slip",
+      "name": "药柜密码条",
+      "description": "一张皱巴巴的纸条，上面写着几个数字：1-9-3-7。",
+      "type": "NOTE",
+      "icon": "📄",
+      "image": "./assets/item_paper_slip.png",
+      "clueForPuzzleId": "puzzle_cabinet_lock"
+    }
+  },
+  "puzzles": {
+    "puzzle_cabinet_lock": {
+      "id": "puzzle_cabinet_lock",
+      "description": "百子柜正中央的一个抽屉上挂着一把四位数的密码锁。锁孔周围刻着‘生老病死’四个小字。",
+      "answer": "1937",
+      "rewardFlag": "flag_cabinet_open",
+      "rewardMessage": "锁‘咔哒’一声开了，抽屉里放着那个沾血的银针包。",
+      "type": "numeric"
+    },
+    "puzzle_eye_door": {
+      "id": "puzzle_eye_door",
+      "description": "门缝后的那只眼睛死死盯着你，门板上传来有节奏的敲击声。你需要用同样的节奏回应它，它才会开门。",
+      "answer": "331",
+      "rewardFlag": "flag_eye_door_open",
+      "rewardMessage": "门后的眼睛似乎满意地眯了一下，随后门锁自动弹开了。",
+      "type": "numeric",
+      "linkedAssetId": "item_dried_gecko"
+    },
+    "puzzle_safe_code": {
+      "id": "puzzle_safe_code",
+      "description": "桌上的相框里是一张拼凑完整的照片，照片背景的日历上，用鲜血圈出了几个符号。",
+      "answer": "1024",
+      "rewardFlag": "flag_safe_open",
+      "rewardMessage": "保险箱打开了，里面是一尊紫铜炼丹炉。"
+    },
+    "puzzle_acupuncture": {
+      "id": "puzzle_acupuncture",
+      "description": "铜人的身上布满了穴位孔，你需要按照《本草纲目》上的记载，刺入正确的三个死穴。",
+      "answer": "百会",
+      "choices": [
+        "百会",
+        "涌泉",
+        "膻中",
+        "太阳",
+        "神阙",
+        "命门"
+      ],
+      "rewardFlag": "flag_dummy_open",
+      "rewardMessage": "铜人胸口弹开一个暗格，里面藏着一把生铁钥匙。",
+      "type": "symbol"
+    },
+    "puzzle_final_gate": {
+      "id": "puzzle_final_gate",
+      "description": "地下室的石门上刻着五行法阵，必须按照相生的顺序按下符文，才能破除封印。",
+      "answer": "木火土金水",
+      "choices": [
+        "金",
+        "木",
+        "水",
+        "火",
+        "土",
+        "风",
+        "雷"
+      ],
+      "rewardFlag": "flag_final_gate_open",
+      "rewardMessage": "随着一阵地动山摇的轰鸣，石门缓缓升起，露出了通往外界的阶梯。",
+      "type": "symbol"
+    },
+    "puzzle_jigsaw_photo": {
+      "id": "puzzle_jigsaw_photo",
+      "description": "将撕碎的照片碎片拼凑完整，或许能看清上面的线索。",
+      "answer": "true",
+      "rewardFlag": "flag_photo_fixed",
+      "rewardMessage": "照片拼好了，背景墙上写着一组数字：1024。",
+      "type": "image_grid",
+      "linkedAssetId": "item_torn_photo",
+      "gridSize": 3
+    },
+    "puzzle_altar": {
+      "id": "puzzle_altar",
+      "description": "将炼丹炉放置在正确的位置。",
+      "answer": "放置",
+      "choices": [
+        "放置"
+      ],
+      "rewardFlag": "flag_furnace_placed",
+      "rewardMessage": "紫铜炼丹炉已经归位，发出嗡嗡的共鸣声。",
+      "type": "symbol",
+      "linkedAssetId": "item_copper_furnace"
+    }
+  },
+  "scenes": {
+    "scene_hall": {
+      "id": "scene_hall",
+      "title": "问诊大堂",
+      "imageUrl": "./assets/scene_hall.jpg",
+      "description": "这里曾经是病人排队的地方。天花板上悬挂着数具干瘪的尸体，它们像风铃一样随风轻晃。正对着大门的是一张积满灰尘的问诊桌。",
+      "interactables": [
+        {
+          "id": "corpse_hanging",
+          "name": "悬挂的干尸",
+          "description": "一具穿着长衫的干尸，衣兜里似乎鼓鼓囊囊的。",
+          "itemRewardId": "item_paper_slip",
+          "postInteractionMessage": "尸体的衣兜已经被翻空了，只剩下干瘪的皮肤。",
+          "clueForPuzzleId": "puzzle_cabinet_lock",
+          "dialogue": [
+            "你忍着恶心摸索尸体的衣兜。",
+            "手指触碰到了一张皱巴巴的纸条。"
+          ]
+        },
+        {
+          "id": "desk_drawer",
+          "name": "问诊桌抽屉",
+          "description": "抽屉半开着，里面乱七八糟。",
+          "itemRewardId": "item_materia_medica",
+          "postInteractionMessage": "你在杂乱的处方笺下发现了一本残缺的《本草纲目》。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_cabinets",
+          "label": "往里走"
+        }
+      ]
+    },
+    "scene_cabinets": {
+      "id": "scene_cabinets",
+      "title": "百子柜墙",
+      "imageUrl": "./assets/scene_cabinets.jpg",
+      "description": "整面墙都是密密麻麻的小抽屉，也就是中药铺的‘百子柜’。幽暗的光线下，这些抽屉像是一个个微型的棺材。",
+      "interactables": [
+        {
+          "id": "locked_drawer",
+          "name": "带锁的抽屉",
+          "description": "这个抽屉与众不同，上面挂着精致的密码锁。锁上刻着‘生老病死’。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_cabinet_lock",
+          "itemRewardId": "item_bloody_needles",
+          "lockedMessage": "你需要输入四位数字密码。提示可能在某具‘病人’身上。",
+          "postInteractionMessage": "抽屉开着，里面空空如也。"
+        },
+        {
+          "id": "open_shelf",
+          "name": "散落的药材",
+          "description": "架子上散落着一些没用的药渣。",
+          "postInteractionMessage": "这里只剩下发黑的甘草根了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_hall",
+          "label": "回大堂"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_corridor",
+          "label": "去后院"
+        }
+      ]
+    },
+    "scene_corridor": {
+      "id": "scene_corridor",
+      "title": "后院走廊",
+      "imageUrl": "./assets/scene_corridor.jpg",
+      "description": "一条狭长的走廊，两侧堆满了杂物。尽头有一扇贴满封条的木门，门缝里似乎有什么东西在发光。",
+      "interactables": [
+        {
+          "id": "eye_door",
+          "name": "窥视之门",
+          "description": "门缝里有一只充血的眼球死死盯着你。门板后传来‘咚、咚、咚……’的敲击声。",
+          "lockedMessage": "门锁得死死的。你需要回应门后那个东西的敲击暗号，或者找到能发出同样声音的参照物。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_eye_door",
+          "requiredItemId": "item_dried_gecko",
+          "audioMessage": "331",
+          "postInteractionMessage": "门后的眼睛消失了，门虚掩着。",
+          "dialogue": [
+            "那只眼睛转动了一下，似乎在等待你的回应。",
+            "你拿出了风干的壁虎尸体，敲击声似乎与门后的节奏产生了共鸣：三下，三下，一下。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_cabinets",
+          "label": "回百子柜"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_decoction",
+          "label": "进熬药房"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_study",
+          "label": "进书房"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "scene_underground",
+          "label": "进入门后的暗道",
+          "locked": true,
+          "requiredFlag": "flag_eye_door_open"
+        }
+      ]
+    },
+    "scene_decoction": {
+      "id": "scene_decoction",
+      "title": "熬药房",
+      "imageUrl": "./assets/scene_decoction.jpg",
+      "description": "房间里烟雾缭绕，正中间有一个巨大的灶台。角落里堆放着劈好的柴火。",
+      "interactables": [
+        {
+          "id": "jar_pile",
+          "name": "破碎的药罐堆",
+          "description": "一堆打碎的陶罐，里面或许藏着什么。",
+          "itemRewardId": "item_dried_gecko",
+          "postInteractionMessage": "只是一堆碎陶片。"
+        },
+        {
+          "id": "stove",
+          "name": "冷灶台",
+          "description": "灶膛里有未燃尽的纸灰。",
+          "itemRewardId": "item_torn_photo",
+          "postInteractionMessage": "灶膛里是黑色的灰烬，似乎有人在这里烧毁过照片。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_corridor",
+          "label": "回走廊"
+        }
+      ]
+    },
+    "scene_study": {
+      "id": "scene_study",
+      "title": "大夫书房",
+      "imageUrl": "./assets/scene_study.jpg",
+      "description": "书房里弥漫着陈旧的书卷气。正中间摆着一个练针灸用的铜人，书架上空了一块。",
+      "interactables": [
+        {
+          "id": "acupuncture_dummy",
+          "name": "针灸铜人",
+          "description": "铜人表面刻满了穴位。胸口处似乎有个机关。",
+          "requiredItemId": "item_bloody_needles",
+          "lockedMessage": "你需要某种尖锐的工具来刺入穴位。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_acupuncture",
+          "itemRewardId": "item_iron_key",
+          "postInteractionMessage": "铜人的胸口敞开着，机关已经失效。"
+        },
+        {
+          "id": "photo_frame",
+          "name": "破碎的相框",
+          "description": "桌上放着一个相框，里面的照片被撕碎了。",
+          "requiredItemId": "item_torn_photo",
+          "lockedMessage": "相框里缺了几块关键的碎片。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_jigsaw_photo",
+          "clueForPuzzleId": "puzzle_safe_code",
+          "postInteractionMessage": "照片已经拼好，日历上的日期1024被鲜血圈了出来。"
+        },
+        {
+          "id": "safe_box",
+          "name": "墙角保险箱",
+          "description": "一个厚重的铁制保险箱。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_safe_code",
+          "requiredItemId": "item_iron_key",
+          "itemRewardId": "item_copper_furnace",
+          "lockedMessage": "需要一把钥匙和四位数字密码。",
+          "postInteractionMessage": "保险箱已经空了，你拿走了里面的紫铜炼丹炉。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_corridor",
+          "label": "回走廊"
+        }
+      ]
+    },
+    "scene_underground": {
+      "id": "scene_underground",
+      "title": "地下暗室",
+      "imageUrl": "./assets/scene_underground.jpg",
+      "description": "穿过那扇窥视之门，你来到了地下。墙壁上画满了血色的咒文。中央有一个法坛，后面是一扇巨大的石门。",
+      "interactables": [
+        {
+          "id": "ritual_altar",
+          "name": "炼丹法坛",
+          "description": "法坛上积满了蜡油。看起来需要放置特定的法器来启动后面的石门。",
+          "requiredItemId": "item_copper_furnace",
+          "lockedMessage": "法坛中央缺了一个核心的容器，也许是某种炉子。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_altar",
+          "postInteractionMessage": "紫铜炼丹炉已经归位，发出嗡嗡的共鸣声。"
+        },
+        {
+          "id": "stone_gate_lock",
+          "name": "石门封印",
+          "description": "巨大的石门上刻着金、木、水、火、土五个符文按钮。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_final_gate",
+          "requiredFlag": "flag_furnace_placed",
+          "lockedMessage": "法坛没有启动，石门纹丝不动。",
+          "postInteractionMessage": "石门已开启。",
+          "winsGame": true
+        },
+        {
+          "id": "dark_corner",
+          "name": "阴暗角落",
+          "description": "角落里堆着一些杂物。",
+          "postInteractionMessage": "没什么有用的了。"
+        },
+        {
+          "id": "wall_hook",
+          "name": "墙上的挂钩",
+          "description": "用来挂东西的钩子。",
+          "postInteractionMessage": "空空如也。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_corridor",
+          "label": "逃回走廊"
+        }
+      ]
+    },
+    "scene_exit": {
+      "id": "scene_exit",
+      "title": "逃出生天",
+      "imageUrl": "./assets/scene_exit.jpg",
+      "description": "清晨的阳光洒在荒草丛生的后巷。你自由了。",
+      "interactables": [],
+      "exits": []
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

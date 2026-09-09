@@ -1,0 +1,400 @@
+{
+  "meta": {
+    "name": "潜渊回响",
+    "author": "零殇",
+    "version": "1.2.0",
+    "description": "一场关于清醒梦、破碎记忆与阴影自我的超现实悬疑冒险。",
+    "endingMessage": "随着面具与你的脸庞融合，周围崩塌的现实化作无数光点。巨大的吸力将你拉向高空。当你猛然睁开双眼，实验室刺眼的白光让你流下泪水。监测仪器的滴答声从未如此悦耳。你回来了……但在这个世界的倒影中，那个苍白的影子似乎正在镜子里对你微笑。",
+    "useBannerAsTitleBg": true
+  },
+  "initialState": {
+    "currentSceneId": "bedroom",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "系统日志：启动‘星体投射’协议... 同步率 100%...",
+      "警告：检测到未知的精神干扰... 锚点断裂...",
+      "错误：意识正在坠入深层无意识区...",
+      "...",
+      "你猛然惊醒。这里看起来像你的卧室，但墙壁仿佛在呼吸，空气中弥漫着陈旧灰尘和臭氧的味道。",
+      "这不是现实。这是你破碎的记忆宫殿。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "broken_watch": {
+      "id": "broken_watch",
+      "name": "破损的怀表",
+      "description": "指针永远停在了 04:04。表盘玻璃已经碎裂，仿佛记录着某个灾难性的时刻。",
+      "type": "CLUE",
+      "icon": "⏱️",
+      "image": "./assets/item_broken_watch.png"
+    },
+    "diary_page": {
+      "id": "diary_page",
+      "name": "沾血的日记残页",
+      "description": "纸张泛黄，字迹潦草且疯狂。上面写着：‘为了锁住恐惧，我把那把钥匙藏在了时间的肚子里。’",
+      "type": "NOTE",
+      "icon": "📄",
+      "image": "./assets/item_diary_page.png"
+    },
+    "rusty_key": {
+      "id": "rusty_key",
+      "name": "锈蚀的旧钥匙",
+      "description": "一把沉重的老式铜钥匙，表面覆盖着暗红色的锈迹，散发着寒气。",
+      "type": "KEY",
+      "icon": "🗝️",
+      "image": "./assets/item_rusty_key.png"
+    },
+    "glowing_pebble": {
+      "id": "glowing_pebble",
+      "name": "发出微光的鹅卵石",
+      "description": "一块散发着幽蓝色光芒的石头，握在手中能感受到微弱的脉搏。它是这里唯一纯净的光源。",
+      "type": "TOOL",
+      "icon": "💎",
+      "image": "./assets/item_glowing_pebble.png"
+    },
+    "heavy_hammer": {
+      "id": "heavy_hammer",
+      "name": "沉重的铁锤",
+      "description": "原本用于园艺修缮，现在上面布满了莫名的黑色粘液。",
+      "type": "TOOL",
+      "icon": "🔨",
+      "image": "./assets/item_heavy_hammer.png"
+    },
+    "shadow_mask": {
+      "id": "shadow_mask",
+      "name": "苍白的面具",
+      "description": "一张没有任何五官的面具，却让你感到无比熟悉。这是你遗失的‘自我’。",
+      "type": "KEY",
+      "icon": "🎭",
+      "image": "./assets/item_shadow_mask.png"
+    },
+    "family_photo": {
+      "id": "family_photo",
+      "name": "褪色的全家福",
+      "description": "照片中所有人的脸都被黑色的墨水涂抹掉了。",
+      "type": "CLUE",
+      "icon": "🖼️",
+      "image": "./assets/item_family_photo.png"
+    }
+  },
+  "puzzles": {
+    "clock_puzzle": {
+      "id": "clock_puzzle",
+      "description": "座钟的钟摆静止不动，表盘下方的密码锁需要输入四个数字才能打开。",
+      "answer": "0404",
+      "rewardFlag": "clock_opened",
+      "rewardMessage": "随着咔哒一声，座钟下方的暗格弹开了，里面似乎放着什么东西。"
+    },
+    "shadow_riddle": {
+      "id": "shadow_riddle",
+      "description": "镜中的黑影发出低沉的声音：‘我以被遗忘的情感为食。当你逃避真相时，我便壮大。我是每个人心中最深的战栗。说出我的名字。’ (请输入两个汉字)",
+      "answer": "恐惧",
+      "rewardFlag": "shadow_defeated",
+      "rewardMessage": "黑影发出刺耳的尖叫，随即消散成黑烟，地上留下了一张面具。"
+    }
+  },
+  "scenes": {
+    "bedroom": {
+      "id": "bedroom",
+      "title": "扭曲的卧室",
+      "imageUrl": "./assets/scene_bedroom.jpg",
+      "description": "你曾经熟悉的卧室现在变得极其陌生。窗户被黑色的木板封死，床下的阴影似乎在蠕动。这是你梦魇的起点。",
+      "interactables": [
+        {
+          "id": "bed_stand",
+          "name": "床头柜",
+          "description": "柜子上放着一块停止走动的怀表。",
+          "x": 10.1,
+          "y": 36.5,
+          "width": 15,
+          "height": 20,
+          "icon": "🗄️",
+          "itemRewardId": "broken_watch",
+          "dialogue": [
+            "你拿起了怀表，冰冷的触感让你打了个寒颤。"
+          ],
+          "image": "./assets/item_bedroom_bed_stand.png",
+          "brightness": 0.5
+        },
+        {
+          "id": "photo_frame",
+          "name": "墙上的相框",
+          "description": "一张歪斜的照片挂在墙上。",
+          "x": 52.4,
+          "y": 11.4,
+          "width": 15.9,
+          "height": 30.6,
+          "itemRewardId": "family_photo",
+          "image": "./assets/item_bedroom_photo_frame.png",
+          "brightness": 0.6
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "corridor",
+          "label": "走出卧室"
+        }
+      ]
+    },
+    "corridor": {
+      "id": "corridor",
+      "title": "回响的走廊",
+      "imageUrl": "./assets/scene_corridor.jpg",
+      "description": "一条无限延伸的走廊，每一步的脚步声都会引起无数回响。两侧的门扉紧闭，透出不安的气息。",
+      "interactables": [
+        {
+          "id": "nursery_door",
+          "name": "涂鸦的房门",
+          "description": "通往儿童房的门，上面画满了杂乱的线条。门锁已经锈死。",
+          "x": 44.8,
+          "y": 20.7,
+          "width": 9.9,
+          "height": 25.8,
+          "lockedMessage": "门锁锈迹斑斑，无论怎么用力都无法转动。",
+          "requiredItemId": "rusty_key",
+          "flagReward": "nursery_unlocked",
+          "image": "./assets/item_corridor_nursery_door.png",
+          "rotationY": -1,
+          "brightness": 0.5
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "bedroom",
+          "label": "回卧室"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "study",
+          "label": "进入书房"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "garden",
+          "label": "去往后院"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "nursery",
+          "label": "进入儿童房",
+          "locked": true,
+          "requiredFlag": "nursery_unlocked"
+        }
+      ]
+    },
+    "study": {
+      "id": "study",
+      "title": "尘封的书房",
+      "imageUrl": "./assets/scene_study.jpg",
+      "description": "书架上的书都变成了无字的白纸。房间中央摆放着一座巨大的落地座钟。",
+      "interactables": [
+        {
+          "id": "desk",
+          "name": "凌乱的书桌",
+          "description": "桌上散落着各种文件，其中一张纸格外显眼。",
+          "x": 13.5,
+          "y": 74.1,
+          "width": 48.9,
+          "height": 37,
+          "itemRewardId": "diary_page",
+          "image": "./assets/item_study_desk.png",
+          "brightness": 0.5
+        },
+        {
+          "id": "grandfather_clock",
+          "name": "落地座钟",
+          "description": "一座古老的座钟，玻璃面板将表盘封锁在内。你需要先打破玻璃。",
+          "x": 49.6,
+          "y": 0,
+          "width": 19.1,
+          "height": 57.2,
+          "requiredItemId": "heavy_hammer",
+          "lockedMessage": "玻璃太厚了，用手无法打破。",
+          "flagReward": "clock_glass_broken",
+          "hiddenIfFlag": "clock_glass_broken",
+          "dialogue": [
+            "玻璃应声而碎，露出了里面的表盘和密码装置。"
+          ],
+          "image": "./assets/item_study_grandfather_clock.png",
+          "rotation": -45,
+          "rotationY": -9,
+          "brightness": 0.2
+        },
+        {
+          "id": "clock_mechanism",
+          "name": "座钟机关",
+          "description": "输入正确的时间来解开谜题。",
+          "x": 51.9,
+          "y": 0,
+          "width": 15,
+          "height": 60,
+          "hiddenIfFlag": "clock_opened",
+          "requiredFlag": "clock_glass_broken",
+          "isPuzzle": true,
+          "puzzleId": "clock_puzzle",
+          "image": "./assets/item_study_clock_mechanism.png",
+          "rotationY": -47,
+          "brightness": 0.4
+        },
+        {
+          "id": "open_compartment",
+          "name": "敞开的暗格",
+          "description": "座钟下方弹出的暗格，里面放着一把锈迹斑斑的钥匙。",
+          "x": 51.3,
+          "y": 81.9,
+          "width": 15,
+          "height": 20,
+          "requiredFlag": "clock_opened",
+          "hiddenIfFlag": "got_clock_key",
+          "itemRewardId": "rusty_key",
+          "flagReward": "got_clock_key",
+          "dialogue": [
+            "你伸手拿起了那把沉重的旧钥匙，上面覆盖着时间的痕迹。"
+          ],
+          "image": "./assets/item_study_open_compartment.png",
+          "rotationY": -26
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "corridor",
+          "label": "离开书房"
+        }
+      ]
+    },
+    "garden": {
+      "id": "garden",
+      "title": "枯萎的花园",
+      "imageUrl": "./assets/scene_garden.jpg",
+      "description": "天空是紫色的漩涡。花园里的植物已经枯死，变成了扭曲的雕塑。这里没有风，只有死寂。",
+      "interactables": [
+        {
+          "id": "tool_shed",
+          "name": "工具棚",
+          "description": "一个摇摇欲坠的小棚子。",
+          "x": 5.8,
+          "y": 44.5,
+          "width": 32.7,
+          "height": 67.9,
+          "itemRewardId": "heavy_hammer",
+          "image": "./assets/item_garden_tool_shed.png",
+          "rotationY": 85,
+          "brightness": 0.6
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "corridor",
+          "label": "回到室内"
+        }
+      ]
+    },
+    "nursery": {
+      "id": "nursery",
+      "title": "寂静的儿童房",
+      "imageUrl": "./assets/scene_nursery.jpg",
+      "description": "房间里堆满了残破的玩具。角落里极其黑暗，仿佛有什么东西潜伏着。",
+      "interactables": [
+        {
+          "id": "dark_corner",
+          "name": "阴暗的角落",
+          "description": "黑暗中似乎有什么东西在发光。",
+          "x": 72.8,
+          "y": 70.5,
+          "width": 14.2,
+          "height": 29.3,
+          "itemRewardId": "glowing_pebble",
+          "dialogue": [
+            "你在黑暗中摸索，手指触碰到了一块温热的石头。"
+          ],
+          "image": "./assets/item_nursery_dark_corner.png",
+          "brightness": 0.5
+        },
+        {
+          "id": "secret_passage",
+          "name": "衣柜后的裂缝",
+          "description": "移开衣柜后，墙上露出一道充满迷雾的裂缝。",
+          "x": 47.9,
+          "y": 0,
+          "width": 38.6,
+          "height": 99.2,
+          "lockedMessage": "那里太黑了，你需要某种光源才能安全通过。",
+          "requiredItemId": "glowing_pebble",
+          "flagReward": "mirror_hall_access",
+          "image": "./assets/item_nursery_secret_passage.png",
+          "brightness": 0.8
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "corridor",
+          "label": "离开房间"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "hall_of_mirrors",
+          "label": "进入裂缝",
+          "locked": true,
+          "requiredFlag": "mirror_hall_access"
+        }
+      ]
+    },
+    "hall_of_mirrors": {
+      "id": "hall_of_mirrors",
+      "title": "破碎的镜厅",
+      "imageUrl": "./assets/scene_hall_of_mirrors.jpg",
+      "description": "无数面镜子悬浮在虚空中，反射出你扭曲的身影。而在正中央，一个巨大的黑色人影挡住了去路。",
+      "interactables": [
+        {
+          "id": "shadow_entity",
+          "name": "阴影实体",
+          "description": "它没有五官，却在凝视着你。",
+          "x": 43.1,
+          "y": 6.3,
+          "width": 31.8,
+          "height": 89.9,
+          "hiddenIfFlag": "shadow_defeated",
+          "isPuzzle": true,
+          "puzzleId": "shadow_riddle",
+          "itemRewardId": "shadow_mask",
+          "image": "./assets/item_hall_of_mirrors_shadow_entity.png"
+        },
+        {
+          "id": "reality_gate",
+          "name": "现实之门",
+          "description": "阴影消散后露出的一扇发光的门。门上有一个面具形状的凹槽。",
+          "x": 39.5,
+          "y": 0,
+          "width": 38.3,
+          "height": 95.2,
+          "requiredFlag": "shadow_defeated",
+          "requiredItemId": "shadow_mask",
+          "winsGame": true,
+          "dialogue": [
+            "你将面具戴在脸上，完美的契合。光芒吞噬了一切。"
+          ],
+          "image": "./assets/item_hall_of_mirrors_reality_gate.png"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "nursery",
+          "label": "逃回儿童房"
+        }
+      ]
+    }
+  },
+  "marketing": {
+    "iconUrl": "",
+    "bannerUrl": ""
+  }
+}

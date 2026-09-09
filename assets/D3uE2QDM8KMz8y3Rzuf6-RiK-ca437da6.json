@@ -1,0 +1,558 @@
+{
+  "meta": {
+    "name": "沉渊",
+    "author": "零殇",
+    "version": "1.4.0",
+    "description": "你扮演一名迷失在被洪水淹没的民国古镇的古籍修复师，必须收集散落的傩戏面具与残卷，解开水底祭坛的诅咒。",
+    "style": "Chinese Folk Horror, Ink Wash, Dark Realism, Damp Texture, Blue-Grey Tone",
+    "sceneStyle": "Cinematic wide angle, atmospheric lighting, volumetric fog, decaying architecture, submerged details, high contrast",
+    "itemStyle": "Isometric, studio lighting, white background, detailed texture, weathered look, antique aesthetic",
+    "musicStyle": "Dark ambient, rain sounds, traditional Chinese instruments, Erhu, Suona, low drone, eerie water splashes",
+    "endingMessage": "随着面具在幽火中化为灰烬，浑浊的洪水发出如叹息般的巨响，迅速退去。那场永无止境的夜雨终于停歇，古镇的废墟在晨曦中显露出苍凉的轮廓。被困的亡魂们朝着戏台方向深深一拜，消散在雾气中。你手中的祭祀短剑跌落在地，那是你生还的唯一证明。",
+    "useBannerAsTitleBg": true,
+    "bgmUrl": "./assets/bgm.mp3",
+    "designConfig": {
+      "theme": "民国水患民俗恐怖",
+      "sceneCount": 7,
+      "itemCount": 12,
+      "puzzleCount": 4,
+      "requiredItems": "",
+      "requiredScenes": ""
+    }
+  },
+  "initialState": {
+    "currentSceneId": "river_dead",
+    "inventory": [],
+    "flags": {
+      "backstage_unlocked": false,
+      "fog_cleared": false,
+      "chest_opened": false,
+      "tablet_moved": false,
+      "gate_painted": false,
+      "gate_observed": false,
+      "water_path_opened": false,
+      "seal_broken": false
+    },
+    "log": [
+      "暴雨如注，冰冷的雨点打在你的脸上。",
+      "你在一艘随着水流摇晃的破旧乌篷船上醒来。",
+      "四周是漆黑的水域，水面上漂浮着无数白色的纸船，仿佛是一场盛大的葬礼。",
+      "远处，一座只剩下屋顶的古戏台在雾气中若隐若现，传来咿咿呀呀的唱戏声..."
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "soaked_script": {
+      "id": "soaked_script",
+      "name": "浸水的戏本",
+      "description": "一本被水泡发的戏本，记录着《水鬼退散》的仪轨。扉页上写着当年的首演日期：1937。",
+      "type": "CLUE",
+      "icon": "📖",
+      "image": "./assets/item_soaked_script.png"
+    },
+    "broken_mask": {
+      "id": "broken_mask",
+      "name": "破损的傩戏面具",
+      "description": "表情狰狞的木质面具，缺了一角。据说带上它能沟通阴阳，是祭祀的关键信物。",
+      "type": "KEY",
+      "icon": "👺",
+      "image": "./assets/item_broken_mask.png"
+    },
+    "copper_bell": {
+      "id": "copper_bell",
+      "name": "生锈的铜铃",
+      "description": "死去的道士留下的法器。摇晃时发出的声波能驱散水面上的迷障与幻影。",
+      "type": "TOOL",
+      "icon": "🔔",
+      "image": "./assets/item_copper_bell.png"
+    },
+    "bloody_shoe": {
+      "id": "bloody_shoe",
+      "name": "染血的绣花鞋",
+      "description": "一只精致却诡异的红色绣花鞋，鞋底沾满了洗不掉的血迹。这是怨气的载体。",
+      "type": "CLUE",
+      "icon": "👠",
+      "image": "./assets/item_bloody_shoe.png"
+    },
+    "old_key": {
+      "id": "old_key",
+      "name": "古旧的钥匙",
+      "description": "一把黄铜钥匙，齿纹复杂，上面刻着“后台”二字。大概是某位匆忙逃离的角儿遗落的。",
+      "type": "KEY",
+      "icon": "🗝️",
+      "image": "./assets/item_old_key.png"
+    },
+    "cinnabar_brush": {
+      "id": "cinnabar_brush",
+      "name": "朱砂笔",
+      "description": "笔尖蘸满朱砂的毛笔，尚未干涸。用于给石门刻痕描红，显现隐藏的星图。",
+      "type": "TOOL",
+      "icon": "🖌️",
+      "image": "./assets/item_cinnabar_brush.png"
+    },
+    "jade_eye": {
+      "id": "jade_eye",
+      "name": "玉石眼球",
+      "description": "一颗冰凉的玉球，打磨成眼球的形状。透过它看去，能看到常人看不见的星宿轨迹。",
+      "type": "KEY",
+      "icon": "🧿",
+      "image": "./assets/item_jade_eye.png"
+    },
+    "ritual_dagger": {
+      "id": "ritual_dagger",
+      "name": "祭祀短剑",
+      "description": "青铜材质的短剑，刃口虽钝，但刻满了镇压邪祟的铭文。用于斩断最后的执念，水鬼退散！",
+      "type": "TOOL",
+      "icon": "🗡️",
+      "image": "./assets/item_ritual_dagger.png"
+    },
+    "paper_boat": {
+      "id": "paper_boat",
+      "name": "白色纸船",
+      "description": "祭祀亡魂用的纸船，折痕里夹着几根发丝，散发着哀伤的气息。",
+      "type": "NOTE",
+      "icon": "⛵",
+      "image": "./assets/item_paper_boat.png"
+    },
+    "wood_comb": {
+      "id": "wood_comb",
+      "name": "断齿木梳",
+      "description": "一把梳齿断裂的木梳，上面缠绕着湿漉漉的长发。",
+      "type": "NOTE",
+      "icon": "🪵",
+      "image": "./assets/item_wood_comb.png"
+    },
+    "incense_sticks": {
+      "id": "incense_sticks",
+      "name": "受潮的线香",
+      "description": "三根受潮的香，虽然难以点燃，但依然散发着檀木味。",
+      "type": "TOOL",
+      "icon": "♨️",
+      "image": "./assets/item_incense_sticks.png"
+    },
+    "spirit_mirror": {
+      "id": "spirit_mirror",
+      "name": "八卦铜镜",
+      "description": "背面刻着八卦方位的铜镜。镜面模糊，但‘乾、坤、坎、离’四个方位的刻痕依然清晰可见。",
+      "type": "CLUE",
+      "icon": "🪞",
+      "image": "./assets/item_spirit_mirror.png"
+    }
+  },
+  "puzzles": {
+    "chest_code": {
+      "id": "chest_code",
+      "description": "木箱上挂着一把密码锁，锁盘上刻着天干地支对应的年份数字。提示在《祭水篇》戏本的首演日期里。",
+      "answer": "1937",
+      "rewardFlag": "chest_opened",
+      "rewardMessage": "锁‘咔哒’一声开了，箱底放着一管朱砂笔。",
+      "type": "numeric"
+    },
+    "hall_tablet": {
+      "id": "hall_tablet",
+      "description": "线香已点燃，石碑上的纹路显现出来。根据八卦铜镜背面的指引，顺序应该是...",
+      "answer": "乾坤坎离",
+      "rewardFlag": "tablet_moved",
+      "rewardMessage": "石碑发出沉闷的轰鸣声向侧面移开，露出了后面的暗格，里面放着一颗玉石眼球。",
+      "type": "symbol",
+      "choices": [
+        "乾",
+        "坤",
+        "震",
+        "巽",
+        "坎",
+        "离",
+        "艮",
+        "兑"
+      ]
+    },
+    "secret_door": {
+      "id": "secret_door",
+      "description": "星宿机关已激活。请输入刚才透过玉石眼球观测到的三个星宿符号。",
+      "answer": "★☾☀",
+      "rewardFlag": "water_path_opened",
+      "rewardMessage": "星宿图应声亮起，石门缓缓升起，露出一条通往水下的阶梯。",
+      "type": "symbol",
+      "choices": [
+        "★",
+        "☾",
+        "☀",
+        "☁",
+        "⚡",
+        "❄"
+      ]
+    },
+    "altar_seal": {
+      "id": "altar_seal",
+      "description": "短剑插入了机关核心。祭坛中央的封印石盘上符文亮起，需要按照《祭水篇》记载的驱邪口诀按下...",
+      "answer": "水鬼退散",
+      "rewardFlag": "seal_broken",
+      "rewardMessage": "封印石盘碎裂，祭坛中央升起了一座放置祭品的石台。",
+      "type": "symbol",
+      "choices": [
+        "水",
+        "火",
+        "鬼",
+        "人",
+        "退",
+        "进",
+        "散",
+        "聚"
+      ]
+    }
+  },
+  "scenes": {
+    "river_dead": {
+      "id": "river_dead",
+      "title": "停满纸船的死水河",
+      "imageUrl": "./assets/scene_river_dead.jpg",
+      "description": "黑色的水面平静得可怕，无数白色的纸船随着水流缓缓打转。空气中弥漫着腐烂的水草味。",
+      "interactables": [
+        {
+          "id": "floating_body",
+          "name": "漂浮的道袍",
+          "description": "一件吸饱了水的道袍漂浮在芦苇丛边，主人早已不知去向。",
+          "itemRewardId": "copper_bell",
+          "postInteractionMessage": "道袍下只是一团腐烂的水草。",
+          "dialogue": [
+            "你忍着恶心翻开了道袍...",
+            "在袖口里，你摸到了一枚沉甸甸的生锈铜铃。"
+          ]
+        },
+        {
+          "id": "paper_boat_pile",
+          "name": "纸船堆",
+          "description": "一堆聚在一起的纸船，其中一只格外显眼。",
+          "itemRewardId": "wood_comb",
+          "postInteractionMessage": "其他的纸船都在慢慢沉没。",
+          "dialogue": [
+            "你在纸船堆里发现了一把断齿木梳，上面缠着湿漉漉的头发。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "stage_flooded",
+          "label": "前往戏台"
+        }
+      ]
+    },
+    "stage_flooded": {
+      "id": "stage_flooded",
+      "title": "淹没的古戏台",
+      "imageUrl": "./assets/scene_stage_flooded.jpg",
+      "description": "曾经辉煌的戏台如今半截没入水中，红色的帷幕像流血的伤口一样垂在水面。迷雾中似乎有人影晃动。",
+      "interactables": [
+        {
+          "id": "ghost_fog",
+          "name": "浓雾中的人影",
+          "description": "那个人影穿着戏服，咿咿呀呀地唱着听不清的词，挡住了去路。",
+          "requiredItemId": "copper_bell",
+          "flagReward": "fog_cleared",
+          "postInteractionMessage": "雾气已经散去，人影消失了，只留下一滩水渍。",
+          "dialogue": [
+            "你摇响了铜铃，清脆的声音刺破了死寂。",
+            "人影似乎很痛苦，捂着耳朵消散在雾气中，周围的道路显现出来。"
+          ]
+        },
+        {
+          "id": "door_backstage",
+          "name": "后台侧门",
+          "description": "通往后台的木门，被一把生锈的挂锁锁住了。",
+          "requiredItemId": "old_key",
+          "lockedMessage": "门锁住了，上面刻着‘后台专用’。你需要找到钥匙。",
+          "flagReward": "backstage_unlocked",
+          "postInteractionMessage": "挂锁已被打开，扔进了水里。",
+          "dialogue": [
+            "你插入那把古旧的钥匙，用力转动。",
+            "咔嚓一声，通往后台的禁忌之地打开了。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "river_dead",
+          "label": "返回死水河"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "audience_area",
+          "label": "前往观众席",
+          "locked": true,
+          "requiredFlag": "fog_cleared"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "backstage_ruins",
+          "label": "进入后台",
+          "locked": true,
+          "requiredFlag": "backstage_unlocked"
+        }
+      ]
+    },
+    "backstage_ruins": {
+      "id": "backstage_ruins",
+      "title": "坍塌的后台化妆间",
+      "imageUrl": "./assets/scene_backstage_ruins.jpg",
+      "description": "屋顶塌了一半，雨水直接淋在破碎的镜子上，地上散落着发霉的胭脂水粉。角落里有一个上了锁的箱子。",
+      "interactables": [
+        {
+          "id": "wooden_chest",
+          "name": "上锁的木箱",
+          "description": "一个相对完好的楠木箱子，上面有一把精致的密码锁。似乎需要输入四个数字。",
+          "isPuzzle": true,
+          "puzzleId": "chest_code",
+          "itemRewardId": "cinnabar_brush",
+          "postInteractionMessage": "木箱已经打开，里面空空如也。",
+          "dialogue": [
+            "密码正确。箱盖弹开，里面放着一支笔尖鲜红的朱砂笔。"
+          ]
+        },
+        {
+          "id": "script_pile",
+          "name": "废墟堆",
+          "description": "一堆烂木头和破布。",
+          "itemRewardId": "soaked_script",
+          "postInteractionMessage": "废墟里没有其他有价值的东西了。",
+          "dialogue": [
+            "你在废墟下发现了一本还能勉强辨认的《祭水篇》戏本。"
+          ]
+        },
+        {
+          "id": "makeup_table",
+          "name": "腐烂的梳妆台",
+          "description": "桌面上摆着一个黑色的包裹。",
+          "itemRewardId": "broken_mask",
+          "postInteractionMessage": "包裹已经被拿走了。",
+          "dialogue": [
+            "你打开包裹，里面是一个狰狞的木质傩戏面具。"
+          ]
+        },
+        {
+          "id": "broken_mirror",
+          "name": "破碎的镜子",
+          "description": "镜子虽破，却隐约映出这房间曾经的样子。",
+          "itemRewardId": "spirit_mirror",
+          "postInteractionMessage": "镜框上空荡荡的。",
+          "dialogue": [
+            "你从镜框上取下了一面铜镜，背面刻着清晰的八卦方位。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "stage_flooded",
+          "label": "返回戏台"
+        }
+      ]
+    },
+    "audience_area": {
+      "id": "audience_area",
+      "title": "戏台下的观众席",
+      "imageUrl": "./assets/scene_audience_area.jpg",
+      "description": "一排排太师椅浸泡在水中，有的已经腐烂倾倒。这里似乎曾发生过慌乱的逃亡。",
+      "interactables": [
+        {
+          "id": "abandoned_bag",
+          "name": "遗落的布包",
+          "description": "挂在一把椅子背上的布包，看起来像是匆忙逃跑时落下的。",
+          "itemRewardId": "old_key",
+          "postInteractionMessage": "布包已经瘪了下去。",
+          "dialogue": [
+            "你打开布包，在一堆杂物中找到了一把刻着‘后台’的钥匙。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "stage_flooded",
+          "label": "返回戏台"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "ancestral_hall",
+          "label": "前往祠堂"
+        }
+      ]
+    },
+    "ancestral_hall": {
+      "id": "ancestral_hall",
+      "title": "挂满白绫的祠堂",
+      "imageUrl": "./assets/scene_ancestral_hall.jpg",
+      "description": "无数条白绫从房梁垂下，在阴风中轻轻飘荡。正中央的供桌上摆满了落满灰尘的灵位。一块奇怪的石碑立在旁边。",
+      "interactables": [
+        {
+          "id": "stone_tablet",
+          "name": "八卦石碑",
+          "description": "一块刻着八卦图案的石碑。碑前有一个小孔，似乎需要点燃什么东西来激活。",
+          "requiredItemId": "incense_sticks",
+          "lockedMessage": "石碑冰冷，没有任何反应。也许需要香火供奉？",
+          "isPuzzle": true,
+          "puzzleId": "hall_tablet",
+          "itemRewardId": "jade_eye",
+          "postInteractionMessage": "石碑已经移开，露出了暗格。",
+          "dialogue": [
+            "你点燃线香插在碑前，烟雾并没有散开，而是钻进了石碑的缝隙。",
+            "随着轰隆声，石碑移开，露出了暗格里的一颗诡异玉石眼球。"
+          ]
+        },
+        {
+          "id": "white_silk",
+          "name": "垂下的白绫",
+          "description": "其中一条白绫下端系着重物，在风中摆动幅度很大。",
+          "itemRewardId": "bloody_shoe",
+          "postInteractionMessage": "白绫轻飘飘地荡着。",
+          "dialogue": [
+            "你解开了白绫末端的结，一只染血的绣花鞋掉了下来。"
+          ]
+        },
+        {
+          "id": "altar_table",
+          "name": "供桌",
+          "description": "供桌上香炉里积满了香灰。",
+          "itemRewardId": "incense_sticks",
+          "postInteractionMessage": "供桌上只剩香灰。",
+          "dialogue": [
+            "你在香炉旁找到了几根受潮的线香，也许还有用。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "audience_area",
+          "label": "返回观众席"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "secret_room",
+          "label": "进入密室",
+          "locked": true,
+          "requiredFlag": "tablet_moved"
+        }
+      ]
+    },
+    "secret_room": {
+      "id": "secret_room",
+      "title": "祠堂密室",
+      "imageUrl": "./assets/scene_secret_room.jpg",
+      "description": "一间狭小的石室，墙壁上绘满了镇压水鬼的符咒。地面中央有一个向下的深井，被一道石门封死。",
+      "interactables": [
+        {
+          "id": "gate_mechanism_raw",
+          "name": "黯淡的石门",
+          "description": "石门上刻着模糊不清的凹槽。看起来像是某种星图，但肉眼无法辨认。",
+          "requiredItemId": "cinnabar_brush",
+          "lockedMessage": "刻痕太浅看不清，你需要用红色的颜料描绘出来。",
+          "flagReward": "gate_painted",
+          "postInteractionMessage": "你用朱砂笔填满了凹槽。",
+          "hiddenIfFlag": "gate_painted",
+          "dialogue": [
+            "你用朱砂笔仔细地将石门上的凹槽填满。",
+            "鲜红的线条在石门上显现出来，形成了一幅复杂的星图。"
+          ]
+        },
+        {
+          "id": "gate_mechanism_painted",
+          "name": "描红的石门",
+          "description": "星图已显现，但依然不知道开启方法。也许需要用特殊的“眼睛”去观测。",
+          "requiredFlag": "gate_painted",
+          "hiddenIfFlag": "gate_observed",
+          "requiredItemId": "jade_eye",
+          "flagReward": "gate_observed",
+          "lockedMessage": "虽然描红了，但你还是看不出玄机。",
+          "dialogue": [
+            "你将冰凉的玉石眼球贴近石门。",
+            "透过玉球，你看到石门上竟然有微光在闪烁！",
+            "只有三个符号发出了幽幽的蓝光，顺序是：★、☾、☀。"
+          ]
+        },
+        {
+          "id": "star_gate_puzzle",
+          "name": "星宿石门机关",
+          "description": "星宿机关已激活。请输入刚才透过玉石眼球观测到的三个星宿符号。",
+          "requiredFlag": "gate_observed",
+          "hiddenIfFlag": "water_path_opened",
+          "isPuzzle": true,
+          "puzzleId": "secret_door",
+          "postInteractionMessage": "石门已经开启。"
+        },
+        {
+          "id": "wall_niche",
+          "name": "墙壁神龛",
+          "description": "墙上的一个小神龛，里面供奉着一把剑。",
+          "itemRewardId": "ritual_dagger",
+          "postInteractionMessage": "神龛空了。",
+          "dialogue": [
+            "你小心翼翼地取出了那把青铜短剑。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "ancestral_hall",
+          "label": "返回祠堂"
+        },
+        {
+          "direction": "down",
+          "targetSceneId": "underwater_altar",
+          "label": "潜入水底祭坛",
+          "locked": true,
+          "requiredFlag": "water_path_opened"
+        }
+      ]
+    },
+    "underwater_altar": {
+      "id": "underwater_altar",
+      "title": "水底祭坛",
+      "imageUrl": "./assets/scene_underwater_altar.jpg",
+      "description": "奇迹般地，这里没有水，被一个巨大的气泡笼罩。中央是一座古老的祭坛，四周堆满了森森白骨。",
+      "interactables": [
+        {
+          "id": "seal_mechanism",
+          "name": "封印石盘",
+          "description": "祭坛的核心机关。石盘锈死，似乎需要用锋利的东西撬开，再用咒语激活。",
+          "requiredItemId": "ritual_dagger",
+          "lockedMessage": "石盘纹丝不动，你需要用祭祀短剑作为钥匙插入核心。",
+          "isPuzzle": true,
+          "puzzleId": "altar_seal",
+          "postInteractionMessage": "封印已解，祭台升起。"
+        },
+        {
+          "id": "final_ritual",
+          "name": "中央祭台",
+          "description": "祭坛等待着最后的献祭。你需要摆放：傩戏面具（代表神）、染血绣花鞋（代表鬼）、浸水戏本（代表媒介）。",
+          "requiredFlag": "seal_broken",
+          "requiredItemId": "broken_mask",
+          "lockedMessage": "你需要先解开封印石盘，并收集齐所有信物。",
+          "winsGame": true,
+          "postInteractionMessage": "一切都结束了。",
+          "dialogue": [
+            "你将傩戏面具、绣花鞋和戏本一一摆放在祭台上。",
+            "面具开始燃烧，发出幽蓝的火光。",
+            "绣花鞋中的血迹蒸发成红雾。",
+            "戏本自动翻页，最终化为灰烬。",
+            "你感到周围的压力骤减，诅咒解除了，洪水开始退去。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "up",
+          "targetSceneId": "secret_room",
+          "label": "游回密室"
+        }
+      ]
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

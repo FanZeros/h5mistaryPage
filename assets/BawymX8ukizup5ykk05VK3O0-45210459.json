@@ -1,0 +1,884 @@
+{
+  "meta": {
+    "name": "沉寂修道院",
+    "author": "零殇",
+    "version": "1.3.0",
+    "description": "在一个被遗忘的修道院深处，一场神秘的瘟疫正在蔓延。玩家必须揭开隐藏在信仰与黑暗仪式背后的恐怖真相。已优化谜题分布与交互逻辑。",
+    "style": "暗黑写实主义，哥特式，油画质感，厚重与腐朽并存",
+    "sceneStyle": "Cinematic wide angle, atmospheric lighting, decaying gothic architecture, ancient monastery, chiaroscuro, oil painting texture",
+    "itemStyle": "Isometric, studio lighting, white background, detailed, aged materials, rusted metal, dusty parchment, ancient artifacts, oil painting texture",
+    "musicStyle": "Dark ambient, Gregorian chant, medieval horror, ominous drones, sorrowful, ritualistic, suspenseful",
+    "endingMessage": "随着圣水的净化之力蔓延，黑暗仪式被彻底瓦解，修道院内的邪恶气息逐渐消散。你成功揭露了这片诅咒之地的恐怖真相，拯救了无数被吞噬的灵魂。阳光透过破损的窗户，洒落在古老的石板上，带来了久违的宁静与希望。",
+    "useBannerAsTitleBg": true,
+    "bgmUrl": "./assets/bgm.mp3",
+    "designConfig": {
+      "theme": "",
+      "sceneCount": 4,
+      "itemCount": 4,
+      "puzzleCount": 1,
+      "requiredItems": "",
+      "requiredScenes": ""
+    }
+  },
+  "initialState": {
+    "currentSceneId": "monastery_exterior",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "微风中夹杂着腐朽与血腥的气味，你站在被遗忘的“圣徒之眠”修道院外。",
+      "一封来自梵蒂冈的密函，简短地描述了此处修士们的离奇失踪与一场据称能吞噬灵魂的瘟疫。",
+      "作为一名受过教廷派遣的学者，你被赋予了揭示真相的使命。",
+      "修道院高耸的墙壁被藤蔓缠绕，透露出一种不祥的静默。",
+      "这里曾是信仰的殿堂，如今却成了绝望的囚笼。你的心跳开始加速，使命感与恐惧交织。",
+      "时间紧迫，你必须在自己也沦为受害者之前，深入这片被黑暗笼罩的废墟，找到瘟疫的根源。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "rusted_key": {
+      "id": "rusted_key",
+      "name": "生锈的钥匙",
+      "description": "一把古老且生锈的铁钥匙，上面刻着模糊的纹路，似乎能开启沉重的大门。",
+      "type": "KEY",
+      "icon": "./assets/item_rusted_key.png",
+      "image": "./assets/item_rusted_key.png"
+    },
+    "worn_diary": {
+      "id": "worn_diary",
+      "name": "破旧的日记",
+      "description": "一本被翻阅无数次的日记，记录了修道院内一位修士的恐惧与观察。最后一页写着模糊的数字：1537。",
+      "type": "CLUE",
+      "icon": "./assets/item_worn_diary.png",
+      "image": "./assets/item_worn_diary.png",
+      "clueForPuzzleId": "gate_code_puzzle"
+    },
+    "candlestick": {
+      "id": "candlestick",
+      "name": "烛台",
+      "description": "一个古老的铜质烛台，虽然落满了灰尘，但依然可以用来照明，或许还有其他用途。",
+      "type": "TOOL",
+      "icon": "./assets/item_candlestick.png",
+      "image": "./assets/item_candlestick.png"
+    },
+    "broken_reliquary": {
+      "id": "broken_reliquary",
+      "name": "破碎的圣物盒",
+      "description": "一个曾经用来存放圣物的盒子，现在已经破碎。碎片上刻着一个复杂的符号：☉。这似乎是某种序列的起始。",
+      "type": "CLUE",
+      "icon": "./assets/item_broken_reliquary.png",
+      "image": "./assets/item_broken_reliquary.png",
+      "clueForPuzzleId": "bookshelf_symbol_puzzle"
+    },
+    "parchment_scroll": {
+      "id": "parchment_scroll",
+      "name": "羊皮卷轴",
+      "description": "一张古老的羊皮卷轴，上面写着模糊的炼金符号和咒语。其中最清晰的一组符号是：☾ ♂ ♃。",
+      "type": "CLUE",
+      "icon": "./assets/item_parchment_scroll.png",
+      "image": "./assets/item_parchment_scroll.png",
+      "clueForPuzzleId": "bookshelf_symbol_puzzle"
+    },
+    "monk_insignia": {
+      "id": "monk_insignia",
+      "name": "修道士徽章",
+      "description": "一枚刻有修道院纹章的铜质徽章，曾属于一位高级修士。或许能开启特定的门锁或箱子。",
+      "type": "KEY",
+      "icon": "./assets/item_monk_insignia.png",
+      "image": "./assets/item_monk_insignia.png"
+    },
+    "alchemy_manual": {
+      "id": "alchemy_manual",
+      "name": "炼金手册",
+      "description": "一本被虫蛀的炼金术手册，里面记载了如何提炼“纯净之水”的古老方法，需要特定的液体和催化剂。",
+      "type": "CLUE",
+      "icon": "./assets/item_alchemy_manual.png",
+      "image": "./assets/item_alchemy_manual.png"
+    },
+    "empty_vial": {
+      "id": "empty_vial",
+      "name": "空药瓶",
+      "description": "一个带有塞子的玻璃药瓶，可以用来收集液体。",
+      "type": "TOOL",
+      "icon": "./assets/item_empty_vial.png",
+      "image": "./assets/item_empty_vial.png"
+    },
+    "mysterious_liquid": {
+      "id": "mysterious_liquid",
+      "name": "神秘液体",
+      "description": "一小瓶浑浊的液体，散发着淡淡的硫磺味。似乎是炼金手册中提及的一种成分。",
+      "type": "CLUE",
+      "icon": "./assets/item_mysterious_liquid.png",
+      "image": "./assets/item_mysterious_liquid.png"
+    },
+    "old_map": {
+      "id": "old_map",
+      "name": "老旧的地图",
+      "description": "一张手绘的修道院地图，标记着一些已知区域，并在庭院的某个角落用红墨水圈出了一个“隐藏”标记。",
+      "type": "CLUE",
+      "icon": "./assets/item_old_map.png",
+      "image": "./assets/item_old_map.png"
+    },
+    "iron_crowbar": {
+      "id": "iron_crowbar",
+      "name": "铁撬棍",
+      "description": "一把沉重的生锈铁撬棍，看起来足够坚固，可以撬开木箱或松动的石块。",
+      "type": "TOOL",
+      "icon": "./assets/item_iron_crowbar.png",
+      "image": "./assets/item_iron_crowbar.png"
+    },
+    "carved_stone_tablet": {
+      "id": "carved_stone_tablet",
+      "name": "雕刻的石板",
+      "description": "一块刻有古老符文的石板，上面的图案是：🜁。这是第一块石板。",
+      "type": "CLUE",
+      "icon": "./assets/item_carved_stone_tablet.png",
+      "image": "./assets/item_carved_stone_tablet.png",
+      "clueForPuzzleId": "catacombs_rune_puzzle"
+    },
+    "blood_stained_cloth": {
+      "id": "blood_stained_cloth",
+      "name": "染血的布条",
+      "description": "一块被血迹浸透的粗麻布，散发着令人不安的气味。上面似乎沾染着某种病菌。",
+      "type": "CLUE",
+      "icon": "./assets/item_blood_stained_cloth.png",
+      "image": "./assets/item_blood_stained_cloth.png"
+    },
+    "runic_stone_block": {
+      "id": "runic_stone_block",
+      "name": "刻符石块",
+      "description": "一块从墓穴中取出的刻符石块，上面的符文似乎与之前的石板有所关联：🜄 🜃（一个倒三角形、一个倒三角形中间一条线）。这是后续的部分。",
+      "type": "CLUE",
+      "icon": "./assets/item_runic_stone_block.png",
+      "image": "./assets/item_runic_stone_block.png",
+      "clueForPuzzleId": "catacombs_rune_puzzle"
+    },
+    "prayer_text": {
+      "id": "prayer_text",
+      "name": "祷告词",
+      "description": "一张被钉在祭坛上的手写祷告词，其中提及了“六个死亡”和“七重苦难”。",
+      "type": "CLUE",
+      "icon": "./assets/item_prayer_text.png",
+      "image": "./assets/item_prayer_text.png",
+      "clueForPuzzleId": "altar_mechanism_puzzle"
+    },
+    "silver_crucifix": {
+      "id": "silver_crucifix",
+      "name": "银质十字架",
+      "description": "一个古老的银质十字架，散发着微弱的圣洁光芒。或许能抵御邪恶，或作为一种特殊的钥匙。",
+      "type": "TOOL",
+      "icon": "./assets/item_silver_crucifix.png",
+      "image": "./assets/item_silver_crucifix.png"
+    },
+    "sealed_box": {
+      "id": "sealed_box",
+      "name": "被封印的盒子",
+      "description": "一个看起来饱经风霜的木盒，上面用铁链和符文封印着，散发着古老的气息。",
+      "type": "CLUE",
+      "icon": "./assets/item_sealed_box.png",
+      "image": "./assets/item_sealed_box.png"
+    },
+    "ancient_ritual_book": {
+      "id": "ancient_ritual_book",
+      "name": "古老的仪式书",
+      "description": "一本封面由人皮制成的古老书籍。里面详细记载了黑暗仪式的步骤和所需的五个核心符文：♄ ♇ ♅ ♆ ☉。",
+      "type": "CLUE",
+      "icon": "./assets/item_ancient_ritual_book.png",
+      "image": "./assets/item_ancient_ritual_book.png",
+      "clueForPuzzleId": "ritual_matrix_puzzle"
+    },
+    "plague_sample": {
+      "id": "plague_sample",
+      "name": "瘟疫样本",
+      "description": "从腐化之源中采集的瘟疫样本，在显微镜下可见扭曲的异变生物。这是仪式存在的铁证。",
+      "type": "CLUE",
+      "icon": "./assets/item_plague_sample.png",
+      "image": "./assets/item_plague_sample.png"
+    },
+    "purified_holy_water": {
+      "id": "purified_holy_water",
+      "name": "净化圣水",
+      "description": "一瓶通过古老炼金术提炼出的纯净圣水，散发着圣洁的光芒。据说能够驱散邪恶，净化被污染之物。",
+      "type": "TOOL",
+      "icon": "./assets/item_purified_holy_water.png",
+      "image": "./assets/item_purified_holy_water.png"
+    }
+  },
+  "puzzles": {
+    "gate_code_puzzle": {
+      "id": "gate_code_puzzle",
+      "description": "大门上的密码锁需要一个四位数的密码才能打开。",
+      "answer": "1537",
+      "rewardFlag": "gate_unlocked",
+      "rewardMessage": "大门沉重地吱呀一声，缓缓开启了！",
+      "type": "numeric"
+    },
+    "bookshelf_symbol_puzzle": {
+      "id": "bookshelf_symbol_puzzle",
+      "description": "图书馆的暗格需要正确的符号组合才能打开。",
+      "answer": "☉☾♂♃",
+      "rewardFlag": "library_secret_unlocked",
+      "rewardMessage": "书架深处传来咔哒一声，一个暗格显露出来。",
+      "type": "symbol",
+      "choices": [
+        "☉",
+        "☊",
+        "☋",
+        "☾",
+        "☿",
+        "♀",
+        "♂",
+        "♃",
+        "♄",
+        "♅",
+        "♆",
+        "♇"
+      ],
+      "requiredClueCount": 2
+    },
+    "catacombs_rune_puzzle": {
+      "id": "catacombs_rune_puzzle",
+      "description": "地下墓穴的石门被古老的符文阵列封印，需要正确的符文序列才能解除。",
+      "answer": "🜁🜄🜃",
+      "rewardFlag": "catacombs_unlocked",
+      "rewardMessage": "石门上的符文发出微光，沉重地向内开启。",
+      "type": "symbol",
+      "choices": [
+        "🜁",
+        "🜄",
+        "🜃",
+        "🜂",
+        "🜀",
+        "🜏",
+        "🜑"
+      ],
+      "requiredClueCount": 2
+    },
+    "altar_mechanism_puzzle": {
+      "id": "altar_mechanism_puzzle",
+      "description": "祭坛旁的机关需要一个神秘的数字才能启动。",
+      "answer": "67",
+      "rewardFlag": "secret_passage_open",
+      "rewardMessage": "祭坛旁的石壁隆隆作响，露出了一个黑暗的通道！",
+      "type": "numeric"
+    },
+    "ritual_matrix_puzzle": {
+      "id": "ritual_matrix_puzzle",
+      "description": "仪式室中央的符文阵列需要按照古老仪式书中的指引，激活正确的符文序列。",
+      "answer": "♄♇♅♆☉",
+      "rewardFlag": "ritual_seal_broken",
+      "rewardMessage": "符文阵列发出刺眼的光芒，某种邪恶的束缚被打破了！净化圣水从阵列中心涌出。",
+      "type": "symbol",
+      "choices": [
+        "♄",
+        "♇",
+        "♅",
+        "♆",
+        "♃",
+        "☿",
+        "☾",
+        "☉",
+        "☊",
+        "☋"
+      ]
+    }
+  },
+  "scenes": {
+    "monastery_exterior": {
+      "id": "monastery_exterior",
+      "title": "修道院外墙",
+      "imageUrl": "./assets/scene_monastery_exterior.jpg",
+      "description": "古老的修道院外墙在暮色中显得格外阴森，藤蔓如触手般攀爬，厚重的石砖缝隙间渗透出腐朽的气味。入口处，一扇巨大的铁门紧闭着，门上的雕刻已模糊不清。",
+      "interactables": [
+        {
+          "id": "monastery_gate",
+          "name": "修道院大门",
+          "description": "修道院的正门，由沉重的铁铸成，门闩锈迹斑斑。门上有一个机械锁孔。",
+          "icon": "🚪",
+          "requiredItemId": "rusted_key",
+          "lockedMessage": "大门紧锁，锁孔中积满了铁锈。你需要一把形状粗犷的旧钥匙才能转动它。",
+          "flagReward": "monastery_gate_opened",
+          "postInteractionMessage": "大门已经被打开了。"
+        },
+        {
+          "id": "broken_statue",
+          "name": "破碎的石像",
+          "description": "外墙旁有一尊倒塌的石像，雕刻着一位不知名圣徒的形象，现在只剩下断裂的躯干。基座下似乎有什么东西闪着微光。",
+          "icon": "🗿",
+          "itemRewardId": "rusted_key",
+          "postInteractionMessage": "石像下空无一物，你已经拿走了它藏匿的东西。"
+        },
+        {
+          "id": "dead_messenger",
+          "name": "死去的信使",
+          "description": "在大门边的草丛中，你发现了一具干瘪的尸体。他手中紧紧攥着一本破旧的日记，似乎至死都在守护着什么秘密。",
+          "icon": "💀",
+          "itemRewardId": "worn_diary",
+          "postInteractionMessage": "信使的尸体不再持有任何物品，只剩下无尽的沉默。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "monastery_main_gate",
+          "label": "进入大门",
+          "requiredFlag": "monastery_gate_opened"
+        }
+      ]
+    },
+    "monastery_main_gate": {
+      "id": "monastery_main_gate",
+      "title": "修道院大门",
+      "imageUrl": "./assets/scene_monastery_main_gate.jpg",
+      "description": "进入修道院内部，你发现自己置身于一个小型门厅。沉重的铁门在身后关闭，前方是另一个厚重的木门，门上有一个复杂的密码锁。",
+      "interactables": [
+        {
+          "id": "gate_lock_mechanism",
+          "name": "门上的机关",
+          "description": "一个由齿轮和数字组成的密码锁，似乎需要一个四位数的代码。",
+          "icon": "🔢",
+          "isPuzzle": true,
+          "puzzleId": "gate_code_puzzle",
+          "postInteractionMessage": "密码锁已被解开，大门已通往大厅。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "monastery_exterior",
+          "label": "返回外墙"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "grand_hall",
+          "label": "前往大厅",
+          "requiredFlag": "gate_unlocked"
+        }
+      ]
+    },
+    "grand_hall": {
+      "id": "grand_hall",
+      "title": "大厅",
+      "imageUrl": "./assets/scene_grand_hall.jpg",
+      "description": "宽敞的大厅，空气中弥漫着霉味和腐朽的气息。曾经宏伟的吊灯已经坠落在地，碎片散落一地。正前方是一座尘封的祭坛，两侧是通往其他区域的走廊。",
+      "interactables": [
+        {
+          "id": "fallen_chandelier",
+          "name": "坠落的吊灯",
+          "description": "巨大的水晶吊灯已经破碎，躺在地上。检查碎片或许能发现什么。",
+          "icon": "💡",
+          "itemRewardId": "candlestick",
+          "postInteractionMessage": "你已经仔细检查过吊灯的碎片了，没什么可发现的了。"
+        },
+        {
+          "id": "dusty_altar",
+          "name": "尘封的祭坛",
+          "description": "大厅中央的石质祭坛，上面铺满了厚厚的灰尘。在灰尘掩盖下，似乎有一个金属物体。",
+          "icon": "🪦",
+          "itemRewardId": "monk_insignia",
+          "postInteractionMessage": "祭坛上的灰尘被抹去了一部分，那枚徽章已经被你取走。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "east_corridor",
+          "label": "前往东走廊"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "west_corridor",
+          "label": "前往西走廊"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "monastery_main_gate",
+          "label": "返回门厅"
+        }
+      ]
+    },
+    "east_corridor": {
+      "id": "east_corridor",
+      "title": "东走廊",
+      "imageUrl": "./assets/scene_east_corridor.jpg",
+      "description": "狭长的走廊，两侧是紧闭的木门，墙壁上的壁画早已剥落。空气阴冷，似乎有无形的眼睛在黑暗中窥视。",
+      "interactables": [],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "monk_dormitory",
+          "label": "前往修士宿舍"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "library",
+          "label": "前往图书馆"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "grand_hall",
+          "label": "返回大厅"
+        }
+      ]
+    },
+    "monk_dormitory": {
+      "id": "monk_dormitory",
+      "title": "修士宿舍",
+      "imageUrl": "./assets/scene_monk_dormitory.jpg",
+      "description": "简陋的宿舍，几张木床铺凌乱不堪，似乎修士们在匆忙中撤离。空气中弥漫着一股淡淡的霉味和绝望。",
+      "interactables": [
+        {
+          "id": "messy_bed",
+          "name": "凌乱的床铺",
+          "description": "其中一张床铺上的被褥凌乱，枕头被撕开。在床垫的夹层中，你看到了一张纸。",
+          "icon": "🛏️",
+          "itemRewardId": "prayer_text",
+          "postInteractionMessage": "床铺已经被彻底翻找过了，那张祷告词已经拿走了。"
+        },
+        {
+          "id": "old_chest",
+          "name": "旧箱子",
+          "description": "床脚边有一个上锁的旧木箱，上面镶嵌着一个独特的徽章形状的锁孔。",
+          "icon": "📦",
+          "requiredItemId": "monk_insignia",
+          "lockedMessage": "箱子上有一个独特的凹槽，形状像是一枚盾形徽章。普通的开锁工具无法打开它。",
+          "itemRewardId": "broken_reliquary",
+          "postInteractionMessage": "箱子已经打开，里面的东西都拿走了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "east_corridor",
+          "label": "返回东走廊"
+        }
+      ]
+    },
+    "library": {
+      "id": "library",
+      "title": "图书馆",
+      "imageUrl": "./assets/scene_library.jpg",
+      "description": "图书馆内一片狼藉，书架倒塌，无数古籍散落在地，纸张腐烂的味道令人作呕。在书架深处，你注意到了一处不自然的缝隙。",
+      "interactables": [
+        {
+          "id": "collapsed_bookshelf",
+          "name": "倒塌的书架",
+          "description": "一个巨大的书架轰然倒塌，将大部分书籍掩埋。这里曾经存放着关于历史的记录。",
+          "icon": "📚",
+          "postInteractionMessage": "书架废墟中已经没有有价值的东西了。"
+        },
+        {
+          "id": "hidden_compartment",
+          "name": "隐藏的隔间",
+          "description": "在其中一个完好的书架背面，有一个用符号机关隐藏的隔间。",
+          "icon": "🔐",
+          "isPuzzle": true,
+          "puzzleId": "bookshelf_symbol_puzzle",
+          "itemRewardId": "old_map",
+          "postInteractionMessage": "隔间已经打开，里面隐藏的地图已被取出。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "east_corridor",
+          "label": "返回东走廊"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "archives",
+          "label": "前往档案室",
+          "requiredFlag": "library_secret_unlocked"
+        }
+      ]
+    },
+    "archives": {
+      "id": "archives",
+      "title": "档案室",
+      "imageUrl": "./assets/scene_archives.jpg",
+      "description": "尘封的档案室，架子上堆满了旧文件和卷宗，空气中弥漫着历史的灰尘与腐朽的油墨味。这里似乎是修道院的记忆之地。",
+      "interactables": [
+        {
+          "id": "filing_cabinet",
+          "name": "文件柜",
+          "description": "一个老旧的木质文件柜，抽屉半开着，里面塞满了散乱的文件。",
+          "icon": "🗄️",
+          "itemRewardId": "alchemy_manual",
+          "postInteractionMessage": "文件柜已被彻底搜查。"
+        },
+        {
+          "id": "locked_drawer",
+          "name": "上锁的抽屉",
+          "description": "文件柜底部的一个抽屉被一个独特的徽章锁锁住。这个锁看起来很眼熟。",
+          "icon": "🔒",
+          "requiredItemId": "monk_insignia",
+          "lockedMessage": "这个抽屉被一个徽章锁住，需要你的修道士徽章才能打开。",
+          "itemRewardId": "iron_crowbar",
+          "postInteractionMessage": "抽屉已经打开，里面沉重的工具已被取走。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "library",
+          "label": "返回图书馆"
+        }
+      ]
+    },
+    "west_corridor": {
+      "id": "west_corridor",
+      "title": "西走廊",
+      "imageUrl": "./assets/scene_west_corridor.jpg",
+      "description": "与东侧走廊相似，但更为阴冷。两侧的门板更显斑驳，似乎通往服务区域。",
+      "interactables": [],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "kitchen",
+          "label": "前往厨房"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "grand_hall",
+          "label": "返回大厅"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "courtyard",
+          "label": "前往庭院"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "storage_room",
+          "label": "前往储藏室"
+        }
+      ]
+    },
+    "kitchen": {
+      "id": "kitchen",
+      "title": "厨房",
+      "imageUrl": "./assets/scene_kitchen.jpg",
+      "description": "油腻的厨房，弥漫着腐烂食物的酸臭味和潮湿的霉菌气息。炉灶和厨具都生锈了。一张粗糙的木桌摆在中央。",
+      "interactables": [
+        {
+          "id": "rusty_oven",
+          "name": "生锈的烤箱",
+          "description": "一个古老的大烤箱，里面漆黑一片。在灰烬中，你隐约看到一张未烧尽的卷轴。",
+          "icon": "🔥",
+          "itemRewardId": "parchment_scroll",
+          "postInteractionMessage": "烤箱里空空如也，那张羊皮卷轴已经被你拿走了。"
+        },
+        {
+          "id": "wooden_table",
+          "name": "木桌",
+          "description": "一张布满刀痕和油渍的木桌，上面杂乱地放着一些废弃的厨具。",
+          "icon": "🪑",
+          "itemRewardId": "empty_vial",
+          "postInteractionMessage": "木桌上只剩下一些无用的垃圾。"
+        },
+        {
+          "id": "leaking_pipe",
+          "name": "漏水的管道",
+          "description": "墙角有一根破裂的管道，滴落着浑浊的液体，散发着微弱的异味。",
+          "icon": "💧",
+          "requiredItemId": "empty_vial",
+          "lockedMessage": "管道在滴水，你需要一个容器来收集这些液体。",
+          "itemRewardId": "mysterious_liquid",
+          "postInteractionMessage": "你已经收集了足够的液体。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "west_corridor",
+          "label": "返回西走廊"
+        }
+      ]
+    },
+    "storage_room": {
+      "id": "storage_room",
+      "title": "储藏室",
+      "imageUrl": "./assets/scene_storage_room.jpg",
+      "description": "阴暗潮湿的储藏室，堆满了破旧的木箱、麻袋和废弃的工具。空气中弥漫着尘土和木材腐烂的味道。",
+      "interactables": [
+        {
+          "id": "sealed_crate",
+          "name": "密封的木箱",
+          "description": "一个用铁钉牢牢封死的木箱，木板厚实。",
+          "icon": "📦",
+          "requiredItemId": "iron_crowbar",
+          "lockedMessage": "木箱被铁钉封死，徒手无法打开。你需要一样结实的杠杆工具，比如撬棍。",
+          "itemRewardId": "carved_stone_tablet",
+          "postInteractionMessage": "木箱已经被撬开了，里面空了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "west_corridor",
+          "label": "返回西走廊"
+        }
+      ]
+    },
+    "courtyard": {
+      "id": "courtyard",
+      "title": "庭院",
+      "imageUrl": "./assets/scene_courtyard.jpg",
+      "description": "杂草丛生的庭院，中央有一个干涸的喷泉，雕刻着模糊不清的天使形象。空气中带着一丝泥土和荒芜的气息。",
+      "interactables": [
+        {
+          "id": "dry_fountain",
+          "name": "干涸的喷泉",
+          "description": "喷泉已经干涸，底部堆满了落叶和泥沙。",
+          "icon": "⛲",
+          "postInteractionMessage": "喷泉里没有什么值得注意的。"
+        },
+        {
+          "id": "loose_cobblestone",
+          "name": "松动的石砖",
+          "description": "在庭院的一角，有一块看起来比其他石砖更松动的石头。如果没有指引，很难发现它。",
+          "icon": "🧱",
+          "requiredItemId": "old_map",
+          "lockedMessage": "这里有些不对劲，但你需要地图来确认挖掘的准确位置。",
+          "flagReward": "basement_access",
+          "postInteractionMessage": "石砖已被移开，露出了一个黑暗的入口。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "west_corridor",
+          "label": "返回西走廊"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "apothecary",
+          "label": "前往药剂室"
+        },
+        {
+          "direction": "down",
+          "targetSceneId": "basement_entrance",
+          "label": "进入地下室入口",
+          "requiredFlag": "basement_access"
+        }
+      ]
+    },
+    "apothecary": {
+      "id": "apothecary",
+      "title": "药剂室",
+      "imageUrl": "./assets/scene_apothecary.jpg",
+      "description": "弥漫着草药和腐烂气味的药剂室，桌上摆满了废弃的烧杯和蒸馏器。这里曾是修士们研制药剂的地方。",
+      "interactables": [
+        {
+          "id": "medicine_cabinet",
+          "name": "药柜",
+          "description": "一个半开的木质药柜。在底层的暗格里，藏着一块奇怪的石头。",
+          "icon": " cabinet",
+          "itemRewardId": "runic_stone_block",
+          "postInteractionMessage": "药柜已经被翻找过，那块刻符石块已被取走。"
+        },
+        {
+          "id": "alembic_still",
+          "name": "古老的蒸馏器",
+          "description": "一个复杂的铜质蒸馏装置，虽然现在已经废弃，但可以看出它曾经用于提炼某种高度纯净的物质，也许是传说中的圣水。",
+          "icon": "🧪",
+          "postInteractionMessage": "蒸馏器已经损坏，无法再使用了，但它的存在证实了炼金手册中的记载。",
+          "dialogue": [
+            "这个装置结构复杂，似乎是专门为了提炼那种能够净化邪恶的圣水而设计的。可惜现在已经无法操作了。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "courtyard",
+          "label": "返回庭院"
+        }
+      ]
+    },
+    "basement_entrance": {
+      "id": "basement_entrance",
+      "title": "地下室入口",
+      "imageUrl": "./assets/scene_basement_entrance.jpg",
+      "description": "隐藏在庭院下方的入口，通向黑暗深处。一股冰冷潮湿的空气从下方涌出，伴随着隐约的腐尸味。",
+      "interactables": [
+        {
+          "id": "heavy_grate",
+          "name": "沉重的铁栅栏",
+          "description": "一个生锈的沉重铁栅栏，阻挡着通往地下深处的道路。",
+          "icon": "⛓️",
+          "requiredFlag": "basement_access",
+          "postInteractionMessage": "铁栅栏已经打开。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "up",
+          "targetSceneId": "courtyard",
+          "label": "返回庭院"
+        },
+        {
+          "direction": "down",
+          "targetSceneId": "catacombs",
+          "label": "进入地下墓穴",
+          "requiredFlag": "basement_access"
+        }
+      ]
+    },
+    "catacombs": {
+      "id": "catacombs",
+      "title": "地下墓穴",
+      "imageUrl": "./assets/scene_catacombs.jpg",
+      "description": "阴森的地下墓穴，骸骨堆积如山，空气中弥漫着死亡的气息。幽暗的光线勉强照亮了前方的古老石门，上面刻满了不祥的符文。",
+      "interactables": [
+        {
+          "id": "ancient_sarcophagus",
+          "name": "古老石棺",
+          "description": "一个巨大的石棺，棺盖沉重。在尸骨的怀中，抱着一本散发着邪恶气息的书。",
+          "icon": "⚰️",
+          "itemRewardId": "ancient_ritual_book",
+          "postInteractionMessage": "石棺已被打开，你已从中取出古老的仪式书。"
+        },
+        {
+          "id": "sealed_door",
+          "name": "密封的石门",
+          "description": "地下墓穴深处的一扇巨大的石门，上面刻着复杂的符文，似乎是一个密码锁。",
+          "icon": "🚪",
+          "isPuzzle": true,
+          "puzzleId": "catacombs_rune_puzzle",
+          "postInteractionMessage": "石门已经打开。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "up",
+          "targetSceneId": "basement_entrance",
+          "label": "返回地下室入口"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "altar_chamber",
+          "label": "前往祭坛室",
+          "requiredFlag": "catacombs_unlocked"
+        }
+      ]
+    },
+    "altar_chamber": {
+      "id": "altar_chamber",
+      "title": "祭坛室",
+      "imageUrl": "./assets/scene_altar_chamber.jpg",
+      "description": "巨大的祭坛室，中央是染血的石质祭坛，空气中弥漫着浓烈的邪恶气息。墙壁上刻画着扭曲的符文和血腥的壁画。",
+      "interactables": [
+        {
+          "id": "blood_stained_altar",
+          "name": "染血的祭坛",
+          "description": "石质祭坛上布满了干涸的血迹，似乎刚进行过某种仪式。",
+          "icon": "🩸",
+          "postInteractionMessage": "祭坛上的血迹令人触目惊心。"
+        },
+        {
+          "id": "hidden_lever",
+          "name": "隐藏的拉杆",
+          "description": "祭坛旁边的石墙上有一个不起眼的凹槽，旁边刻着数字盘。",
+          "icon": " lever",
+          "isPuzzle": true,
+          "puzzleId": "altar_mechanism_puzzle",
+          "postInteractionMessage": "拉杆已被扳动，通道已开启。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "catacombs",
+          "label": "返回地下墓穴"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "secret_passage",
+          "label": "进入秘密通道",
+          "requiredFlag": "secret_passage_open"
+        }
+      ]
+    },
+    "secret_passage": {
+      "id": "secret_passage",
+      "title": "秘密通道",
+      "imageUrl": "./assets/scene_secret_passage.jpg",
+      "description": "狭窄阴暗的秘密通道，空气中充斥着潮湿的霉味。墙壁上布满了松动的砖块，前方隐约传来低沉的嗡鸣声。",
+      "interactables": [
+        {
+          "id": "loose_bricks",
+          "name": "松动的砖块",
+          "description": "墙壁上几块砖块明显比其他地方松动，可以轻易取下。",
+          "icon": "🧱",
+          "itemRewardId": "silver_crucifix",
+          "postInteractionMessage": "砖块已被移开，里面的东西已取出。"
+        },
+        {
+          "id": "glowing_device",
+          "name": "发光的装置",
+          "description": "通道尽头有一个镶嵌在墙上的装置，散发着微弱的幽光，中心有一个十字形的凹槽。",
+          "icon": "✨",
+          "requiredItemId": "silver_crucifix",
+          "lockedMessage": "这个装置似乎需要一个神圣的物品来激活，形状像是一个十字架。",
+          "flagReward": "ritual_room_access",
+          "postInteractionMessage": "装置已被激活，通往仪式室的道路已显现。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "altar_chamber",
+          "label": "返回祭坛室"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "ritual_chamber",
+          "label": "进入仪式室",
+          "requiredFlag": "ritual_room_access"
+        }
+      ]
+    },
+    "ritual_chamber": {
+      "id": "ritual_chamber",
+      "title": "仪式室",
+      "imageUrl": "./assets/scene_ritual_chamber.jpg",
+      "description": "冰冷的圆形房间，中央是刻满符文的巨大石台。黑色的能量在空气中涌动，令人毛骨悚然。这里就是瘟疫的源头，黑暗仪式的核心。",
+      "interactables": [
+        {
+          "id": "ritual_platform",
+          "name": "仪式平台",
+          "description": "刻满神秘符文的石质平台，是仪式能量的汇聚点。你需要激活它来打破邪恶的封印。",
+          "icon": "♱",
+          "isPuzzle": true,
+          "puzzleId": "ritual_matrix_puzzle",
+          "itemRewardId": "purified_holy_water",
+          "flagReward": "ritual_seal_broken",
+          "postInteractionMessage": "符文阵列已被激活，净化圣水已获得，邪恶的封印已解除。"
+        },
+        {
+          "id": "corrupted_source",
+          "name": "腐化之源",
+          "description": "仪式室核心，一股邪恶的黑暗能量从地面裂缝中喷涌而出，是瘟疫的根源。",
+          "icon": "瘴",
+          "requiredItemId": "purified_holy_water",
+          "requiredFlag": "ritual_seal_broken",
+          "lockedMessage": "黑暗能量太过强大，你需要先打破封印（完成仪式平台谜题），并使用至纯的圣水才能净化它。",
+          "winsGame": true,
+          "postInteractionMessage": "腐化之源已被净化，你已完成了使命。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "secret_passage",
+          "label": "返回秘密通道"
+        }
+      ]
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

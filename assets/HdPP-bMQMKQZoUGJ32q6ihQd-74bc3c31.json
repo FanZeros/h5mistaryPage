@@ -1,0 +1,405 @@
+{
+  "meta": {
+    "name": "活体公馆",
+    "author": "03",
+    "version": "1.0.1",
+    "description": "你苏醒在一个无限增殖的生物建筑中。墙壁在呼吸，家具是骨骼。你必须理解这座‘活体公馆’的生理机制，在被它完全消化之前逃离。",
+    "style": "H.R. Giger inspired, Biomechanical, Body Horror, Dark Surrealism",
+    "sceneStyle": "Oil painting texture, low saturation, pulsating organic walls, wet surfaces, dark red and abyssal black palette",
+    "itemStyle": "Detailed anatomical drawings, rusted surgical instruments, glowing organic matter",
+    "musicStyle": "Industrial Dark Ambient, slow heartbeat rhythms, wet squishing sounds, distant metallic grinding",
+    "endingMessage": "随着羊水动力室的过载，巨大的括约肌大门为你敞开。你跌跌撞撞地逃入苍白的现实世界，但你的血管中似乎仍回响着公馆的心跳。",
+    "useBannerAsTitleBg": true,
+    "bgmUrl": "assets/audio/biopunk_ambience.mp3",
+    "designConfig": {
+      "theme": "玩家苏醒在一个名为“活体公馆”的无限增殖空间中，这里的墙壁由甚至能听到心跳的血肉筑成，家具则是硬化的骨骼。你必须理解这座巨大生物建筑的生理机制，通过重组神经线路和调节激素谜题，在意识被它完全消化并同化为建筑的一部分之前逃离。",
+      "sceneCount": 2,
+      "itemCount": 5,
+      "puzzleCount": 5,
+      "requiredItems": "钙化的骨钥, 搏动的静脉引信, 凝固的记忆血清, 刻有符文的手术刀, 眼球玻璃体透镜, 神经突触连接器",
+      "requiredScenes": "瓣膜大厅, 胃酸图书馆, 视神经瞭望台, 咽喉回廊, 羊水动力室"
+    }
+  },
+  "initialState": {
+    "currentSceneId": "scene_valvular_hall",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "你猛然惊醒，肺部充满了一股铁锈般的血腥味。",
+      "身下的地面温热而柔软，仿佛某种巨大生物的内壁。",
+      "四周传来低沉的轰鸣声，像是这栋建筑的呼吸。你必须在被消化之前离开这里。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_synaptic_connector": {
+      "id": "item_synaptic_connector",
+      "name": "神经突触连接器",
+      "description": "一段仍在微微抽搐的生物电缆，两端不仅有金属接口，还有能够刺入神经束的微型探针。电缆表面不仅有脉动，还刻有一行微小的触觉代码，似乎暗示了正确的连接回路。",
+      "type": "TOOL",
+      "icon": "🔌",
+      "image": "./assets/item_synaptic_connector.png",
+      "clueForPuzzleId": "puzzle_synapse"
+    },
+    "item_runic_scalpel": {
+      "id": "item_runic_scalpel",
+      "name": "刻有符文的手术刀",
+      "description": "一把锋利无比的手术刀，刀刃上蚀刻着用来镇压坏死组织的古老符文。",
+      "type": "TOOL",
+      "icon": "🔪",
+      "image": "./assets/item_runic_scalpel.png"
+    },
+    "item_calcified_bone_key": {
+      "id": "item_calcified_bone_key",
+      "name": "钙化的骨钥",
+      "description": "由人类指骨融合打磨而成的钥匙，表面布满了多孔的骨质结构。",
+      "type": "KEY",
+      "icon": "🦴",
+      "image": "./assets/item_calcified_bone_key.png"
+    },
+    "item_coagulated_memory_serum": {
+      "id": "item_coagulated_memory_serum",
+      "name": "凝固的记忆血清",
+      "description": "一瓶粘稠的深红色液体。透过玻璃，你似乎能看到三个漂浮的符号。",
+      "type": "CLUE",
+      "icon": "🧪",
+      "image": "./assets/item_coagulated_memory_serum.png",
+      "clueForPuzzleId": "puzzle_nerve_lock"
+    },
+    "item_vitreous_lens": {
+      "id": "item_vitreous_lens",
+      "name": "眼球玻璃体透镜",
+      "description": "从巨大眼球中取出的晶状体，经过硬化处理，可以过滤掉血肉的红色噪点，看到隐藏的信息。",
+      "type": "TOOL",
+      "icon": "🧿",
+      "image": "./assets/item_vitreous_lens.png",
+      "clueForPuzzleId": "puzzle_amniotic_core"
+    },
+    "item_pulsating_vein_fuse": {
+      "id": "item_pulsating_vein_fuse",
+      "name": "搏动的静脉引信",
+      "description": "一截充满了高压血液的粗大血管，用作生物电路的过载保险丝。",
+      "type": "KEY",
+      "icon": "🧨",
+      "image": "./assets/item_pulsating_vein_fuse.png"
+    }
+  },
+  "puzzles": {
+    "puzzle_heartbeat": {
+      "id": "puzzle_heartbeat",
+      "description": "心跳监视器的屏幕上闪烁着杂乱的波形，需要输入正确的频率代码来平复心律。",
+      "answer": "7492",
+      "rewardFlag": "heart_calmed",
+      "rewardMessage": "随着正确的频率输入，巨大的心跳声平缓了下来。监视器下方的骨质抽屉弹开了。",
+      "type": "numeric"
+    },
+    "puzzle_nerve_lock": {
+      "id": "puzzle_nerve_lock",
+      "description": "神经闸门上排列着六个生化受体，你需要按正确的生理顺序激活它们。",
+      "answer": "👁️🩸🧬",
+      "choices": [
+        "🦴",
+        "👁️",
+        "🧠",
+        "🩸",
+        "🦷",
+        "🧬"
+      ],
+      "rewardFlag": "nerve_path_open",
+      "rewardMessage": "受体吸收了指令，巨大的神经束缓缓移开，露出了通往上层的通道。",
+      "type": "symbol"
+    },
+    "puzzle_flesh_membrane": {
+      "id": "puzzle_flesh_membrane",
+      "description": "这块皮肤组织的纹理错位了，你需要将它们重新拼合以恢复其生物功能。",
+      "answer": "completed",
+      "rewardFlag": "membrane_healed",
+      "rewardMessage": "皮肤纹理重组完成，原本紧闭的切口像嘴巴一样张开，吐出了一件物品。",
+      "type": "text",
+      "gridSize": 3,
+      "linkedAssetId": "puzzle_membrane_texture"
+    },
+    "puzzle_synapse": {
+      "id": "puzzle_synapse",
+      "description": "你需要一笔画通所有的神经节点，不能重复路径，以接通回路。",
+      "answer": "0,1,2,3,4,0,2",
+      "rewardFlag": "synapse_connected",
+      "rewardMessage": "电流通过了新的回路，神经末梢剧烈抽搐后产生了一个有机组件。",
+      "type": "one_line",
+      "points": [
+        {
+          "x": 50,
+          "y": 10
+        },
+        {
+          "x": 90,
+          "y": 40
+        },
+        {
+          "x": 90,
+          "y": 90
+        },
+        {
+          "x": 10,
+          "y": 90
+        },
+        {
+          "x": 10,
+          "y": 40
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          4
+        ]
+      ]
+    },
+    "puzzle_amniotic_core": {
+      "id": "puzzle_amniotic_core",
+      "description": "核心控制台需要四位激素配比代码才能启动排异反应程序。",
+      "answer": "3851",
+      "rewardFlag": "core_overload",
+      "rewardMessage": "激素注入成功！整个建筑开始剧烈痉挛，出口打开了！",
+      "type": "numeric"
+    }
+  },
+  "scenes": {
+    "scene_valvular_hall": {
+      "id": "scene_valvular_hall",
+      "title": "瓣膜大厅",
+      "imageUrl": "./assets/scene_valvular_hall.jpg",
+      "description": "这是公馆的中心，巨大的肉质瓣膜在天花板上缓慢开合。墙壁上的静脉发出微弱的红光。通往各处的血管通道从这里延伸。",
+      "interactables": [
+        {
+          "id": "heart_monitor",
+          "name": "心律监视器",
+          "description": "一个镶嵌在血肉墙壁里的老式监视器，正发出刺耳的报警声。",
+          "icon": "📟",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_heartbeat",
+          "itemRewardId": "item_calcified_bone_key",
+          "lockedMessage": "屏幕闪烁，需要输入四位数字代码。"
+        },
+        {
+          "id": "bone_pile",
+          "name": "废弃骨堆",
+          "description": "角落里堆积着被消化的前任‘住客’的残骸。",
+          "icon": "☠️",
+          "itemRewardId": "item_synaptic_connector",
+          "postInteractionMessage": "你在骨堆深处找到了一根未被消化的连接线。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_throat_corridor",
+          "label": "进入咽喉回廊"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_acid_library",
+          "label": "前往胃酸图书馆"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_optic_observatory",
+          "label": "前往视神经瞭望台"
+        }
+      ]
+    },
+    "scene_throat_corridor": {
+      "id": "scene_throat_corridor",
+      "title": "咽喉回廊",
+      "imageUrl": "./assets/scene_throat_corridor.jpg",
+      "description": "狭窄的走廊，墙壁不断收缩蠕动。风声穿过这里发出呜咽。",
+      "interactables": [
+        {
+          "id": "echoing_pipe",
+          "name": "气管管道",
+          "description": "一根暴露在外的软骨气管，里面传出有节奏的敲击声。",
+          "icon": "🔊",
+          "audioMessage": "7492",
+          "postInteractionMessage": "你仔细聆听，那敲击声似乎是在重复一组摩斯密码数字：7-?-?-2。",
+          "clueForPuzzleId": "puzzle_heartbeat",
+          "dialogue": [],
+          "lockedMessage": "",
+          "requiredItemId": "",
+          "itemRewardId": "",
+          "flagReward": "",
+          "requiredFlag": "",
+          "hiddenIfFlag": "",
+          "winsGame": false,
+          "targetSceneId": "",
+          "isPuzzle": false
+        },
+        {
+          "id": "nerve_gate",
+          "name": "神经闸门",
+          "description": "一团纠结的巨大神经束封锁了北面的去路。上面有几个生化插槽。",
+          "icon": "🚧",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_nerve_lock",
+          "lockedMessage": "你需要按照特定的生理顺序激活受体才能通过。"
+        },
+        {
+          "id": "corpse_scientist",
+          "name": "腐烂的学者",
+          "description": "一具穿着白大褂的尸体，半截身体已经融入了墙壁。",
+          "icon": "🧟",
+          "itemRewardId": "item_runic_scalpel",
+          "postInteractionMessage": "你从他僵硬的手中取下了那把奇怪的手术刀。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_valvular_hall",
+          "label": "返回瓣膜大厅"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_amniotic_power",
+          "label": "进入羊水动力室",
+          "requiredFlag": "nerve_path_open",
+          "locked": true
+        }
+      ]
+    },
+    "scene_acid_library": {
+      "id": "scene_acid_library",
+      "title": "胃酸图书馆",
+      "imageUrl": "./assets/scene_acid_library.jpg",
+      "description": "这里没有书架，只有悬挂在酸液池上的巨大皮层，上面刻满了文字。空气中弥漫着腐蚀性的酸味。",
+      "interactables": [
+        {
+          "id": "flesh_wall_puzzle",
+          "name": "错位的皮层",
+          "description": "一块巨大的皮肤挡板，纹理混乱。似乎可以用某种利器切开并重组它。",
+          "icon": "🧩",
+          "requiredItemId": "item_runic_scalpel",
+          "lockedMessage": "你需要一把能切开符文皮肤的工具。",
+          "isPuzzle": false,
+          "itemRewardId": "item_vitreous_lens",
+          "dialogue": [],
+          "postInteractionMessage": "",
+          "flagReward": "",
+          "requiredFlag": "",
+          "hiddenIfFlag": "",
+          "audioMessage": "",
+          "winsGame": false,
+          "targetSceneId": ""
+        },
+        {
+          "id": "fleshy_scroll",
+          "name": "粘液记录",
+          "description": "一张半浸泡在酸液中的皮纸，被锁在一个钙化的骨质匣子里。",
+          "icon": "📜",
+          "requiredItemId": "item_calcified_bone_key",
+          "lockedMessage": "这份记录被锁在一个钙化的骨质匣子里，需要特殊的骨钥打开。",
+          "itemRewardId": "item_coagulated_memory_serum",
+          "postInteractionMessage": "你用骨钥打开了匣子，小心翼翼地提取了一瓶凝固的血清，里面似乎封存着某种记忆序列。",
+          "clueForPuzzleId": "puzzle_nerve_lock"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_valvular_hall",
+          "label": "返回瓣膜大厅"
+        }
+      ]
+    },
+    "scene_optic_observatory": {
+      "id": "scene_optic_observatory",
+      "title": "视神经瞭望台",
+      "imageUrl": "./assets/scene_optic_observatory.jpg",
+      "description": "巨大的眼球状窗户俯瞰着虚空。地面上布满了敏感的神经纤维。",
+      "interactables": [
+        {
+          "id": "synapse_panel",
+          "name": "突触断路器",
+          "description": "控制眼球聚焦的神经电路断开了。",
+          "icon": "⚡",
+          "requiredItemId": "item_synaptic_connector",
+          "lockedMessage": "你需要一个神经突触连接器来接通电路。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_synapse",
+          "itemRewardId": "item_pulsating_vein_fuse"
+        },
+        {
+          "id": "giant_eye_telescope",
+          "name": "巨眼望远镜",
+          "description": "一个巨大的生物望远镜，视野模糊不清。",
+          "icon": "🔭",
+          "requiredItemId": "item_vitreous_lens",
+          "lockedMessage": "望远镜缺少晶状体，无法聚焦。",
+          "postInteractionMessage": "装上透镜后，视野变得清晰。你在深红色的星空中看到了排列成'3851'形状的血管网络。",
+          "clueForPuzzleId": "puzzle_amniotic_core"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_valvular_hall",
+          "label": "返回瓣膜大厅"
+        }
+      ]
+    },
+    "scene_amniotic_power": {
+      "id": "scene_amniotic_power",
+      "title": "羊水动力室",
+      "imageUrl": "./assets/scene_amniotic_power.jpg",
+      "description": "巨大的透明囊泡中充满了发光的羊水，这是公馆的核心心脏。你需要让它过载。",
+      "interactables": [
+        {
+          "id": "core_control",
+          "name": "核心控制台",
+          "description": "控制羊水泵浦的生物面板，缺少关键的保险丝。",
+          "icon": "☢️",
+          "requiredItemId": "item_pulsating_vein_fuse",
+          "lockedMessage": "电路缺损，需要植入静脉引信。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_amniotic_core",
+          "winsGame": true
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_throat_corridor",
+          "label": "返回咽喉回廊"
+        }
+      ]
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

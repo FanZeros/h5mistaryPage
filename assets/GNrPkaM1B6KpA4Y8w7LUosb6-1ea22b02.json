@@ -1,0 +1,433 @@
+{
+  "meta": {
+    "name": "回音图书馆：记忆深渊",
+    "author": "零殇",
+    "version": "1.3.1",
+    "description": "你被派遣到神秘的回音图书馆，调查记忆扭曲的异常。在这里，你的过去也开始变得模糊不清，你必须揭开真相，才能找回自我。",
+    "style": "破败哥特式与数字迷幻融合，高对比度，冷色调为主（深蓝、墨绿、灰），局部有荧光般的记忆碎片（淡紫、青色）。画面细节丰富，有大量腐蚀的金属纹理、缠绕的电缆和悬浮的二进制代码。光线昏暗，只有老旧的CRT显示器或记忆投影发出微弱光芒。",
+    "musicStyle": "Dark Ambient, Industrial, Glitch, Sci-fi Horror, Ethereal Synth, Drone",
+    "endingMessage": "随着最后一行代码注入，核心发出了耀眼的白光，那是被净化的记忆洪流。图书馆内扭曲的低语消散了，破碎的影像重新凝聚成清晰的历史。你感到一阵强烈的眩晕，随后是前所未有的清醒。你是记忆审查员，也是曾经被系统错误删除的“异常数据”。现在，你不仅找回了自己，也改写了这座深渊的规则。任务完成。",
+    "useBannerAsTitleBg": false,
+    "bgmUrl": "./assets/bgm.mp3",
+    "designConfig": {
+      "theme": "",
+      "sceneCount": 4,
+      "itemCount": 4,
+      "puzzleCount": 1,
+      "requiredItems": "",
+      "requiredScenes": ""
+    }
+  },
+  "initialState": {
+    "currentSceneId": "entrance_hall",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "【系统连接中... 意识上传完成】",
+      "你站在回音图书馆的入口前，这座巨大的、哥特式的建筑在数字化薄雾中若隐若现。",
+      "城市里，记忆不再只属于个体，它被收集、存储、甚至净化。而回音图书馆，是这项工作的核心。",
+      "最近，关于图书馆深处出现异常的报告越来越多：扭曲的低语、破碎的影像，甚至有审查员在调查中失去了自我。",
+      "作为一名经验丰富的记忆审查员，你被派来调查这一切。然而，当你踏入这座宏伟却腐朽的殿堂时，一股不安感袭来。",
+      "你的过去，那些本该清晰的记忆，此刻也开始变得模糊不清。你必须找到核心，揭露真相，否则，你将永远迷失在这里。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "old_memory_reader": {
+      "id": "old_memory_reader",
+      "name": "老旧的记忆读取器",
+      "description": "一台陈旧的手持设备，用于读取记忆碎片。屏幕上闪烁着红色警告：‘数据解码模块需校准’。",
+      "type": "TOOL",
+      "icon": "./assets/item_old_memory_reader.png",
+      "image": "./assets/item_old_memory_reader.png"
+    },
+    "broken_archive_card": {
+      "id": "broken_archive_card",
+      "name": "破碎的档案卡",
+      "description": "一张被严重磨损的员工身份卡，名字模糊不清，但入职年份的后两位清晰可见：'87'。",
+      "type": "CLUE",
+      "icon": "./assets/item_broken_archive_card.png",
+      "image": "./assets/item_broken_archive_card.png"
+    },
+    "damaged_tape": {
+      "id": "damaged_tape",
+      "name": "严重腐蚀的磁带",
+      "description": "一卷被化学物质腐蚀的旧式磁带，标签上勉强能辨认出‘核心密钥备份’字样。直接放入机器可能会损坏，需要专用的读取设备。",
+      "type": "CLUE",
+      "icon": "./assets/item_damaged_tape.png",
+      "image": "./assets/item_damaged_tape.png"
+    },
+    "decoder_manual": {
+      "id": "decoder_manual",
+      "name": "设备校准手册",
+      "description": "一本薄薄的技术指南。第3页有一个手绘的符号序列，用于重置读取器：先是▲，然后●，最后是■。",
+      "type": "NOTE",
+      "icon": "./assets/item_decoder_manual.png",
+      "image": "./assets/item_decoder_manual.png"
+    },
+    "glowing_crystal": {
+      "id": "glowing_crystal",
+      "name": "发光记忆水晶",
+      "description": "一块散发着微弱蓝光的记忆水晶，触感冰冷，内部似乎流动着某种液态的驱动能量。",
+      "type": "KEY",
+      "icon": "./assets/item_glowing_crystal.png",
+      "image": "./assets/item_glowing_crystal.png"
+    },
+    "console_key": {
+      "id": "console_key",
+      "name": "控制台实体密钥",
+      "description": "一把沉重的金属密钥，是在读取了那卷腐蚀磁带后生成的。边缘锋利，能物理开启处理中心的最高权限。",
+      "type": "KEY",
+      "icon": "./assets/item_console_key.png",
+      "image": "./assets/item_console_key.png"
+    },
+    "corrupted_data_chip": {
+      "id": "corrupted_data_chip",
+      "name": "古老的数据芯片",
+      "description": "从存储区终端提取的芯片。经过艰难的解码，你只解读出了前半段核心代码：'2049....'。",
+      "type": "CLUE",
+      "icon": "./assets/item_corrupted_data_chip.png",
+      "image": "./assets/item_corrupted_data_chip.png"
+    },
+    "purification_protocol": {
+      "id": "purification_protocol",
+      "name": "核心净化协议",
+      "description": "一份被塞在服务器缝隙中的文件。末尾用红笔匆忙写着：'如果系统崩溃，输入后半段代码 ....1120 以强制重启'。",
+      "type": "NOTE",
+      "icon": "./assets/item_purification_protocol.png",
+      "image": "./assets/item_purification_protocol.png"
+    }
+  },
+  "puzzles": {
+    "puzzle_storage_terminal_code": {
+      "id": "puzzle_storage_terminal_code",
+      "description": "终端机屏幕闪烁，请求输入四位数的'初始入职年份'。你需要结合档案室发现的线索（终端日志+档案卡）来拼凑这个日期。",
+      "answer": "1987",
+      "rewardFlag": "flag_storage_terminal_unlocked",
+      "rewardMessage": "密码验证通过。终端机内部发出齿轮咬合的声音，随后吐出了一块数据芯片。",
+      "type": "numeric"
+    },
+    "puzzle_data_recalibration": {
+      "id": "puzzle_data_recalibration",
+      "description": "按照手册上的指示，输入正确的三个符号序列来校准读取器。",
+      "answer": "▲●■",
+      "rewardFlag": "flag_memory_reader_repaired",
+      "rewardMessage": "输入正确。工作台上的机械臂精准地调整了读取器的探针。指示灯由红变绿，设备已修复。",
+      "type": "symbol",
+      "choices": [
+        "▲",
+        "▼",
+        "●",
+        "■",
+        "★",
+        "♦"
+      ]
+    },
+    "puzzle_core_activation_sequence": {
+      "id": "puzzle_core_activation_sequence",
+      "description": "核心重置需要8位完整激活码。结合你在存储区找到的数据芯片（前半段）和这里的协议文件（后半段），输入最终代码。",
+      "answer": "20491120",
+      "rewardFlag": "flag_core_activated",
+      "rewardMessage": "代码被接受。核心周围的黑色腐蚀数据瞬间崩解，取而代之的是纯净的白光...",
+      "type": "numeric"
+    }
+  },
+  "scenes": {
+    "entrance_hall": {
+      "id": "entrance_hall",
+      "title": "回音图书馆入口大厅",
+      "imageUrl": "./assets/scene_entrance_hall.jpg",
+      "description": "巨大的哥特式拱门仿佛张开的巨口，吞噬着微弱的光线。空气中弥漫着灰尘和某种电子烧焦的气味，远处传来低沉的嗡鸣。大厅中央有一座扭曲的雕塑。左侧是一扇紧闭的金属门，通往存储区；右侧敞开的门洞通往废弃档案室。",
+      "interactables": [
+        {
+          "id": "distorted_sculpture",
+          "name": "扭曲的记忆雕塑",
+          "description": "一尊由无数硬盘和电缆扭曲而成的雕塑，它低声耳语着混乱的片段。靠近时，你听到它在不断重复：'丢失...找回...'",
+          "dialogue": [
+            "雕塑的表面随着你的靠近泛起涟漪。",
+            "那些低语钻进你的脑海：'不要相信记忆...相信数据...' 这声音让你感到莫名的熟悉。"
+          ],
+          "postInteractionMessage": "雕塑依然在低声耳语，但你已经记住了它的警告。"
+        },
+        {
+          "id": "north_metal_door",
+          "name": "北方金属门",
+          "description": "通往记忆存储区的厚重金属门，上面有一个空的晶体插槽，目前处于锁死状态。",
+          "lockedMessage": "门纹丝不动。插槽里空空如也，看来需要特定的能量源才能驱动液压系统。",
+          "requiredFlag": "flag_entrance_unlocked",
+          "dialogue": [
+            "大门已经解锁。门缝中透出冷冽的寒气，那是存储区特有的低温。"
+          ],
+          "postInteractionMessage": "大门已经完全开启，通往存储区的道路畅通无阻。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "abandoned_archive_room",
+          "label": "进入废弃档案室"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "memory_storage",
+          "label": "进入废弃记忆存储区",
+          "locked": true,
+          "requiredFlag": "flag_entrance_unlocked"
+        }
+      ]
+    },
+    "abandoned_archive_room": {
+      "id": "abandoned_archive_room",
+      "title": "废弃档案室",
+      "imageUrl": "./assets/scene_abandoned_archive_room.jpg",
+      "description": "这里堆满了废弃的纸质档案和损坏的电子板。灰尘在微弱的应急灯光下飞舞。房间角落有一张乱堆杂物的办公桌，墙边有一台破碎的终端机。",
+      "interactables": [
+        {
+          "id": "dusty_desk",
+          "name": "布满灰尘的办公桌",
+          "description": "桌上堆满了无用的报表，但在一堆文件中，似乎埋着某种便携设备和一张卡片。",
+          "itemRewardId": "old_memory_reader",
+          "flagReward": "flag_found_memory_reader",
+          "dialogue": [
+            "你拨开厚重的灰尘，找出了那台【老旧的记忆读取器】。",
+            "在它下面还压着一张【破碎的档案卡】，上面记录的日期可能是个关键线索。"
+          ],
+          "postInteractionMessage": "你已经把桌上有价值的东西都拿走了，剩下的全是毫无用处的废纸。"
+        },
+        {
+          "id": "shattered_terminal",
+          "name": "破碎的终端机",
+          "description": "屏幕碎了一半，但还能勉强显示一行系统日志：'系统建立于：19..'，后面的数字被磨损了。",
+          "itemRewardId": "broken_archive_card",
+          "dialogue": [
+            "屏幕上的数字在'19..'处断开了。",
+            "你需要结合那张破碎档案卡上的工号后两位，才能拼凑出完整的年份。"
+          ],
+          "postInteractionMessage": "终端机的屏幕依然闪烁着那行残缺的日志：'系统建立于：19..'。"
+        },
+        {
+          "id": "memory_crystal_pile",
+          "name": "发光的晶体堆",
+          "description": "角落里有一堆废弃的能量单元，大部分已经黯淡，但唯独顶端的一块依然散发着稳定的蓝光。",
+          "itemRewardId": "glowing_crystal",
+          "flagReward": "flag_found_glowing_crystal",
+          "dialogue": [
+            "你小心翼翼地拿起了那块【发光记忆水晶】。",
+            "它在你手中微微震动，似乎渴望着回到插槽中去。"
+          ],
+          "postInteractionMessage": "这堆废弃的能量单元中已经没有其他可用的晶体了。"
+        },
+        {
+          "id": "door_power_socket",
+          "name": "大厅门控电路",
+          "description": "这面墙连接着大厅的安保系统。线路裸露在外，正中央有一个明显的晶体接口。",
+          "requiredItemId": "glowing_crystal",
+          "lockedMessage": "线路是断开的，系统显示‘能源缺失’。",
+          "flagReward": "flag_entrance_unlocked",
+          "dialogue": [
+            "你将发光的记忆水晶用力按入接口。",
+            "‘滋——’电流声瞬间贯穿了墙壁。",
+            "你听到大厅北面的金属门发出了沉重的‘咔哒’解锁声。通道已开启。"
+          ],
+          "postInteractionMessage": "记忆水晶正在稳定输出能量，大厅的门控系统运作正常。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "entrance_hall",
+          "label": "返回入口大厅"
+        }
+      ]
+    },
+    "memory_storage": {
+      "id": "memory_storage",
+      "title": "废弃记忆存储区",
+      "imageUrl": "./assets/scene_memory_storage.jpg",
+      "description": "高大的服务器机柜像墓碑一样排列。无数记忆模块在黑暗中闪烁。这里异常寒冷，空气中充满了静电。一个损坏的存储单元正冒着火花，旁边是一台等待输入的访问终端。",
+      "interactables": [
+        {
+          "id": "damaged_storage_unit",
+          "name": "损坏的存储单元",
+          "description": "机柜外壳因过热而炸裂，一卷磁带摇摇欲坠地挂在烧焦的线路中。",
+          "itemRewardId": "damaged_tape",
+          "flagReward": "flag_found_damaged_tape",
+          "dialogue": [
+            "你戴上手套，取下了那卷【严重腐蚀的磁带】。",
+            "它表面覆盖着一层粘稠的黑色物质，这绝不是普通播放器能读取的东西。"
+          ],
+          "postInteractionMessage": "机柜里空空如也，那卷腐蚀的磁带已经被你拿走了。"
+        },
+        {
+          "id": "old_access_terminal",
+          "name": "访问终端",
+          "description": "屏幕上只有光标在闪烁：'请输入4位入职年份以验证身份'。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_storage_terminal_code",
+          "itemRewardId": "corrupted_data_chip",
+          "dialogue": [
+            "身份验证通过...",
+            "终端机发出一阵卡顿的噪音，随后吐出了一块【古老的数据芯片】。",
+            "屏幕显示：'芯片含核心激活码前半部分，请妥善保管'。"
+          ],
+          "postInteractionMessage": "终端已解锁，屏幕上定格在‘数据传输完成’的界面。"
+        },
+        {
+          "id": "storage_door_panel",
+          "name": "深层区域门禁",
+          "description": "通往处理中心的门禁系统。上面的指示灯与旁边的访问终端联动。",
+          "requiredFlag": "flag_storage_terminal_unlocked",
+          "lockedMessage": "门禁红灯闪烁。必须先破解旁边的访问终端才能解除锁定。",
+          "flagReward": "flag_storage_access_granted",
+          "dialogue": [
+            "随着终端的解锁，门禁指示灯转为绿色。",
+            "沉重的气压门缓缓滑开，一股灼热的空气扑面而来，那里面是处理中心。"
+          ],
+          "postInteractionMessage": "门禁系统已解除，通往处理中心的防爆门保持开启状态。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "entrance_hall",
+          "label": "返回入口大厅"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "processing_center",
+          "label": "进入意识处理中心",
+          "locked": true,
+          "requiredFlag": "flag_storage_access_granted"
+        }
+      ]
+    },
+    "processing_center": {
+      "id": "processing_center",
+      "title": "扭曲的意识处理中心",
+      "imageUrl": "./assets/scene_processing_center.jpg",
+      "description": "无数电缆像血管一样汇聚在中央的处理池中。这里噪音震耳欲聋，屏幕上滚动着红色的错误代码。房间中央有一个维修工作台，上面散落着纸张。东侧是通往核心的防爆门。",
+      "interactables": [
+        {
+          "id": "scattered_manuals",
+          "name": "散落的技术手册",
+          "description": "一堆满是油污的纸张。你注意到其中一本封面上写着‘解码器故障排除’。",
+          "itemRewardId": "decoder_manual",
+          "flagReward": "flag_found_decoder_manual",
+          "dialogue": [
+            "你拾起了【设备校准手册】。",
+            "翻开手册，你找到了关于符号序列的那一页。这正是修复读取器所急需的。"
+          ],
+          "postInteractionMessage": "剩下的文件大多是无法辨认的草稿和无关紧要的维护日志。"
+        },
+        {
+          "id": "memory_recalibration_station",
+          "name": "维修工作台",
+          "description": "一台精密的维修设备，旁边摆放着各种探针。这里可以校准你的便携设备。",
+          "requiredItemId": "old_memory_reader",
+          "lockedMessage": "操作台空着。你需要把那个故障的【老旧的记忆读取器】放在这里才能开始维修。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_data_recalibration",
+          "dialogue": [
+            "校准程序完成！读取器的屏幕恢复了清晰的蓝色，数据接口也已复位。",
+            "现在，这台机器终于可以用来读取那些被腐蚀的磁带了。"
+          ],
+          "postInteractionMessage": "工作台的指示灯显示为绿色，读取器已经校准完毕，不需要再调整了。"
+        },
+        {
+          "id": "repaired_reader_station_use",
+          "name": "使用读取器",
+          "description": "你手持修好的读取器，准备将其连接到工作台的高级接口上读取磁带。",
+          "requiredItemId": "damaged_tape",
+          "requiredFlag": "flag_memory_reader_repaired",
+          "hiddenIfFlag": "flag_memory_data_extracted",
+          "lockedMessage": "读取器尚未校准，或者你缺少可读的磁带。",
+          "itemRewardId": "console_key",
+          "flagReward": "flag_memory_data_extracted",
+          "dialogue": [
+            "你将磁带插入读取器。磁带疯狂转动，数据流在屏幕上如瀑布般刷过...",
+            "‘解析成功——物质化输出启动’。",
+            "伴随着耀眼的光芒，读取器从侧面打印并重构出了一把【控制台实体密钥】。",
+            "磁带在读取完成后化为了灰烬。"
+          ],
+          "postInteractionMessage": "读取器已经完成了它的使命，没有更多的磁带需要读取了。"
+        },
+        {
+          "id": "processing_control_panel",
+          "name": "主防爆门",
+          "description": "通往核心的最后一道屏障。没有任何电子接口，只有一个原始的物理钥匙孔，透出森森寒意。",
+          "requiredItemId": "console_key",
+          "lockedMessage": "无论你的骇客技术多高超，这扇门只需要一把物理钥匙。",
+          "flagReward": "flag_processing_center_unlocked",
+          "dialogue": [
+            "你将沉重的密钥插入锁孔并转动。",
+            "巨大的金属撞击声响起，防爆门缓缓向两侧打开。",
+            "前方的光芒刺痛了你的双眼——核心就在那里。"
+          ],
+          "postInteractionMessage": "防爆门已经完全开启，直通中央服务器核心。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "memory_storage",
+          "label": "返回废弃记忆存储区"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "server_core",
+          "label": "进入中央服务器核心",
+          "locked": true,
+          "requiredFlag": "flag_processing_center_unlocked"
+        }
+      ]
+    },
+    "server_core": {
+      "id": "server_core",
+      "title": "中央服务器核心",
+      "imageUrl": "./assets/scene_server_core.jpg",
+      "description": "巨大的数据矩阵悬浮在虚空中，发出耀眼的蓝光。这里是图书馆的心脏，也是记忆的终点。然而，核心周围缠绕着黑色的腐蚀数据，仿佛病毒般搏动。控制台就在前方，等待着最后的指令。",
+      "interactables": [
+        {
+          "id": "corrupted_core_node",
+          "name": "被腐蚀的节点",
+          "description": "核心左侧的一处破损节点，里面卡着一份文件，随着数据风暴飘摇。",
+          "itemRewardId": "purification_protocol",
+          "flagReward": "flag_found_purification_protocol",
+          "dialogue": [
+            "你冒着被数据流灼伤的危险，用力扯出了那份【核心净化协议】。",
+            "上面用潦草的字迹写着紧急激活码的后半部分——这是最后的拼图。"
+          ],
+          "postInteractionMessage": "节点还在不断喷射出错误代码火花，但里面已经没有任何实物了。"
+        },
+        {
+          "id": "main_control_console",
+          "name": "主控制台",
+          "description": "悬浮的键盘等待着输入。只要输入完整的8位激活码，就能重置核心，净化所有被污染的记忆。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_core_activation_sequence",
+          "requiredFlag": "flag_found_purification_protocol",
+          "lockedMessage": "你还没找齐激活码的两部分。一段在存储区的芯片里，另一段应该就在这附近。",
+          "winsGame": true,
+          "dialogue": [
+            "你颤抖着输入了那串数字...",
+            "‘权限确认：管理员覆写’。",
+            "系统重置程序启动，光芒吞没了黑暗，你的记忆也终于清晰起来..."
+          ],
+          "postInteractionMessage": "控制台屏幕上显示着进度条：‘系统重置中... 100%’。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "processing_center",
+          "label": "返回意识处理中心"
+        }
+      ]
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

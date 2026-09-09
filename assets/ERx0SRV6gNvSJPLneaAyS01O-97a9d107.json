@@ -1,0 +1,731 @@
+{
+  "meta": {
+    "name": "黄阈：后室",
+    "author": "喝油工作室",
+    "version": "1.0.0",
+    "description": "你从办公楼的地毯里 noclip 了出去。醒来时，四面是潮湿的黄墙、嗡鸣的日光灯和无尽走廊。在灯管熄灭之前，找出离开后室的门槛。",
+    "style": "Liminal space analog horror, damp yellow wallpaper, fluorescent flicker, film grain, 1990s office decay, no people",
+    "sceneStyle": "广角第一人称，阈限空间摄影，潮湿黄色壁纸，潮湿地毯，日光灯嗡鸣，胶片颗粒，空无一人的90年代办公走廊，暗黄高对比，无人物无人体部位无手无脚无剪影无UI无可读文字",
+    "itemStyle": "等轴视图，单一物体，纯白背景，陈旧办公用品质感，潮湿污渍，高清细节",
+    "musicStyle": "Dark ambient drone, fluorescent light hum, distant dripping, analog horror, slow oppressive atmosphere, no melody",
+    "endingMessage": "门槛在你脚下裂开。荧光灯同时熄灭，又在下一秒变成真正的日光。你摔回了现实的地板——膝盖磕在中庭的瓷砖上。远处复印机还在转。你活着离开了后室。但走廊尽头那盏灯，仍在以同样的频率闪烁。",
+    "endingSceneId": "exit_light",
+    "useBannerAsTitleBg": true,
+    "bgmUrl": "./assets/yellow-threshold/assets/bgm_yellow-threshold.ogg",
+    "designConfig": {
+      "theme": "后室阈限空间：从 Level 0 黄墙迷宫逃向现实门槛",
+      "sceneCount": 10,
+      "itemCount": 15,
+      "puzzleCount": 5,
+      "requiredItems": "潮湿便条, 水渍方向图, 褪色门禁卡, 日光灯保险丝, 撕碎的EXIT残片, 杏仁水, 磁带录音机, 门槛信物, 闪烁日志, 霉斑样本, 工牌, 天花板钥匙, 水渍照片, 接线图, 杏仁水标签",
+      "requiredScenes": "黄墙门厅, 潮湿隔间, 复印室, 休息凹室, 日光灯迷宫, 死胡同凹室, 维修仓库, 管道走廊, 黄阈大门, 出口之光"
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/yellow-threshold/assets/game_icon_512.png",
+    "bannerUrl": "./assets/yellow-threshold/assets/game_banner_1080.jpg"
+  },
+  "initialState": {
+    "currentSceneId": "yellow_lobby",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "你踩空了。",
+      "膝盖先着地，随即是一股发霉地毯的潮热气味。",
+      "头顶日光灯以固定频率嗡鸣，墙纸黄得像过期的文件。",
+      "身后没有来时的洞。你被留在了后室。",
+      "四个方向的走廊看起来一模一样。先把能摸到的东西摸一遍。"
+    ],
+    "gameOver": false,
+    "gameWon": false,
+    "difficulty": "EASY"
+  },
+  "items": {
+    "damp_note": {
+      "id": "damp_note",
+      "name": "潮湿便条",
+      "description": "从地毯纤维里抠出来的便签。墨水晕开，但红圈里仍能读出：灯管在数数——1、9、9、1。把次数连起来。",
+      "type": "CLUE",
+      "icon": "📝",
+      "image": "./assets/yellow-threshold/assets/item_damp_note.png",
+      "clueForPuzzleId": "flicker_code"
+    },
+    "flicker_log": {
+      "id": "flicker_log",
+      "name": "闪烁日志",
+      "description": "灯罩里夹着的值班纸条，被荧光笔划过：闪一下，停；九下，停；九下，停；一下。密码就是 1991。",
+      "type": "NOTE",
+      "icon": "📋",
+      "image": "./assets/yellow-threshold/assets/item_flicker_log.png",
+      "clueForPuzzleId": "flicker_code"
+    },
+    "wall_map": {
+      "id": "wall_map",
+      "name": "水渍方向图",
+      "description": "潮气泡皱的草图。箭头被描成：上、右、下、左。旁注：跟着走，别回头。",
+      "type": "CLUE",
+      "icon": "🗺️",
+      "image": "./assets/yellow-threshold/assets/item_wall_map.png",
+      "clueForPuzzleId": "arrow_path"
+    },
+    "water_stain_photo": {
+      "id": "water_stain_photo",
+      "name": "水渍照片",
+      "description": "一张过曝的拍立得。地毯上的四个箭头被红笔标序：1↑ 2→ 3↓ 4←。",
+      "type": "CLUE",
+      "icon": "📷",
+      "image": "./assets/yellow-threshold/assets/item_water_stain_photo.png",
+      "clueForPuzzleId": "arrow_path"
+    },
+    "yellow_keycard": {
+      "id": "yellow_keycard",
+      "name": "褪色门禁卡",
+      "description": "发黄开裂的门禁卡，磁条长了霉。正面隐约印着 MAINTENANCE。读卡器可能已经不认它，但维修间的抽屉还认。",
+      "type": "KEY",
+      "icon": "💳",
+      "image": "./assets/yellow-threshold/assets/item_yellow_keycard.png"
+    },
+    "fuse_cartridge": {
+      "id": "fuse_cartridge",
+      "name": "日光灯保险丝",
+      "description": "粗玻璃管保险丝，内部金属丝发黑。标签手写：迷宫配电。插回去，北侧卷帘才会抬起。",
+      "type": "TOOL",
+      "icon": "🔌",
+      "image": "./assets/yellow-threshold/assets/item_fuse_cartridge.png"
+    },
+    "torn_exit_sign": {
+      "id": "torn_exit_sign",
+      "name": "撕碎的EXIT残片",
+      "description": "绿色应急出口标志被撕成九块，塑料边带着墙灰。拼回去才能看清真正的出口方向。",
+      "type": "CLUE",
+      "icon": "🧩",
+      "image": "./assets/yellow-threshold/assets/item_torn_exit_sign.png",
+      "clueForPuzzleId": "exit_jigsaw"
+    },
+    "almond_water": {
+      "id": "almond_water",
+      "name": "杏仁水",
+      "description": "一瓶浑浊液体，瓶身没有印刷标签。后室里传说它能压住耳鸣，让地毯重新变得可穿过。",
+      "type": "TOOL",
+      "icon": "🍼",
+      "image": "./assets/yellow-threshold/assets/item_almond_water.png"
+    },
+    "almond_label": {
+      "id": "almond_label",
+      "name": "杏仁水标签",
+      "description": "从瓶身撕下来的手写条：ALMOND。背面一行小字：门槛只认一种进来的方式——穿墙。",
+      "type": "NOTE",
+      "icon": "🏷️",
+      "image": "./assets/yellow-threshold/assets/item_almond_label.png",
+      "clueForPuzzleId": "noclip_word"
+    },
+    "tape_recorder": {
+      "id": "tape_recorder",
+      "name": "磁带录音机",
+      "description": "卡了带的随身听。播放时沙沙声里有人反复说：出口不是门。对门槛说出你是怎么进来的。口令两个字：穿墙。",
+      "type": "CLUE",
+      "icon": "📼",
+      "image": "./assets/yellow-threshold/assets/item_tape_recorder.png",
+      "clueForPuzzleId": "noclip_word"
+    },
+    "threshold_token": {
+      "id": "threshold_token",
+      "name": "门槛信物",
+      "description": "EXIT 标志背面压着的铜质圆牌。正面刻 THRESHOLD，背面是一扇没有把手的门。嵌进门楣才会开口。",
+      "type": "KEY",
+      "icon": "🪙",
+      "image": "./assets/yellow-threshold/assets/item_threshold_token.png"
+    },
+    "circuit_diagram": {
+      "id": "circuit_diagram",
+      "name": "接线图",
+      "description": "泛黄图纸画着九个节点的电网：三行三列，加上一条从中上到左中的斜线。必须一笔画完所有线，维修铁栅才会松。",
+      "type": "CLUE",
+      "icon": "📜",
+      "image": "./assets/yellow-threshold/assets/item_circuit_diagram.png",
+      "clueForPuzzleId": "fuse_circuit"
+    },
+    "staff_badge": {
+      "id": "staff_badge",
+      "name": "发霉工牌",
+      "description": "工牌照片已经糊掉。背面用圆珠笔写：复印室的箭头照片是真的，迷宫地面也是。",
+      "type": "NOTE",
+      "icon": "🪪",
+      "image": "./assets/yellow-threshold/assets/item_staff_badge.png",
+      "clueForPuzzleId": "arrow_path"
+    },
+    "mold_sample": {
+      "id": "mold_sample",
+      "name": "霉斑样本",
+      "description": "从错位墙纸上刮下来的一块湿霉。没有用处，但证明这面墙曾经被复制过两次。",
+      "type": "TOOL",
+      "icon": "🧫",
+      "image": "./assets/yellow-threshold/assets/item_mold_sample.png"
+    },
+    "ceiling_tile_key": {
+      "id": "ceiling_tile_key",
+      "name": "天花板钥匙",
+      "description": "从塌下的矿棉板里掉出的小铜匙。死胡同没有锁，它只是有人离开时塞进去的习惯。",
+      "type": "KEY",
+      "icon": "🔑",
+      "image": "./assets/yellow-threshold/assets/item_ceiling_tile_key.png"
+    }
+  },
+  "puzzles": {
+    "flicker_code": {
+      "id": "flicker_code",
+      "description": "隔间电脑锁在登录界面。屏幕反光里，日光灯正按某种节奏闪烁。请输入四位数字。",
+      "answer": "1991",
+      "rewardFlag": "computer_unlocked",
+      "rewardMessage": "登录成功。托盘里弹出一根发黑的保险丝，弹窗写着：迷宫配电箱缺件。",
+      "type": "numeric",
+      "requiredClueCount": 1
+    },
+    "arrow_path": {
+      "id": "arrow_path",
+      "description": "迷宫地面的水渍组成四个箭头。按照墙上记录的顺序走完，灯管才会停止把你带回原点。",
+      "answer": "↑→↓←",
+      "rewardFlag": "maze_cleared",
+      "rewardMessage": "走廊不再折回同一处。北侧卷帘门的电机发出湿润的咔哒声。",
+      "type": "symbol",
+      "choices": ["↑", "↓", "←", "→", "○", "×"]
+    },
+    "fuse_circuit": {
+      "id": "fuse_circuit",
+      "description": "维修铁栅的生物锁是一张九节点电网。不抬笔走完所有线段，门才会松。",
+      "type": "one_line",
+      "points": [
+        { "x": 20, "y": 20 },
+        { "x": 50, "y": 20 },
+        { "x": 80, "y": 20 },
+        { "x": 20, "y": 50 },
+        { "x": 50, "y": 50 },
+        { "x": 80, "y": 50 },
+        { "x": 20, "y": 80 },
+        { "x": 50, "y": 80 },
+        { "x": 80, "y": 80 }
+      ],
+      "connections": [
+        [0, 1],
+        [1, 2],
+        [3, 4],
+        [4, 5],
+        [6, 7],
+        [7, 8],
+        [0, 3],
+        [3, 6],
+        [1, 4],
+        [4, 7],
+        [2, 5],
+        [5, 8],
+        [1, 3]
+      ],
+      "answer": "5,8,7,4,1,3,0,1,2,5,4,3,6,7",
+      "rewardFlag": "circuit_closed",
+      "rewardMessage": "电路接通。铁栅弹开，后面是喷着热气的管道走廊。"
+    },
+    "exit_jigsaw": {
+      "id": "exit_jigsaw",
+      "description": "把撕碎的应急出口标志重新拼合。",
+      "answer": "0,1,2,3,4,5,6,7,8",
+      "rewardFlag": "exit_restored",
+      "rewardMessage": "绿色 EXIT 重新完整。标志背面掉出一块铜质圆牌，尽头的黄墙同时发出开裂声。",
+      "type": "image_grid",
+      "linkedAssetId": "torn_exit_sign",
+      "gridSize": 3
+    },
+    "noclip_word": {
+      "id": "noclip_word",
+      "description": "门槛上没有锁孔。潮湿的墙面渗出一行字：说出你进来的方式。",
+      "answer": "穿墙",
+      "rewardFlag": "noclip_spoken",
+      "rewardMessage": "墙纸像地毯一样塌陷。门缝里漏进不属于后室的白光。",
+      "type": "text"
+    }
+  },
+  "scenes": {
+    "yellow_lobby": {
+      "id": "yellow_lobby",
+      "title": "黄墙门厅",
+      "imageUrl": "./assets/yellow-threshold/assets/scene_yellow_lobby.jpg",
+      "description": "无限延伸的黄色走廊在这里交汇成一个没有窗户的门厅。地毯湿得能挤出水。东侧是隔间，西侧隐约有复印机的热味，南侧有一排空椅子，北侧走廊完全一模一样。",
+      "interactables": [
+        {
+          "id": "lobby_carpet",
+          "name": "潮湿地毯",
+          "description": "地毯边缘卷起，纤维里夹着一张泡皱的纸。",
+          "dialogue": [
+            "你蹲下去，手指陷进发冷的绒面。",
+            "一张便条从纤维里被抠了出来，红圈里的数字还在。"
+          ],
+          "itemRewardId": "damp_note",
+          "postInteractionMessage": "地毯下面只剩霉味。"
+        },
+        {
+          "id": "lobby_exit_frame",
+          "name": "空荡的EXIT框",
+          "description": "墙上钉着应急灯的空框，标志本身被撕走了。",
+          "dialogue": [
+            "你把碎屑从铁框里掰下来。",
+            "这是一块被撕成九片的 EXIT 标志。"
+          ],
+          "itemRewardId": "torn_exit_sign",
+          "postInteractionMessage": "空框后面只有受潮的墙纸。"
+        },
+        {
+          "id": "lobby_light_housing",
+          "name": "嗡鸣灯罩",
+          "description": "灯罩边缘夹着一张被热得发脆的纸条。",
+          "dialogue": [
+            "你踮脚抽出纸条。",
+            "荧光笔写着闪烁次数：1、9、9、1。"
+          ],
+          "itemRewardId": "flicker_log",
+          "clueForPuzzleId": "flicker_code",
+          "postInteractionMessage": "灯罩里空了，灯管仍按同样节奏闪。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "humid_office",
+          "label": "潮湿隔间"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "copy_room",
+          "label": "复印室"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "rest_alcove",
+          "label": "休息凹室"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "fluorescent_maze",
+          "label": "日光灯迷宫"
+        }
+      ]
+    },
+    "humid_office": {
+      "id": "humid_office",
+      "title": "潮湿隔间",
+      "imageUrl": "./assets/yellow-threshold/assets/scene_humid_office.jpg",
+      "description": "隔板被潮气泡得鼓起。每张桌上都有一台死机的 CRT，只有一台还亮着登录界面。空气里有复印纸和发霉咖啡的味道。",
+      "interactables": [
+        {
+          "id": "office_crt",
+          "name": "仍亮着的CRT",
+          "description": "唯一还亮着的电脑停在登录界面，密码框闪烁着四位数字光标。",
+          "isPuzzle": true,
+          "puzzleId": "flicker_code",
+          "itemRewardId": "fuse_cartridge",
+          "lockedMessage": "电脑锁着，需要四位数字。",
+          "postInteractionMessage": "屏幕已经暗下去，托盘是空的。"
+        },
+        {
+          "id": "office_drawer",
+          "name": "隔间抽屉",
+          "description": "最里侧隔间的抽屉半开着。",
+          "dialogue": [
+            "抽屉卡住又猛地松开。",
+            "一张褪色门禁卡掉在潮湿的文件夹上。"
+          ],
+          "itemRewardId": "yellow_keycard",
+          "postInteractionMessage": "抽屉里只剩受潮的订书钉。"
+        },
+        {
+          "id": "office_filing",
+          "name": "档案柜",
+          "description": "铁皮柜门锈死了一半，缝里夹着一张皱掉的草图。",
+          "dialogue": [
+            "你用力拉开柜门，潮气扑面。",
+            "一张水渍方向图掉出来：上、右、下、左。"
+          ],
+          "itemRewardId": "wall_map",
+          "clueForPuzzleId": "arrow_path",
+          "postInteractionMessage": "档案柜里全是空白表格。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "yellow_lobby",
+          "label": "黄墙门厅"
+        }
+      ]
+    },
+    "copy_room": {
+      "id": "copy_room",
+      "title": "复印室",
+      "imageUrl": "./assets/yellow-threshold/assets/scene_copy_room.jpg",
+      "description": "一台永远预热的复印机对着黄墙吐出空白纸。热风把墙纸吹得微微鼓起。工作台上散着照片和工牌。",
+      "interactables": [
+        {
+          "id": "copy_photo",
+          "name": "过曝拍立得",
+          "description": "复印机出纸口压着一张拍立得，箭头被红笔标了序。",
+          "dialogue": [
+            "照片还是温的，像刚从机器里滚出来。",
+            "1↑ 2→ 3↓ 4←。和门厅北侧的迷宫对得上。"
+          ],
+          "itemRewardId": "water_stain_photo",
+          "clueForPuzzleId": "arrow_path",
+          "postInteractionMessage": "出纸口又吐出一张空白纸。"
+        },
+        {
+          "id": "copy_badge",
+          "name": "工牌挂绳",
+          "description": "挂在复印机侧面的发霉工牌。",
+          "dialogue": [
+            "照片糊掉了。",
+            "背面写着：复印室的箭头照片是真的。"
+          ],
+          "itemRewardId": "staff_badge",
+          "postInteractionMessage": "挂绳空着晃。"
+        },
+        {
+          "id": "copy_diagram",
+          "name": "被热风吹起的图纸",
+          "description": "墙根一张泛黄接线图，被复印机热风反复掀起一角。",
+          "dialogue": [
+            "九个点排成三行三列，外加一条斜线。",
+            "旁注：一笔画。铁栅才开。"
+          ],
+          "itemRewardId": "circuit_diagram",
+          "clueForPuzzleId": "fuse_circuit",
+          "postInteractionMessage": "墙根只剩热风。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "yellow_lobby",
+          "label": "黄墙门厅"
+        }
+      ]
+    },
+    "rest_alcove": {
+      "id": "rest_alcove",
+      "title": "休息凹室",
+      "imageUrl": "./assets/yellow-threshold/assets/scene_rest_alcove.jpg",
+      "description": "门厅南侧凹进去一块，放着两张湿透的等候椅和一台自动贩卖机。货道是空的，只有一瓶没被取走的浑浊液体。",
+      "interactables": [
+        {
+          "id": "alcove_vending",
+          "name": "卡壳的贩卖机",
+          "description": "取货口卡着一瓶没有印刷标签的液体。",
+          "dialogue": [
+            "瓶子是温的。",
+            "这就是传说里的杏仁水。"
+          ],
+          "itemRewardId": "almond_water",
+          "postInteractionMessage": "取货口空了。"
+        },
+        {
+          "id": "alcove_walkman",
+          "name": "椅缝里的随身听",
+          "description": "两张椅子中间夹着一台还在转的卡带机。",
+          "dialogue": [
+            "你把音量拧大。",
+            "有人反复说：对门槛说出你是怎么进来的。口令：穿墙。"
+          ],
+          "itemRewardId": "tape_recorder",
+          "clueForPuzzleId": "noclip_word",
+          "postInteractionMessage": "随身听还在循环那句话。"
+        },
+        {
+          "id": "alcove_label",
+          "name": "椅背上的手写条",
+          "description": "胶带粘着一条从瓶身撕下来的标签。",
+          "dialogue": [
+            "正面是 ALMOND。",
+            "背面：门槛只认一种进来的方式——穿墙。"
+          ],
+          "itemRewardId": "almond_label",
+          "clueForPuzzleId": "noclip_word",
+          "postInteractionMessage": "胶带还粘在椅背上。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "yellow_lobby",
+          "label": "黄墙门厅"
+        }
+      ]
+    },
+    "fluorescent_maze": {
+      "id": "fluorescent_maze",
+      "title": "日光灯迷宫",
+      "imageUrl": "./assets/yellow-threshold/assets/scene_fluorescent_maze.jpg",
+      "description": "走廊复制自身。每走几步，墙纸花纹就会把你送回刚才的位置。地面水渍组成箭头。北侧有卷帘门，东侧有一条更窄的死胡同。",
+      "interactables": [
+        {
+          "id": "maze_arrows",
+          "name": "水渍箭头",
+          "description": "地毯上的水渍凝成四个箭头，像某种必须遵守的走法。",
+          "isPuzzle": true,
+          "puzzleId": "arrow_path",
+          "dialogue": [
+            "你蹲下来辨认那些水渍。",
+            "箭头的方向被反复踩踏，但没有消失。"
+          ],
+          "postInteractionMessage": "水渍箭头已经失去意义，路不再折返。"
+        },
+        {
+          "id": "maze_wallpaper",
+          "name": "错位的墙纸",
+          "description": "墙纸花纹在某个位置错开了半厘米。",
+          "dialogue": [
+            "你从错位处刮下一小块湿霉。",
+            "墙是实心的。后室不会给你捷径。"
+          ],
+          "itemRewardId": "mold_sample",
+          "postInteractionMessage": "错位的花纹让人眼晕。"
+        },
+        {
+          "id": "maze_fuse_box",
+          "name": "迷宫配电箱",
+          "description": "铁皮箱盖半开。保险丝座是空的，但真正挡住北门的是地面的循环，不是缺电。",
+          "requiredItemId": "fuse_cartridge",
+          "lockedMessage": "空座等着那根发黑的保险丝。插上之后灯更亮了，门却仍被循环锁着。",
+          "dialogue": [
+            "你把保险丝按进空座。",
+            "灯管猛地亮白。北侧卷帘仍要等箭头走完才会抬。"
+          ],
+          "postInteractionMessage": "配电箱已经接通。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "yellow_lobby",
+          "label": "黄墙门厅"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "dead_end_alcove",
+          "label": "死胡同凹室"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "maintenance_bay",
+          "label": "维修仓库",
+          "requiredFlag": "maze_cleared"
+        }
+      ]
+    },
+    "dead_end_alcove": {
+      "id": "dead_end_alcove",
+      "title": "死胡同凹室",
+      "imageUrl": "./assets/yellow-threshold/assets/scene_dead_end_alcove.jpg",
+      "description": "迷宫东侧突然变窄。天花板的矿棉板塌下一块，露出潮湿的龙骨。这里没有出口，只有别人留下的习惯。",
+      "interactables": [
+        {
+          "id": "alcove_ceiling",
+          "name": "塌下的天花板",
+          "description": "矿棉板里卡着一把小铜匙。",
+          "dialogue": [
+            "钥匙掉在你手心，比体温凉。",
+            "死胡同没有锁。有人离开时只是习惯把它塞回去。"
+          ],
+          "itemRewardId": "ceiling_tile_key",
+          "postInteractionMessage": "天花板空洞对着你。"
+        },
+        {
+          "id": "alcove_echo",
+          "name": "重复的回声",
+          "description": "你朝里喊一声，回声比走廊更长。",
+          "dialogue": [
+            "回声把日光灯的嗡鸣叠成两层。",
+            "这里不是出路，是迷宫给自己留的备份。"
+          ],
+          "postInteractionMessage": "回声还在。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "fluorescent_maze",
+          "label": "日光灯迷宫"
+        }
+      ]
+    },
+    "maintenance_bay": {
+      "id": "maintenance_bay",
+      "title": "维修仓库",
+      "imageUrl": "./assets/yellow-threshold/assets/scene_maintenance_bay.jpg",
+      "description": "Level 0 的黄墙在这里变成灰色混凝土。货架上堆着空纸箱。西侧铁栅刷着 MAINTENANCE，面板上是一张九节点电网。",
+      "interactables": [
+        {
+          "id": "bay_circuit",
+          "name": "铁栅电网",
+          "description": "九个节点排成三行三列，外加一条斜线。必须一笔画完。",
+          "isPuzzle": true,
+          "puzzleId": "fuse_circuit",
+          "requiredItemId": "circuit_diagram",
+          "lockedMessage": "面板上的线乱成一团。你需要那张接线图才敢下笔。",
+          "dialogue": [
+            "你把图纸贴在面板旁边。",
+            "节点对得上。现在走完所有线。"
+          ],
+          "postInteractionMessage": "铁栅已经开着。"
+        },
+        {
+          "id": "bay_reader",
+          "name": "失效读卡器",
+          "description": "红灯读卡器还亮着，但槽口被霉封死。",
+          "requiredItemId": "yellow_keycard",
+          "lockedMessage": "也许那张发黄门禁卡还能刷一下。",
+          "dialogue": [
+            "磁条擦过，红灯没有转绿。",
+            "读卡器死了。真正的锁是旁边的电网。"
+          ],
+          "postInteractionMessage": "读卡器仍是红的。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "fluorescent_maze",
+          "label": "日光灯迷宫"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "pipe_corridor",
+          "label": "管道走廊",
+          "requiredFlag": "circuit_closed"
+        }
+      ]
+    },
+    "pipe_corridor": {
+      "id": "pipe_corridor",
+      "title": "管道走廊",
+      "imageUrl": "./assets/yellow-threshold/assets/scene_pipe_corridor.jpg",
+      "description": "蒸汽与冷凝水沿着铁管往下淌。墙从混凝土重新变成黄壁纸。尽头有一张标着 EXIT 轮廓的拼合台，以及一扇没有把手的铁门。",
+      "interactables": [
+        {
+          "id": "pipe_bench",
+          "name": "拼合台",
+          "description": "台面上用胶带标出 EXIT 标志的轮廓，缺的正是那些绿色碎片。",
+          "requiredItemId": "torn_exit_sign",
+          "lockedMessage": "轮廓是空的。你需要把撕碎的 EXIT 残片放上去。",
+          "isPuzzle": true,
+          "puzzleId": "exit_jigsaw",
+          "itemRewardId": "threshold_token",
+          "postInteractionMessage": "完整的 EXIT 钉在墙上，指向没有把手的那扇门。"
+        },
+        {
+          "id": "pipe_valve",
+          "name": "滚烫阀门",
+          "description": "阀门转不动，表面烫得能闻到橡胶味。",
+          "dialogue": [
+            "你试着拧它，掌心立刻缩回。",
+            "阀门不是出路。出路在拼合台后面。"
+          ],
+          "postInteractionMessage": "阀门仍旧烫手。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "maintenance_bay",
+          "label": "维修仓库"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "threshold_gate",
+          "label": "黄阈大门",
+          "requiredFlag": "exit_restored"
+        }
+      ]
+    },
+    "threshold_gate": {
+      "id": "threshold_gate",
+      "title": "黄阈大门",
+      "imageUrl": "./assets/yellow-threshold/assets/scene_threshold_gate.jpg",
+      "description": "走廊在这里终止于一面过于平整的黄墙。墙中央嵌着一扇没有把手的门，门楣刻着 THRESHOLD。地毯在门前干裂成环形。",
+      "interactables": [
+        {
+          "id": "gate_slot",
+          "name": "门楣凹槽",
+          "description": "THRESHOLD 字母中间缺了一块圆形铜牌大小的凹槽。",
+          "requiredItemId": "threshold_token",
+          "lockedMessage": "凹槽是空的。需要那块门槛信物。",
+          "isPuzzle": true,
+          "puzzleId": "noclip_word",
+          "dialogue": [
+            "铜牌嵌进去，严丝合缝。",
+            "墙面渗出一行字，要你说出进来的方式。"
+          ],
+          "postInteractionMessage": "门缝已经裂开，白光刺眼。"
+        },
+        {
+          "id": "gate_carpet_ring",
+          "name": "干裂的地毯环",
+          "description": "门前地毯干成一圈，像有什么东西把潮气吸走了。",
+          "requiredItemId": "almond_water",
+          "lockedMessage": "地毯干得发白。也许那瓶杏仁水能让它重新变得可穿过。",
+          "dialogue": [
+            "你把杏仁水浇在干裂的环上。",
+            "地毯重新变得潮湿，脚下的实感变薄了一点。"
+          ],
+          "postInteractionMessage": "地毯环已经重新湿润。"
+        },
+        {
+          "id": "gate_door",
+          "name": "没有把手的门",
+          "description": "门没有把手。只有在门槛承认你之后，它才会像地毯一样塌陷。",
+          "requiredFlag": "noclip_spoken",
+          "lockedMessage": "门是实心的黄墙。你还没让门槛承认你。",
+          "dialogue": [
+            "你踏进门缝。",
+            "荧光灯同时熄灭。下一秒，真正的日光砸在脸上。"
+          ],
+          "winsGame": true,
+          "postInteractionMessage": "你已经离开后室。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "pipe_corridor",
+          "label": "管道走廊"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "exit_light",
+          "label": "出口之光",
+          "requiredFlag": "noclip_spoken"
+        }
+      ]
+    },
+    "exit_light": {
+      "id": "exit_light",
+      "title": "出口之光",
+      "imageUrl": "./assets/yellow-threshold/assets/scene_exit_light.jpg",
+      "description": "办公楼中庭的瓷砖地面，复印机还在远处转动。你跪在那里，掌心是干的。身后没有黄墙。只有一盏普通的灯，仍在以你熟悉的频率闪了一下。",
+      "interactables": [
+        {
+          "id": "real_floor",
+          "name": "真实的地板",
+          "description": "膝盖磕在瓷砖上的疼是真的。",
+          "dialogue": [
+            "你确认自己还在呼吸。",
+            "后室把你吐了回来。灯还在闪，但这次只是灯。"
+          ],
+          "postInteractionMessage": "地板是实的。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "threshold_gate",
+          "label": "黄阈大门"
+        }
+      ]
+    }
+  }
+}

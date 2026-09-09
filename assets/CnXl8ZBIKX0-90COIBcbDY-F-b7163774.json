@@ -1,0 +1,582 @@
+{
+  "meta": {
+    "name": "逆熵温室",
+    "author": "零殇",
+    "version": "1.0.1",
+    "description": "在时间尽头的温室中，通过生物机械与扭曲的记忆，寻找宇宙热寂的真相。",
+    "style": "Dark Surrealism, Biomechanical, High Contrast, Noise, Etching Style",
+    "sceneStyle": "H.R. Giger inspired, monochromatic with teal highlights, organic structures merging with metal",
+    "itemStyle": "Detailed scientific illustration, rusty textures, anatomical horror",
+    "musicStyle": "Dark Ambient, Industrial Drone, Heartbeat rhythms, Glitch noise",
+    "endingMessage": "随着熵的逆流，宇宙在你的眼中重构。你不再是守夜人，你是新的奇点。",
+    "useBannerAsTitleBg": true,
+    "designConfig": {
+      "theme": "在一个位于时间尽头的“逆熵温室”中，玩家扮演一名失去了五感的守夜人。这里的植物不依赖阳光，而是通过吸食人类历史中被遗弃的创伤与噩梦生长。你需要通过嫁接扭曲的记忆根须、校准依靠心跳驱动的星盘，在非欧几里得的错乱建筑中，拼凑出导致宇宙热寂的真相。",
+      "sceneCount": 7,
+      "itemCount": 10,
+      "puzzleCount": 7,
+      "requiredItems": "仍在跳动的石化心脏, 装满液态时间的沙漏, 生锈的脑叶切除锥, 记录着未发生历史的羊皮卷, 瞳孔呈矩形的义眼, 共鸣着痛苦频率的音叉",
+      "requiredScenes": "倒悬于深渊之上的玻璃穹顶, 被黑色血管缠绕的根系控制室, 回荡着幻听的环形回廊, 时间停滞的生物嫁接台, 充满福尔马林的记忆标本库, 通往虚无的破碎天文台"
+    },
+    "bgmUrl": "./assets/bgm.mp3"
+  },
+  "initialState": {
+    "currentSceneId": "scene_glass_dome",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "我的视觉只剩下黑白的噪点...",
+      "这里是时间的尽头，逆熵温室。",
+      "我必须找到一种方法，阻止这无尽的寂静。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_tuning_fork": {
+      "id": "item_tuning_fork",
+      "name": "痛苦频率音叉",
+      "description": "这把音叉并不发出声音，而是直接震动骨骼，引发剧烈的偏头痛。柄上刻着微小的文字：‘共鸣是钥匙’。",
+      "type": "TOOL",
+      "icon": "tuning_fork",
+      "image": "./assets/item_tuning_fork.png"
+    },
+    "item_root_cutting": {
+      "id": "item_root_cutting",
+      "name": "扭曲的记忆根须",
+      "description": "一截因时间倒流而复苏的植物根系，表面覆盖着类似于人类神经的黑色网状物。",
+      "type": "TOOL",
+      "icon": "root",
+      "image": "./assets/item_root_cutting.png"
+    },
+    "item_liquid_hourglass": {
+      "id": "item_liquid_hourglass",
+      "name": "液态时间沙漏",
+      "description": "里面的沙子向上流动，违反了重力。玻璃壁上倒映着你未曾见过的面孔。",
+      "type": "TOOL",
+      "icon": "hourglass",
+      "image": "./assets/item_liquid_hourglass.png"
+    },
+    "item_history_scroll": {
+      "id": "item_history_scroll",
+      "name": "未发生历史羊皮卷",
+      "description": "记录着并未发生的战争与和平。末尾处用血红色的墨水写着：‘当时间归零，请输入 0582 以重启虚空’。",
+      "type": "CLUE",
+      "icon": "scroll",
+      "image": "./assets/item_history_scroll.png",
+      "clueForPuzzleId": "puzzle_final_truth"
+    },
+    "item_lobotomy_pick": {
+      "id": "item_lobotomy_pick",
+      "name": "生锈的脑叶切除锥",
+      "description": "曾经用于治疗疯狂，现在用于制造它。尖端沾有某种永远不会干涸的黑色液体。",
+      "type": "TOOL",
+      "icon": "pick",
+      "image": "./assets/item_lobotomy_pick.png"
+    },
+    "item_petrified_heart": {
+      "id": "item_petrified_heart",
+      "name": "仍在跳动的石化心脏",
+      "description": "虽然变成了石头，但依然沉重地搏动着。它是驱动这所温室的引擎核心。",
+      "type": "TOOL",
+      "icon": "heart",
+      "image": "./assets/item_petrified_heart.png"
+    },
+    "item_control_key": {
+      "id": "item_control_key",
+      "name": "骨质秘钥",
+      "description": "用某种巨大生物的指骨打磨成的钥匙，散发着福尔马林的味道。",
+      "type": "KEY",
+      "icon": "bone_key",
+      "image": "./assets/item_control_key.png"
+    },
+    "item_prosthetic_eye": {
+      "id": "item_prosthetic_eye",
+      "name": "矩形瞳孔义眼",
+      "description": "一只冰冷的机械眼球，横向的瞳孔如同山羊。透过它能看到常人无法理解的星图。",
+      "type": "TOOL",
+      "icon": "eye",
+      "image": "./assets/item_prosthetic_eye.png"
+    },
+    "item_star_chart": {
+      "id": "item_star_chart",
+      "name": "蚀刻星图板",
+      "description": "一块金属板，上面蚀刻着疯狂的星象。角落里刻着奇怪的符号序列：‘Ω -> Σ -> Ψ’。",
+      "type": "CLUE",
+      "icon": "plate",
+      "image": "./assets/item_star_chart.png",
+      "clueForPuzzleId": "puzzle_library_cabinet"
+    },
+    "item_void_prism": {
+      "id": "item_void_prism",
+      "name": "虚空棱镜",
+      "description": "一个不反射任何光线的黑色多面体，握在手中感觉不到它的存在。",
+      "type": "KEY",
+      "icon": "prism",
+      "image": "./assets/item_void_prism.png"
+    }
+  },
+  "puzzles": {
+    "puzzle_dome_lock": {
+      "id": "puzzle_dome_lock",
+      "description": "大门上的生物识别锁已经腐烂，需要输入四位紧急 override 代码。",
+      "answer": "7294",
+      "rewardFlag": "flag_dome_unlocked",
+      "rewardMessage": "气压阀嘶嘶作响，大门如眼睑般缓缓张开。",
+      "type": "numeric"
+    },
+    "puzzle_library_cabinet": {
+      "id": "puzzle_library_cabinet",
+      "description": "柜子上刻着三个凹槽，需要按照正确的顺序按下古老的炼金术符号。",
+      "answer": "ΩΣΨ",
+      "rewardFlag": "flag_cabinet_open",
+      "rewardMessage": "柜门弹开，里面漂浮着一个违背重力的沙漏。",
+      "type": "symbol",
+      "choices": [
+        "Ω",
+        "Ψ",
+        "Φ",
+        "Σ",
+        "Π",
+        "Ξ",
+        "λ",
+        "θ"
+      ]
+    },
+    "puzzle_specimen_extraction": {
+      "id": "puzzle_specimen_extraction",
+      "description": "你需要精确地切断连接心脏的石化神经，不能触碰到周围的坏死组织。一笔画出切割路径。",
+      "answer": "012543678",
+      "rewardFlag": "flag_heart_extracted",
+      "rewardMessage": "随着最后一声脆响，石化心脏落入了你的手中。",
+      "type": "one_line",
+      "points": [
+        {
+          "x": 20,
+          "y": 20
+        },
+        {
+          "x": 50,
+          "y": 20
+        },
+        {
+          "x": 80,
+          "y": 20
+        },
+        {
+          "x": 20,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 50
+        },
+        {
+          "x": 80,
+          "y": 50
+        },
+        {
+          "x": 20,
+          "y": 80
+        },
+        {
+          "x": 50,
+          "y": 80
+        },
+        {
+          "x": 80,
+          "y": 80
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ]
+    },
+    "puzzle_grafting_console": {
+      "id": "puzzle_grafting_console",
+      "description": "嫁接台的控制面板需要输入特定的频率代码来稳定排异反应。这个代码似乎隐藏在回廊的幻听中。",
+      "answer": "3815",
+      "rewardFlag": "flag_grafting_complete",
+      "rewardMessage": "机器发出满足的叹息，根须与沙漏完美融合，吐出了一把骨质的钥匙。",
+      "type": "numeric"
+    },
+    "puzzle_vein_circuit": {
+      "id": "puzzle_vein_circuit",
+      "description": "控制台的血管回路断裂了。还原这幅令人作呕的拼图以恢复供血。",
+      "answer": "COMPLETE",
+      "rewardFlag": "flag_bridge_repaired",
+      "rewardMessage": "黑色的血液重新开始在墙壁内流动，通往天文台的道路开启了。",
+      "type": "image_grid",
+      "gridSize": 3,
+      "linkedAssetId": "item_root_cutting"
+    },
+    "puzzle_observatory_align": {
+      "id": "puzzle_observatory_align",
+      "description": "透过义眼，你看到了隐藏的星座。调整星盘上的符号以匹配义眼中的影像。",
+      "answer": "★☀☾",
+      "rewardFlag": "flag_void_path",
+      "rewardMessage": "星光汇聚成一道光束，实体的虚空棱镜缓缓降落。",
+      "type": "symbol",
+      "choices": [
+        "☀",
+        "☁",
+        "★",
+        "☾",
+        "☄",
+        "☂"
+      ]
+    },
+    "puzzle_final_truth": {
+      "id": "puzzle_final_truth",
+      "description": "热寂核心的控制台等待着最后的指令。历史羊皮卷上预言的时刻是什么？",
+      "answer": "0582",
+      "rewardFlag": "flag_universe_reset",
+      "rewardMessage": "熵值归零。新的大爆炸在你指尖绽放。",
+      "type": "numeric"
+    }
+  },
+  "scenes": {
+    "scene_glass_dome": {
+      "id": "scene_glass_dome",
+      "title": "倒悬于深渊之上的玻璃穹顶",
+      "imageUrl": "./assets/scene_glass_dome.jpg",
+      "description": "你站在巨大的玻璃穹顶内，脚下是无尽的宇宙深渊。重力在这里是颠倒的。四周是枯萎的金属植物。",
+      "interactables": [
+        {
+          "id": "door_dome_exit",
+          "name": "生物气密门",
+          "description": "一扇覆盖着类似皮肤材质的大门，上面有一个闪烁的键盘。",
+          "lockedMessage": "大门紧闭，需要四位代码。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_dome_lock",
+          "flagReward": "flag_dome_unlocked"
+        },
+        {
+          "id": "interactable_etching_plaque",
+          "name": "蚀刻铭牌",
+          "description": "一块模糊的金属铭牌，上面勉强能辨认出一串数字：'7294'。",
+          "clueForPuzzleId": "puzzle_dome_lock",
+          "postInteractionMessage": "你记下了这串数字：7294。"
+        },
+        {
+          "id": "interactable_withered_pot",
+          "name": "枯萎的培养皿",
+          "description": "里面有一株死去的植物，普通的手段无法复活它。也许时间倒流能行？",
+          "requiredItemId": "item_liquid_hourglass",
+          "lockedMessage": "这株植物已经彻底死去了，只有‘时间’能让它复原。",
+          "itemRewardId": "item_root_cutting",
+          "postInteractionMessage": "沙漏中的液体倒流进泥土，枯萎的植物瞬间重生。你挖出了扭曲的记忆根须。"
+        },
+        {
+          "id": "interactable_star_map_debris",
+          "name": "散落的星图碎片",
+          "description": "地上的碎片刻着奇怪的符号：‘Ω -> Σ -> Ψ’。",
+          "itemRewardId": "item_star_chart",
+          "clueForPuzzleId": "puzzle_library_cabinet",
+          "postInteractionMessage": "这是一个重要的线索，你捡起了星图板。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_circular_corridor",
+          "label": "进入回廊",
+          "locked": true,
+          "requiredFlag": "flag_dome_unlocked"
+        }
+      ]
+    },
+    "scene_circular_corridor": {
+      "id": "scene_circular_corridor",
+      "title": "回荡着幻听的环形回廊",
+      "imageUrl": "./assets/scene_circular_corridor.jpg",
+      "description": "一条无限循环的金属走廊，墙壁上布满了管道，不时传出低语声和尖叫声。",
+      "interactables": [
+        {
+          "id": "interactable_whispering_pipe",
+          "name": "渗漏的听觉管道",
+          "description": "这根管道似乎连接着某种痛苦的源头。你需要特殊的工具才能听清里面的频率。",
+          "requiredItemId": "item_tuning_fork",
+          "lockedMessage": "声音太模糊了，你需要某种共鸣工具来校准频率。",
+          "audioMessage": "3815",
+          "clueForPuzzleId": "puzzle_grafting_console",
+          "postInteractionMessage": "音叉剧烈震动，你从骨传导中清晰地听到了一个循环的数字序列：3815。"
+        },
+        {
+          "id": "interactable_corridor_debris",
+          "name": "医疗废弃物堆",
+          "description": "一堆生锈的手术器械。",
+          "itemRewardId": "item_tuning_fork",
+          "postInteractionMessage": "你在废墟中找到了一把奇怪的音叉。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_glass_dome",
+          "label": "返回穹顶"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_specimen_library",
+          "label": "标本库"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_grafting_table",
+          "label": "嫁接台"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_root_control",
+          "label": "控制室",
+          "locked": true,
+          "requiredFlag": "flag_control_unlocked"
+        }
+      ]
+    },
+    "scene_specimen_library": {
+      "id": "scene_specimen_library",
+      "title": "充满福尔马林的记忆标本库",
+      "imageUrl": "./assets/scene_specimen_library.jpg",
+      "description": "巨大的玻璃罐列队排列，里面浸泡着人类的大脑和眼球。空气中弥漫着防腐剂的刺鼻气味。",
+      "interactables": [
+        {
+          "id": "interactable_symbol_cabinet",
+          "name": "炼金术储物柜",
+          "description": "柜门上刻着三个凹槽。我在穹顶捡到的星图板上似乎见过对应的符号。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_library_cabinet",
+          "itemRewardId": "item_liquid_hourglass"
+        },
+        {
+          "id": "interactable_preserved_head",
+          "name": "巨人的头颅标本",
+          "description": "一个巨大的头颅被切开展示，胸腔内有一颗石化的心脏。需要精密的手术工具才能取出。",
+          "requiredItemId": "item_lobotomy_pick",
+          "lockedMessage": "徒手无法取出它，你需要一把足够锋利且细长的手术锥。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_specimen_extraction",
+          "itemRewardId": "item_petrified_heart"
+        },
+        {
+          "id": "interactable_scroll_stand",
+          "name": "讲台",
+          "description": "放着一卷古老的羊皮纸。",
+          "itemRewardId": "item_history_scroll",
+          "postInteractionMessage": "你拿走了羊皮卷，上面记载着不存在的历史。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_circular_corridor",
+          "label": "返回回廊"
+        }
+      ]
+    },
+    "scene_grafting_table": {
+      "id": "scene_grafting_table",
+      "title": "时间停滞的生物嫁接台",
+      "imageUrl": "./assets/scene_grafting_table.jpg",
+      "description": "一张布满干涸血迹的金属台，周围环绕着复杂的机械臂。这里是植物与血肉融合的地方。",
+      "interactables": [
+        {
+          "id": "interactable_grafting_machine",
+          "name": "嫁接合成器",
+          "description": "机器等待着原材料。需要放入‘扭曲的记忆根须’（已注入时间）。",
+          "requiredItemId": "item_root_cutting",
+          "lockedMessage": "机器缺少生物样本，需要一截‘扭曲的记忆根须’。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_grafting_console",
+          "itemRewardId": "item_control_key",
+          "postInteractionMessage": "嫁接成功。机器吐出了一把骨质秘钥。"
+        },
+        {
+          "id": "interactable_tool_tray",
+          "name": "手术托盘",
+          "description": "托盘里有一把可怕的工具。",
+          "itemRewardId": "item_lobotomy_pick",
+          "postInteractionMessage": "你获得了生锈的脑叶切除锥。"
+        },
+        {
+          "id": "interactable_door_mechanism",
+          "name": "控制室门禁",
+          "description": "通往北面控制室的开关，有一个骨头形状的钥匙孔。",
+          "requiredItemId": "item_control_key",
+          "lockedMessage": "需要骨质秘钥才能开启。",
+          "flagReward": "flag_control_unlocked",
+          "postInteractionMessage": "随着骨头碎裂的声音，通往控制室的通路打开了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_circular_corridor",
+          "label": "返回回廊"
+        }
+      ]
+    },
+    "scene_root_control": {
+      "id": "scene_root_control",
+      "title": "被黑色血管缠绕的根系控制室",
+      "imageUrl": "./assets/scene_root_control.jpg",
+      "description": "这里是温室的心脏。巨大的黑色血管在墙壁上搏动。中央有一个血肉模糊的控制台。",
+      "interactables": [
+        {
+          "id": "interactable_flesh_console",
+          "name": "活体控制台",
+          "description": "控制台中央有一个心脏大小的空洞。周围的血管回路似乎断开了。",
+          "requiredItemId": "item_petrified_heart",
+          "lockedMessage": "控制台没有动力源，它渴望一颗心脏。",
+          "isPuzzle": false,
+          "flagReward": "flag_bridge_repaired",
+          "postInteractionMessage": "心脏归位，血管重新连接。通往天文台的虚空之桥已修复。",
+          "dialogue": [],
+          "itemRewardId": "",
+          "requiredFlag": "",
+          "hiddenIfFlag": "",
+          "audioMessage": "",
+          "winsGame": false,
+          "targetSceneId": ""
+        },
+        {
+          "id": "interactable_shelf_eye",
+          "name": "展示架",
+          "description": "架子上放着一只诡异的义眼。",
+          "itemRewardId": "item_prosthetic_eye",
+          "postInteractionMessage": "你获得了矩形瞳孔义眼。这东西似乎能看到不可见之物。"
+        },
+        {
+          "id": "interactable_wall_scrawl",
+          "name": "墙上的血书",
+          "description": "墙上用指甲刻着：‘只有义眼能看清正确的星象：★，☀，☾’。",
+          "clueForPuzzleId": "puzzle_observatory_align",
+          "postInteractionMessage": "你记下了星象顺序：★，☀，☾。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_circular_corridor",
+          "label": "返回回廊"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_broken_observatory",
+          "label": "前往天文台",
+          "locked": true,
+          "requiredFlag": "flag_bridge_repaired"
+        }
+      ]
+    },
+    "scene_broken_observatory": {
+      "id": "scene_broken_observatory",
+      "title": "通往虚无的破碎天文台",
+      "imageUrl": "./assets/scene_broken_observatory.jpg",
+      "description": "天文台的一半已经崩塌进虚空。一台巨大的望远镜指向永恒的黑暗。",
+      "interactables": [
+        {
+          "id": "interactable_void_telescope",
+          "name": "虚空望远镜",
+          "description": "目镜缺失了。你需要放入某种能解析非欧几里得几何的透镜。",
+          "requiredItemId": "item_prosthetic_eye",
+          "lockedMessage": "直接观看虚空会导致疯狂，你需要过滤器。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_observatory_align",
+          "itemRewardId": "item_void_prism",
+          "flagReward": "flag_void_path",
+          "postInteractionMessage": "随着星象对齐，虚空凝结成了一个黑色的棱镜。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_root_control",
+          "label": "返回控制室"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_entropy_core",
+          "label": "跳入虚空",
+          "locked": true,
+          "requiredFlag": "flag_void_path"
+        }
+      ]
+    },
+    "scene_entropy_core": {
+      "id": "scene_entropy_core",
+      "title": "热寂核心",
+      "imageUrl": "./assets/scene_entropy_core.jpg",
+      "description": "一切声音都消失了。你是唯一的观测者。面前是宇宙最后的奇点。",
+      "interactables": [
+        {
+          "id": "interactable_singularity",
+          "name": "逆熵终端",
+          "description": "这是终点。羊皮卷上提到的时刻到了。输入重启代码。",
+          "requiredItemId": "item_void_prism",
+          "lockedMessage": "你需要虚空棱镜来激活终端。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_final_truth",
+          "winsGame": true
+        }
+      ],
+      "exits": []
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

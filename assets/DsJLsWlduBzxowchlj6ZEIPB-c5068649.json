@@ -1,0 +1,600 @@
+{
+  "meta": {
+    "name": "静默疗养院",
+    "author": "零殇",
+    "version": "1.0.3",
+    "description": "你被困在了一座位于现实裂缝中的疗养院。这里的时间像焦油一样粘稠，墙壁随着呼吸而在血肉与砖石间转换。你需要利用手中的“灵魂显影相机”，在非欧几里得几何的扭曲空间中寻找出路，通过献祭理智来解开宇宙深处寄生真菌的谜题。",
+    "style": "dark-surrealism-lovecraft",
+    "sceneStyle": "retro-horror-20th-century-green-neon",
+    "itemStyle": "gritty-high-grain-low-saturation",
+    "musicStyle": "dark ambient drone industrial heartbeat",
+    "endingMessage": "当你透过相机的镜头看向那个不可名状的存在时，现实彻底崩塌。你成为了静默的一部分，但至少，你终于停止了思考。",
+    "useBannerAsTitleBg": true,
+    "designConfig": {
+      "theme": "在这一座位于现实裂缝中的“静默疗养院”里，时间像焦油一样粘稠，墙壁随着呼吸而在血肉与砖石间转换。玩家需要操作一台能够捕获“过去回响”的灵魂显影相机，在非欧几里得几何的扭曲空间中拼凑破碎的记忆，通过献祭理智来解开宇宙深处寄生真菌的谜题。",
+      "sceneCount": 7,
+      "itemCount": 10,
+      "puzzleCount": 7,
+      "requiredItems": "灵魂显影相机, 长满脉搏的黄铜钥匙, 密封的福尔马林脑叶瓶, 刻有星图的破碎怀表, 在那张循环播放悲鸣的黑胶唱片, 半透明的真菌孢子样本",
+      "requiredScenes": "被肉质根须缠绕的档案室, 只有一面镜子的无菌手术室, 通往地底深渊的螺旋温室, 重力倒转的病房走廊, 时间停滞的钟楼内部"
+    },
+    "bgmUrl": "./assets/bgm.mp3"
+  },
+  "initialState": {
+    "currentSceneId": "scene_entry_hall",
+    "inventory": [
+      "item_soul_camera"
+    ],
+    "flags": {},
+    "log": [
+      "我的头痛欲裂，空气中弥漫着福尔马林和发霉书籍的味道。",
+      "这座疗养院……它是活的。墙壁在轻微蠕动。",
+      "我手里紧紧攥着那台奇怪的老式相机，它是唯一能捕捉到真实的工具。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_soul_camera": {
+      "id": "item_soul_camera",
+      "name": "灵魂显影相机",
+      "description": "一台沉重的复古双反相机。透过取景器，能看到现实裂缝中残留的“过去回响”。镜头边缘总是渗出黑色的油状液体。",
+      "type": "TOOL",
+      "icon": "📷",
+      "image": "./assets/item_soul_camera.png",
+      "clueForPuzzleId": "puzzle_corridor_painting"
+    },
+    "item_security_log": {
+      "id": "item_security_log",
+      "name": "浸血的值班日志",
+      "description": "纸张湿润，字迹扭曲。末页写着：“他们把密码改成了……为了防止那个东西跑出来，密码是 8492。”",
+      "type": "CLUE",
+      "icon": "📒",
+      "image": "./assets/item_security_log.png",
+      "clueForPuzzleId": "puzzle_hall_gate"
+    },
+    "item_brass_key": {
+      "id": "item_brass_key",
+      "name": "长满脉搏的黄铜钥匙",
+      "description": "一把沉重的黄铜钥匙，表面覆盖着微小的血管，握在手中能感觉到它在微弱地跳动。",
+      "type": "KEY",
+      "icon": "🗝️",
+      "image": "./assets/item_brass_key.png"
+    },
+    "item_vinyl_record": {
+      "id": "item_vinyl_record",
+      "name": "悲鸣黑胶唱片",
+      "description": "唱片表面刻满了杂乱的划痕，仿佛有人用指甲在上面抓挠过。标签上写着“Subject 734 - 听觉测试”。",
+      "type": "TOOL",
+      "icon": "💿",
+      "image": "./assets/item_vinyl_record.png",
+      "clueForPuzzleId": "puzzle_greenhouse_audio"
+    },
+    "item_torn_photo": {
+      "id": "item_torn_photo",
+      "name": "撕碎的照片碎片",
+      "description": "几张发黄的照片碎片，拼凑起来似乎是一张星空图。",
+      "type": "TOOL",
+      "icon": "🧩",
+      "image": "./assets/item_torn_photo.png",
+      "clueForPuzzleId": "puzzle_deep_cell_jigsaw"
+    },
+    "item_star_watch": {
+      "id": "item_star_watch",
+      "name": "刻有星图的破碎怀表",
+      "description": "表盘玻璃碎裂，指针倒转。背面刻着三个奇异的符号，顺序是：\n1. 👁 (眼睛)\n2. 🌑 (黑日)\n3. ⏳ (沙漏)",
+      "type": "KEY",
+      "icon": "⌚",
+      "image": "./assets/item_star_watch.png",
+      "clueForPuzzleId": "puzzle_tower_seal"
+    },
+    "item_rusty_scalpel": {
+      "id": "item_rusty_scalpel",
+      "name": "锈蚀的手术刀",
+      "description": "刀刃上不仅有铁锈，还有干涸的深绿色体液。刀柄侧面刻着一行微小的数字序列：7-8-5-2-1-5-4-1-0-3-4-7-6-3，似乎对应着某种机器的复杂连线。",
+      "type": "TOOL",
+      "icon": "🔪",
+      "image": "./assets/item_rusty_scalpel.png",
+      "clueForPuzzleId": "puzzle_surgery_veins"
+    },
+    "item_brain_jar": {
+      "id": "item_brain_jar",
+      "name": "密封的福尔马林脑叶瓶",
+      "description": "原本应该装着大脑的液体里，悬浮着一颗还在跳动的黑色心脏。玻璃瓶底刻着数字 '61'。",
+      "type": "CLUE",
+      "icon": "🧠",
+      "image": "./assets/item_brain_jar.png",
+      "clueForPuzzleId": "puzzle_final_ritual"
+    },
+    "item_spore_sample": {
+      "id": "item_spore_sample",
+      "name": "半透明真菌孢子样本",
+      "description": "装在试管里的发光孢子，散发着诱人的甜腻香气。标签背面写着 '94'。",
+      "type": "CLUE",
+      "icon": "🧪",
+      "image": "./assets/item_spore_sample.png",
+      "clueForPuzzleId": "puzzle_final_ritual"
+    },
+    "item_diary_page": {
+      "id": "item_diary_page",
+      "name": "院长的日记残页",
+      "description": "“只有将那个心脏(61)与孢子(94)结合，通往虚空的门才会打开……”",
+      "type": "CLUE",
+      "icon": "📄",
+      "image": "./assets/item_diary_page.png",
+      "clueForPuzzleId": "puzzle_final_ritual"
+    }
+  },
+  "puzzles": {
+    "puzzle_hall_gate": {
+      "id": "puzzle_hall_gate",
+      "description": "厚重的铁栅栏阻挡了去路。电子锁早已损坏，但旁边的机械密码盘还在运作。",
+      "type": "numeric",
+      "answer": "8492",
+      "rewardFlag": "flag_hall_unlocked",
+      "rewardMessage": "随着齿轮咬合的刺耳声响，铁栅栏缓缓升起。",
+      "linkedAssetId": "interact_hall_gate"
+    },
+    "puzzle_corridor_painting": {
+      "id": "puzzle_corridor_painting",
+      "description": "墙上的画像在肉眼看去只是一团模糊的血肉，但在灵魂显影相机下，四个符号清晰可见。",
+      "type": "symbol",
+      "answer": "§ΨΩ★",
+      "choices": [
+        "§",
+        "Ψ",
+        "Ω",
+        "★",
+        "☾",
+        "☀",
+        "†",
+        "∞"
+      ],
+      "rewardFlag": "flag_safe_code_known",
+      "rewardMessage": "相机捕捉到了隐藏的符号顺序：§ -> Ψ -> Ω -> ★。这似乎是某个保险箱的密码。",
+      "linkedAssetId": "interact_corridor_painting"
+    },
+    "puzzle_archive_safe": {
+      "id": "puzzle_archive_safe",
+      "description": "档案室角落里的保险箱，转盘上刻着奇怪的异教符号。",
+      "type": "symbol",
+      "answer": "§ΨΩ★",
+      "choices": [
+        "§",
+        "Ψ",
+        "Ω",
+        "★",
+        "☾",
+        "☀",
+        "†",
+        "∞"
+      ],
+      "rewardFlag": "flag_archive_safe_open",
+      "rewardMessage": "保险箱咔哒一声打开了，里面散发出一股腐烂的气息。",
+      "linkedAssetId": "interact_archive_safe"
+    },
+    "puzzle_greenhouse_audio": {
+      "id": "puzzle_greenhouse_audio",
+      "description": "为了打开存放孢子的密封箱，你需要输入那个在黑胶唱片中反复播放的四位数字。",
+      "type": "numeric",
+      "answer": "3751",
+      "rewardFlag": "flag_spore_box_open",
+      "rewardMessage": "密封箱嘶嘶作响地泄压开启，露出了里面的样本。",
+      "linkedAssetId": "interact_greenhouse_box"
+    },
+    "puzzle_deep_cell_jigsaw": {
+      "id": "puzzle_deep_cell_jigsaw",
+      "description": "墙上是一个复杂的凹槽，需要将照片碎片拼凑完整才能触发机关。",
+      "type": "image_grid",
+      "answer": "done",
+      "rewardFlag": "flag_jigsaw_solved",
+      "rewardMessage": "照片拼凑完成，墙壁翻转，露出了一块怀表。",
+      "linkedAssetId": "item_torn_photo",
+      "gridSize": 3
+    },
+    "puzzle_surgery_veins": {
+      "id": "puzzle_surgery_veins",
+      "description": "这是一台维持器官活性的机器。你需要连接所有的能量导管，但不能重复经过同一条线路。手术刀柄上刻着：7-8-5-2-1-5-4-1-0-3-4-7-6-3。",
+      "type": "one_line",
+      "answer": "7,8,5,2,1,5,4,1,0,3,4,7,6,3",
+      "points": [
+        {
+          "x": 20,
+          "y": 20
+        },
+        {
+          "x": 50,
+          "y": 20
+        },
+        {
+          "x": 80,
+          "y": 20
+        },
+        {
+          "x": 20,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 50
+        },
+        {
+          "x": 80,
+          "y": 50
+        },
+        {
+          "x": 20,
+          "y": 80
+        },
+        {
+          "x": 50,
+          "y": 80
+        },
+        {
+          "x": 80,
+          "y": 80
+        }
+      ],
+      "connections": [
+        [
+          3,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "rewardFlag": "flag_surgery_machine_active",
+      "rewardMessage": "机器轰鸣着运转起来，液压仓弹出了一个玻璃瓶。",
+      "linkedAssetId": "interact_surgery_machine"
+    },
+    "puzzle_tower_seal": {
+      "id": "puzzle_tower_seal",
+      "description": "通往钟楼的暗门上刻着三个凹槽。根据怀表的提示，选择正确的符号。",
+      "type": "symbol",
+      "answer": "👁🌑⏳",
+      "choices": [
+        "👁",
+        "🌑",
+        "⏳",
+        "†",
+        "Ω",
+        "☀"
+      ],
+      "rewardFlag": "flag_tower_door_open",
+      "rewardMessage": "暗门缓缓移开，冷风从里面吹了出来。",
+      "linkedAssetId": "interact_archive_secret_door"
+    },
+    "puzzle_final_ritual": {
+      "id": "puzzle_final_ritual",
+      "description": "在钟楼的祭坛上，你需要输入最后的坐标来校准现实。线索隐藏在你收集的“器官”和“孢子”上。",
+      "type": "numeric",
+      "answer": "6194",
+      "rewardFlag": "flag_game_won",
+      "rewardMessage": "现实裂缝开始闭合，或者说，彻底吞噬了一切……",
+      "linkedAssetId": "interact_tower_altar"
+    }
+  },
+  "scenes": {
+    "scene_entry_hall": {
+      "id": "scene_entry_hall",
+      "title": "静默接待大厅",
+      "imageUrl": "./assets/scene_entry_hall.jpg",
+      "description": "曾经宏伟的接待大厅现在布满了灰尘和不明粘液。前台桌上似乎有些东西。",
+      "interactables": [
+        {
+          "id": "interact_reception_desk",
+          "name": "腐烂的前台",
+          "description": "木头已经软化，像皮肤一样。上面放着一本日志。",
+          "itemRewardId": "item_security_log",
+          "postInteractionMessage": "你拿起了湿漉漉的日志。最后一页写着密码：8492。"
+        },
+        {
+          "id": "interact_hall_gate",
+          "name": "生锈的铁闸门",
+          "description": "阻挡通往走廊的去路。旁边有一个机械密码盘。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_hall_gate",
+          "flagReward": "flag_hall_unlocked"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_twisted_corridor",
+          "label": "进入走廊",
+          "requiredFlag": "flag_hall_unlocked",
+          "locked": true
+        }
+      ]
+    },
+    "scene_twisted_corridor": {
+      "id": "scene_twisted_corridor",
+      "title": "重力倒转的病房走廊",
+      "imageUrl": "./assets/scene_twisted_corridor.jpg",
+      "description": "这里的重力是混乱的。天花板上有椅子，地板上有吊灯。墙壁上有许多门。",
+      "interactables": [
+        {
+          "id": "interact_corridor_painting",
+          "name": "模糊的画像",
+          "description": "一幅无法辨认内容的油画，散发着不安的气息。",
+          "requiredItemId": "item_soul_camera",
+          "isPuzzle": false,
+          "clueForPuzzleId": "puzzle_archive_safe",
+          "lockedMessage": "肉眼看不清上面的内容，也许需要特殊的观测设备。",
+          "dialogue": [],
+          "postInteractionMessage": "",
+          "itemRewardId": "",
+          "flagReward": "",
+          "requiredFlag": "",
+          "hiddenIfFlag": "",
+          "audioMessage": "",
+          "winsGame": false,
+          "targetSceneId": ""
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_entry_hall",
+          "label": "返回大厅"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_flesh_archive",
+          "label": "档案室"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_mirror_surgery",
+          "label": "手术室"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_spiral_greenhouse",
+          "label": "螺旋温室"
+        }
+      ]
+    },
+    "scene_flesh_archive": {
+      "id": "scene_flesh_archive",
+      "title": "被肉质根须缠绕的档案室",
+      "imageUrl": "./assets/scene_flesh_archive.jpg",
+      "description": "书架上缠满了类似血管的根须。空气中充满了旧纸张和血腥味。",
+      "interactables": [
+        {
+          "id": "interact_archive_shelf",
+          "name": "摇摇欲坠的书架",
+          "description": "书架深处塞着一张黑胶唱片。",
+          "itemRewardId": "item_vinyl_record",
+          "postInteractionMessage": "你获得了一张黑胶唱片。"
+        },
+        {
+          "id": "interact_archive_safe",
+          "name": "异教保险箱",
+          "description": "一个古怪的保险箱，需要按照特定顺序按下符号。也许走廊里的画藏着线索？",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_archive_safe",
+          "itemRewardId": "item_brass_key"
+        },
+        {
+          "id": "interact_archive_secret_door",
+          "name": "暗门机关",
+          "description": "书架后面隐约有一扇门，门上有三个符号凹槽。",
+          "lockedMessage": "需要放入某个刻有符号的物件才能激活机关。",
+          "requiredItemId": "item_star_watch",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_tower_seal",
+          "flagReward": "flag_tower_door_open"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_twisted_corridor",
+          "label": "返回走廊"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_frozen_tower",
+          "label": "进入钟楼",
+          "requiredFlag": "flag_tower_door_open",
+          "locked": true
+        }
+      ]
+    },
+    "scene_mirror_surgery": {
+      "id": "scene_mirror_surgery",
+      "title": "只有一面镜子的无菌手术室",
+      "imageUrl": "./assets/scene_mirror_surgery.jpg",
+      "description": "这里出奇的冷。房间中央有一台复杂的手术机器，旁边是一面巨大的镜子，镜子里照出的你似乎没有脸。",
+      "interactables": [
+        {
+          "id": "interact_surgery_table",
+          "name": "手术台",
+          "description": "台子上有一堆废弃物。",
+          "itemRewardId": "item_torn_photo",
+          "postInteractionMessage": "你在血污中找到了一些照片碎片。"
+        },
+        {
+          "id": "interact_surgery_machine",
+          "name": "生命维持机",
+          "description": "这台机器连接着许多导管，似乎控制着某个容器的开启。需要切断外部的肉质缠绕才能操作面板。",
+          "requiredItemId": "item_rusty_scalpel",
+          "lockedMessage": "机器被肉质藤蔓缠住了，需要锋利的东西割开。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_surgery_veins",
+          "itemRewardId": "item_brain_jar"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_twisted_corridor",
+          "label": "返回走廊"
+        }
+      ]
+    },
+    "scene_spiral_greenhouse": {
+      "id": "scene_spiral_greenhouse",
+      "title": "通往地底深渊的螺旋温室",
+      "imageUrl": "./assets/scene_spiral_greenhouse.jpg",
+      "description": "植物在这里呈现出诡异的霓虹绿色。温室中央有一个向下的螺旋楼梯，通往黑暗深处。",
+      "interactables": [
+        {
+          "id": "interact_greenhouse_gramophone",
+          "name": "旧留声机",
+          "description": "一台带有巨大铜喇叭的留声机，静静地等待着唱片。",
+          "requiredItemId": "item_vinyl_record",
+          "audioMessage": "3751",
+          "lockedMessage": "它需要一张唱片才能发声。",
+          "postInteractionMessage": "留声机发出刺耳的尖叫，随后一个机械声音重复着：3...7...5...1...",
+          "clueForPuzzleId": "puzzle_greenhouse_audio"
+        },
+        {
+          "id": "interact_greenhouse_box",
+          "name": "密封培养箱",
+          "description": "里面锁着发光的真菌样本。需要输入四位密码。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_greenhouse_audio",
+          "itemRewardId": "item_spore_sample"
+        },
+        {
+          "id": "interact_greenhouse_gate",
+          "name": "通往深渊的铁门",
+          "description": "楼梯尽头是一扇锈迹斑斑的铁门，锁孔周围覆盖着微小的血管。",
+          "requiredItemId": "item_brass_key",
+          "flagReward": "flag_cell_door_open",
+          "postInteractionMessage": "钥匙转动时发出了骨骼碎裂的声音。门开了。",
+          "lockedMessage": "门锁住了，需要一把长满脉搏的黄铜钥匙。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_twisted_corridor",
+          "label": "返回走廊"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_abyss_cell",
+          "label": "下楼至牢房",
+          "requiredFlag": "flag_cell_door_open",
+          "locked": true
+        }
+      ]
+    },
+    "scene_abyss_cell": {
+      "id": "scene_abyss_cell",
+      "title": "深渊牢房",
+      "imageUrl": "./assets/scene_abyss_cell.jpg",
+      "description": "位于温室底部的狭窄牢房。墙壁上不仅有霉菌，还有抓痕。",
+      "interactables": [
+        {
+          "id": "interact_cell_bed",
+          "name": "霉烂的床铺",
+          "description": "床下藏着东西。",
+          "itemRewardId": "item_rusty_scalpel",
+          "postInteractionMessage": "你找到了一把生锈的手术刀。"
+        },
+        {
+          "id": "interact_cell_jigsaw",
+          "name": "墙壁上的凹槽",
+          "description": "墙上有一个矩形的凹槽，似乎可以放入什么东西。",
+          "requiredItemId": "item_torn_photo",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_deep_cell_jigsaw",
+          "itemRewardId": "item_star_watch",
+          "lockedMessage": "你需要找到照片碎片才能拼凑这个谜题。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_spiral_greenhouse",
+          "label": "上楼"
+        }
+      ]
+    },
+    "scene_frozen_tower": {
+      "id": "scene_frozen_tower",
+      "title": "时间停滞的钟楼内部",
+      "imageUrl": "./assets/scene_frozen_tower.jpg",
+      "description": "巨大的钟摆停在半空。空气凝固了。这里是疗养院的心脏。",
+      "interactables": [
+        {
+          "id": "interact_tower_table",
+          "name": "满是尘埃的桌子",
+          "description": "上面有一张日记残页。",
+          "itemRewardId": "item_diary_page",
+          "postInteractionMessage": "你捡起了日记残页。上面提到了两个数字：心脏(61)和孢子(94)。"
+        },
+        {
+          "id": "interact_tower_altar",
+          "name": "现实校准祭坛",
+          "description": "一个复杂的仪器，等待着最后的坐标输入。你需要结合所有收集到的线索。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_final_ritual",
+          "winsGame": true,
+          "lockedMessage": "你需要输入四位坐标。线索可能在那些生物样本上。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_flesh_archive",
+          "label": "返回档案室"
+        }
+      ]
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

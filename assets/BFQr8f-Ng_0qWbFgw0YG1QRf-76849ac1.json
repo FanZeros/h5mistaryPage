@@ -1,0 +1,532 @@
+{
+  "meta": {
+    "name": "沉渊镇",
+    "author": "零殇",
+    "version": "1.2.5",
+    "description": "一封匿名信将你引向了百年前被洪水吞没的“沉渊镇”。在阴湿的废墟与幽暗的水下，揭开活人祭祀的残酷真相，平息河神的怒火。",
+    "style": "Chinese Folk Horror, dark atmosphere, Republic of China era, damp textures, gloom",
+    "sceneStyle": "Cinematic wide angle, gloomy teal and grey tones, heavy fog, bioluminescent water effects, traditional Chinese architecture ruins, eerie lighting",
+    "itemStyle": "Isometric, sharp focus, slightly wet texture, dramatic lighting, plain dark background, high detail",
+    "musicStyle": "Eerie Chinese opera vocals, slow guzheng, dripping water sounds, low drone ambient, heartbeat rhythm",
+    "endingMessage": "随着河神印落下，沸腾的水面终于平静。那凄厉的戏腔消散在晨雾中，百年的诅咒似乎已随流水远去。你深深吸了一口气，看着久违的阳光刺破阴霾。",
+    "endingSceneId": "scene_sunrise",
+    "useBannerAsTitleBg": true,
+    "bgmUrl": "./assets/bgm.mp3",
+    "designConfig": {
+      "theme": "",
+      "sceneCount": 4,
+      "itemCount": 4,
+      "puzzleCount": 1,
+      "requiredItems": "",
+      "requiredScenes": ""
+    }
+  },
+  "initialState": {
+    "currentSceneId": "scene_dock",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "手中的信纸已经被湿气浸透，字迹模糊不清。",
+      "小船缓缓靠岸，撞击在腐烂的木桩上，发出沉闷的声响。",
+      "这就是沉渊镇，那个在百年前一夜之间被洪水吞没的地方。",
+      "空气中弥漫着死鱼和陈旧香火的味道，远处似乎有人在唱戏……"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "medical_diary": {
+      "id": "medical_diary",
+      "name": "行医手记",
+      "description": "一本泛黄的笔记，上面记录着：“七月半，鬼门开，药柜锁码以此为记。”封底写着：0715。",
+      "type": "CLUE",
+      "icon": "📖",
+      "image": "./assets/item_medical_diary.png",
+      "clueForPuzzleId": "puzzle_apothecary"
+    },
+    "copper_key": {
+      "id": "copper_key",
+      "name": "黄铜钥匙",
+      "description": "一把沾满铜绿的老式钥匙，柄端刻着“仁心”二字，看起来能打开某种店铺的门。",
+      "type": "KEY",
+      "icon": "🗝️",
+      "image": "./assets/item_copper_key.png"
+    },
+    "opera_mask": {
+      "id": "opera_mask",
+      "name": "狰狞戏面",
+      "description": "一张画着诡异表情的戏曲面具，额头上用朱砂画着一个鲜红的“☵”坎卦符号。",
+      "type": "CLUE",
+      "icon": "🎭",
+      "image": "./assets/item_opera_mask.png",
+      "clueForPuzzleId": "puzzle_river"
+    },
+    "diving_talisman": {
+      "id": "diving_talisman",
+      "name": "避水符",
+      "description": "一张画在防水油纸上的符咒，散发着幽幽蓝光，据说佩戴它可以自由行走于水下。",
+      "type": "TOOL",
+      "icon": "🧧",
+      "image": "./assets/item_diving_talisman.png"
+    },
+    "stone_eye": {
+      "id": "stone_eye",
+      "name": "石刻眼珠",
+      "description": "一颗冰凉的石球，雕刻成眼珠的形状，瞳孔处似乎在转动，令人不寒而栗。",
+      "type": "KEY",
+      "icon": "👁️",
+      "image": "./assets/item_stone_eye.png"
+    },
+    "wet_note": {
+      "id": "wet_note",
+      "name": "湿漉漉的绝笔",
+      "description": "“他们疯了，要用活人祭祀龙神……唯一的封印之法藏在祠堂深处。”",
+      "type": "NOTE",
+      "icon": "📄",
+      "image": "./assets/item_wet_note.png"
+    },
+    "river_god_seal": {
+      "id": "river_god_seal",
+      "name": "河神印",
+      "description": "一方沉重的玉印，刻着古老的铭文，散发着镇压一切邪祟的寒气。",
+      "type": "TOOL",
+      "icon": "🧊",
+      "image": "./assets/item_river_god_seal.png"
+    },
+    "incense": {
+      "id": "incense",
+      "name": "长明香",
+      "description": "即使在潮湿环境中也能燃烧的香烛，散发着安神的味道。",
+      "type": "TOOL",
+      "icon": "🕯️",
+      "image": "./assets/item_incense.png"
+    },
+    "rusty_bell": {
+      "id": "rusty_bell",
+      "name": "锈铃铛",
+      "description": "摇晃时发不出声音的铃铛，似乎是招魂用的法器。",
+      "type": "TOOL",
+      "icon": "🔔",
+      "image": "./assets/item_rusty_bell.png"
+    }
+  },
+  "puzzles": {
+    "puzzle_apothecary": {
+      "id": "puzzle_apothecary",
+      "description": "药柜上挂着一把四位数的密码锁，锁扣已经生锈，需要输入正确的日期。",
+      "answer": "0715",
+      "rewardFlag": "apothecary_unlocked",
+      "rewardMessage": "锁“咔哒”一声开了，柜门缓缓弹开，一股药香扑面而来。",
+      "type": "numeric"
+    },
+    "puzzle_river": {
+      "id": "puzzle_river",
+      "description": "水下石门上刻着八卦方位，似乎需要按下对应水流（坎卦）的符号才能开启。",
+      "answer": "☵",
+      "rewardFlag": "river_gate_opened",
+      "rewardMessage": "随着沉闷的轰鸣声，巨大的石门在水中移开，露出了后面的通道。",
+      "type": "symbol",
+      "choices": [
+        "☰",
+        "☷",
+        "☵",
+        "☲",
+        "☳",
+        "☴"
+      ]
+    },
+    "puzzle_altar": {
+      "id": "puzzle_altar",
+      "description": "供桌机关上刻着十二生肖的浮雕，需要选出那个代表“龙神”的生肖。",
+      "answer": "龙",
+      "rewardFlag": "altar_secret_revealed",
+      "rewardMessage": "供桌从中裂开，升起了一个放置玉印的石台。",
+      "type": "symbol",
+      "choices": [
+        "鼠",
+        "牛",
+        "虎",
+        "兔",
+        "龙",
+        "蛇",
+        "马",
+        "羊"
+      ]
+    }
+  },
+  "scenes": {
+    "scene_dock": {
+      "id": "scene_dock",
+      "title": "荒废渡口",
+      "imageUrl": "./assets/scene_dock.jpg",
+      "description": "破败的木质栈道延伸入黑色的水中。水面下隐约可见被淹没的建筑屋顶，这里是通往水下遗迹的唯一入口。",
+      "interactables": [
+        {
+          "id": "wooden_boat",
+          "name": "破船",
+          "description": "送你来的小船，船夫不知何时已经消失了。",
+          "dialogue": [
+            "船夫不见了，连个招呼都没打。",
+            "船底渗出了黑水，看来这船也坚持不了多久了。"
+          ]
+        },
+        {
+          "id": "old_bag",
+          "name": "遗落的布包",
+          "description": "栈道边遗落的一个布包，看起来像是医生用的。",
+          "itemRewardId": "medical_diary",
+          "postInteractionMessage": "布包里已经空了，只剩下一些发霉的纱布。",
+          "dialogue": [
+            "布包湿漉漉的，扣子已经腐烂。",
+            "打开一看，里面除了一本笔记，别无长物。"
+          ]
+        },
+        {
+          "id": "turbid_water",
+          "name": "浑浊河水",
+          "description": "河水深不见底，怨气极重，普通的潜水根本无法生存。",
+          "requiredItemId": "diving_talisman",
+          "lockedMessage": "河水冰冷刺骨，似乎有无数双手在拉扯。若无避水法器护身，下水必死无疑。",
+          "flagReward": "can_dive",
+          "postInteractionMessage": "避水符发出幽幽的蓝光，河水在你面前缓缓分开，露出了一条通往水下的道路。",
+          "dialogue": []
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_street",
+          "label": "进入镇子"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "scene_river_bed",
+          "label": "潜入河床",
+          "locked": true,
+          "requiredFlag": "can_dive"
+        }
+      ]
+    },
+    "scene_street": {
+      "id": "scene_street",
+      "title": "淹没街道",
+      "imageUrl": "./assets/scene_street.jpg",
+      "description": "街道两旁的店铺半浸在水中，红色的灯笼在水面上投下诡异的倒影。西边是仁心药铺，东边传来了断断续续的唱戏声。",
+      "interactables": [
+        {
+          "id": "floating_debris",
+          "name": "漂浮物",
+          "description": "水面上漂浮着一些生活用品，还有一个生锈的铃铛。",
+          "itemRewardId": "rusty_bell",
+          "postInteractionMessage": "只剩下烂木头了。",
+          "dialogue": [
+            "我用手将那团漂浮物勾了过来。",
+            "是镇民的生活用品……还有一个奇怪的铃铛。"
+          ]
+        },
+        {
+          "id": "shop_door",
+          "name": "药铺大门",
+          "description": "仁心药铺的大门紧闭着，门锁上积满了铜绿。",
+          "requiredItemId": "copper_key",
+          "lockedMessage": "大门紧锁，铜锁孔里塞满了淤泥和锈迹，单纯靠蛮力无法撞开，需要一把形状合适的钥匙。",
+          "flagReward": "apothecary_door_unlocked",
+          "postInteractionMessage": "钥匙转动，大门应声而开。",
+          "dialogue": [
+            "门缝里渗出黑色的淤泥，散发着苦涩的中药味。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_dock",
+          "label": "返回渡口"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_apothecary",
+          "label": "仁心药铺",
+          "locked": true,
+          "requiredFlag": "apothecary_door_unlocked"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_opera",
+          "label": "旧戏台"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_hall_gate",
+          "label": "宗族祠堂"
+        }
+      ]
+    },
+    "scene_opera": {
+      "id": "scene_opera",
+      "title": "水上戏台",
+      "imageUrl": "./assets/scene_opera.jpg",
+      "description": "一座搭建在水上的戏台，幕布残破不堪，风吹过时仿佛有人在低吟。",
+      "interactables": [
+        {
+          "id": "hanging_key",
+          "name": "挂在柱子上的钥匙",
+          "description": "戏台柱子上挂着一把闪着微光的钥匙，可能是谁看戏时落下的。",
+          "itemRewardId": "copper_key",
+          "postInteractionMessage": "柱子上只剩下一颗生锈的钉子。",
+          "dialogue": [
+            "那把钥匙挂得很高，还在随风微微晃动。",
+            "看起来像是‘仁心药铺’的掌柜遗落的。"
+          ]
+        },
+        {
+          "id": "prop_mask",
+          "name": "散落的面具",
+          "description": "地上散落着许多戏曲道具，其中一个面具额头画着奇怪的符号。",
+          "itemRewardId": "opera_mask",
+          "clueForPuzzleId": "puzzle_river",
+          "postInteractionMessage": "面具已被取走，地上只剩尘土。",
+          "dialogue": [
+            "这面具的表情似笑非笑，盯着看久了，感觉它好像活了过来。",
+            "额头上的符号……似乎与水有关。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_street",
+          "label": "返回街道"
+        }
+      ]
+    },
+    "scene_apothecary": {
+      "id": "scene_apothecary",
+      "title": "仁心药铺",
+      "imageUrl": "./assets/scene_apothecary.jpg",
+      "description": "药铺内充满了发霉的中药味。柜台后有一个巨大的红木药柜，似乎藏着贵重的药材。",
+      "interactables": [
+        {
+          "id": "medicine_cabinet",
+          "name": "红木药柜",
+          "description": "药柜被一把密码锁锁住了。",
+          "lockedMessage": "药柜上挂着一把精巧的黄铜密码锁，必须根据行医手记上的线索输入四位数字才能开启。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_apothecary",
+          "itemRewardId": "diving_talisman",
+          "postInteractionMessage": "药柜已打开，里面空空如也，避水符已被取走。",
+          "dialogue": [
+            "柜子里似乎藏着什么重要的法器。",
+            "锁上有四个转轮，我需要一个日期作为密码。"
+          ]
+        },
+        {
+          "id": "incense_burner",
+          "name": "香炉",
+          "description": "桌上的香炉旁放着几根未烧完的香。",
+          "itemRewardId": "incense",
+          "postInteractionMessage": "香炉里只有香灰了。",
+          "dialogue": [
+            "这些香还没烧完就被掐灭了。",
+            "谁会在祭拜到一半时突然离开？"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_street",
+          "label": "离开药铺"
+        }
+      ]
+    },
+    "scene_river_bed": {
+      "id": "scene_river_bed",
+      "title": "阴冷河床",
+      "imageUrl": "./assets/scene_river_bed.jpg",
+      "description": "依靠避水符，你潜入了水下。周围是幽绿的河水，眼前是一座被淹没的八卦石门，挡住了去路。",
+      "interactables": [
+        {
+          "id": "stone_gate_mech",
+          "name": "八卦石门",
+          "description": "石门紧闭，上面刻着八卦符号。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_river",
+          "postInteractionMessage": "石门已经开启，露出了通往深处的通道。",
+          "dialogue": [
+            "石门上刻满了青苔，但八卦符号依然清晰。",
+            "周围全是水……这里是‘坎’位。我必须按下代表‘水’的符号。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_dock",
+          "label": "浮出水面"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "scene_bedroom",
+          "label": "进入石门",
+          "locked": true,
+          "requiredFlag": "river_gate_opened"
+        }
+      ]
+    },
+    "scene_bedroom": {
+      "id": "scene_bedroom",
+      "title": "沉没闺房",
+      "imageUrl": "./assets/scene_bedroom.jpg",
+      "description": "这是一间保存完好的民国闺房，完全浸泡在水中。墙壁上布满了疯狂的刻痕。",
+      "interactables": [
+        {
+          "id": "vanity_drawer",
+          "name": "梳妆台抽屉",
+          "description": "抽屉半开着，里面似乎有什么东西在反光。",
+          "itemRewardId": "stone_eye",
+          "postInteractionMessage": "抽屉空了，只剩下水草。",
+          "dialogue": [
+            "镜子已经碎了，映出我不成样子的倒影。",
+            "抽屉里有个圆滚滚的东西，摸起来像石头。"
+          ]
+        },
+        {
+          "id": "wall_carving",
+          "name": "墙上的刻痕",
+          "description": "墙上刻着一行字：“龙神息怒，以命换命。” 旁边画着一条盘旋的龙。",
+          "dialogue": [
+            "刻痕非常深，似乎是用指甲在绝望中刻出来的。",
+            "那条龙画得栩栩如生，眼神中透着贪婪。记住这个图案：龙。"
+          ],
+          "clueForPuzzleId": "puzzle_altar"
+        },
+        {
+          "id": "bedside_note",
+          "name": "床边的纸条",
+          "description": "一张被水浸泡却未烂的纸条。",
+          "itemRewardId": "wet_note",
+          "postInteractionMessage": "纸条已经被你拿走了。",
+          "dialogue": [
+            "纸条被压在枕头下，显然是藏起来的。",
+            "上面写满了密密麻麻的小字，看起来是绝笔。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_river_bed",
+          "label": "游出房间"
+        }
+      ]
+    },
+    "scene_hall_gate": {
+      "id": "scene_hall_gate",
+      "title": "祠堂大门",
+      "imageUrl": "./assets/scene_hall_gate.jpg",
+      "description": "庄严的祠堂大门紧闭，门上的一只石狮子少了一只眼睛，显得格外诡异。",
+      "interactables": [
+        {
+          "id": "stone_lion",
+          "name": "独眼石狮",
+          "description": "这只石狮子的左眼空洞洞的，似乎缺少了什么。",
+          "requiredItemId": "stone_eye",
+          "lockedMessage": "石狮子的眼眶深邃而空洞，内部机关似乎被锁死了。",
+          "flagReward": "hall_unlocked",
+          "postInteractionMessage": "石眼已经嵌入，大门发出了沉重的开启声。",
+          "dialogue": []
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_street",
+          "label": "返回街道"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_hall_interior",
+          "label": "进入祠堂",
+          "locked": true,
+          "requiredFlag": "hall_unlocked"
+        }
+      ]
+    },
+    "scene_hall_interior": {
+      "id": "scene_hall_interior",
+      "title": "祠堂内部",
+      "imageUrl": "./assets/scene_hall_interior.jpg",
+      "description": "祠堂内摆满了灵位，正中央是一个巨大的供桌，后面似乎有一道暗门。",
+      "interactables": [
+        {
+          "id": "altar_mechanism",
+          "name": "供桌机关",
+          "description": "供桌上刻着十二生肖的转盘。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_altar",
+          "itemRewardId": "river_god_seal",
+          "postInteractionMessage": "机关已解开，暗门打开了，你拿到了河神印。",
+          "dialogue": [
+            "供桌下的齿轮还在转动，发出咔咔的声响。",
+            ""
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_hall_gate",
+          "label": "离开祠堂"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_altar",
+          "label": "进入暗门",
+          "locked": true,
+          "requiredFlag": "altar_secret_revealed"
+        }
+      ]
+    },
+    "scene_altar": {
+      "id": "scene_altar",
+      "title": "血色祭坛",
+      "imageUrl": "./assets/scene_altar.jpg",
+      "description": "这是隐藏在祠堂后的秘密祭坛。巨大的河神像狰狞可怖，脚下是翻滚的血水。",
+      "interactables": [
+        {
+          "id": "river_god_statue",
+          "name": "河神像",
+          "description": "神像手中托着一个空盘，似乎在索取什么证明。",
+          "requiredItemId": "river_god_seal",
+          "lockedMessage": "神像的手掌虚握，眼神贪婪地盯着你。若不献上代表河神权柄的信物，它绝不会平息愤怒。",
+          "winsGame": true,
+          "dialogue": [
+            "神像的眼睛似乎随着我的移动而转动。",
+            "你将河神印重重地按在神像手中……"
+          ],
+          "postInteractionMessage": ""
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_hall_interior",
+          "label": "逃回祠堂"
+        }
+      ]
+    },
+    "scene_sunrise": {
+      "id": "scene_sunrise",
+      "title": "晨曦",
+      "imageUrl": "./assets/scene_sunrise.jpg",
+      "description": "洪水退去，阳光重新洒在古镇的废墟上。",
+      "interactables": [],
+      "exits": []
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

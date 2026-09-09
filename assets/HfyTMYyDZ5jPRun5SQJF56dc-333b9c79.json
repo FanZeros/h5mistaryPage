@@ -1,0 +1,418 @@
+{
+  "meta": {
+    "name": "岁月的二重奏",
+    "author": "Qu",
+    "version": "1.0.1",
+    "description": "你回到这片迷雾森林，寻找失散的爱人。所有的线索似乎都是她刚刚留下的，但随着探索的深入，时间的错位感逐渐浮现。这不仅是一场寻找，更是一场跨越数十年的告别。",
+    "style": "Hand-drawn charcoal sketch, heavy paper texture, film grain, monochromatic with faint desaturated watercolor accents",
+    "sceneStyle": "Atmospheric wide shots, heavy fog, vignette, high contrast charcoal shading, melancholic mood, decaying structures",
+    "itemStyle": "Detailed object study, isolated on textured paper background, cross-hatching, realistic charcoal style",
+    "musicStyle": "Melancholic piano, ambient rain, soft static noise, distant wind chimes, emotional cello",
+    "endingMessage": "风吹过山坡，带走了最后一片落叶。你终于明白，她并非刚刚走失，而是在这漫长的岁月中独自老去，用余生为你铺设了这条归途。你将围巾系在墓碑上，仿佛还能感受到她的温度。再见了，吾爱。",
+    "endingSceneId": "scene_ending",
+    "useBannerAsTitleBg": true,
+    "designConfig": {
+      "theme": "玩家在迷雾森林中交替控制一对恋人，利用叙述性诡计让玩家误以为两人处于同一时间线的空间走失，实则两人之间存在着数十年的岁月隔阂。女主角的视角实为过去的倒叙，她在漫长的独居与等待中老去，去世前精心布置了一系列线索与回忆节点。最终男主角（处于现在时间线）找到的并非活着的爱人，而是她留下的温柔遗迹与坟墓。这些痕迹旨在引导男主角在解开谜题的过程中，逐步消化悲伤，最终接受生离死别，带着她的祝福走出森林，继续生活。",
+      "sceneCount": 7,
+      "itemCount": 8,
+      "puzzleCount": 4,
+      "requiredItems": "生锈的铁皮饼干盒, 半织好的羊毛围巾, 刻有日期的橡木树苗, 断裂的珍珠项链, 泛黄的素描肖像画, 停摆的怀表, 布满青苔的石碑碎片, 写满生活琐事的日记本",
+      "requiredScenes": "迷雾弥漫的岔路口, 废弃已久的护林人小屋, 暴雨冲刷后的泥泞小径, 挂满风铃的古老枯树, 静谧的林间湖泊, 野花丛生的山坡, 爬满藤蔓的木质回廊"
+    },
+    "bgmUrl": "./assets/bgm.mp3"
+  },
+  "initialState": {
+    "currentSceneId": "scene_crossroad",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "雾气如同白色的纱幔，遮蔽了森林的入口。",
+      "无论怎么呼喊她的名字，回应我的只有空荡的回声。",
+      "她说会在前面的小屋等我，我必须找到她。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_shard": {
+      "id": "item_shard",
+      "name": "布满青苔的石碑碎片",
+      "description": "一块冰冷的石片，上面刻着几个奇怪的符号：Ω - Ψ - Δ - Σ。这些符号似乎对应着某种开启的顺序。",
+      "type": "CLUE",
+      "icon": "🪨",
+      "image": "./assets/item_shard.png",
+      "clueForPuzzleId": "puz_cabin_door"
+    },
+    "item_portrait": {
+      "id": "item_portrait",
+      "name": "泛黄的素描肖像画",
+      "description": "一张被撕碎的素描，纸张已经发黄变脆。画中似乎是一个年轻男子的轮廓。",
+      "type": "CLUE",
+      "icon": "🖼️",
+      "image": "./assets/item_portrait.png",
+      "clueForPuzzleId": "puz_portrait"
+    },
+    "item_watch": {
+      "id": "item_watch",
+      "name": "停摆的怀表",
+      "description": "指针永远停在了 10:24。表盖内侧刻着一行小字：“时间静止在你离开的那一刻”。",
+      "type": "CLUE",
+      "icon": "⌚",
+      "image": "./assets/item_watch.png",
+      "clueForPuzzleId": "puz_cookie_box"
+    },
+    "item_cookie_box": {
+      "id": "item_cookie_box",
+      "name": "生锈的铁皮饼干盒",
+      "description": "一个锈迹斑斑的盒子，摇晃时能听到里面有东西碰撞的声音。需要密码才能打开。",
+      "type": "TOOL",
+      "icon": "📦",
+      "image": "./assets/item_cookie_box.png"
+    },
+    "item_diary": {
+      "id": "item_diary",
+      "name": "写满生活琐事的日记本",
+      "description": "日记本的纸张已经受潮粘连。最后一页写着：“当风吹过古树，请按顺序敲响风铃：月亮(☽)、星星(★)、太阳(☀)。”",
+      "type": "CLUE",
+      "icon": "📔",
+      "image": "./assets/item_diary.png",
+      "clueForPuzzleId": "puz_chimes"
+    },
+    "item_necklace": {
+      "id": "item_necklace",
+      "name": "断裂的珍珠项链",
+      "description": "曾经璀璨的珍珠如今失去了光泽，断裂的绳线像是一段未能延续的缘分。奇怪的是，那个心形的金属挂坠似乎是一把伪装的钥匙。",
+      "type": "KEY",
+      "icon": "📿",
+      "image": "./assets/item_necklace.png"
+    },
+    "item_sapling": {
+      "id": "item_sapling",
+      "name": "刻有日期的橡木树苗",
+      "description": "这其实是一块已经石化的木牌，原本系在一株树苗上。上面刻着日期“1974.10.24”和一句话：“以此纪念我们的开始”。现在的树苗恐怕已经长成参天大树了。",
+      "type": "NOTE",
+      "icon": "🌱",
+      "image": "./assets/item_sapling.png"
+    },
+    "item_scarf": {
+      "id": "item_scarf",
+      "name": "半织好的羊毛围巾",
+      "description": "粗糙的羊毛手感，针脚有些凌乱，似乎编织者视力不佳。只有一半，红色的毛线球还连在上面。",
+      "type": "KEY",
+      "icon": "🧣",
+      "image": "./assets/item_scarf.png"
+    }
+  },
+  "puzzles": {
+    "puz_cabin_door": {
+      "id": "puz_cabin_door",
+      "description": "门锁上有一排古怪的转轮。你需要根据石碑碎片上的线索输入正确的符号顺序。",
+      "answer": "ΩΨΔΣ",
+      "rewardFlag": "cabin_unlocked",
+      "rewardMessage": "随着一声沉闷的咔哒声，生锈的门锁弹开了。",
+      "type": "symbol",
+      "choices": [
+        "Ω",
+        "Ψ",
+        "Δ",
+        "Σ",
+        "Φ",
+        "λ"
+      ]
+    },
+    "puz_portrait": {
+      "id": "puz_portrait",
+      "description": "点击或拖拽图块，将破碎的肖像画复原。那是她记忆中你的模样。",
+      "answer": "solved",
+      "rewardFlag": "portrait_fixed",
+      "rewardMessage": "画像拼好了。画中的男子年轻英俊，那是四十年前的你。画框背面滑落出一条断裂的珍珠项链，挂坠是一把精巧的钥匙。",
+      "type": "image_grid",
+      "linkedAssetId": "item_portrait",
+      "gridSize": 3
+    },
+    "puz_cookie_box": {
+      "id": "puz_cookie_box",
+      "description": "铁盒上挂着一个四位数的密码锁。也许那个停滞的时间就是答案。",
+      "answer": "1024",
+      "rewardFlag": "box_opened",
+      "rewardMessage": "锁开了。盒子里放着一本发霉的日记，揭示了残酷的真相。",
+      "type": "numeric"
+    },
+    "puz_chimes": {
+      "id": "puz_chimes",
+      "description": "风铃下方挂着不同的挂坠。根据日记里的提示，依次敲响它们。",
+      "answer": "☽★☀",
+      "rewardFlag": "tree_secret_revealed",
+      "rewardMessage": "清脆的铃声在林间回荡，仿佛她的低语。树洞深处滚落出一个石化的木牌。",
+      "type": "symbol",
+      "choices": [
+        "☽",
+        "★",
+        "☀",
+        "☁",
+        "☂"
+      ]
+    }
+  },
+  "scenes": {
+    "scene_crossroad": {
+      "id": "scene_crossroad",
+      "title": "迷雾岔路",
+      "imageUrl": "./assets/scene_crossroad.jpg",
+      "description": "浓雾弥漫的森林入口，两条路在前方分岔。脚下的泥土湿润而松软，空气中弥漫着腐叶的味道。",
+      "interactables": [
+        {
+          "id": "int_signpost",
+          "name": "倾斜的路标",
+          "description": "路标已经腐烂，只能依稀辨认出指向北方的箭头，刻着“护林人小屋”。",
+          "postInteractionMessage": "路标指向北方，那里是她最后提到要去的地方。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_path",
+          "label": "泥泞小径"
+        }
+      ]
+    },
+    "scene_path": {
+      "id": "scene_path",
+      "title": "泥泞小径",
+      "imageUrl": "./assets/scene_path.jpg",
+      "description": "暴雨刚刚冲刷过这里，地面泥泞不堪。路边散落着一些古老的石块。",
+      "interactables": [
+        {
+          "id": "int_rubble",
+          "name": "碎石堆",
+          "description": "一堆被雨水冲刷出来的碎石，其中一块看起来有人工雕琢的痕迹。",
+          "itemRewardId": "item_shard",
+          "postInteractionMessage": "这里只剩下普通的石头了，那块刻有符号的碎片已经被你拿走了。",
+          "clueForPuzzleId": "puz_cabin_door"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_cabin",
+          "label": "护林人小屋"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_lake",
+          "label": "林间湖泊"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "scene_crossroad",
+          "label": "返回岔路"
+        }
+      ]
+    },
+    "scene_cabin": {
+      "id": "scene_cabin",
+      "title": "护林人小屋",
+      "imageUrl": "./assets/scene_cabin.jpg",
+      "description": "一座废弃已久的木屋，屋顶长满了青苔。门紧紧锁着，窗户上积满了厚厚的灰尘。",
+      "interactables": [
+        {
+          "id": "int_door",
+          "name": "紧锁的木门",
+          "description": "门上有一个奇怪的机械锁，转轮上刻着希腊字母。",
+          "lockedMessage": "门锁死死的，转轮上的符号似乎需要特定的顺序。我在哪里见过这些符号？",
+          "isPuzzle": true,
+          "puzzleId": "puz_cabin_door",
+          "postInteractionMessage": "门已经打开了，阴冷的风从屋内吹出来。"
+        },
+        {
+          "id": "int_desk",
+          "name": "积灰的桌子",
+          "description": "屋内桌上放着一块停摆的怀表，似乎这就是她提到的那块。",
+          "requiredFlag": "cabin_unlocked",
+          "hiddenIfFlag": "has_watch",
+          "itemRewardId": "item_watch",
+          "postInteractionMessage": "桌子上只剩下厚厚的灰尘轮廓。",
+          "clueForPuzzleId": "puz_cookie_box"
+        },
+        {
+          "id": "int_floor_debris",
+          "name": "地上的纸屑",
+          "description": "地板上散落着被撕碎的纸片。",
+          "requiredFlag": "cabin_unlocked",
+          "itemRewardId": "item_portrait",
+          "postInteractionMessage": "这里只有灰尘了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_path",
+          "label": "离开小屋"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_corridor",
+          "label": "木质回廊",
+          "locked": true,
+          "requiredFlag": "cabin_unlocked"
+        }
+      ]
+    },
+    "scene_corridor": {
+      "id": "scene_corridor",
+      "title": "木质回廊",
+      "imageUrl": "./assets/scene_corridor.jpg",
+      "description": "连接小屋后方的半开放回廊，藤蔓爬满了立柱。这里有一个工作台和一个通往后山的破旧栅栏门。",
+      "interactables": [
+        {
+          "id": "int_frame",
+          "name": "空画框",
+          "description": "工作台上放着一个空的画框。旁边写着：“请拼凑起我们的回忆”。",
+          "requiredItemId": "item_portrait",
+          "lockedMessage": "画框是空的，我需要找到那些碎片。",
+          "isPuzzle": true,
+          "puzzleId": "puz_portrait",
+          "postInteractionMessage": "画像复原了，一条项链掉了出来。你捡起了它。",
+          "itemRewardId": "item_necklace"
+        },
+        {
+          "id": "int_shelf_box",
+          "name": "架子上的铁盒",
+          "description": "角落的架子上放着一个生锈的饼干盒。",
+          "itemRewardId": "item_cookie_box",
+          "postInteractionMessage": "架子空了。"
+        },
+        {
+          "id": "int_gate",
+          "name": "后山栅栏门",
+          "description": "通往山坡的门，被一把挂锁锁住。锁孔呈心形，看起来很特别。",
+          "requiredItemId": "item_necklace",
+          "lockedMessage": "栅栏门锁住了。画像背面似乎藏着能打开它的东西。",
+          "postInteractionMessage": "项链的挂坠完美契合锁孔，门开了。去见她吧。",
+          "flagReward": "gate_opened"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_hill",
+          "label": "野花山坡",
+          "locked": true,
+          "requiredFlag": "gate_opened"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_cabin",
+          "label": "回到小屋"
+        }
+      ]
+    },
+    "scene_lake": {
+      "id": "scene_lake",
+      "title": "静谧湖泊",
+      "imageUrl": "./assets/scene_lake.jpg",
+      "description": "湖水如镜，倒映着枯树的剪影。岸边停着一艘腐烂了一半的小木船。",
+      "interactables": [
+        {
+          "id": "int_boat",
+          "name": "腐烂的木船",
+          "description": "船舱里积满了水和落叶，在那堆腐败物中，似乎有一抹红色的织物。",
+          "itemRewardId": "item_scarf",
+          "postInteractionMessage": "船舱里只剩下发黑的枯叶。"
+        },
+        {
+          "id": "int_examine_box",
+          "name": "湖畔石台",
+          "description": "一个平整的石头，适合用来检查手中的物品。如果你有打不开的盒子，可以放在这里仔细研究。",
+          "requiredItemId": "item_cookie_box",
+          "lockedMessage": "这里空荡荡的。",
+          "isPuzzle": true,
+          "puzzleId": "puz_cookie_box",
+          "postInteractionMessage": "铁盒已经打开，里面的日记揭示了残酷的真相——这些并非近日所留，而是数十年的积淀。",
+          "itemRewardId": "item_diary"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_old_tree",
+          "label": "古老枯树"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_path",
+          "label": "返回小径"
+        }
+      ]
+    },
+    "scene_old_tree": {
+      "id": "scene_old_tree",
+      "title": "古老枯树",
+      "imageUrl": "./assets/scene_old_tree.jpg",
+      "description": "一棵巨大的枯树矗立在湖畔，枝头挂满了生锈的风铃。微风吹过，发出喑哑的声响。",
+      "interactables": [
+        {
+          "id": "int_chimes",
+          "name": "生锈的风铃",
+          "description": "风铃下方挂着不同形状的金属片：月亮、星星、太阳、云朵、雨伞。也许按特定顺序敲击能发现什么。",
+          "isPuzzle": true,
+          "puzzleId": "puz_chimes",
+          "lockedMessage": "我不知道敲击的顺序，也许日记里会有记载。",
+          "postInteractionMessage": "树洞已经打开了。风铃依旧在风中低语。",
+          "requiredItemId": "item_diary"
+        },
+        {
+          "id": "int_hollow",
+          "name": "树洞",
+          "description": "风铃机关触发后露出的树洞。",
+          "requiredFlag": "tree_secret_revealed",
+          "itemRewardId": "item_sapling",
+          "postInteractionMessage": "树洞里空了，那块刻着1974年的木牌现在在我手中。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_lake",
+          "label": "返回湖泊"
+        }
+      ]
+    },
+    "scene_hill": {
+      "id": "scene_hill",
+      "title": "野花山坡",
+      "imageUrl": "./assets/scene_hill.jpg",
+      "description": "穿过回廊，视野豁然开朗。山坡上开满了白色的野花，在那花丛中央，矗立着一座孤零零的石碑。",
+      "interactables": [
+        {
+          "id": "int_grave",
+          "name": "孤独的墓碑",
+          "description": "墓碑上的照片已经模糊，但那个名字让你心碎。她是独自在这里度过余生的。她一直在等你，直到时间的尽头。",
+          "requiredItemId": "item_scarf",
+          "lockedMessage": "墓碑前冷冷清清。我应该把她未织完的围巾带给她，告诉她我终于来了。",
+          "winsGame": true,
+          "postInteractionMessage": "你将围巾轻轻缠绕在墓碑上。风停了，仿佛是一个漫长的拥抱。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_corridor",
+          "label": "下山"
+        }
+      ]
+    },
+    "scene_ending": {
+      "id": "scene_ending",
+      "title": "尾声",
+      "imageUrl": "./assets/scene_ending.jpg",
+      "description": "夕阳穿透云层，照在满是野花的山坡上。你终于找到了她，虽然跨越了生死与岁月。",
+      "interactables": [],
+      "exits": []
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

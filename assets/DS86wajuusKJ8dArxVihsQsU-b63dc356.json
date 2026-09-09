@@ -1,0 +1,654 @@
+{
+  "meta": {
+    "name": "世纪末录像厅",
+    "author": "零殇",
+    "version": "1.4.0",
+    "description": "1999年12月31日，南方小镇。你必须在千禧年钟声敲响前，从废弃的“福满多”录像厅中拼凑出友人的下落。",
+    "style": "90s retro lo-fi aesthetic, VHS glitch art, dark and grainy, high contrast, gloomy blue and green color palette, cyberpunk undertones, atmospheric horror.",
+    "sceneStyle": "Wide angle shot, dimly lit, heavy film grain, chromatic aberration, scanlines, flickering neon lights, damp textures, oppressive atmosphere.",
+    "itemStyle": "Isometric view, pixelated realistic style, sharp focus, neutral dark background, slightly rusted or worn textures, VHS quality.",
+    "musicStyle": "Dark Ambient, Drone, Low frequency rumble, 90s synthesizers, VHS static noise, unsettling suspense, slow tempo, industrial texture.",
+    "endingMessage": "随着投影仪的强光穿透黑暗，墙上的雪花点汇聚成了阿强的脸。他没有说话，只是指了指身后。千禧年的钟声在零点准时敲响，你感到一阵强烈的失重感。当你醒来时，手里紧握着那张合影，而录像厅的大门已被水泥封死。你救了他吗？还是他救了你？",
+    "useBannerAsTitleBg": true,
+    "designConfig": {
+      "theme": "",
+      "sceneCount": 4,
+      "itemCount": 4,
+      "puzzleCount": 1,
+      "requiredItems": "",
+      "requiredScenes": ""
+    },
+    "musicLibrary": [
+      {
+        "id": "c403d9f0-8797-40fa-8383-d1568e5fed59",
+        "url": "https://cdn1.suno.ai/c403d9f0-8797-40fa-8383-d1568e5fed59.mp3",
+        "title": "Shadows Unspoken",
+        "duration": 240,
+        "imageUrl": "https://cdn2.suno.ai/image_c403d9f0-8797-40fa-8383-d1568e5fed59.jpeg"
+      },
+      {
+        "id": "42bd60d9-953d-4655-8327-91f50a2221e4",
+        "url": "https://cdn1.suno.ai/42bd60d9-953d-4655-8327-91f50a2221e4.mp3",
+        "title": "Shadows Unspoken",
+        "duration": 198.92,
+        "imageUrl": "https://cdn2.suno.ai/image_42bd60d9-953d-4655-8327-91f50a2221e4.jpeg"
+      }
+    ],
+    "bgmUrl": "./assets/bgm.mp3"
+  },
+  "initialState": {
+    "currentSceneId": "s_bulletin_board",
+    "inventory": [],
+    "flags": {
+      "has_light": false,
+      "power_on": false,
+      "reception_unlocked": false,
+      "room_b_open": false,
+      "booth_unlocked": false,
+      "cable_set": false,
+      "tape_set": false,
+      "fuse_set": false
+    },
+    "log": [
+      "1999年12月31日，晚11点。",
+      "空气里弥漫着南方特有的霉味。",
+      "阿强失踪前最后出现的地点就是这家“福满多”录像厅。",
+      "我站在筒子楼的入口处，必须进去看看。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "i_entrance_key": {
+      "id": "i_entrance_key",
+      "name": "生锈的铜钥匙",
+      "description": "一把挂着“前台”标签的旧钥匙，是从信箱里找到的。",
+      "type": "KEY",
+      "icon": "🗝️",
+      "image": "./assets/item_i_entrance_key.png"
+    },
+    "i_flashlight": {
+      "id": "i_flashlight",
+      "name": "铁皮手电筒",
+      "description": "表面生锈的老式手电筒。打开后能照亮黑暗的角落。",
+      "type": "TOOL",
+      "icon": "🔦",
+      "image": "./assets/item_i_flashlight.png"
+    },
+    "i_nokia": {
+      "id": "i_nokia",
+      "name": "诺基亚",
+      "description": "屏幕碎裂的手机。草稿箱里有一条未发短信：'经理办公室保险柜密码是我的生日1024'。",
+      "type": "CLUE",
+      "icon": "📱",
+      "image": "./assets/item_i_nokia.png"
+    },
+    "i_vhs_forbidden": {
+      "id": "i_vhs_forbidden",
+      "name": "“勿看”录像带",
+      "description": "黑色的VHS带子，贴着红色胶带，上面写着“勿看”。",
+      "type": "KEY",
+      "icon": "📼",
+      "image": "./assets/item_i_vhs_forbidden.png"
+    },
+    "i_vcd_player": {
+      "id": "i_vcd_player",
+      "name": "沾血的VCD机",
+      "description": "便携式VCD，沾着干涸的血迹。需要连接到电视上才能查看里面的内容。",
+      "type": "TOOL",
+      "icon": "💿",
+      "image": "./assets/item_i_vcd_player.png"
+    },
+    "i_batteries": {
+      "id": "i_batteries",
+      "name": "双鹿电池",
+      "description": "两节电池，虽然有点旧但应该还能用。",
+      "type": "TOOL",
+      "icon": "🔋",
+      "image": "./assets/item_i_batteries.png"
+    },
+    "i_crowbar": {
+      "id": "i_crowbar",
+      "name": "撬棍",
+      "description": "物理学圣剑，可以撬开封死的木板。",
+      "type": "TOOL",
+      "icon": "🥖",
+      "image": "./assets/item_i_crowbar.png"
+    },
+    "i_diary": {
+      "id": "i_diary",
+      "name": "值班日记",
+      "description": "记录了琐事：'怕兼职偷东西，工具箱密码我设成了VCD的按键顺序：播放(右向三角)-停止(方块)-录制(圆)。'",
+      "type": "NOTE",
+      "icon": "📓",
+      "image": "./assets/item_i_diary.png"
+    },
+    "i_booth_key": {
+      "id": "i_booth_key",
+      "name": "机房钥匙",
+      "description": "一把标着“机房重地”的钥匙，是从保险柜里发现的。",
+      "type": "KEY",
+      "icon": "🔑",
+      "image": "./assets/item_i_booth_key.png"
+    },
+    "i_fuse": {
+      "id": "i_fuse",
+      "name": "陶瓷保险丝",
+      "description": "修复总电路必不可少的元件。",
+      "type": "TOOL",
+      "icon": "⚡",
+      "image": "./assets/item_i_fuse.png"
+    },
+    "i_cable": {
+      "id": "i_cable",
+      "name": "AV连接线",
+      "description": "红黄白三色线，从下水道里钓上来的。",
+      "type": "TOOL",
+      "icon": "🔌",
+      "image": "./assets/item_i_cable.png"
+    },
+    "i_photo": {
+      "id": "i_photo",
+      "name": "撕碎的照片",
+      "description": "从VCD机里取出的照片。背面画着奇怪的符号",
+      "type": "CLUE",
+      "icon": "🖼️",
+      "image": "./assets/item_i_photo.png"
+    },
+    "i_lighter": {
+      "id": "i_lighter",
+      "name": "塑料打火机",
+      "description": "也许能用来烧掉些什么。",
+      "type": "TOOL",
+      "icon": "🔥",
+      "image": "./assets/item_i_lighter.png"
+    },
+    "i_coin": {
+      "id": "i_coin",
+      "name": "游戏币",
+      "description": "一枚来自90年代的游戏代币。",
+      "type": "TOOL",
+      "icon": "🪙",
+      "image": "./assets/item_i_coin.png"
+    },
+    "i_control_handle": {
+      "id": "i_control_handle",
+      "name": "调节手柄",
+      "description": "一个备用的调节旋钮。",
+      "type": "TOOL",
+      "icon": "🕹️",
+      "image": "./assets/item_i_control_handle.png"
+    }
+  },
+  "puzzles": {
+    "p_mailbox": {
+      "id": "p_mailbox",
+      "description": "信箱挂着一把三位数的密码锁。这应该是阿强生前用的信箱。",
+      "answer": "999",
+      "rewardFlag": "mailbox_open",
+      "rewardMessage": "锁开了。里面放着一把大门钥匙。",
+      "type": "numeric"
+    },
+    "p_safe": {
+      "id": "p_safe",
+      "description": "输入4位密码。提示在诺基亚手机的短信里。",
+      "answer": "1024",
+      "rewardFlag": "safe_open",
+      "rewardMessage": "保险柜打开了，里面是一把机房钥匙。",
+      "type": "numeric"
+    },
+    "p_storage_lock": {
+      "id": "p_storage_lock",
+      "description": "工具箱的锁需要对齐三个图形。提示应该在经理的日记里。",
+      "answer": "▶■●",
+      "rewardFlag": "storage_open",
+      "rewardMessage": "工具箱打开了，你拿到了保险丝。",
+      "type": "symbol",
+      "choices": [
+        "▲",
+        "▼",
+        "●",
+        "■",
+        "★",
+        "♦",
+        "▶"
+      ]
+    },
+    "p_vcd_repair": {
+      "id": "p_vcd_repair",
+      "description": "屏幕显示ERROR。校验码似乎在模拟某种信号波动。你需要找到正确的信号序列来修复它。",
+      "answer": "★♦▼",
+      "rewardFlag": "vcd_fixed",
+      "rewardMessage": "机器运转正常，吐出了一张关键的照片。",
+      "type": "symbol",
+      "choices": [
+        "▲",
+        "▼",
+        "●",
+        "■",
+        "★",
+        "♦",
+        "▶"
+      ]
+    },
+    "p_projector": {
+      "id": "p_projector",
+      "description": "最终仪式：根据照片背面的提示调整三个相位开关。",
+      "answer": "●▲■",
+      "rewardFlag": "game_won",
+      "rewardMessage": "放映机发出轰鸣，光束穿透了现实...",
+      "type": "symbol",
+      "choices": [
+        "▲",
+        "▼",
+        "●",
+        "■",
+        "★",
+        "♦",
+        "▶"
+      ]
+    }
+  },
+  "scenes": {
+    "s_bulletin_board": {
+      "id": "s_bulletin_board",
+      "title": "公告栏",
+      "imageUrl": "./assets/scene_s_bulletin_board.jpg",
+      "description": "筒子楼入口。雨水顺着屋檐滴落。墙上贴满了寻人启事。",
+      "interactables": [
+        {
+          "id": "obj_poster",
+          "name": "寻人启事",
+          "description": "阿强的照片。下面原本写着悬赏金额，但被红笔涂改了。",
+          "dialogue": [
+            "悬赏金被改成了'999'。",
+            "这是他在暗示什么吗？"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "s_corridor",
+          "label": "进入筒子楼"
+        }
+      ]
+    },
+    "s_corridor": {
+      "id": "s_corridor",
+      "title": "筒子楼走廊",
+      "imageUrl": "./assets/scene_s_corridor.jpg",
+      "description": "狭窄压抑的走廊。尽头是录像厅的铁栅栏门，左边堆满了生活垃圾。墙边挂着几个生锈的信箱。",
+      "interactables": [
+        {
+          "id": "obj_door_reception_lock",
+          "name": "录像厅铁门",
+          "description": "铁栅栏门锁着。",
+          "requiredItemId": "i_entrance_key",
+          "lockedMessage": "门锁住了，你需要大门钥匙。",
+          "flagReward": "reception_unlocked",
+          "postInteractionMessage": "门锁已打开。"
+        },
+        {
+          "id": "obj_rubbish",
+          "name": "垃圾堆",
+          "description": "散发着恶臭的垃圾。",
+          "itemRewardId": "i_flashlight",
+          "flagReward": "has_light",
+          "postInteractionMessage": "你已经翻遍了垃圾。",
+          "dialogue": [
+            "这里面好像有个铁疙瘩。",
+            "是个手电筒！"
+          ]
+        },
+        {
+          "id": "obj_mailbox",
+          "name": "生锈信箱",
+          "description": "信箱锁得死死的。你需要找到密码线索。",
+          "isPuzzle": true,
+          "puzzleId": "p_mailbox",
+          "itemRewardId": "i_entrance_key",
+          "postInteractionMessage": "信箱空空如也。",
+          "dialogue": [
+            "这是阿强的信箱。",
+            "密码只有他知道..."
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "s_bulletin_board",
+          "label": "返回入口"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "s_reception",
+          "label": "进入录像厅",
+          "locked": true,
+          "requiredFlag": "reception_unlocked"
+        }
+      ]
+    },
+    "s_reception": {
+      "id": "s_reception",
+      "title": "积灰的前台",
+      "imageUrl": "./assets/scene_s_reception.jpg",
+      "description": "柜台上积满灰尘。墙上的钟停在12点。",
+      "interactables": [
+        {
+          "id": "obj_vcd_pickup",
+          "name": "沾血VCD机",
+          "description": "放在柜台上的一台旧机器。",
+          "itemRewardId": "i_vcd_player",
+          "postInteractionMessage": "这里只剩下一个印子。",
+          "dialogue": [
+            "血迹还是湿的..."
+          ]
+        },
+        {
+          "id": "obj_drawer",
+          "name": "前台抽屉",
+          "description": "半开的抽屉。",
+          "itemRewardId": "i_nokia",
+          "postInteractionMessage": "抽屉空了。",
+          "dialogue": [
+            "里面有震动声。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "s_corridor",
+          "label": "返回走廊"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "s_hallway",
+          "label": "进入内廊"
+        }
+      ]
+    },
+    "s_hallway": {
+      "id": "s_hallway",
+      "title": "内部走廊",
+      "imageUrl": "./assets/scene_s_hallway.jpg",
+      "description": "连接着各个房间。海报上的美女眼睛被涂黑了。",
+      "interactables": [
+        {
+          "id": "obj_poster_rip",
+          "name": "撕坏的海报",
+          "description": "海报翘起的一角。",
+          "itemRewardId": "i_batteries",
+          "postInteractionMessage": "墙皮脱落了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "s_reception",
+          "label": "前台"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "s_screening_room_a",
+          "label": "1号放映室"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "s_screening_room_b",
+          "label": "2号放映室"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "s_manager_office",
+          "label": "经理室"
+        }
+      ]
+    },
+    "s_screening_room_a": {
+      "id": "s_screening_room_a",
+      "title": "雪花放映室",
+      "imageUrl": "./assets/scene_s_screening_room_a.jpg",
+      "description": "电视机发出刺耳的白噪音。沙发被划得稀烂。",
+      "interactables": [
+        {
+          "id": "obj_vcd_setup",
+          "name": "连接VCD",
+          "description": "电视机上有AV接口。如果你有播放设备的话...",
+          "requiredItemId": "i_vcd_player",
+          "isPuzzle": true,
+          "puzzleId": "p_vcd_repair",
+          "itemRewardId": "i_photo",
+          "postInteractionMessage": "VCD机正在循环播放那个画面。",
+          "dialogue": [
+            "把VCD接上去试试。"
+          ]
+        },
+        {
+          "id": "obj_sofa_search",
+          "name": "破沙发",
+          "description": "坐垫下似乎藏着东西。",
+          "itemRewardId": "i_crowbar",
+          "postInteractionMessage": "沙发里什么都没了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "s_hallway",
+          "label": "离开"
+        }
+      ]
+    },
+    "s_screening_room_b": {
+      "id": "s_screening_room_b",
+      "title": "被封死的房间",
+      "imageUrl": "./assets/scene_s_screening_room_b.jpg",
+      "description": "这里被木板封死了。缝隙里透出寒气。",
+      "interactables": [
+        {
+          "id": "obj_planks",
+          "name": "封条木板",
+          "description": "用长钉钉死的木板。",
+          "requiredItemId": "i_crowbar",
+          "flagReward": "room_b_open",
+          "lockedMessage": "你需要撬棍才能通过。",
+          "postInteractionMessage": "木板已被撬开，露出了后面的杂物间。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "s_hallway",
+          "label": "返回"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "s_storage",
+          "label": "进入杂物间",
+          "locked": true,
+          "requiredFlag": "room_b_open"
+        }
+      ]
+    },
+    "s_storage": {
+      "id": "s_storage",
+      "title": "黑暗杂物间",
+      "imageUrl": "./assets/scene_s_storage.jpg",
+      "description": "非常黑，伸手不见五指。你需要光源。",
+      "interactables": [
+        {
+          "id": "obj_toolbox",
+          "name": "工具箱",
+          "description": "角落里的工具箱。需要输入三个形状。",
+          "hiddenIfFlag": "storage_open",
+          "isPuzzle": true,
+          "puzzleId": "p_storage_lock",
+          "itemRewardId": "i_fuse",
+          "requiredFlag": "has_light",
+          "lockedMessage": "太黑了，你什么也看不见。",
+          "postInteractionMessage": "工具箱已打开。"
+        },
+        {
+          "id": "obj_vhs_pile",
+          "name": "录像带堆",
+          "description": "一堆废弃录像带。",
+          "requiredFlag": "has_light",
+          "itemRewardId": "i_vhs_forbidden",
+          "postInteractionMessage": "其余的带子都发霉了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "s_screening_room_b",
+          "label": "返回2号放映室"
+        }
+      ]
+    },
+    "s_manager_office": {
+      "id": "s_manager_office",
+      "title": "经理办公室",
+      "imageUrl": "./assets/scene_s_manager_office.jpg",
+      "description": "地上散落着文件。桌上有一个显眼的保险柜和一本笔记本。",
+      "interactables": [
+        {
+          "id": "obj_safe",
+          "name": "保险柜",
+          "description": "黑色的铁柜子。",
+          "isPuzzle": true,
+          "puzzleId": "p_safe",
+          "itemRewardId": "i_booth_key",
+          "postInteractionMessage": "保险柜已经被洗劫一空。"
+        },
+        {
+          "id": "obj_diary_pickup",
+          "name": "值班日记",
+          "description": "一本黑皮笔记本，放在桌面上。",
+          "itemRewardId": "i_diary",
+          "postInteractionMessage": "你拿走了日记。",
+          "dialogue": [
+            "记录了一些关于工具箱密码的事。"
+          ]
+        },
+        {
+          "id": "obj_calendar",
+          "name": "台历",
+          "description": "1999年12月31日被圈红了。",
+          "itemRewardId": "i_coin",
+          "postInteractionMessage": "台历下面只有灰尘。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "s_hallway",
+          "label": "离开"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "s_bathroom",
+          "label": "洗手间"
+        }
+      ]
+    },
+    "s_bathroom": {
+      "id": "s_bathroom",
+      "title": "阴森洗手间",
+      "imageUrl": "./assets/scene_s_bathroom.jpg",
+      "description": "水滴声回荡。尽头有一扇标着“机房重地”的铁门。",
+      "interactables": [
+        {
+          "id": "obj_booth_door_lock",
+          "name": "机房铁门",
+          "description": "通往放映室的门。",
+          "requiredItemId": "i_booth_key",
+          "lockedMessage": "没有钥匙打不开。",
+          "flagReward": "booth_unlocked",
+          "postInteractionMessage": "门锁开了。"
+        },
+        {
+          "id": "obj_sink",
+          "name": "堵塞的水槽",
+          "description": "下水道被一团线堵住了。",
+          "itemRewardId": "i_cable",
+          "postInteractionMessage": "水终于流下去了。"
+        },
+        {
+          "id": "obj_broken_mirror",
+          "name": "破碎的镜子",
+          "description": "镜子上映出扭曲的黑暗。仔细看，镜面被划出了几个符号，顺序是：星、菱、倒三角。",
+          "icon": "🪞",
+          "postInteractionMessage": "镜面被划出了几个符号，顺序是：星、菱、倒三角。",
+          "dialogue": []
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "s_manager_office",
+          "label": "返回"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "s_projection_booth",
+          "label": "进入机房",
+          "locked": true,
+          "requiredFlag": "booth_unlocked"
+        }
+      ]
+    },
+    "s_projection_booth": {
+      "id": "s_projection_booth",
+      "title": "总控放映室",
+      "imageUrl": "./assets/scene_s_projection_booth.jpg",
+      "description": "巨大的放映机像一头沉睡的怪兽。你需要按顺序修复它。",
+      "interactables": [
+        {
+          "id": "obj_cable_slot",
+          "name": "1. 视频信号口",
+          "description": "缺少信号连接线。",
+          "requiredItemId": "i_cable",
+          "flagReward": "cable_set",
+          "postInteractionMessage": "线缆已连接。",
+          "lockedMessage": "请先连接视频线。"
+        },
+        {
+          "id": "obj_tape_slot",
+          "name": "2. 录像带卡槽",
+          "description": "放入那盘关键的录像带。",
+          "requiredFlag": "cable_set",
+          "requiredItemId": "i_vhs_forbidden",
+          "flagReward": "tape_set",
+          "postInteractionMessage": "录像带已推入。",
+          "lockedMessage": "请先连接好线缆，再放入录像带。"
+        },
+        {
+          "id": "obj_projector_main",
+          "name": "3. 启动电源",
+          "description": "最后一步：安装保险丝并根据照片调整相位。",
+          "requiredFlag": "tape_set",
+          "requiredItemId": "i_fuse",
+          "isPuzzle": true,
+          "puzzleId": "p_projector",
+          "winsGame": true,
+          "lockedMessage": "请先完成线缆连接和录像带安装。",
+          "postInteractionMessage": "仪式已完成。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "s_bathroom",
+          "label": "返回洗手间"
+        }
+      ]
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

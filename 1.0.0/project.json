@@ -1,0 +1,36 @@
+{
+  "project_id": "m_3oc3",
+  "version": "1.0.0",
+  "author": {
+    "id": "502998661"
+  },
+  "taptap_publish": {
+    "title": "千禧倒计时：Y2K末日机房",
+    "description": "1999年12月31日，你被困在即将因Y2K崩溃的核心机房。解开倒计时谜题，重启主机，从末日机房逃出。",
+    "category": "puzzle",
+    "screen_orientation": "landscape",
+    "collection_type": "sce",
+    "trial_note": "审核请驳回此次请求\n审核请驳回此次请求\n审核请驳回此次请求",
+    "transparent": false,
+    "app_platforms": "1,2",
+    "developer_id": 368176,
+    "app_id": 913010,
+    "miniapp_id": "tapmcd5wtldee4kyci"
+  },
+  "assets": {
+    "icon": "./game_material/icon.png",
+    "screenshots": [
+      "./game_material/screenshot_1.png",
+      "./game_material/screenshot_2.png",
+      "./game_material/screenshot_3.png"
+    ],
+    "promotional_image": "./game_material/promo.jpg",
+    "icon_url": "https://tapcode-sce.spark.xd.com/assets/game_material/m_3oc3/icon.png",
+    "promotional_image_url": "https://tapcode-sce.spark.xd.com/assets/game_material/m_3oc3/promo.jpg",
+    "screenshot_urls": [
+      "https://tapcode-sce.spark.xd.com/assets/game_material/m_3oc3/screenshot_1.png",
+      "https://tapcode-sce.spark.xd.com/assets/game_material/m_3oc3/screenshot_2.png",
+      "https://tapcode-sce.spark.xd.com/assets/game_material/m_3oc3/screenshot_3.png"
+    ]
+  }
+}

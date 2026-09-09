@@ -1,0 +1,578 @@
+{
+  "meta": {
+    "name": "无尽雨巷",
+    "author": "哈基米",
+    "version": "1.0.3",
+    "description": "你醒来时，发现自己身处一幅名为《无尽雨巷》的水墨画中。四周是流动的黑色墨迹，天空下着永不停歇的黑雨。传说百年前，一位疯癫的画师将活人封入画中以求永生。你必须在画卷完全崩塌前，找到散落的朱砂印章，打破诅咒逃离此地。",
+    "style": "Dark ink wash painting, traditional Chinese horror, high contrast black and white, sketch style, rough textures",
+    "sceneStyle": "Atmospheric perspective, dripping ink effects, cinematic wide angles, gloomy lighting, monochromatic with splashing rain",
+    "itemStyle": "Isometric, sharp focus, white background, ink wash illustration style, highly detailed with single red accent color",
+    "musicStyle": "Slow Guzheng melodies, heavy rain sound effects, ambient drone, eerie whispers, low frequency rumbles",
+    "endingMessage": "随着朱砂印章落下，墨色的世界瞬间破碎。你猛地睁开眼，发现自己正站在美术馆的展厅里，面前那幅《无尽雨巷》似乎褪去了一层诡异的黑色，画中那个模糊的背影消失了。你摸了摸口袋，指尖竟沾着一抹未干的朱红。",
+    "endingSceneId": "scene_ending",
+    "useBannerAsTitleBg": true,
+    "bgmUrl": "./assets/bgm.mp3",
+    "designConfig": {
+      "theme": "主角被困在一幅名为“无尽雨巷”的诅咒水墨画卷中，所有的景物都由流动的黑色墨迹构成且正在逐渐崩塌。为了逃离这个黑白颠倒的世界，你必须寻找散落的红色印章，解开百年前那位疯癫画师将活人封入画中的恐怖真相。",
+      "sceneCount": 10,
+      "itemCount": 10,
+      "puzzleCount": 8,
+      "requiredItems": "断裂的狼毫笔, 沾血的朱砂印章, 一只绣花鞋, 残缺的脸谱面具, 写满咒文的宣纸, 生锈的雕刻刀, 白蜡烛, 铁锈钥匙",
+      "requiredScenes": "墨雨长廊, 挂满白绫的祠堂, 坍塌的古戏台, 疯画师的阁楼, 堆满纸人的偏房"
+    }
+  },
+  "initialState": {
+    "currentSceneId": "scene_corridor",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "四周是一片死寂的黑白世界，只有淅淅沥沥的雨声。",
+      "空气中弥漫着陈旧的墨汁味和淡淡的血腥气。",
+      "我似乎被困在了一幅画里……墨迹正在崩塌，必须尽快离开。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_knife": {
+      "id": "item_knife",
+      "name": "生锈的雕刻刀",
+      "description": "一把沾满墨渍的旧刀，似乎可以用来割开纸张或绳索。",
+      "type": "TOOL",
+      "icon": "🔪",
+      "image": "./assets/item_knife.png"
+    },
+    "item_paper": {
+      "id": "item_paper",
+      "name": "写满咒文的宣纸",
+      "description": "一张皱巴巴的宣纸，上面用狂草写着一行数字：'4-9-2-7'。",
+      "type": "NOTE",
+      "icon": "📜",
+      "image": "./assets/item_paper.png",
+      "clueForPuzzleId": "puz_shrine_box"
+    },
+    "item_key_tea": {
+      "id": "item_key_tea",
+      "name": "黄铜钥匙",
+      "description": "一把沉甸甸的老式钥匙，柄部刻着一片茶叶的形状。",
+      "type": "KEY",
+      "icon": "🗝️",
+      "image": "./assets/item_key_tea.png"
+    },
+    "item_fragment": {
+      "id": "item_fragment",
+      "name": "破碎的画卷残片",
+      "description": "画卷缺失的一角，边缘参差不齐，似乎正好能补全戏台的背景。",
+      "type": "TOOL",
+      "icon": "🧩",
+      "image": "./assets/item_fragment.png",
+      "clueForPuzzleId": "puz_stage_backdrop"
+    },
+    "item_mask": {
+      "id": "item_mask",
+      "name": "残缺的脸谱面具",
+      "description": "半张京剧脸谱，表情狰狞，似乎在哭泣。",
+      "type": "TOOL",
+      "icon": "🎭",
+      "image": "./assets/item_mask.png"
+    },
+    "item_shoe": {
+      "id": "item_shoe",
+      "name": "一只绣花鞋",
+      "description": "红色的绣花鞋，鞋底居然刻着三个符号：'▲●■'。",
+      "type": "CLUE",
+      "icon": "👠",
+      "image": "./assets/item_shoe.png",
+      "clueForPuzzleId": "puz_study_cabinet"
+    },
+    "item_key_attic": {
+      "id": "item_key_attic",
+      "name": "铁锈钥匙",
+      "description": "一把冰冷的铁钥匙，上面缠绕着黑色的头发。",
+      "type": "KEY",
+      "icon": "🗝️",
+      "image": "./assets/item_key_attic.png"
+    },
+    "item_brush": {
+      "id": "item_brush",
+      "name": "断裂的狼毫笔",
+      "description": "画师生前用过的笔，笔杆断裂处刻着微小的数字：'8-8-4-8'。",
+      "type": "CLUE",
+      "icon": "🖌️",
+      "image": "./assets/item_brush.png",
+      "clueForPuzzleId": "puz_attic_chest"
+    },
+    "item_seal": {
+      "id": "item_seal",
+      "name": "沾血的朱砂印章",
+      "description": "鲜红刺眼的印章，底面刻着一个古老的符字：'敕'。这是画师的落款，也是封印这幅画的关键。",
+      "type": "KEY",
+      "icon": "🛑",
+      "image": "./assets/item_seal.png",
+      "clueForPuzzleId": "puz_final_seal"
+    },
+    "item_candle": {
+      "id": "item_candle",
+      "name": "白蜡烛",
+      "description": "祭祀用的白蜡烛，散发着油脂的怪味。它可以提供稳定的光源。",
+      "type": "TOOL",
+      "icon": "🕯️",
+      "image": "./assets/item_candle.png"
+    }
+  },
+  "puzzles": {
+    "puz_corridor_gate": {
+      "id": "puz_corridor_gate",
+      "description": "门闩上刻着几个模糊的符号，需要按照柱子上血迹的提示顺序按下。",
+      "answer": "🌑🌒🌓🌔",
+      "rewardFlag": "flag_corridor_open",
+      "rewardMessage": "门闩咔嚓一声断裂，通往庭院的路打开了。",
+      "type": "symbol",
+      "choices": [
+        "🌑",
+        "🌒",
+        "🌓",
+        "🌔",
+        "🌕",
+        "🌖"
+      ]
+    },
+    "puz_shrine_box": {
+      "id": "puz_shrine_box",
+      "description": "木盒上挂着一把四位数的密码锁，似乎需要某种特定的年份或数字。",
+      "answer": "4927",
+      "rewardFlag": "flag_shrine_box_open",
+      "rewardMessage": "锁扣弹开，里面放着一把黄铜钥匙。",
+      "type": "numeric"
+    },
+    "puz_tea_safe": {
+      "id": "puz_tea_safe",
+      "description": "茶柜被一把精巧的锁锁住了，需要输入三位数字。",
+      "answer": "520",
+      "rewardFlag": "flag_tea_safe_open",
+      "rewardMessage": "柜门打开，你发现了一块破碎的画卷残片。",
+      "type": "numeric"
+    },
+    "puz_stage_backdrop": {
+      "id": "puz_stage_backdrop",
+      "description": "戏台的背景画缺失了一角。请将手中的画卷残片拼回原位，修复画面。",
+      "rewardFlag": "flag_backdrop_fixed",
+      "rewardMessage": "随着残片归位，画卷修复完整，背景板缓缓移开，露出了一个残缺的面具。",
+      "type": "image_grid",
+      "answer": "fixed",
+      "linkedAssetId": "item_fragment",
+      "gridSize": 3
+    },
+    "puz_study_cabinet": {
+      "id": "puz_study_cabinet",
+      "description": "书柜的锁孔形状奇特，需要按照特定顺序按下几何符号。",
+      "answer": "▲●■",
+      "rewardFlag": "flag_study_open",
+      "rewardMessage": "柜门开启，里面放着一支断裂的狼毫笔。",
+      "type": "symbol",
+      "choices": [
+        "▲",
+        "▼",
+        "●",
+        "■",
+        "★",
+        "♦"
+      ]
+    },
+    "puz_attic_chest": {
+      "id": "puz_attic_chest",
+      "description": "这个沉重的箱子上刻着复杂的纹路，需要输入四位密码。",
+      "answer": "8848",
+      "rewardFlag": "flag_attic_chest_open",
+      "rewardMessage": "箱子沉重地打开了，里面是一枚沾血的朱砂印章。",
+      "type": "numeric"
+    },
+    "puz_well_lid": {
+      "id": "puz_well_lid",
+      "description": "枯井的盖子上刻着八卦方位，需要选出'死门'的方位符号。",
+      "answer": "☷",
+      "rewardFlag": "flag_well_open",
+      "rewardMessage": "井盖轰然移开，露出幽深的井口。",
+      "type": "symbol",
+      "choices": [
+        "☰",
+        "☱",
+        "☲",
+        "☳",
+        "☴",
+        "☵",
+        "☶",
+        "☷"
+      ]
+    },
+    "puz_final_seal": {
+      "id": "puz_final_seal",
+      "description": "画卷上的墨迹疯狂涌动，必须选择正确的符咒将其镇压。",
+      "answer": "敕",
+      "rewardFlag": "flag_game_won",
+      "rewardMessage": "随着印章盖下，金光乍现，世界开始崩塌重组。",
+      "type": "symbol",
+      "choices": [
+        "封",
+        "禁",
+        "敕",
+        "令",
+        "尸",
+        "鬼"
+      ]
+    }
+  },
+  "scenes": {
+    "scene_corridor": {
+      "id": "scene_corridor",
+      "title": "墨雨长廊",
+      "imageUrl": "./assets/scene_corridor.jpg",
+      "description": "一条漫长的回廊，两侧是无尽的黑暗。雨水也是黑色的，滴落在地板上发出滋滋的腐蚀声。柱子上刻着诡异的抓痕。",
+      "interactables": [
+        {
+          "id": "int_pillar",
+          "name": "柱子上的抓痕",
+          "description": "抓痕深浅不一，隐约组成了一组符号顺序：🌑 -> 🌒 -> 🌓 -> 🌔。",
+          "postInteractionMessage": "符号依然清晰可见：🌑 🌒 🌓 🌔。",
+          "clueForPuzzleId": "puz_corridor_gate"
+        },
+        {
+          "id": "int_knife",
+          "name": "地上的黑影",
+          "description": "仔细看，那是一把插在地板上的雕刻刀。",
+          "itemRewardId": "item_knife",
+          "postInteractionMessage": "刀已经被你拔出来了，地上留下一个深坑。"
+        },
+        {
+          "id": "int_gate",
+          "name": "尽头的铁门",
+          "description": "通往庭院的大门紧锁着，门闩上有一个机关。",
+          "isPuzzle": true,
+          "puzzleId": "puz_corridor_gate",
+          "lockedMessage": "门锁死死的，需要破解机关。",
+          "postInteractionMessage": "门已经打开了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_courtyard",
+          "label": "前往庭院",
+          "requiredFlag": "flag_corridor_open"
+        }
+      ]
+    },
+    "scene_courtyard": {
+      "id": "scene_courtyard",
+      "title": "荒废庭院",
+      "imageUrl": "./assets/scene_courtyard.jpg",
+      "description": "庭院中央有一棵枯死的槐树，树枝像鬼手一样伸向天空。四周通向不同的房间。",
+      "interactables": [
+        {
+          "id": "int_tree",
+          "name": "枯死槐树",
+          "description": "树干上钉着一张纸条：'坤为地，死门在西南（☷）'。",
+          "clueForPuzzleId": "puz_well_lid",
+          "postInteractionMessage": "纸条上写着：'坤为地，死门在西南（☷）'。"
+        },
+        {
+          "id": "int_well_entrance",
+          "name": "被封死的枯井",
+          "description": "一口早已干涸的井，井盖上刻着八卦阵。",
+          "isPuzzle": true,
+          "puzzleId": "puz_well_lid",
+          "postInteractionMessage": "井盖已经打开，可以下去了。",
+          "targetSceneId": "scene_well"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_corridor",
+          "label": "返回长廊"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_shrine",
+          "label": "进入祠堂"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "scene_stage",
+          "label": "前往戏台"
+        },
+        {
+          "direction": "down",
+          "targetSceneId": "scene_well",
+          "label": "进入枯井",
+          "requiredFlag": "flag_well_open"
+        }
+      ]
+    },
+    "scene_effigy_room": {
+      "id": "scene_effigy_room",
+      "title": "堆满纸人的偏房",
+      "imageUrl": "./assets/scene_effigy_room.jpg",
+      "description": "房间里密密麻麻站满了纸扎人，它们画着鲜艳的腮红，眼珠似乎盯着你看。",
+      "interactables": [
+        {
+          "id": "int_doll",
+          "name": "腹部隆起的纸人",
+          "description": "这个纸人的肚子鼓鼓的，似乎藏着东西。",
+          "requiredItemId": "item_knife",
+          "lockedMessage": "纸人的蒙皮很韧，徒手撕不开，需要锐器。",
+          "itemRewardId": "item_paper",
+          "postInteractionMessage": "纸人的肚子被剖开了，里面是空的。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_shrine",
+          "label": "返回祠堂"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "scene_tea_room",
+          "label": "进入茶室"
+        }
+      ]
+    },
+    "scene_shrine": {
+      "id": "scene_shrine",
+      "title": "挂满白绫的祠堂",
+      "imageUrl": "./assets/scene_shrine.jpg",
+      "description": "无数条白绫从房梁垂下，随风飘荡。正中央供奉着一个没有头的神像。",
+      "interactables": [
+        {
+          "id": "int_shrine_box",
+          "name": "供桌上的木盒",
+          "description": "一个古色古香的木盒，挂着密码锁。",
+          "isPuzzle": true,
+          "puzzleId": "puz_shrine_box",
+          "postInteractionMessage": "木盒打开着，里面空空如也。",
+          "itemRewardId": "item_key_tea"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_courtyard",
+          "label": "返回庭院"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "scene_effigy_room",
+          "label": "进入偏房"
+        }
+      ]
+    },
+    "scene_tea_room": {
+      "id": "scene_tea_room",
+      "title": "破败茶室",
+      "imageUrl": "./assets/scene_tea_room.jpg",
+      "description": "茶具散落一地，墙上挂着几幅发霉的字画。这里似乎曾是画师休息的地方。",
+      "interactables": [
+        {
+          "id": "int_teapot",
+          "name": "古怪的茶壶",
+          "description": "点击茶壶，它发出了清脆的敲击声，节奏像是：5-2-0。",
+          "audioMessage": "520",
+          "clueForPuzzleId": "puz_tea_safe",
+          "postInteractionMessage": "茶壶再次发出敲击声：5... 2... 0..."
+        },
+        {
+          "id": "int_tea_safe",
+          "name": "上锁的茶柜",
+          "description": "柜门紧锁，需要三位密码。",
+          "lockedMessage": "这是特制的锁，需要钥匙才能操作面板。",
+          "requiredItemId": "item_key_tea",
+          "isPuzzle": true,
+          "puzzleId": "puz_tea_safe",
+          "postInteractionMessage": "茶柜已经打开了。",
+          "itemRewardId": "item_fragment"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_effigy_room",
+          "label": "返回偏房"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_study",
+          "label": "进入书房"
+        }
+      ]
+    },
+    "scene_stage": {
+      "id": "scene_stage",
+      "title": "坍塌的古戏台",
+      "imageUrl": "./assets/scene_stage.jpg",
+      "description": "戏台的一角已经坍塌，背景板是一幅巨大的水墨山水，但中间缺了一块。",
+      "interactables": [
+        {
+          "id": "int_backdrop",
+          "name": "残缺的背景画",
+          "description": "背景画缺了一块，切口很整齐。",
+          "lockedMessage": "你需要找到缺失的画卷残片来修复它。",
+          "requiredItemId": "item_fragment",
+          "isPuzzle": true,
+          "puzzleId": "puz_stage_backdrop",
+          "itemRewardId": "item_mask",
+          "postInteractionMessage": "背景画已经修复完整，暗格已打开。"
+        },
+        {
+          "id": "int_mannequin",
+          "name": "无脸的戏服架",
+          "description": "穿着戏服的架子，头部空荡荡的，似乎在等待什么。",
+          "lockedMessage": "它似乎需要一张脸。",
+          "requiredItemId": "item_mask",
+          "itemRewardId": "item_candle",
+          "postInteractionMessage": "戴上面具的戏服架显得格外诡异，它手里捧着一根白蜡烛。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_courtyard",
+          "label": "返回庭院"
+        }
+      ]
+    },
+    "scene_well": {
+      "id": "scene_well",
+      "title": "幽暗枯井",
+      "imageUrl": "./assets/scene_well.jpg",
+      "description": "井底寒气逼人，如果没有光照，什么也看不见。",
+      "interactables": [
+        {
+          "id": "int_darkness",
+          "name": "黑暗角落",
+          "description": "太黑了，需要持续的光源才能探索。",
+          "requiredItemId": "item_candle",
+          "lockedMessage": "伸手不见五指，你需要一支蜡烛。",
+          "postInteractionMessage": "微弱的烛光照亮了井底的淤泥。",
+          "flagReward": "flag_well_lit"
+        },
+        {
+          "id": "int_debris",
+          "name": "井底的杂物",
+          "description": "在一堆烂泥中，有一只红色的绣花鞋格外显眼。",
+          "hiddenIfFlag": "flag_got_shoe",
+          "requiredFlag": "flag_well_lit",
+          "lockedMessage": "太黑了，看不清泥土里的东西。",
+          "itemRewardId": "item_shoe",
+          "flagReward": "flag_got_shoe",
+          "postInteractionMessage": "杂物已经被翻遍了。"
+        },
+        {
+          "id": "int_debris_key",
+          "name": "泥土中的闪光",
+          "description": "泥土里埋着一把铁钥匙。",
+          "hiddenIfFlag": "flag_got_attic_key",
+          "requiredFlag": "flag_well_lit",
+          "lockedMessage": "太黑了，看不清泥土里的东西。",
+          "itemRewardId": "item_key_attic",
+          "flagReward": "flag_got_attic_key",
+          "postInteractionMessage": "泥土里只剩下石头。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_courtyard",
+          "label": "爬出枯井"
+        }
+      ]
+    },
+    "scene_study": {
+      "id": "scene_study",
+      "title": "画师书房",
+      "imageUrl": "./assets/scene_study.jpg",
+      "description": "书房里堆满了废弃的画稿，书桌后面有一个上了锁的柜子。",
+      "interactables": [
+        {
+          "id": "int_cabinet",
+          "name": "几何锁书柜",
+          "description": "柜门上有三个几何形状的按钮。",
+          "isPuzzle": true,
+          "puzzleId": "puz_study_cabinet",
+          "postInteractionMessage": "柜子空了。",
+          "itemRewardId": "item_brush"
+        },
+        {
+          "id": "int_stairs",
+          "name": "通往阁楼的楼梯",
+          "description": "楼梯尽头是一扇沉重的铁门。",
+          "lockedMessage": "铁门紧锁，需要特殊的钥匙。",
+          "requiredItemId": "item_key_attic",
+          "targetSceneId": "scene_attic",
+          "postInteractionMessage": "门已经打开了。",
+          "flagReward": "flag_attic_open"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_tea_room",
+          "label": "返回茶室"
+        },
+        {
+          "direction": "up",
+          "targetSceneId": "scene_attic",
+          "label": "进入阁楼",
+          "requiredFlag": "flag_attic_open"
+        }
+      ]
+    },
+    "scene_attic": {
+      "id": "scene_attic",
+      "title": "疯画师的阁楼",
+      "imageUrl": "./assets/scene_attic.jpg",
+      "description": "这里是诅咒的核心。房间中央摆放着巨大的画架，上面就是这幅《无尽雨巷》的本体。角落里放着一个巨大的铁箱。",
+      "interactables": [
+        {
+          "id": "int_attic_chest",
+          "name": "黑铁箱",
+          "description": "箱子上刻着画师的绝笔，以及一个四位密码锁。",
+          "isPuzzle": true,
+          "puzzleId": "puz_attic_chest",
+          "itemRewardId": "item_seal",
+          "postInteractionMessage": "箱子已打开。"
+        },
+        {
+          "id": "int_painting_final",
+          "name": "诅咒画卷",
+          "description": "画卷上的墨汁在沸腾，仿佛要吞噬一切。必须用朱砂印章封印它！",
+          "lockedMessage": "你需要画师的朱砂印章才能封印它。",
+          "requiredItemId": "item_seal",
+          "winsGame": true,
+          "postInteractionMessage": "画卷被封印了，光芒四射。",
+          "puzzleId": "puz_final_seal",
+          "isPuzzle": true
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_study",
+          "label": "返回书房"
+        }
+      ]
+    },
+    "scene_ending": {
+      "id": "scene_ending",
+      "title": "现实世界",
+      "imageUrl": "./assets/scene_ending.jpg",
+      "description": "明亮的灯光，喧嚣的人群。你站在美术馆中，周围的一切是如此真实。那幅画静静地挂在墙上，不再流动。",
+      "interactables": [],
+      "exits": []
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

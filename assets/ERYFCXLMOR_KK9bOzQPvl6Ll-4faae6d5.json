@@ -1,0 +1,370 @@
+{
+  "meta": {
+    "name": "回响之茧：异变前哨",
+    "author": "零殇",
+    "version": "1.2",
+    "description": "在冰封星球的废弃科研站中，揭开血肉与机械融合的恐怖真相。",
+    "style": "克苏鲁式科幻恐怖, 废土工业风, 生物机械美学, 深蓝冰白暗红墨绿, 高对比度低饱和度, 超现实肉质纹理, 尖锐机械结构, 故障应急灯光, 诡异生物荧光, 压抑阴森",
+    "endingMessage": "随着通讯塔尖端的信标刺破风雪，一道幽蓝的光束直射天际。几分钟后，云层翻涌，一艘巨大的黑色飞船缓缓降落。你松了一口气，但当你看到飞船侧舷上那个你曾在实验室见过的、如同活体眼球般的徽章时，你的血液再次凝固。救援？不，这只是另一场收割的开始... \n[游戏通关]",
+    "useBannerAsTitleBg": true,
+    "bgmUrl": "./assets/bgm.mp3"
+  },
+  "initialState": {
+    "currentSceneId": "scene_cryo",
+    "inventory": [],
+    "flags": {
+      "reactor_cleaned": false,
+      "lab_unlocked": false,
+      "elevator_powered": false,
+      "has_access_card": false,
+      "console_powered": false
+    },
+    "log": [
+      "系统重启中... 错误代码：E-773...",
+      "生命体征检测：微弱。",
+      "你猛地吸入一口冰冷的空气，肺部如同被玻璃碎片刺穿。",
+      "休眠舱的玻璃盖缓缓滑开，刺耳的摩擦声在死寂的房间里回荡。",
+      "这里是“回响之茧”科研站。或者说，曾经是。",
+      "空气中弥漫着锈蚀金属和某种... 腐烂甜腻的味道。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_lightstick": {
+      "id": "item_lightstick",
+      "name": "应急照明棒",
+      "description": "一根还能使用的化学照明棒，发出微弱的冷光，足以照亮黑暗的角落。",
+      "type": "TOOL",
+      "icon": "🔦",
+      "image": "./assets/item_item_lightstick.png"
+    },
+    "item_datapad": {
+      "id": "item_datapad",
+      "name": "损坏的数据板",
+      "description": "屏幕碎裂的个人终端。上面残留着一条未发送的信息：'生物实验室的密码是... 4096。那是我们开始犯错的年份。'",
+      "type": "NOTE",
+      "icon": "📱",
+      "image": "./assets/item_item_datapad.png"
+    },
+    "item_fleshtool": {
+      "id": "item_fleshtool",
+      "name": "血肉融合的工具",
+      "description": "一把重型液压剪，但手柄处不知为何缠绕着已经硬化的肌肉组织，仿佛它曾是某人手臂的一部分。",
+      "type": "TOOL",
+      "icon": "✂️",
+      "image": "./assets/item_item_fleshtool.png"
+    },
+    "item_keycard": {
+      "id": "item_keycard",
+      "name": "主管级门禁卡",
+      "description": "沾有干涸血迹的磁卡，属于曾经的站长。权限级别：红色。",
+      "type": "KEY",
+      "icon": "💳",
+      "image": "./assets/item_item_keycard.png"
+    },
+    "item_sample": {
+      "id": "item_sample",
+      "name": "活性组织样本",
+      "description": "封在玻璃管中的黑色粘稠物质，它似乎在盯着你看。",
+      "type": "CLUE",
+      "icon": "🧪",
+      "image": "./assets/item_item_sample.png"
+    },
+    "item_diary": {
+      "id": "item_diary",
+      "name": "加密的日记碎片",
+      "description": "一张被撕下的纸页，潦草地写着：'只有核心反应堆能驱动通讯塔。频率必须设定为逃生频段：SOS-777。'",
+      "type": "NOTE",
+      "icon": "📄",
+      "image": "./assets/item_item_diary.png"
+    },
+    "item_core": {
+      "id": "item_core",
+      "name": "反应堆控制核心",
+      "description": "一个散发着幽幽蓝光的立方体，虽然表面覆盖了一层薄薄的生物膜，但能量读数正常。",
+      "type": "KEY",
+      "icon": "☢️",
+      "image": "./assets/item_item_core.png"
+    }
+  },
+  "puzzles": {
+    "puzzle_lab_door": {
+      "id": "puzzle_lab_door",
+      "description": "通往生物实验室的气密门紧锁。面板请求输入4位安全代码。",
+      "answer": "4096",
+      "rewardFlag": "lab_unlocked",
+      "rewardMessage": "认证通过。气压阀嘶嘶作响，大门缓缓开启。"
+    },
+    "puzzle_signal": {
+      "id": "puzzle_signal",
+      "description": "能源已恢复。请输入紧急广播频率格式（例如：ABC-123）以发送求救信号。",
+      "answer": "SOS-777",
+      "rewardFlag": "game_won_flag",
+      "rewardMessage": "信号已锁定。正在广播..."
+    }
+  },
+  "scenes": {
+    "scene_cryo": {
+      "id": "scene_cryo",
+      "title": "冷冻休眠舱区",
+      "imageUrl": "./assets/scene_scene_cryo.jpg",
+      "description": "一排排休眠舱如同墓碑般矗立。大部分舱体已经破裂，里面充满了浑浊的红色液体。应急灯忽明忽暗。",
+      "interactables": [
+        {
+          "id": "corpse_researcher",
+          "name": "惨死的原本同事",
+          "description": "他手里紧紧攥着什么东西，表情凝固在极度的惊恐中。",
+          "itemRewardId": "item_lightstick",
+          "dialogue": [
+            "你掰开了僵硬的手指。",
+            "拿到了一个还能用的照明棒。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_corridor",
+          "label": "前往中央走廊"
+        }
+      ]
+    },
+    "scene_corridor": {
+      "id": "scene_corridor",
+      "title": "中央连接走廊",
+      "imageUrl": "./assets/scene_scene_corridor.jpg",
+      "description": "这里是连接各个区域的枢纽。墙壁上布满了像是血管一样的黑色藤蔓，它们在微微搏动。东侧是生物实验室的大门。",
+      "interactables": [
+        {
+          "id": "darkness_check",
+          "name": "查看周围",
+          "description": "太黑了...",
+          "requiredItemId": "item_lightstick",
+          "lockedMessage": "太黑了，我需要光源才能探索。",
+          "dialogue": [
+            "借着照明棒的光，你看清了路标。",
+            "北面是反应堆，南面是仓库，东面是实验室，上方通往观测台。"
+          ]
+        },
+        {
+          "id": "lab_door_interact",
+          "name": "生物实验室大门",
+          "description": "门上的电子锁闪烁着红光。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_lab_door",
+          "hiddenIfFlag": "lab_unlocked",
+          "dialogue": [
+            "你需要密码才能通过。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_cryo",
+          "label": "返回休眠区"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "scene_storage",
+          "label": "进入物资储藏室"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_biolab",
+          "label": "进入生物实验室",
+          "locked": true,
+          "requiredFlag": "lab_unlocked"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_reactor",
+          "label": "前往反应堆室"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_observation",
+          "label": "爬梯子去观测台",
+          "locked": true,
+          "requiredFlag": "has_access_card"
+        }
+      ]
+    },
+    "scene_storage": {
+      "id": "scene_storage",
+      "title": "物资储藏室",
+      "imageUrl": "./assets/scene_scene_storage.jpg",
+      "description": "货架大多已经倒塌。地上散落着各种零件和碎片。",
+      "interactables": [
+        {
+          "id": "shelf_search",
+          "name": "搜寻货架",
+          "description": "在一堆废铁下压着一个工具。",
+          "itemRewardId": "item_fleshtool",
+          "dialogue": [
+            "你费力地抽出了这把奇怪的剪刀。"
+          ]
+        },
+        {
+          "id": "floor_search",
+          "name": "检查角落的尸体",
+          "description": "这具尸体穿着安保制服，旁边掉落着一个数据板。",
+          "itemRewardId": "item_datapad",
+          "dialogue": [
+            "数据板屏幕虽然裂了，但还能读取最后的信息。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_corridor",
+          "label": "返回走廊"
+        }
+      ]
+    },
+    "scene_biolab": {
+      "id": "scene_biolab",
+      "title": "废弃的生物实验室",
+      "imageUrl": "./assets/scene_scene_biolab.jpg",
+      "description": "这里是噩梦的源头。巨大的培养皿中漂浮着畸形的肢体。桌子上乱成一团。",
+      "interactables": [
+        {
+          "id": "desk_search",
+          "name": "检查实验台",
+          "description": "桌上放着一张显眼的红色卡片。",
+          "itemRewardId": "item_keycard",
+          "flagReward": "has_access_card",
+          "hiddenIfFlag": "has_access_card",
+          "dialogue": [
+            "这是主管的门禁卡，拿着它应该能通过走廊的安检门去往上层。"
+          ]
+        },
+        {
+          "id": "vat_inspect",
+          "name": "观察培养皿",
+          "description": "里面的东西...在动。",
+          "itemRewardId": "item_sample",
+          "dialogue": [
+            "你忍着恶心取下了一个样本瓶。也许这能作为某种证据。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_corridor",
+          "label": "离开实验室"
+        }
+      ]
+    },
+    "scene_observation": {
+      "id": "scene_observation",
+      "title": "观测台",
+      "imageUrl": "./assets/scene_scene_observation.jpg",
+      "description": "位于基地上层。巨大的落地窗外是漫天的风雪和黑色的异星山脉。这里相对干净一些。",
+      "interactables": [
+        {
+          "id": "captain_log",
+          "name": "阅读桌面文件",
+          "description": "桌子上有一本被撕毁的日记。",
+          "itemRewardId": "item_diary",
+          "dialogue": [
+            "日记提到：想要发送信号，必须先去反应堆室拿到核心，然后安装到通讯塔上。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_corridor",
+          "label": "下楼回走廊"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_comms",
+          "label": "外出前往通讯塔"
+        }
+      ]
+    },
+    "scene_reactor": {
+      "id": "scene_reactor",
+      "title": "核心反应堆室（已异变）",
+      "imageUrl": "./assets/scene_scene_reactor.jpg",
+      "description": "反应堆不再是冰冷的机器，它在...呼吸。巨大的肉块包裹着核心，发出震耳欲聋的心跳声。",
+      "interactables": [
+        {
+          "id": "flesh_membrane",
+          "name": "清理肉质薄膜",
+          "description": "控制台完全被覆盖了。",
+          "requiredItemId": "item_fleshtool",
+          "flagReward": "reactor_cleaned",
+          "hiddenIfFlag": "reactor_cleaned",
+          "dialogue": [
+            "你启动液压剪，锋利的刀刃轻易地切开了那层令人作呕的肉膜。",
+            "随着一阵粘稠的撕裂声，控制台终于重见天日，核心插槽暴露了出来。"
+          ]
+        },
+        {
+          "id": "extract_core",
+          "name": "取出核心",
+          "description": "现在可以接触到核心了。",
+          "requiredFlag": "reactor_cleaned",
+          "itemRewardId": "item_core",
+          "hiddenIfFlag": "has_core_item",
+          "dialogue": [
+            "你小心翼翼地取出了发光的能量核心。周围的肉壁似乎因疼痛而剧烈颤抖。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_corridor",
+          "label": "逃离反应堆"
+        }
+      ]
+    },
+    "scene_comms": {
+      "id": "scene_comms",
+      "title": "通讯中继塔（被冰雪覆盖）",
+      "imageUrl": "./assets/scene_scene_comms.jpg",
+      "description": "暴风雪肆虐的室外平台。巨大的金属塔身被冰层覆盖。控制台虽然冻结，但看起来还能运作。",
+      "interactables": [
+        {
+          "id": "comms_console",
+          "name": "激活控制台",
+          "description": "没有能源，无法启动。",
+          "requiredItemId": "item_core",
+          "flagReward": "console_powered",
+          "hiddenIfFlag": "console_powered",
+          "dialogue": [
+            "你插入了反应堆核心。控制台的灯光亮起，屏幕上显示“等待输入频率”。"
+          ]
+        },
+        {
+          "id": "send_sos",
+          "name": "发送求救信号",
+          "description": "输入频率以发送信号。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_signal",
+          "winsGame": true,
+          "requiredFlag": "console_powered",
+          "lockedMessage": "控制台未通电，需要先安装核心。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_observation",
+          "label": "返回观测台"
+        }
+      ]
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

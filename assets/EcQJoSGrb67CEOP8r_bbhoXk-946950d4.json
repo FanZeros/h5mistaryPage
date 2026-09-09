@@ -1,0 +1,503 @@
+{
+  "meta": {
+    "name": "傀儡镇：迷雾轮回",
+    "author": "零殇",
+    "version": "1.1.1",
+    "description": "你苏醒于鬼节之夜的江南水乡，浓雾锁住了去路，戏台上演着当年的惨案。你必须在引魂灯燃尽前，搜集破碎的线索，破解傀儡诅咒。",
+    "style": "Dark Chinese ink wash painting, horror atmosphere, low saturation, grainy film texture, crimson accents",
+    "sceneStyle": "Atmospheric perspective, wide angle, eerie fog, traditional Chinese architecture, high contrast chiaroscuro, ink blot texture",
+    "itemStyle": "Isometric view, sharp focus, plain dark background, ink wash style illustration, detailed texture",
+    "musicStyle": "Eerie traditional Chinese instruments, guzheng, slow drum beats, wind howling, ambient horror, minimal drone",
+    "endingMessage": "随着红线重新接续，引魂灯的火焰猛然窜高，驱散了百年的迷雾。水流恢复了顺流，戏台上的傀儡崩解为尘土。你看到那些被困的灵魂终于踏上了轮回之路，而你也终于走出了这座永夜的古镇。晨曦微露，噩梦终醒。",
+    "endingSceneId": "scene_ending",
+    "useBannerAsTitleBg": true,
+    "designConfig": {
+      "theme": "玩家在鬼节之夜苏醒于一座被浓雾封锁的江南古镇，这里的河水逆流，戏台上的皮影戏正演绎着当年的惨案。随着村民逐渐异化为提线木偶，你必须在手中的引魂灯燃尽之前，拼凑破碎的记忆，打破这生死轮回的诅咒。",
+      "sceneCount": 7,
+      "itemCount": 15,
+      "puzzleCount": 6,
+      "requiredItems": "将熄的引魂灯, 断裂的红线, 染血的皮影人偶, 受潮的族谱, 生锈的铜钥匙, 祭祀用的纸钱",
+      "requiredScenes": "迷雾缭绕的渡口, 荒废的古戏台, 挂满白灯笼的祠堂, 傀儡师的阴暗工坊, 沉入水底的旧宅, 无人的青石板长街"
+    },
+    "bgmUrl": "./assets/bgm.mp3"
+  },
+  "initialState": {
+    "currentSceneId": "scene_ferry",
+    "inventory": [
+      "item_lamp"
+    ],
+    "flags": {},
+    "log": [
+      "意识如潮水般涌来，冰冷的湿气钻入骨髓。",
+      "我发现自己站在一处荒废的渡口，手中提着一盏忽明忽暗的引魂灯。",
+      "今天是鬼节，这浓雾中似乎隐匿着无数双窥视的眼睛。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_lamp": {
+      "id": "item_lamp",
+      "name": "将熄的引魂灯",
+      "description": "一盏在此地唯一能发出光亮的油灯，油量已经不多了，火苗在风中摇曳。",
+      "type": "TOOL",
+      "icon": "🏮",
+      "image": "./assets/item_lamp.png"
+    },
+    "item_paper_money": {
+      "id": "item_paper_money",
+      "name": "祭祀用的纸钱",
+      "description": "一叠沾着露水的黄纸钱，上面印着粗糙的铜钱纹样，似乎是用来打点“路人”的。",
+      "type": "TOOL",
+      "icon": "💴",
+      "image": "./assets/item_paper_money.png"
+    },
+    "item_morse_chart": {
+      "id": "item_morse_chart",
+      "name": "电码对照表",
+      "description": "一张泛黄的纸，上面写着摩尔斯电码的对照关系。关键部分（1、2、3、4）被圈了出来：",
+      "type": "CLUE",
+      "icon": "📝",
+      "image": "./assets/item_morse_chart.png",
+      "clueForPuzzleId": "puzzle_radio"
+    },
+    "item_rusty_key": {
+      "id": "item_rusty_key",
+      "name": "生锈的铜钥匙",
+      "description": "一把沉重的铜钥匙，上面长满了铜绿，可以打开某种老旧的锁具。",
+      "type": "KEY",
+      "icon": "🗝️",
+      "image": "./assets/item_rusty_key.png"
+    },
+    "item_torn_poster": {
+      "id": "item_torn_poster",
+      "name": "破碎的戏单",
+      "description": "一张被撕碎的旧戏单，上面画着当年的一出大戏《断头祭》。需要拼凑完整才能看清暗藏的玄机。",
+      "type": "CLUE",
+      "icon": "🧩",
+      "image": "./assets/item_torn_poster.png",
+      "clueForPuzzleId": "puzzle_poster"
+    },
+    "item_bloody_puppet": {
+      "id": "item_bloody_puppet",
+      "name": "染血的皮影人偶",
+      "description": "一个做工精细但透着邪气的皮影，心口处有一团干涸的血迹。",
+      "type": "TOOL",
+      "icon": "🎎",
+      "image": "./assets/item_bloody_puppet.png"
+    },
+    "item_diary": {
+      "id": "item_diary",
+      "name": "工匠的绝笔",
+      "description": "一本被水浸泡过的日记，最后一页写着：“那场大火烧毁了一切...为了记住那一天，我把锁的密码设为了火灾发生的年份：1894。”",
+      "type": "CLUE",
+      "icon": "📔",
+      "image": "./assets/item_diary.png",
+      "clueForPuzzleId": "puzzle_chest"
+    },
+    "item_crowbar": {
+      "id": "item_crowbar",
+      "name": "铁撬棍",
+      "description": "坚硬的铁制工具，可以用来撬开封闭的门窗或箱子。",
+      "type": "TOOL",
+      "icon": "🔧",
+      "image": "./assets/item_crowbar.png"
+    },
+    "item_genealogy": {
+      "id": "item_genealogy",
+      "name": "受潮的族谱",
+      "description": "记录着家族成员的谱系。扉页上画着奇怪的符号顺序：▲ (山), ■ (地), ● (日), ★ (星)。",
+      "type": "CLUE",
+      "icon": "📜",
+      "image": "./assets/item_genealogy.png",
+      "clueForPuzzleId": "puzzle_ancestor"
+    },
+    "item_red_thread": {
+      "id": "item_red_thread",
+      "name": "断裂的红线",
+      "description": "一根鲜红的丝线，虽然断裂，但似乎蕴含着某种连接阴阳的法力。",
+      "type": "TOOL",
+      "icon": "🧵",
+      "image": "./assets/item_red_thread.png"
+    },
+    "item_incense": {
+      "id": "item_incense",
+      "name": "沉香",
+      "description": "几根上好的沉香，据说点燃后可以安抚亡灵，显露真迹。",
+      "type": "TOOL",
+      "icon": "🥢",
+      "image": "./assets/item_incense.png"
+    },
+    "item_diving_weight": {
+      "id": "item_diving_weight",
+      "name": "潜水铅块",
+      "description": "极重的铅块，绑在身上可以帮助人潜入深水。",
+      "type": "TOOL",
+      "icon": "⚖️",
+      "image": "./assets/item_diving_weight.png"
+    }
+  },
+  "puzzles": {
+    "puzzle_radio": {
+      "id": "puzzle_radio",
+      "description": "电报机发出了有节奏的声响，似乎在传达某种数字信息。你需要找到对照表来破译它。",
+      "answer": "1423",
+      "rewardFlag": "flag_radio_solved",
+      "rewardMessage": "随着密码正确输入，电报机弹开了一个暗格，里面有一把生锈的钥匙。",
+      "type": "numeric",
+      "requiredClueCount": 1
+    },
+    "puzzle_poster": {
+      "id": "puzzle_poster",
+      "description": "这张戏单被撕得粉碎，你需要将其拼凑完整，才能看清上面隐藏的机关图。",
+      "answer": "IGNORED_FOR_GRID",
+      "rewardFlag": "flag_poster_fixed",
+      "rewardMessage": "戏单拼凑完整后，你发现戏单背后夹着一个染血的皮影人偶。",
+      "type": "image_grid",
+      "linkedAssetId": "item_torn_poster",
+      "gridSize": 3
+    },
+    "puzzle_chest": {
+      "id": "puzzle_chest",
+      "description": "一个沉重的铁皮箱，挂锁上有四个数字滚轮。你需要输入四位密码。",
+      "answer": "1894",
+      "rewardFlag": "flag_chest_opened",
+      "rewardMessage": "锁‘咔哒’一声开了。箱子里放着一块沉重的潜水铅块。",
+      "type": "numeric",
+      "requiredClueCount": 1
+    },
+    "puzzle_ancestor": {
+      "id": "puzzle_ancestor",
+      "description": "祠堂的内门上刻着四个凹槽，似乎需要按照特定顺序按下对应的符号。",
+      "answer": "▲■●★",
+      "rewardFlag": "flag_inner_hall_open",
+      "rewardMessage": "石门发出沉闷的响声，缓缓移开，露出了一条通往地下的积水通道。",
+      "type": "symbol",
+      "choices": [
+        "▲",
+        "▼",
+        "■",
+        "●",
+        "★",
+        "♦",
+        "☾",
+        "☀"
+      ],
+      "requiredClueCount": 1
+    },
+    "puzzle_ghosts": {
+      "id": "puzzle_ghosts",
+      "description": "一群模糊的鬼影挡住了去路，它们伸出干枯的手，似乎在索要什么。",
+      "answer": "item_paper_money",
+      "rewardFlag": "flag_ghosts_cleared",
+      "rewardMessage": "鬼影们抢过纸钱，在阴笑声中消散了。",
+      "type": "numeric"
+    },
+    "puzzle_final_ritual": {
+      "id": "puzzle_final_ritual",
+      "description": "在水底的祭坛上，摆放着两尊残缺的石像，中间是一个凹槽。你需要用红线将皮影人偶连接，并放入凹槽，最后用引魂灯点燃。",
+      "answer": "ritual_complete",
+      "rewardFlag": "flag_game_won",
+      "rewardMessage": "仪式完成，诅咒解除！",
+      "type": "numeric"
+    }
+  },
+  "scenes": {
+    "scene_ferry": {
+      "id": "scene_ferry",
+      "title": "迷雾缭绕的渡口",
+      "imageUrl": "./assets/scene_ferry.jpg",
+      "description": "黑色的河水逆流而上，破旧的木船搁浅在岸边。空气中弥漫着腐烂的水草味。",
+      "interactables": [
+        {
+          "id": "int_boat_debris",
+          "name": "废弃木船",
+          "description": "一艘破烂的乌篷船，船头挂着一个破灯笼。",
+          "itemRewardId": "item_paper_money",
+          "postInteractionMessage": "船舱里已经空空如也，只有几片腐烂的木板。"
+        },
+        {
+          "id": "int_river_water",
+          "name": "逆流河水",
+          "description": "河水违背常理地向高处流去，水底似乎有人脸浮动。",
+          "postInteractionMessage": "还是不要靠得太近为好。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_street",
+          "label": "前往长街"
+        }
+      ]
+    },
+    "scene_street": {
+      "id": "scene_street",
+      "title": "无人的青石板长街",
+      "imageUrl": "./assets/scene_street.jpg",
+      "description": "两侧是紧闭的店铺，青石板路湿滑冰冷。前方有一团浓重的黑雾挡住了去路。",
+      "interactables": [
+        {
+          "id": "int_ghost_blockade",
+          "name": "鬼影迷雾",
+          "description": "那些影子在窃窃私语：‘钱...买路钱...’",
+          "requiredItemId": "item_paper_money",
+          "lockedMessage": "那些影子不肯散去，嘴里念叨着‘钱...买路钱...’，也许得给它们烧点什么。",
+          "flagReward": "flag_ghosts_cleared",
+          "postInteractionMessage": "鬼影已经散去，道路畅通了。",
+          "hiddenIfFlag": "flag_ghosts_cleared"
+        },
+        {
+          "id": "int_rubble_pile",
+          "name": "建筑废墟",
+          "description": "一堆倒塌的砖墙，中间插着一根坚硬的铁棍。",
+          "itemRewardId": "item_crowbar",
+          "postInteractionMessage": "你用力拔出了铁撬棍。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_ferry",
+          "label": "返回渡口"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_workshop",
+          "label": "进入工坊",
+          "locked": true,
+          "requiredFlag": "flag_ghosts_cleared"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_stage",
+          "label": "前往戏台",
+          "locked": true,
+          "requiredFlag": "flag_ghosts_cleared"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_hall",
+          "label": "前往祠堂",
+          "locked": true,
+          "requiredFlag": "flag_ghosts_cleared"
+        }
+      ]
+    },
+    "scene_workshop": {
+      "id": "scene_workshop",
+      "title": "傀儡师的阴暗工坊",
+      "imageUrl": "./assets/scene_workshop.jpg",
+      "description": "房间里挂满了未完成的木偶肢体，随风摆动，仿佛在挣扎。桌上放着一台老旧的电报机。",
+      "interactables": [
+        {
+          "id": "int_telegraph",
+          "name": "电报机",
+          "description": "一台布满灰尘的电报机，当你靠近时，它突然开始自动敲击。",
+          "audioMessage": "1423",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_radio",
+          "clueForPuzzleId": "puzzle_radio",
+          "itemRewardId": "item_rusty_key",
+          "postInteractionMessage": "电报机停止了敲击，暗格已经打开，你拿到了钥匙。"
+        },
+        {
+          "id": "int_shelf_chart",
+          "name": "书架",
+          "description": "杂乱的书架，夹着一张纸。",
+          "itemRewardId": "item_morse_chart",
+          "postInteractionMessage": "书架上只剩下一些发霉的账本。"
+        },
+        {
+          "id": "int_iron_chest",
+          "name": "铁皮箱",
+          "description": "角落里放着一个上锁的铁皮箱，锁是四位数字密码锁。工匠的日记里似乎提到了密码。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_chest",
+          "itemRewardId": "item_diving_weight",
+          "postInteractionMessage": "箱子已经打开，你拿走了里面的潜水铅块。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_street",
+          "label": "返回长街"
+        }
+      ]
+    },
+    "scene_stage": {
+      "id": "scene_stage",
+      "title": "荒废的古戏台",
+      "imageUrl": "./assets/scene_stage.jpg",
+      "description": "戏台的幕布已经腐烂，风吹过发出呜呜的哭声。后台的墙上贴着一张破碎的戏单。",
+      "interactables": [
+        {
+          "id": "int_poster_wall",
+          "name": "戏单墙",
+          "description": "墙上贴着残缺不全的《断头祭》戏单，似乎有碎片散落在地上。",
+          "itemRewardId": "item_torn_poster",
+          "postInteractionMessage": "你已经拿起了所有碎片，需要在物品栏查看并修复它。"
+        },
+        {
+          "id": "int_repair_poster",
+          "name": "修复戏单",
+          "description": "将手中的碎片拼回墙上的框里。",
+          "requiredItemId": "item_torn_poster",
+          "lockedMessage": "墙上的戏单残缺不全，我需要先把碎片都找齐。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_poster",
+          "itemRewardId": "item_bloody_puppet",
+          "postInteractionMessage": "戏单已修复，暗格中的人偶已被取走。"
+        },
+        {
+          "id": "int_makeup_table",
+          "name": "老旧梳妆台",
+          "description": "后台积满灰尘的梳妆台上，一本受潮的日记被遗弃在胭脂盒旁。",
+          "itemRewardId": "item_diary",
+          "postInteractionMessage": "你收好了日记，上面似乎记载着重要的数字。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_street",
+          "label": "返回长街"
+        }
+      ]
+    },
+    "scene_hall": {
+      "id": "scene_hall",
+      "title": "挂满白灯笼的祠堂",
+      "imageUrl": "./assets/scene_hall.jpg",
+      "description": "数百盏白灯笼在头顶摇晃，正中央供奉着无数牌位。空气中弥漫着陈旧的檀香。",
+      "interactables": [
+        {
+          "id": "int_locked_cabinet",
+          "name": "上锁的香案柜",
+          "description": "香案下方的柜子挂着一把铜锁，需要钥匙才能打开。",
+          "requiredItemId": "item_rusty_key",
+          "lockedMessage": "柜子被一把生锈的铜锁锁住了，徒手无法打开。",
+          "itemRewardId": "item_incense",
+          "postInteractionMessage": "锁开了，你在柜子里找到了一些珍贵的沉香。"
+        },
+        {
+          "id": "int_altar_table",
+          "name": "供桌",
+          "description": "供桌上乱成一团，似乎需要点燃沉香才能平息这里的阴气，显现线索。",
+          "requiredItemId": "item_incense",
+          "lockedMessage": "供桌上阴风阵阵，看不清东西。也许需要点燃沉香来安抚亡灵。",
+          "itemRewardId": "item_genealogy",
+          "postInteractionMessage": "随着沉香点燃，烟雾缭绕中，一本族谱显现在供桌上。"
+        },
+        {
+          "id": "int_stone_door",
+          "name": "地下室石门",
+          "description": "地面上有一道隐蔽的石门，上面有四个符号凹槽。族谱上似乎记载了开启的线索。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_ancestor",
+          "clueForPuzzleId": "puzzle_ancestor",
+          "postInteractionMessage": "石门已开启，露出了下方的积水。"
+        },
+        {
+          "id": "int_flooded_passage",
+          "name": "被淹没的通道",
+          "description": "石门下是深不见底的黑水，如果没有重物压身，根本潜不下去。",
+          "requiredFlag": "flag_inner_hall_open",
+          "hiddenIfFlag": "flag_can_dive",
+          "requiredItemId": "item_diving_weight",
+          "lockedMessage": "水太深了，浮力很大，没有重物压身根本潜不下去。",
+          "flagReward": "flag_can_dive",
+          "postInteractionMessage": "系上铅块后，你可以潜入水中了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_street",
+          "label": "返回长街"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_sunken_house",
+          "label": "潜入水底旧宅",
+          "locked": true,
+          "requiredFlag": "flag_can_dive"
+        }
+      ]
+    },
+    "scene_sunken_house": {
+      "id": "scene_sunken_house",
+      "title": "沉入水底的旧宅",
+      "imageUrl": "./assets/scene_sunken_house.jpg",
+      "description": "这是一座完全沉没在水下的宅邸，但奇异的是，这里的空间被某种力量隔绝了水流。正中央有一个诡异的祭坛。",
+      "interactables": [
+        {
+          "id": "int_corpse_desk",
+          "name": "湿透的书桌",
+          "description": "书桌上有一具白骨，手里紧紧攥着什么。",
+          "postInteractionMessage": "白骨的手指指向了祭坛的方向。"
+        },
+        {
+          "id": "int_red_thread_box",
+          "name": "红漆盒",
+          "description": "一个漂浮的红漆盒，盖子被水压死死吸住，需要工具才能撬开。",
+          "requiredItemId": "item_crowbar",
+          "lockedMessage": "盖子被水压吸住了，徒手根本打不开，需要用撬棍之类的东西。",
+          "itemRewardId": "item_red_thread",
+          "postInteractionMessage": "盒子撬开了，里面有一卷红线。"
+        },
+        {
+          "id": "int_final_altar_1",
+          "name": "轮回祭坛(空)",
+          "description": "祭坛中央有一个人形凹槽，等待着归位的灵魂。",
+          "requiredItemId": "item_bloody_puppet",
+          "lockedMessage": "祭坛中央有一个人形的凹槽，似乎缺了主角。",
+          "flagReward": "flag_stage_1",
+          "hiddenIfFlag": "flag_stage_1",
+          "postInteractionMessage": "你将皮影人偶放入了凹槽，但它看起来毫无生气，需要连接红线。"
+        },
+        {
+          "id": "int_final_altar_2",
+          "name": "轮回祭坛(人偶)",
+          "description": "人偶静静地躺在祭坛上，等待着命运的红线。",
+          "requiredFlag": "flag_stage_1",
+          "hiddenIfFlag": "flag_stage_2",
+          "requiredItemId": "item_red_thread",
+          "lockedMessage": "人偶死气沉沉地躺着，需要用某种媒介将它连接起来。",
+          "flagReward": "flag_stage_2",
+          "postInteractionMessage": "红线已系好，人偶仿佛有了生命。现在，需要用光亮指引它。"
+        },
+        {
+          "id": "int_final_altar_3",
+          "name": "轮回祭坛(准备完毕)",
+          "description": "一切准备就绪，只差最后的引魂之火。",
+          "requiredFlag": "flag_stage_2",
+          "requiredItemId": "item_lamp",
+          "lockedMessage": "万事俱备，只差最后一点引魂的火光。",
+          "winsGame": true,
+          "postInteractionMessage": "仪式开始了..."
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_hall",
+          "label": "返回祠堂"
+        }
+      ]
+    },
+    "scene_ending": {
+      "id": "scene_ending",
+      "title": "轮回彼岸",
+      "imageUrl": "./assets/scene_ending.jpg",
+      "description": "晨曦刺破了黑夜，古镇的雾气消散，一切归于平静。",
+      "interactables": [],
+      "exits": []
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

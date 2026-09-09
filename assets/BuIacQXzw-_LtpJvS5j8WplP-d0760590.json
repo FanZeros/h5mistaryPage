@@ -1,0 +1,790 @@
+{
+  "meta": {
+    "name": "街机残骸",
+    "author": "喝油工作室",
+    "version": "1.0.0",
+    "description": "暴雨夜，你被锁进废弃的「星尘」游戏厅。柜机还在自己投币、自己通关；高分榜上的名字全是失踪的小孩。你必须在最后一关的 Continue 倒计时走完之前，从天台逃出去。",
+    "style": "1980年代中国街机厅，潮湿瓷砖、木纹机柜、霓虹灯管与烟蒂，暗色复古写实",
+    "sceneStyle": "广角第一人称，电影感灯光，霓虹只照亮局部，CRT扫描线仅出现在屏幕上，无人物无UI无文字",
+    "itemStyle": "等轴视图，单一物体居中，纯白背景，塑料与氧化金属质感，高清细节",
+    "musicStyle": "dark synthwave ambient, distant arcade cabinets, neon buzz, slow tempo, mysterious, no vocals",
+    "endingMessage": "天台的铁门被风掀开。楼下最后一台柜机打出 GAME OVER，霓虹逐根熄灭。你握着那盒续关卡带走入雨里——高分榜上，属于你的三个字母正在闪烁。",
+    "endingSceneId": "rooftop_exit",
+    "useBannerAsTitleBg": true,
+    "bgmUrl": "./assets/arcade-wreckage/assets/bgm_arcade-wreckage.ogg",
+    "designConfig": {
+      "theme": "废弃八十年代街机厅，柜机自行通关，高分榜藏着失踪名单",
+      "sceneCount": 10,
+      "itemCount": 12,
+      "puzzleCount": 5,
+      "requiredItems": "游戏币, 维修钥匙, 员工证, 保险丝, DIP开关板, 高分榜残页, 兑换券, 柜机说明书, 奖品熊, 续关卡带, 储物柜号牌, 走线蓝图",
+      "requiredScenes": "霓虹大厅, 奖品柜台, 街机阵列, 换币亭, 更衣室, 维修后室, 老板办公室, 储物夹层, 变压器房, 天台逃生口"
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/arcade-wreckage/assets/game_icon_512.png",
+    "bannerUrl": "./assets/arcade-wreckage/assets/game_banner_1080.jpg"
+  },
+  "initialState": {
+    "currentSceneId": "neon_lobby",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "卷帘门在身后砸死，雨水从霓虹灯管的裂缝里滴到瓷砖上。",
+      "大厅里没有人，可每一台柜机都在自己投币、自己按键。",
+      "高分榜的电子音循环报着三个字母——全是这个镇子失踪小孩的姓名缩写。",
+      "喇叭里反复喊着同一句：Insert coin to continue.",
+      "你得在倒计时走完之前，找到离开「星尘游戏厅」的路。"
+    ],
+    "gameOver": false,
+    "gameWon": false,
+    "difficulty": "NORMAL"
+  },
+  "items": {
+    "arcade_token": {
+      "id": "arcade_token",
+      "name": "游戏币",
+      "description": "一枚边缘磨亮的镀铜币，正面还印着模糊的星星。投币口只认这一种厚度。",
+      "type": "KEY",
+      "icon": "币",
+      "image": "./assets/arcade-wreckage/assets/item_arcade_token.png"
+    },
+    "repair_key": {
+      "id": "repair_key",
+      "name": "维修钥匙",
+      "description": "扁平的电柜钥匙，挂着写有「后室/更衣室」的掉漆铝牌，钥匙齿缺了一角。",
+      "type": "KEY",
+      "icon": "钥",
+      "image": "./assets/arcade-wreckage/assets/item_repair_key.png"
+    },
+    "employee_badge": {
+      "id": "employee_badge",
+      "name": "员工证",
+      "description": "过塑已经起泡的胸牌，照片褪成白斑。背面盖着「星尘游戏厅 · 夜班」。能刷开员工抽屉。",
+      "type": "TOOL",
+      "icon": "证",
+      "image": "./assets/arcade-wreckage/assets/item_employee_badge.png"
+    },
+    "fuse_cartridge": {
+      "id": "fuse_cartridge",
+      "name": "保险丝",
+      "description": "玻璃管保险丝，纸盒侧面印着规格 06A。盒子被油手摸黑，像保险箱密码的后两位。",
+      "type": "TOOL",
+      "icon": "丝",
+      "image": "./assets/arcade-wreckage/assets/item_fuse_cartridge.png"
+    },
+    "dip_switch_board": {
+      "id": "dip_switch_board",
+      "name": "DIP开关板",
+      "description": "从主板撬下的四位拨码。丝印从左到右是空的，只在边缘用油漆点过：蓝、黄、红、绿。",
+      "type": "TOOL",
+      "icon": "板",
+      "image": "./assets/arcade-wreckage/assets/item_dip_switch_board.png",
+      "clueForPuzzleId": "puz_dip_order"
+    },
+    "highscore_scrap": {
+      "id": "highscore_scrap",
+      "name": "高分榜残页",
+      "description": "热敏纸已经发黑。英文 CONTINUE 被红笔划掉，旁边写着两个汉字：续关。这才是口令。",
+      "type": "CLUE",
+      "icon": "纸",
+      "image": "./assets/arcade-wreckage/assets/item_highscore_scrap.png",
+      "clueForPuzzleId": "puz_highscore_word"
+    },
+    "prize_ticket": {
+      "id": "prize_ticket",
+      "name": "兑换券",
+      "description": "粉色兑奖券，角上盖着柜台章。章里两个数字被油墨糊住，仔细看是 06——和保险丝规格一样。",
+      "type": "CLUE",
+      "icon": "券",
+      "image": "./assets/arcade-wreckage/assets/item_prize_ticket.png",
+      "clueForPuzzleId": "puz_safe_code"
+    },
+    "cabinet_manual": {
+      "id": "cabinet_manual",
+      "name": "柜机说明书",
+      "description": "发黄的维修手册，DIP 页用荧光笔标着：先拨蓝，再拨黄，然后红，最后绿。不要按出厂顺序。",
+      "type": "NOTE",
+      "icon": "册",
+      "image": "./assets/arcade-wreckage/assets/item_cabinet_manual.png",
+      "clueForPuzzleId": "puz_dip_order"
+    },
+    "prize_bear": {
+      "id": "prize_bear",
+      "name": "奖品熊",
+      "description": "一只左眼掉线的毛绒熊，肚子里塞着硬纸板。爪子上还挂着未撕的兑换券存根。",
+      "type": "TOOL",
+      "icon": "熊",
+      "image": "./assets/arcade-wreckage/assets/item_prize_bear.png"
+    },
+    "continue_cartridge": {
+      "id": "continue_cartridge",
+      "name": "续关卡带",
+      "description": "灰壳卡带，标签只写 CONTINUE。磁片还在转，像有人刚从柜机里拔出来。",
+      "type": "KEY",
+      "icon": "带",
+      "image": "./assets/arcade-wreckage/assets/item_continue_cartridge.png"
+    },
+    "locker_tag": {
+      "id": "locker_tag",
+      "name": "储物柜号牌",
+      "description": "断裂的塑料号牌。正面是柜号 B，背面用油漆笔记着：保险柜前两位 85。",
+      "type": "CLUE",
+      "icon": "牌",
+      "image": "./assets/arcade-wreckage/assets/item_locker_tag.png",
+      "clueForPuzzleId": "puz_safe_code"
+    },
+    "wiring_blueprint": {
+      "id": "wiring_blueprint",
+      "name": "走线蓝图",
+      "description": "被撕成九块又胡乱贴回的配电平面图。只有拼回原图，夹层铁门的电磁锁才会认这张「完整图纸」。",
+      "type": "CLUE",
+      "icon": "图",
+      "image": "./assets/arcade-wreckage/assets/item_wiring_blueprint.png",
+      "clueForPuzzleId": "puz_wiring_grid"
+    }
+  },
+  "puzzles": {
+    "puz_highscore_word": {
+      "id": "puz_highscore_word",
+      "description": "高分榜的隐藏口令。热敏纸上的英文被划掉了，真正能让阵列断电的是两个汉字。",
+      "answer": "续关",
+      "rewardFlag": "highscore_decoded",
+      "rewardMessage": "所有柜机同时暗了一秒。北侧维修门的电磁锁发出释放的嗡鸣。",
+      "type": "text",
+      "requiredClueCount": 1
+    },
+    "puz_dip_order": {
+      "id": "puz_dip_order",
+      "description": "按维修手册的夜班设置拨动四位颜色开关。出厂顺序是错的。",
+      "answer": "蓝黄红绿",
+      "rewardFlag": "dip_pattern_set",
+      "rewardMessage": "主板蜂鸣一声，办公室方向的铁栅缓缓滑开。",
+      "type": "symbol",
+      "choices": [
+        "红",
+        "绿",
+        "蓝",
+        "黄",
+        "白"
+      ],
+      "requiredClueCount": 1
+    },
+    "puz_safe_code": {
+      "id": "puz_safe_code",
+      "description": "老板保险柜的四位数字锁。前两位在更衣室，后两位在保险丝规格上。",
+      "answer": "8506",
+      "rewardFlag": "safe_opened",
+      "rewardMessage": "柜门弹开，里面只有一盒还在转动的续关卡带，以及通往夹层的备用钥匙回路接通指示。",
+      "type": "numeric",
+      "requiredClueCount": 2
+    },
+    "puz_wiring_grid": {
+      "id": "puz_wiring_grid",
+      "description": "把撕碎的配电平面图重新拼合。电磁锁只认完整图纸。",
+      "answer": "2,0,1,5,4,3,6,8,7",
+      "rewardFlag": "wiring_map_restored",
+      "rewardMessage": "图纸上的线路重新连成回路。换币亭天花板的活板发出咔哒一声。",
+      "type": "image_grid",
+      "linkedAssetId": "wiring_blueprint",
+      "gridSize": 3,
+      "requiredClueCount": 1
+    },
+    "puz_power_trace": {
+      "id": "puz_power_trace",
+      "description": "在变压器母排上不重复地走完所有连接。奇度接点只有两处，必须从其中一端起笔。",
+      "answer": "1,6,0,3,4,5,2,7,1,4,0,1,2",
+      "rewardFlag": "circuit_complete",
+      "rewardMessage": "整栋楼的应急灯改成稳定的白光。天台铁梯的电磁锁松开了。",
+      "type": "one_line",
+      "points": [
+        {
+          "x": 20,
+          "y": 80
+        },
+        {
+          "x": 80,
+          "y": 80
+        },
+        {
+          "x": 140,
+          "y": 80
+        },
+        {
+          "x": 20,
+          "y": 140
+        },
+        {
+          "x": 80,
+          "y": 140
+        },
+        {
+          "x": 140,
+          "y": 140
+        },
+        {
+          "x": 50,
+          "y": 40
+        },
+        {
+          "x": 110,
+          "y": 40
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          0,
+          4
+        ]
+      ]
+    }
+  },
+  "scenes": {
+    "neon_lobby": {
+      "id": "neon_lobby",
+      "title": "霓虹大厅",
+      "imageUrl": "./assets/arcade-wreckage/assets/scene_neon_lobby.jpg",
+      "description": "潮湿地砖倒映着「星尘」霓虹。正中是还在自行游玩的柜机群，东侧奖品柜的灯管在闪，西侧换币亭的铁窗半敞，北侧通向更深的阵列。",
+      "interactables": [
+        {
+          "id": "int_lobby_neon",
+          "name": "星尘霓虹",
+          "description": "灯管缺了一截，雨水顺着缺口滴到投币口上。",
+          "dialogue": [
+            "霓虹每闪一次，所有柜机就同步按一下键。",
+            "像有一双看不见的手，在帮整座游戏厅续命。"
+          ],
+          "postInteractionMessage": "霓虹还在漏雨。"
+        },
+        {
+          "id": "int_lobby_ashtray",
+          "name": "门边烟缸",
+          "description": "铁皮烟缸里全是没抽完的烟，滤嘴朝同一个方向。",
+          "dialogue": [
+            "烟缸底下压着一张已作废的夜班表。",
+            "最后一行只写：倒计时结束前，谁都不许离开。"
+          ],
+          "postInteractionMessage": "烟已经潮得捏不起来。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "cabinet_row",
+          "label": "街机阵列"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "prize_counter",
+          "label": "奖品柜台"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "coin_booth",
+          "label": "换币亭"
+        }
+      ]
+    },
+    "prize_counter": {
+      "id": "prize_counter",
+      "title": "奖品柜台",
+      "imageUrl": "./assets/arcade-wreckage/assets/scene_prize_counter.jpg",
+      "description": "玻璃柜里塞满掉色的毛绒和塑料手表。柜台电脑还亮着高分榜录入界面，光标在密码栏里闪。",
+      "interactables": [
+        {
+          "id": "int_prize_bear_shelf",
+          "name": "货架上的熊",
+          "description": "一只独眼毛绒熊歪在第二层，像被人刚塞回去。",
+          "dialogue": [
+            "你把熊抱下来，肚子里有硬物顶着手掌。",
+            "没拆线，但爪子上还挂着一张没撕完的兑换券。"
+          ],
+          "itemRewardId": "prize_bear",
+          "postInteractionMessage": "货架空了一块。"
+        },
+        {
+          "id": "int_cash_drawer",
+          "name": "收银抽屉",
+          "description": "抽屉没锁死，只是被口香糖黏住。",
+          "dialogue": [
+            "你撬开抽屉。里面没有现金。",
+            "只有一把挂着铝牌的维修钥匙，牌上写着后室和更衣室。"
+          ],
+          "itemRewardId": "repair_key",
+          "postInteractionMessage": "抽屉里只剩口香糖。"
+        },
+        {
+          "id": "int_ticket_slot",
+          "name": "兑奖口",
+          "description": "兑奖口卡着一张粉色的券，像是最后一次没被取走。",
+          "requiredItemId": "prize_bear",
+          "lockedMessage": "兑奖口卡住了。也许用柜台上的奖品把传感器压下去。",
+          "dialogue": [
+            "你用熊压住红外。电机吐出那张券。",
+            "券角的章里是数字 06。"
+          ],
+          "itemRewardId": "prize_ticket",
+          "postInteractionMessage": "兑奖口已经空了。"
+        },
+        {
+          "id": "int_highscore_terminal",
+          "name": "高分榜终端",
+          "description": "屏幕问：隐藏口令。英文提示被红笔涂掉。",
+          "isPuzzle": true,
+          "puzzleId": "puz_highscore_word",
+          "lockedMessage": "没有线索之前，乱输只会让警报响。",
+          "postInteractionMessage": "口令已被接受，终端暗着。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "neon_lobby",
+          "label": "霓虹大厅"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "locker_room",
+          "label": "更衣室"
+        }
+      ]
+    },
+    "cabinet_row": {
+      "id": "cabinet_row",
+      "title": "街机阵列",
+      "imageUrl": "./assets/arcade-wreckage/assets/scene_cabinet_row.jpg",
+      "description": "两排木纹柜机背靠背，屏幕还在自己打 Boss。北侧维修门关着，门楣灯是红的。东侧更衣室的布帘在滴水。",
+      "interactables": [
+        {
+          "id": "int_continue_cab",
+          "name": "自行通关的柜机",
+          "description": "投币口还在吞看不见的币。屏幕左上角写着最后一条命。",
+          "requiredItemId": "arcade_token",
+          "lockedMessage": "投币口不认手指。你需要一枚这个厅专用的游戏币。",
+          "dialogue": [
+            "你塞进一枚游戏币。柜机停了一帧。",
+            "热敏打印机吐出半截高分榜，英文 CONTINUE 被划掉。"
+          ],
+          "itemRewardId": "highscore_scrap",
+          "clueForPuzzleId": "puz_highscore_word",
+          "postInteractionMessage": "这台柜机又自己玩了起来。"
+        },
+        {
+          "id": "int_fallen_badge",
+          "name": "机柜缝里的胸牌",
+          "description": "两台柜机夹缝里露出过塑胸牌的一角。",
+          "dialogue": [
+            "你侧身把胸牌抠出来。",
+            "夜班员工证，照片已经白了。"
+          ],
+          "itemRewardId": "employee_badge",
+          "postInteractionMessage": "夹缝里没有别的东西。"
+        },
+        {
+          "id": "int_service_door",
+          "name": "北侧维修门",
+          "description": "铁门上的灯还是红的，门缝里有机油味。",
+          "dialogue": [
+            "门从里面顶着。没有口令之前，电磁锁不会放行。"
+          ],
+          "postInteractionMessage": "灯仍是红的，除非高分榜口令被接受。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "neon_lobby",
+          "label": "霓虹大厅"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "locker_room",
+          "label": "更衣室"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "repair_backroom",
+          "label": "维修后室",
+          "requiredFlag": "highscore_decoded"
+        }
+      ]
+    },
+    "coin_booth": {
+      "id": "coin_booth",
+      "title": "换币亭",
+      "imageUrl": "./assets/arcade-wreckage/assets/scene_coin_booth.jpg",
+      "description": "铁窗后的木台堆着纸币盒和秤。天花板有一块被螺丝固定的活板，像是通往夹层的口。说明书摊在秤上。",
+      "interactables": [
+        {
+          "id": "int_coin_hopper",
+          "name": "卡死的出币机",
+          "description": "出币口卡住一枚还没掉下去的镀铜币。",
+          "dialogue": [
+            "你拍打铁箱。那枚币掉进掌心。",
+            "厚度正好是星尘厅的规格。"
+          ],
+          "itemRewardId": "arcade_token",
+          "postInteractionMessage": "出币机空了。"
+        },
+        {
+          "id": "int_manual_on_scale",
+          "name": "秤上的说明书",
+          "description": "维修手册被压在秤砣下，DIP 那一页折着。",
+          "dialogue": [
+            "你抽出手册。荧光笔写着夜班拨码顺序。",
+            "先蓝，再黄，然后红，最后绿。"
+          ],
+          "itemRewardId": "cabinet_manual",
+          "clueForPuzzleId": "puz_dip_order",
+          "postInteractionMessage": "秤上只剩秤砣。"
+        },
+        {
+          "id": "int_loft_hatch",
+          "name": "天花板活板",
+          "description": "活板四周有电磁锁。锁芯旁画着一张必须完整的平面图。",
+          "dialogue": [
+            "没有完整的走线蓝图，活板不会开。"
+          ],
+          "postInteractionMessage": "活板仍关着。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "neon_lobby",
+          "label": "霓虹大厅"
+        },
+        {
+          "direction": "up",
+          "targetSceneId": "storage_loft",
+          "label": "储物夹层",
+          "requiredFlag": "wiring_map_restored"
+        }
+      ]
+    },
+    "locker_room": {
+      "id": "locker_room",
+      "title": "更衣室",
+      "imageUrl": "./assets/arcade-wreckage/assets/scene_locker_room.jpg",
+      "description": "铁皮柜门大半开着，地面是湿毛巾和拖鞋。最里的工作台上摊着被撕碎的蓝图纸，像有人拼到一半就停了。",
+      "interactables": [
+        {
+          "id": "int_staff_locker",
+          "name": "员工储物柜",
+          "description": "B 号柜还锁着，锁孔形状和维修钥匙吻合。",
+          "requiredItemId": "repair_key",
+          "lockedMessage": "柜门锁着，需要后室那把扁平钥匙。",
+          "dialogue": [
+            "锁打开。里面没有衣服。",
+            "挂钩上挂着断裂的号牌，背面写着 85。"
+          ],
+          "itemRewardId": "locker_tag",
+          "clueForPuzzleId": "puz_safe_code",
+          "postInteractionMessage": "B 号柜空了。"
+        },
+        {
+          "id": "int_torn_blueprint",
+          "name": "撕碎的蓝图",
+          "description": "九张碎片被磁铁胡乱吸在铁柜侧面。",
+          "dialogue": [
+            "你把碎片揭下来收好。",
+            "这是夹层电路的平面图，必须拼回原样。"
+          ],
+          "itemRewardId": "wiring_blueprint",
+          "clueForPuzzleId": "puz_wiring_grid",
+          "postInteractionMessage": "铁柜侧面只剩磁铁。"
+        },
+        {
+          "id": "int_assembly_desk",
+          "name": "拼图工作台",
+          "description": "台面上画着九宫格，正好能放下那张配电平面图。",
+          "requiredItemId": "wiring_blueprint",
+          "isPuzzle": true,
+          "puzzleId": "puz_wiring_grid",
+          "lockedMessage": "台上是空的九宫格。你需要先把碎蓝图找齐。",
+          "postInteractionMessage": "平面图已经拼合，电磁锁记下了它。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "cabinet_row",
+          "label": "街机阵列"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "prize_counter",
+          "label": "奖品柜台"
+        }
+      ]
+    },
+    "repair_backroom": {
+      "id": "repair_backroom",
+      "title": "维修后室",
+      "imageUrl": "./assets/arcade-wreckage/assets/scene_repair_backroom.jpg",
+      "description": "机油、焊锡和打开的柜机内脏堆到天花板。东侧铁栅通向写着「经理」的小房间。工作台上有一块缺了拨码的主板。",
+      "interactables": [
+        {
+          "id": "int_toolbox",
+          "name": "上锁工具箱",
+          "description": "红铁皮工具箱，锁和更衣室是同一把。",
+          "requiredItemId": "repair_key",
+          "lockedMessage": "工具箱锁着。维修钥匙应该能开。",
+          "dialogue": [
+            "箱子里没有扳手。",
+            "只有一块从主板上撬下来的四位 DIP 开关。"
+          ],
+          "itemRewardId": "dip_switch_board",
+          "clueForPuzzleId": "puz_dip_order",
+          "postInteractionMessage": "工具箱空了。"
+        },
+        {
+          "id": "int_mainboard_dip",
+          "name": "主板拨码座",
+          "description": "空着的四位拨码座，边上用油漆点过颜色，但顺序被刮掉了。",
+          "requiredItemId": "dip_switch_board",
+          "isPuzzle": true,
+          "puzzleId": "puz_dip_order",
+          "lockedMessage": "拨码座是空的。你得先找到那块 DIP 开关板。",
+          "postInteractionMessage": "拨码已经按夜班设置锁死。"
+        },
+        {
+          "id": "int_oil_drum",
+          "name": "机油桶",
+          "description": "开口的油桶，倒映着日光灯。",
+          "dialogue": [
+            "桶壁内侧被人用螺丝刀刻了字：天台只有续关之后才开。"
+          ],
+          "postInteractionMessage": "油味让眼睛发酸。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "cabinet_row",
+          "label": "街机阵列"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "boss_office",
+          "label": "老板办公室",
+          "requiredFlag": "dip_pattern_set"
+        }
+      ]
+    },
+    "boss_office": {
+      "id": "boss_office",
+      "title": "老板办公室",
+      "imageUrl": "./assets/arcade-wreckage/assets/scene_boss_office.jpg",
+      "description": "窄房间，墙上一排高分合影，脸都被刮掉。保险柜嵌在墙里，转盘锁对着你。桌上有打卡机。",
+      "interactables": [
+        {
+          "id": "int_badge_reader",
+          "name": "打卡机",
+          "description": "旧式打卡机还亮着绿灯，槽口正好是胸牌宽度。",
+          "requiredItemId": "employee_badge",
+          "lockedMessage": "打卡机要员工证。柜机缝里那张也许还有效。",
+          "dialogue": [
+            "绿灯连闪两下。抽屉弹开，里面是空白的，只有一张夜班备忘。",
+            "备忘重复着：密码前两位看更衣室，后两位看保险丝。"
+          ],
+          "flagReward": "badge_clocked",
+          "clueForPuzzleId": "puz_safe_code",
+          "postInteractionMessage": "打卡机已经记下这张废证。"
+        },
+        {
+          "id": "int_wall_safe",
+          "name": "墙内保险柜",
+          "description": "四位转盘。转盘旁用指甲刻着 8?0?。",
+          "isPuzzle": true,
+          "puzzleId": "puz_safe_code",
+          "itemRewardId": "continue_cartridge",
+          "lockedMessage": "没有完整四位数字之前，转盘只会复位。",
+          "postInteractionMessage": "保险柜开着，卡带已经被你拿走。"
+        },
+        {
+          "id": "int_scraped_photos",
+          "name": "刮脸合影",
+          "description": "相框里的小孩脸全被刀刮掉，只剩名牌。",
+          "dialogue": [
+            "名牌上的缩写和高分榜一一对应。",
+            "最后一张没有名牌，只写着：下一个是谁。"
+          ],
+          "postInteractionMessage": "你不想再看这些相框。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "repair_backroom",
+          "label": "维修后室"
+        }
+      ]
+    },
+    "storage_loft": {
+      "id": "storage_loft",
+      "title": "储物夹层",
+      "imageUrl": "./assets/arcade-wreckage/assets/scene_storage_loft.jpg",
+      "description": "屋顶木梁上挂着纸箱和灯管。西侧铁梯通向更低的变压器房，空气里有热焦味。一个纸盒写着「备件 06」。",
+      "interactables": [
+        {
+          "id": "int_fuse_box",
+          "name": "备件纸盒",
+          "description": "盒子侧面印着 06A，胶带还是新的。",
+          "dialogue": [
+            "你撕开胶带。玻璃管保险丝还是凉的。",
+            "规格 06，和兑换券上的章一样。"
+          ],
+          "itemRewardId": "fuse_cartridge",
+          "clueForPuzzleId": "puz_safe_code",
+          "postInteractionMessage": "纸盒空了。"
+        },
+        {
+          "id": "int_loft_window",
+          "name": "夹层气窗",
+          "description": "气窗外面只有雨和隔壁楼的天线。",
+          "dialogue": [
+            "窗开得很小，人钻不出去。",
+            "能看见天台的铁门，门上还亮着红灯。"
+          ],
+          "postInteractionMessage": "雨打在铁皮上。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "down",
+          "targetSceneId": "coin_booth",
+          "label": "换币亭"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "transformer_room",
+          "label": "变压器房",
+          "requiredFlag": "safe_opened"
+        }
+      ]
+    },
+    "transformer_room": {
+      "id": "transformer_room",
+      "title": "变压器房",
+      "imageUrl": "./assets/arcade-wreckage/assets/scene_transformer_room.jpg",
+      "description": "两台嗡嗡作响的变压器，母排上用油漆画着必须一笔走完的连接网。缺了一根保险丝的底座是空的。头顶铁梯通向天台。",
+      "interactables": [
+        {
+          "id": "int_fuse_socket",
+          "name": "空保险丝座",
+          "description": "座上写着 06A，玻璃管早就被取走。",
+          "dialogue": [
+            "没有匹配规格的保险丝，母排不会进入可走线状态。"
+          ],
+          "postInteractionMessage": "底座仍是空的。"
+        },
+        {
+          "id": "int_busbar_puzzle",
+          "name": "母排走线",
+          "description": "八个接点，十一道以上的连接。只能从奇数接点起笔，每条边只走一次。",
+          "requiredItemId": "fuse_cartridge",
+          "isPuzzle": true,
+          "puzzleId": "puz_power_trace",
+          "lockedMessage": "母排没电。先把 06A 保险丝按回去。",
+          "postInteractionMessage": "线路已经闭合，铁梯解锁。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "storage_loft",
+          "label": "储物夹层"
+        },
+        {
+          "direction": "up",
+          "targetSceneId": "rooftop_exit",
+          "label": "天台逃生口",
+          "requiredFlag": "circuit_complete"
+        }
+      ]
+    },
+    "rooftop_exit": {
+      "id": "rooftop_exit",
+      "title": "天台逃生口",
+      "imageUrl": "./assets/arcade-wreckage/assets/scene_rooftop_exit.jpg",
+      "description": "雨比楼下更大。一台被拖上天台的柜机还亮着 Continue。卡带槽是空的，倒计时停在 09。",
+      "interactables": [
+        {
+          "id": "int_rooftop_cabinet",
+          "name": "天台续关柜机",
+          "description": "唯一还能操作的柜机。卡带槽形状和保险柜里那盒一模一样。",
+          "requiredItemId": "continue_cartridge",
+          "requiredFlag": "circuit_complete",
+          "lockedMessage": "没有续关卡带，倒计时不会停。柜机槽是空的。",
+          "winsGame": true,
+          "dialogue": [
+            "你把卡带按进去。倒计时从 09 跳到 00，却没有 Game Over。",
+            "铁门被风掀开。楼下所有柜机同时熄屏。"
+          ],
+          "postInteractionMessage": "雨还在下，门已经开了。"
+        },
+        {
+          "id": "int_rooftop_rail",
+          "name": "生锈栏杆",
+          "description": "栏杆外是街道。霓虹在水坑里碎成一段一段。",
+          "dialogue": [
+            "从这里跳下去会断腿。还是等柜机把门锁打开。"
+          ],
+          "postInteractionMessage": "风很大。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "down",
+          "targetSceneId": "transformer_room",
+          "label": "变压器房"
+        }
+      ]
+    }
+  }
+}

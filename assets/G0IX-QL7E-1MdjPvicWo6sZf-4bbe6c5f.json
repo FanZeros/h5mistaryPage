@@ -1,0 +1,548 @@
+{
+  "meta": {
+    "name": "梨园惊梦：血祭",
+    "author": "System03",
+    "version": "1.0.0",
+    "description": "1920年代上海滩，你踏入荒废已久的梨园戏院，寻找失踪的亲人，却揭开了一场关于活人祭戏的恐怖真相。",
+    "style": "Chinese horror, 1920s Shanghai, vintage, ink wash painting texture, film noir",
+    "sceneStyle": "gloomy atmosphere, low saturation, splash of crimson red, volumetric fog, wide angle, unsettling shadows",
+    "itemStyle": "realistic, detailed, isolated on white background, vintage object, slightly worn, ink splatters",
+    "musicStyle": "eerie peking opera vocals, broken gramophone, low frequency drone, guzheng scratches, suspenseful ambient",
+    "endingMessage": "随着最后一声锣鼓敲响，戏院的怨气似乎消散了。你在神龛下找到了失踪亲人的遗物，虽然未能带回活人，但至少让逝者安息。推开沉重的大门，上海滩的晨曦刺破了黑暗，但你耳边似乎永远留下了那凄厉的唱腔……",
+    "endingSceneId": "scene_ending",
+    "useBannerAsTitleBg": true,
+    "designConfig": {
+      "theme": "在1920年代的上海滩，名噪一时的“梨园”戏院因一场禁忌的“活人祭戏”导致整个戏班一夜之间离奇失踪。玩家将扮演一名寻找失踪亲人的民俗记者，踏入这座尘封已久、依旧回荡着幽怨唱腔的破败戏院，揭开“鬼戏”背后的血色真相。",
+      "sceneCount": 7,
+      "itemCount": 15,
+      "puzzleCount": 6,
+      "requiredItems": "破损的武生脸谱, 染血的戏本, 熄灭的青铜香炉, 断齿的红木梳子, 生锈的后台钥匙, 残缺的黄色符咒, 绣花戏鞋",
+      "requiredScenes": "空荡诡异的戏台, 凌乱的后台化妆间, 供奉祖师爷的神龛密室, 挂满褪色红灯笼的长廊, 布满灰尘的售票处, 被封死的二楼包厢"
+    },
+    "bgmUrl": "./assets/bgm.mp3"
+  },
+  "initialState": {
+    "currentSceneId": "scene_ticket_office",
+    "inventory": [
+      "item_notebook",
+      "item_flashlight"
+    ],
+    "flags": {},
+    "log": [
+      "雨夜，上海滩。雷声滚滚。",
+      "你是《申权日报》的民俗记者，为了寻找失踪的妹妹，你来到了这座传说中闹鬼的“梨园”戏院。",
+      "大门在你身后吱呀一声关上了，空气中弥漫着陈旧的脂粉味和若有若无的血腥气。",
+      "不论如何，你必须揭开这里的秘密。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_notebook": {
+      "id": "item_notebook",
+      "name": "记者手记",
+      "description": "随身携带的笔记本，记录着关于“活人祭戏”的传闻。",
+      "type": "NOTE",
+      "icon": "📝",
+      "image": "./assets/item_notebook.png"
+    },
+    "item_flashlight": {
+      "id": "item_flashlight",
+      "name": "手电筒",
+      "description": "一把老式手电筒，光线微弱但足以照亮道具间阴暗的角落。",
+      "type": "TOOL",
+      "icon": "🔦",
+      "image": "./assets/item_flashlight.png"
+    },
+    "item_newspaper": {
+      "id": "item_newspaper",
+      "name": "旧报纸",
+      "description": "一张泛黄的民国报纸，上面不仅报道了戏班失踪案，边角还手写着一组奇怪的数字：1924。",
+      "type": "CLUE",
+      "icon": "📰",
+      "image": "./assets/item_newspaper.png",
+      "clueForPuzzleId": "puzzle_ticket_drawer"
+    },
+    "item_backstage_key": {
+      "id": "item_backstage_key",
+      "name": "生锈的后台钥匙",
+      "description": "一把沉重的铁钥匙，上面覆盖着红色的锈迹，似乎能打开后台的门。",
+      "type": "KEY",
+      "icon": "🗝️",
+      "image": "./assets/item_backstage_key.png"
+    },
+    "item_script": {
+      "id": "item_script",
+      "name": "染血的戏本",
+      "description": "一本《霸王别姬》的戏本，书页被干涸的血迹粘住。翻开内页，画着几个奇怪的符号顺序：脸谱、扇子、令旗、宝剑。",
+      "type": "CLUE",
+      "icon": "📖",
+      "image": "./assets/item_script.png",
+      "clueForPuzzleId": "puzzle_makeup_box"
+    },
+    "item_comb": {
+      "id": "item_comb",
+      "name": "断齿的红木梳子",
+      "description": "一把精致但断了几根齿的梳子，上面缠绕着几根长发。它似乎对应着五行中的“木”。",
+      "type": "CLUE",
+      "icon": "🪮",
+      "image": "./assets/item_comb.png",
+      "clueForPuzzleId": "puzzle_shrine_final"
+    },
+    "item_cylinder": {
+      "id": "item_cylinder",
+      "name": "蜡筒唱片",
+      "description": "一个用于留声机的蜡筒，表面刻着“绝唱”二字。",
+      "type": "TOOL",
+      "icon": "📀",
+      "image": "./assets/item_cylinder.png"
+    },
+    "item_mask": {
+      "id": "item_mask",
+      "name": "破损的武生脸谱",
+      "description": "一张表情狰狞的武生脸谱，眼角处裂开了一道缝隙。它似乎对应着五行中的“火”。",
+      "type": "CLUE",
+      "icon": "🎭",
+      "image": "./assets/item_mask.png",
+      "clueForPuzzleId": "puzzle_shrine_final"
+    },
+    "item_poster_scraps": {
+      "id": "item_poster_scraps",
+      "name": "撕碎的海报碎片",
+      "description": "一堆碎纸片，似乎原本是一张名角的宣传海报。需要拼凑还原。",
+      "type": "CLUE",
+      "icon": "🧩",
+      "image": "./assets/item_poster_scraps.png",
+      "clueForPuzzleId": "puzzle_poster_jigsaw"
+    },
+    "item_talisman": {
+      "id": "item_talisman",
+      "name": "残缺的黄色符咒",
+      "description": "一张画着朱砂咒文的黄纸，具有驱邪镇煞的作用，能化解包厢内的封印。",
+      "type": "KEY",
+      "icon": "📜",
+      "image": "./assets/item_talisman.png"
+    },
+    "item_box_key": {
+      "id": "item_box_key",
+      "name": "包厢钥匙",
+      "description": "一把精致的小铜钥匙，挂牌上写着“二楼雅座”。",
+      "type": "KEY",
+      "icon": "🔑",
+      "image": "./assets/item_box_key.png"
+    },
+    "item_shoes": {
+      "id": "item_shoes",
+      "name": "绣花戏鞋",
+      "description": "一双鲜红色的绣花鞋，鞋底居然刻着“左三右四”和“520”的字样。",
+      "type": "CLUE",
+      "icon": "👠",
+      "image": "./assets/item_shoes.png",
+      "clueForPuzzleId": "puzzle_incense_safe"
+    },
+    "item_incenser": {
+      "id": "item_incenser",
+      "name": "熄灭的青铜香炉",
+      "description": "一只沉甸甸的青铜香炉，里面积满了冷灰。这是开启神龛的信物之一。",
+      "type": "TOOL",
+      "icon": "⚱️",
+      "image": "./assets/item_incenser.png"
+    },
+    "item_jade": {
+      "id": "item_jade",
+      "name": "祖师爷玉牌",
+      "description": "一块温润的玉牌，从封印中取出，是开启神龛机关的最终关键。",
+      "type": "KEY",
+      "icon": "🧿",
+      "image": "./assets/item_jade.png"
+    }
+  },
+  "puzzles": {
+    "puzzle_ticket_drawer": {
+      "id": "puzzle_ticket_drawer",
+      "description": "抽屉上挂着一把三位数的密码锁。你需要找到关于这家戏院过去日期的线索。",
+      "answer": "1924",
+      "rewardFlag": "flag_drawer_open",
+      "rewardMessage": "锁‘咔哒’一声开了。抽屉里放着一把生锈的钥匙。",
+      "type": "numeric"
+    },
+    "puzzle_makeup_box": {
+      "id": "puzzle_makeup_box",
+      "description": "梳妆盒上有四个按钮，分别画着不同的图案。你需要按照戏本中提到的顺序按下。",
+      "answer": "👺🪭🚩⚔️",
+      "rewardFlag": "flag_makeup_box_open",
+      "rewardMessage": "梳妆盒弹开了，里面是妹妹的梳子。",
+      "type": "symbol",
+      "choices": [
+        "👺",
+        "🪭",
+        "🚩",
+        "⚔️",
+        "🌸",
+        "🏮"
+      ]
+    },
+    "puzzle_phonograph": {
+      "id": "puzzle_phonograph",
+      "description": "留声机里传出一段诡异的摩斯电码敲击声，随后是一个沙哑的声音念着数字...",
+      "answer": "7358",
+      "rewardFlag": "flag_stage_chest_open",
+      "rewardMessage": "戏台上的大箱子弹开了，里面放着那个恐怖的武生脸谱。",
+      "type": "numeric"
+    },
+    "puzzle_poster_jigsaw": {
+      "id": "puzzle_poster_jigsaw",
+      "description": "将撕碎的海报碎片拼凑完整，还原当年的真相。",
+      "answer": "solved",
+      "rewardFlag": "flag_poster_fixed",
+      "rewardMessage": "海报拼好了，你在海报的夹层里发现了一张残缺的黄色符咒。",
+      "type": "image_grid",
+      "linkedAssetId": "item_poster_scraps",
+      "gridSize": 3
+    },
+    "puzzle_incense_safe": {
+      "id": "puzzle_incense_safe",
+      "description": "保险箱需要三位密码。线索似乎藏在那双诡异的红鞋上。",
+      "answer": "520",
+      "rewardFlag": "flag_safe_open",
+      "rewardMessage": "保险箱打开了，里面是那个沉重的青铜香炉。",
+      "type": "numeric"
+    },
+    "puzzle_shrine_final": {
+      "id": "puzzle_shrine_final",
+      "description": "神龛机关盘上刻着汉字。请严格按照五行相生顺序点击：先按【水】，水生【木】，木生【火】，火生【土】，最后土生【金】。",
+      "answer": "火木",
+      "rewardFlag": "flag_game_won",
+      "rewardMessage": "随着机关归位，神龛发出金光，周围的阴霾开始消散……",
+      "type": "symbol",
+      "choices": [
+        "水",
+        "木",
+        "火",
+        "土",
+        "金",
+        "雷"
+      ]
+    }
+  },
+  "scenes": {
+    "scene_ticket_office": {
+      "id": "scene_ticket_office",
+      "title": "布满灰尘的售票处",
+      "imageUrl": "./assets/scene_ticket_office.jpg",
+      "description": "这里是戏院的入口，售票窗口早已积满厚厚的灰尘。窗外的雨声被厚重的墙壁隔绝，显得死寂。",
+      "interactables": [
+        {
+          "id": "int_newspaper",
+          "name": "桌上的废纸堆",
+          "description": "一堆废弃的文件，其中有一张旧报纸引起了你的注意。",
+          "itemRewardId": "item_newspaper",
+          "postInteractionMessage": "只剩下一些无用的废纸了，那张写着'1924'的报纸已经被你拿走了。"
+        },
+        {
+          "id": "int_trash_bin",
+          "name": "角落的废纸篓",
+          "description": "角落里倒着一个废纸篓，里面有些碎纸片。",
+          "itemRewardId": "item_poster_scraps",
+          "postInteractionMessage": "你捡起了这些碎纸片，似乎属于某张海报。"
+        },
+        {
+          "id": "int_drawer",
+          "name": "上锁的抽屉",
+          "description": "售票员的抽屉被一把三位数的密码锁锁住了。",
+          "lockedMessage": "锁得很死，需要三位密码。你在报纸上好像看到过相关的年份。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_ticket_drawer",
+          "itemRewardId": "item_backstage_key",
+          "postInteractionMessage": "抽屉已经打开，里面空空如也。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_corridor",
+          "label": "进入长廊"
+        }
+      ]
+    },
+    "scene_corridor": {
+      "id": "scene_corridor",
+      "title": "挂满褪色红灯笼的长廊",
+      "imageUrl": "./assets/scene_corridor.jpg",
+      "description": "长廊上方挂满了褪色的红灯笼，随风轻轻摇曳，仿佛无数双眼睛在注视着你。地板踩上去发出令人牙酸的嘎吱声。",
+      "interactables": [
+        {
+          "id": "int_lantern_key",
+          "name": "落灰的灯笼架",
+          "description": "灯笼架下面似乎掉落着一把闪亮的东西。",
+          "itemRewardId": "item_box_key",
+          "postInteractionMessage": "你捡起了一把精致的铜钥匙。"
+        },
+        {
+          "id": "int_backstage_door",
+          "name": "后台铁门",
+          "description": "通往后台的铁门紧锁着，锁孔里塞满了红色的锈迹。",
+          "requiredItemId": "item_backstage_key",
+          "lockedMessage": "门锁锈死了，需要一把特定的钥匙才能打开。",
+          "flagReward": "flag_backstage_unlocked",
+          "postInteractionMessage": "门已经打开了。"
+        },
+        {
+          "id": "int_wall_scratch",
+          "name": "墙上的抓痕",
+          "description": "墙上布满了指甲抓出的深痕，触目惊心。",
+          "requiredItemId": "item_box_key",
+          "lockedMessage": "门上挂着精致的铜锁，需要‘二楼雅座’的钥匙。",
+          "flagReward": "flag_box_unlocked",
+          "postInteractionMessage": "这些抓痕让人不寒而栗。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_ticket_office",
+          "label": "回到售票处"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_stage",
+          "label": "走上戏台"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_backstage",
+          "label": "前往后台",
+          "locked": true,
+          "requiredFlag": "flag_backstage_unlocked"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_box",
+          "label": "上二楼包厢",
+          "locked": true,
+          "requiredFlag": "flag_box_unlocked"
+        }
+      ]
+    },
+    "scene_backstage": {
+      "id": "scene_backstage",
+      "title": "凌乱的后台化妆间",
+      "imageUrl": "./assets/scene_backstage.jpg",
+      "description": "化妆镜破碎不堪，映照出扭曲的倒影。满地散落的戏服像死人的躯壳。",
+      "interactables": [
+        {
+          "id": "int_makeup_table",
+          "name": "染血的戏本",
+          "description": "桌上放着一本沾血的戏本，似乎记录着演出的秘密。",
+          "itemRewardId": "item_script",
+          "clueForPuzzleId": "puzzle_makeup_box",
+          "postInteractionMessage": "戏本已经被你拿走了。上面画着：脸谱、扇子、令旗、宝剑。"
+        },
+        {
+          "id": "int_jewelry_box",
+          "name": "精致的梳妆盒",
+          "description": "一个上锁的梳妆盒，上面有四个奇怪的图案按钮。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_makeup_box",
+          "lockedMessage": "盒子锁住了，按钮上的符号（脸谱、扇子等）似乎对应着戏本里的内容。",
+          "itemRewardId": "item_comb",
+          "postInteractionMessage": "盒子开着，里面已经空了。"
+        },
+        {
+          "id": "int_hidden_switch",
+          "name": "松动的地板",
+          "description": "这块地板踩上去声音不对，似乎下面有机关。",
+          "requiredItemId": "item_incenser",
+          "lockedMessage": "地板下有个凹槽，形状像是一个底座，似乎需要放置重物（如香炉）压住才能触发。",
+          "flagReward": "flag_shrine_unlocked",
+          "postInteractionMessage": "地板机关已被香炉压住，一道暗门缓缓打开。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_corridor",
+          "label": "返回长廊"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_shrine",
+          "label": "进入密室",
+          "locked": true,
+          "requiredFlag": "flag_shrine_unlocked"
+        }
+      ]
+    },
+    "scene_stage": {
+      "id": "scene_stage",
+      "title": "空荡诡异的戏台",
+      "imageUrl": "./assets/scene_stage.jpg",
+      "description": "巨大的戏台空无一人，幕布残破地垂下。舞台中央放着一台老式留声机和一口大箱子。",
+      "interactables": [
+        {
+          "id": "int_phonograph",
+          "name": "破旧留声机",
+          "description": "一台坏掉的留声机，缺少了关键的蜡筒。",
+          "requiredItemId": "item_cylinder",
+          "lockedMessage": "没有唱片蜡筒，它发不出声音。",
+          "audioMessage": "7358",
+          "postInteractionMessage": "留声机正在循环播放一段刺耳的声音，不过你知道这不是什么奇怪的声音而是摩斯密码，7...3...5...8...",
+          "clueForPuzzleId": "puzzle_phonograph",
+          "dialogue": []
+        },
+        {
+          "id": "int_stage_chest",
+          "name": "舞台木箱",
+          "description": "一个沉重的木箱，挂着密码锁。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_phonograph",
+          "lockedMessage": "锁住了。你需要输入四位数字密码。线索也许藏在留声机的声音里。",
+          "itemRewardId": "item_mask",
+          "postInteractionMessage": "箱子已经打开，里面空了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_corridor",
+          "label": "下台"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_prop_room",
+          "label": "去道具间"
+        }
+      ]
+    },
+    "scene_prop_room": {
+      "id": "scene_prop_room",
+      "title": "堆满杂物的道具间",
+      "imageUrl": "./assets/scene_prop_room.jpg",
+      "description": "这里堆满了各种积灰的道具：刀枪剑戟、假人头、破布。角落里漆黑一片。",
+      "interactables": [
+        {
+          "id": "int_prop_pile",
+          "name": "阴暗的杂物堆",
+          "description": "在一堆假发下面似乎藏着什么，但太黑了看不清。",
+          "requiredItemId": "item_flashlight",
+          "lockedMessage": "太暗了，伸手进去可能会有危险，你需要照明工具。",
+          "itemRewardId": "item_cylinder",
+          "postInteractionMessage": "在手电筒的光照下，你找到了一个蜡筒唱片。"
+        },
+        {
+          "id": "int_poster_frame",
+          "name": "破碎的海报框",
+          "description": "墙上挂着一个相框，里面的海报被撕碎了。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_poster_jigsaw",
+          "requiredItemId": "item_poster_scraps",
+          "lockedMessage": "相框里空空如也，你需要先找到散落的海报碎片。",
+          "itemRewardId": "item_talisman",
+          "postInteractionMessage": "海报已经拼好，那个恐怖的红衣花旦正盯着你。你已经在夹层找到了符咒。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_stage",
+          "label": "回戏台"
+        }
+      ]
+    },
+    "scene_box": {
+      "id": "scene_box",
+      "title": "被封死的二楼包厢",
+      "imageUrl": "./assets/scene_box.jpg",
+      "description": "这里视野极佳，可以直接俯瞰戏台。房间里摆设奢华但腐朽，角落里有一个保险箱。墙壁上贴着一张诡异的封条。",
+      "interactables": [
+        {
+          "id": "int_inner_seal",
+          "name": "墙上的封印",
+          "description": "墙上贴着一道散发着黑气的封印，似乎镇压着什么。",
+          "requiredItemId": "item_talisman",
+          "lockedMessage": "封印散发着寒气，需要用道家的符咒来化解。",
+          "itemRewardId": "item_jade",
+          "postInteractionMessage": "符咒燃起幽火，封印解除了，墙壁暗格里掉落出一块玉牌。"
+        },
+        {
+          "id": "int_red_shoes",
+          "name": "绣花戏鞋",
+          "description": "椅子上端正地放着一双红鞋，鞋尖对着戏台，仿佛有人坐在这里看戏。",
+          "itemRewardId": "item_shoes",
+          "clueForPuzzleId": "puzzle_incense_safe",
+          "postInteractionMessage": "鞋子已被拿走。鞋底刻着‘520’。"
+        },
+        {
+          "id": "int_safe",
+          "name": "角落的保险箱",
+          "description": "一个铁质保险箱，需要三位数字密码。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_incense_safe",
+          "lockedMessage": "锁住了。密码可能藏在房间里某个私密的物品上（比如鞋子）。",
+          "itemRewardId": "item_incenser",
+          "postInteractionMessage": "保险箱已空。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_corridor",
+          "label": "下楼"
+        }
+      ]
+    },
+    "scene_shrine": {
+      "id": "scene_shrine",
+      "title": "供奉祖师爷的神龛密室",
+      "imageUrl": "./assets/scene_shrine.jpg",
+      "description": "密室里烟雾缭绕，正中央供奉着戏班祖师爷的塑像，表情似笑非笑。面前有三个空的供盘。",
+      "interactables": [
+        {
+          "id": "int_altar_puzzle",
+          "name": "祖师爷神像",
+          "description": "神像下方的机关盘上刻着五行符号。你需要将收集到的信物玉牌供奉好，并解开五行（脸谱、梳子）谜题。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_shrine_final",
+          "requiredFlag": "flag_shrine_items_placed",
+          "lockedMessage": "供盘是空的。你需要先将所有信物找齐并供奉上，才能启动机关。",
+          "winsGame": true,
+          "postInteractionMessage": "一切都结束了。",
+          "dialogue": [],
+          "requiredItemId": ""
+        },
+        {
+          "id": "int_place_items",
+          "name": "放置供品",
+          "description": "将收集到的信物（脸谱、梳子、香炉、玉牌）放入供盘。",
+          "dialogue": [
+            "你将所有收集到的信物摆放整齐。",
+            "神像的眼睛似乎转动了一下。"
+          ],
+          "flagReward": "flag_shrine_items_placed",
+          "requiredItemId": "item_jade",
+          "lockedMessage": "你还没找齐所有供品，尤其是那块核心的玉牌。",
+          "postInteractionMessage": "供品已摆放整齐，机关盘启动了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_backstage",
+          "label": "离开密室"
+        }
+      ]
+    },
+    "scene_ending": {
+      "id": "scene_ending",
+      "title": "晨曦中的戏院大门",
+      "imageUrl": "./assets/scene_ending.jpg",
+      "description": "大门敞开，外面的雨停了。你手里紧紧攥着妹妹的梳子，身后是渐渐平静的梨园。",
+      "interactables": [],
+      "exits": []
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

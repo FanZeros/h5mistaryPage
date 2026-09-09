@@ -1,0 +1,573 @@
+{
+  "meta": {
+    "name": "名为完美的诅咒",
+    "author": "GameDesignerAI",
+    "version": "1.0.1",
+    "description": "在一所与世隔绝的贵族女校中，为了寻找失踪的妹妹，你揭开了关于“永恒美丽”的恐怖真相。",
+    "style": "kawaii Anime",
+    "sceneStyle": "Cel-shaded, Atmospheric, Horror",
+    "itemStyle": "Detailed, Symbolic",
+    "endingMessage": "随着法阵的破碎，那些名为“完美”的虚伪外壳纷纷剥落。虽然伤痕累累，但那才是真实的生命。",
+    "useBannerAsTitleBg": true,
+    "designConfig": {
+      "theme": "【名为“完美”的诅咒】：玩家扮演一名转校生，寻找失踪的妹妹，揭开校园内将少女改造成陶瓷人偶的恐怖仪式。",
+      "sceneCount": 8,
+      "itemCount": 11,
+      "puzzleCount": 4,
+      "requiredItems": "染血的蕾丝发带, 缺损的陶瓷眼珠, 写有妹妹名字的裁缝剪刀, 未完成的《人偶制作守则》, 陶瓷断臂",
+      "requiredScenes": "被夕阳染红的钟楼画室, 深夜的镜之走廊, 封死的旧校舍地下室, 陈列着历代“完美学生”的人偶展览馆"
+    },
+    "bgmUrl": "./assets/bgm.mp3"
+  },
+  "initialState": {
+    "currentSceneId": "scene_gate",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "妹妹已经失踪一周了，最后一封信是从这里寄出的..."
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_ribbon": {
+      "id": "item_ribbon",
+      "name": "染血的蕾丝发带",
+      "description": "妹妹最喜欢的发带，原本纯白的蕾丝上沾染了干涸的暗红色血迹。",
+      "type": "NOTE",
+      "icon": "🎀",
+      "image": "./assets/item_ribbon.png"
+    },
+    "item_scissors": {
+      "id": "item_scissors",
+      "name": "写有妹妹名字的裁缝剪刀",
+      "description": "一把锋利的银色剪刀，手柄上刻着妹妹的名字。只有它能剪开那些被诅咒的缝线。",
+      "type": "TOOL",
+      "icon": "✂️",
+      "image": "./assets/item_scissors.png"
+    },
+    "item_rules": {
+      "id": "item_rules",
+      "name": "未完成的《人偶制作守则》",
+      "description": "一本破旧的手账，记录着如何将活人改造成人偶的疯狂步骤。",
+      "type": "NOTE",
+      "icon": "📜",
+      "image": "./assets/item_rules.png"
+    },
+    "item_eye": {
+      "id": "item_eye",
+      "name": "缺损的陶瓷眼珠",
+      "description": "一颗做工极其逼真的陶瓷义眼，虹膜是翠绿色的。",
+      "type": "CLUE",
+      "icon": "👁️",
+      "image": "./assets/item_eye.png"
+    },
+    "item_sketchbook": {
+      "id": "item_sketchbook",
+      "name": "诡异的素描页",
+      "description": "一张画着数字序列1，8，9，5的素描纸，背景是钟楼的涂鸦。",
+      "type": "CLUE",
+      "icon": "🔢",
+      "image": "./assets/item_sketchbook.png",
+      "clueForPuzzleId": "puz_art_lock"
+    },
+    "item_flashlight": {
+      "id": "item_flashlight",
+      "name": "紫外线手电筒",
+      "description": "在展览馆找到的小型手电筒，可以照出肉眼看不见的痕迹。",
+      "type": "TOOL",
+      "icon": "🔦",
+      "image": "./assets/item_flashlight.png",
+      "clueForPuzzleId": "puz_basement_lock"
+    },
+    "item_key_art": {
+      "id": "item_key_art",
+      "name": "美术室钥匙",
+      "description": "一把沾着红色颜料的黄铜钥匙，标签上画着调色板。",
+      "type": "KEY",
+      "icon": "🗝️",
+      "image": "./assets/item_key_art.png"
+    },
+    "item_emblem": {
+      "id": "item_emblem",
+      "name": "百合花纹章",
+      "description": "纯金打造的校徽，形状是一朵盛开的百合。这是通往地下禁区的信物。",
+      "type": "KEY",
+      "icon": "⚜️",
+      "image": "./assets/item_emblem.png"
+    },
+    "item_diary": {
+      "id": "item_diary",
+      "name": "学生日记",
+      "description": "“不想变丑...不想长大...我想永远停留在这一刻...”",
+      "type": "NOTE",
+      "icon": "📔",
+      "image": "./assets/item_diary.png"
+    },
+    "item_doll_arm": {
+      "id": "item_doll_arm",
+      "name": "陶瓷断臂",
+      "description": "从花园工具棚的麻袋里找到的。原本应该属于少女的手臂，现在变成了冰冷的陶瓷。",
+      "type": "TOOL",
+      "icon": "💪",
+      "image": "./assets/item_doll_arm.png"
+    },
+    "item_rose": {
+      "id": "item_rose",
+      "name": "黑蔷薇枯枝",
+      "description": "从花园采集的蔷薇，花瓣已经发黑枯萎。",
+      "type": "CLUE",
+      "icon": "🥀",
+      "image": "./assets/item_rose.png"
+    }
+  },
+  "puzzles": {
+    "puz_art_lock": {
+      "id": "puz_art_lock",
+      "description": "画室的门上挂着一把电子密码锁，旁边刻着一行小字：“唯有艺术能定格时间”。",
+      "type": "numeric",
+      "answer": "1895",
+      "rewardFlag": "art_unlocked",
+      "rewardMessage": "密码锁发出一声轻响，门开了。",
+      "linkedAssetId": "item_sketchbook"
+    },
+    "puz_basement_lock": {
+      "id": "puz_basement_lock",
+      "description": "地下室的铁门上没有任何钥匙孔，只有一排奇怪的符号按钮。你需要根据在镜子中看到的线索输入顺序。",
+      "type": "symbol",
+      "choices": [
+        "👁️",
+        "🩸",
+        "🪞",
+        "✂️",
+        "🌑",
+        "🥀"
+      ],
+      "answer": "🪞👁️🌑🩸",
+      "rewardFlag": "basement_unlocked",
+      "rewardMessage": "铁门发出沉重的轰鸣声，缓缓向内打开，一股腐烂的气息扑面而来。",
+      "linkedAssetId": "item_flashlight"
+    },
+    "puz_doll_repair": {
+      "id": "puz_doll_repair",
+      "description": "一个破碎的人偶挡住了去路，它的左臂缺失了。你需要装上找到的陶瓷手臂，并将混乱的拼图复原。",
+      "type": "image_grid",
+      "gridSize": 3,
+      "answer": "solved",
+      "rewardFlag": "doll_fixed",
+      "rewardMessage": "随着手臂的安放，人偶拼凑完整了，胸口的暗格弹开了。",
+      "image": "puzzle_doll_grid.jpg",
+      "linkedAssetId": "item_doll_arm"
+    },
+    "puz_ritual_seal": {
+      "id": "puz_ritual_seal",
+      "description": "地面上画着巨大的鲜血法阵。你需要一笔画出逆向的解咒符文来破坏它！",
+      "type": "one_line",
+      "points": [
+        {
+          "x": 30,
+          "y": 20
+        },
+        {
+          "x": 70,
+          "y": 20
+        },
+        {
+          "x": 70,
+          "y": 80
+        },
+        {
+          "x": 30,
+          "y": 80
+        },
+        {
+          "x": 10,
+          "y": 50
+        },
+        {
+          "x": 90,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 50
+        }
+      ],
+      "connections": [
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "answer": "4,0,1,5,2,1,6,2,3,6,0,3,4",
+      "rewardFlag": "ritual_broken",
+      "rewardMessage": "随着最后一笔划下，鲜红的法阵崩裂成无数光点，诅咒解除了。",
+      "linkedAssetId": "item_scissors"
+    }
+  },
+  "scenes": {
+    "scene_gate": {
+      "id": "scene_gate",
+      "title": "学院正门",
+      "imageUrl": "./assets/scene_gate.jpg",
+      "description": "这里是深山中的全寄宿女子贵族学院。高耸的铁门紧闭，夕阳将一切都染成了不祥的血红色。",
+      "interactables": [
+        {
+          "id": "int_gate_sign",
+          "name": "校牌",
+          "description": "大理石校牌上刻着“私立圣美索若女子学院”。",
+          "dialogue": [
+            "这就是妹妹信中提到的学校...",
+            "感觉不到一点生机。"
+          ]
+        },
+        {
+          "id": "int_mailbox",
+          "name": "信箱",
+          "description": "积满灰尘的信箱。",
+          "itemRewardId": "item_diary",
+          "postInteractionMessage": "你在信箱底部发现了一本被遗弃的日记。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_corridor",
+          "label": "进入教学楼"
+        }
+      ]
+    },
+    "scene_corridor": {
+      "id": "scene_corridor",
+      "title": "深夜的镜之走廊",
+      "imageUrl": "./assets/scene_corridor.jpg",
+      "description": "一条长长的走廊，两侧挂满了落地镜。当你走过时，镜中的倒影似乎比你慢半拍。",
+      "interactables": [
+        {
+          "id": "int_mirror_clue",
+          "name": "污浊的镜子",
+          "description": "这面镜子上似乎有一些用特殊涂料画上去的痕迹。",
+          "requiredItemId": "item_flashlight",
+          "lockedMessage": "镜面上似乎隐约有字迹，但在昏暗的灯光下完全看不清，需要特殊的光源。",
+          "clueForPuzzleId": "puz_basement_lock",
+          "dialogue": [
+            "打开紫外线手电筒...",
+            "镜面上显现出了顺序：镜子、眼珠、黑月、血滴。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_gate",
+          "label": "返回正门"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_dorm",
+          "label": "学生宿舍"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_garden",
+          "label": "蔷薇中庭"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_exhibition",
+          "label": "人偶展览馆"
+        }
+      ]
+    },
+    "scene_dorm": {
+      "id": "scene_dorm",
+      "title": "妹妹的寝室",
+      "imageUrl": "./assets/scene_dorm.jpg",
+      "description": "虽然很久没人住了，但依然保持着整洁。只是床上放着许多破碎的瓷片。",
+      "interactables": [
+        {
+          "id": "int_bed",
+          "name": "床铺",
+          "description": "枕头底下似乎压着什么东西。",
+          "itemRewardId": "item_ribbon",
+          "postInteractionMessage": "你找到了妹妹的发带，上面全是血..."
+        },
+        {
+          "id": "int_desk",
+          "name": "书桌",
+          "description": "桌上散乱地放着画具。",
+          "itemRewardId": "item_sketchbook",
+          "postInteractionMessage": "你找到了一页素描，上面画着钟楼门锁的线索。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_corridor",
+          "label": "返回走廊"
+        }
+      ]
+    },
+    "scene_garden": {
+      "id": "scene_garden",
+      "title": "蔷薇中庭",
+      "imageUrl": "./assets/scene_garden.jpg",
+      "description": "种满了黑色蔷薇的中庭。远处的钟楼画室大门紧闭。",
+      "interactables": [
+        {
+          "id": "int_rose_bush",
+          "name": "蔷薇丛",
+          "description": "花丛深处闪烁着微光。",
+          "itemRewardId": "item_eye",
+          "postInteractionMessage": "你伸手拨开荆棘，捡到了一颗陶瓷眼珠。"
+        },
+        {
+          "id": "int_statue",
+          "name": "断头雕像",
+          "description": "喷泉中央的天使雕像没有头。",
+          "dialogue": [
+            "雕像的底座上刻着一行小字：‘真相在不可见之光下显形’。"
+          ]
+        },
+        {
+          "id": "int_art_door_lock",
+          "name": "钟楼画室大门",
+          "description": "通往画室的门锁着。",
+          "isPuzzle": true,
+          "puzzleId": "puz_art_lock"
+        },
+        {
+          "id": "int_shed",
+          "name": "工具棚",
+          "description": "上了锁的园艺工具棚。",
+          "requiredItemId": "item_key_art",
+          "lockedMessage": "锁孔被红漆堵住了，看来只有美术室的钥匙才能打开。",
+          "postInteractionMessage": "门开了，里面堆满了杂物。"
+        },
+        {
+          "id": "int_shed_sack",
+          "name": "被缝死的麻袋",
+          "description": "工具棚角落里有一个还在蠕动的麻袋，口子被粗线缝死了。",
+          "requiredItemId": "item_scissors",
+          "lockedMessage": "缝线非常坚韧，需要用锋利的剪刀才能剪开。",
+          "itemRewardId": "item_doll_arm",
+          "postInteractionMessage": "你剪开了麻袋，里面掉出了一截陶瓷断臂...太恶心了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_corridor",
+          "label": "返回走廊"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_artroom",
+          "label": "钟楼画室",
+          "locked": true,
+          "requiredFlag": "art_unlocked"
+        }
+      ]
+    },
+    "scene_artroom": {
+      "id": "scene_artroom",
+      "title": "被夕阳染红的钟楼画室",
+      "imageUrl": "./assets/scene_artroom.jpg",
+      "description": "巨大的落地窗外是血色的残阳。画室里摆满了尚未完成的肖像画。",
+      "interactables": [
+        {
+          "id": "int_easel",
+          "name": "中央画架",
+          "description": "画架上插着一把剪刀。",
+          "itemRewardId": "item_scissors",
+          "postInteractionMessage": "你拔出了剪刀，上面刻着妹妹的名字。"
+        },
+        {
+          "id": "int_paint_box",
+          "name": "颜料盒",
+          "description": "一个精致的木盒。",
+          "itemRewardId": "item_key_art",
+          "postInteractionMessage": "你在颜料盒底层发现了一把钥匙。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_garden",
+          "label": "返回中庭"
+        }
+      ]
+    },
+    "scene_exhibition": {
+      "id": "scene_exhibition",
+      "title": "人偶展览馆",
+      "imageUrl": "./assets/scene_exhibition.jpg",
+      "description": "玻璃柜中陈列着数十个真人大小的陶瓷人偶。角落里有一扇通往地下的沉重铁门。",
+      "interactables": [
+        {
+          "id": "int_display_case",
+          "name": "上锁的展柜",
+          "description": "这个展柜里放着一本书，玻璃门锁住了。",
+          "requiredItemId": "item_key_art",
+          "lockedMessage": "需要美术室的钥匙才能打开。",
+          "itemRewardId": "item_flashlight",
+          "postInteractionMessage": "你用美术室钥匙打开了展柜，发现了一个紫光手电筒。"
+        },
+        {
+          "id": "int_book_pedestal",
+          "name": "展示台",
+          "description": "展示台上放着一本破旧的书。",
+          "itemRewardId": "item_rules",
+          "postInteractionMessage": "你拿起了《人偶制作守则》。"
+        },
+        {
+          "id": "int_basement_door",
+          "name": "地下室铁门",
+          "description": "通往地下的铁门，上面有符号锁。",
+          "isPuzzle": true,
+          "puzzleId": "puz_basement_lock",
+          "dialogue": [],
+          "postInteractionMessage": "",
+          "lockedMessage": "",
+          "requiredItemId": "",
+          "itemRewardId": "",
+          "flagReward": "",
+          "requiredFlag": "",
+          "hiddenIfFlag": "",
+          "audioMessage": "",
+          "winsGame": false,
+          "targetSceneId": ""
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_corridor",
+          "label": "返回走廊"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_basement",
+          "label": "地下室",
+          "locked": true,
+          "requiredFlag": "basement_unlocked"
+        }
+      ]
+    },
+    "scene_basement": {
+      "id": "scene_basement",
+      "title": "封死的旧校舍地下室",
+      "imageUrl": "./assets/scene_basement.jpg",
+      "description": "这里充满了福尔马林和腐烂的味道。房间中央堆放着大量失败的‘作品’。",
+      "interactables": [
+        {
+          "id": "int_pile_dolls",
+          "name": "残肢堆",
+          "description": "一堆破碎的人偶零件。这个挡路的人偶似乎缺了一只手臂。",
+          "isPuzzle": true,
+          "puzzleId": "puz_doll_repair",
+          "requiredItemId": "item_doll_arm",
+          "itemRewardId": "item_emblem",
+          "postInteractionMessage": "你装上了断臂并修好了人偶，它的胸腔弹开，露出了百合花纹章。"
+        },
+        {
+          "id": "int_secret_door",
+          "name": "暗门",
+          "description": "墙角的一扇隐蔽石门，有一个百合花形状的凹槽。",
+          "requiredItemId": "item_emblem",
+          "lockedMessage": "需要特殊的信物才能开启。",
+          "postInteractionMessage": "石门发出沉闷的响声，缓缓移开，露出了后方通往黑暗深处的道路。",
+          "flagReward": "ritual_door_unlocked"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_exhibition",
+          "label": "逃回展览馆"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_ritual",
+          "label": "进入仪式密室",
+          "locked": true,
+          "requiredFlag": "ritual_door_unlocked"
+        }
+      ]
+    },
+    "scene_ritual": {
+      "id": "scene_ritual",
+      "title": "仪式密室",
+      "imageUrl": "./assets/scene_ritual.jpg",
+      "description": "巨大的地下空洞。无数根红线悬挂在天花板上，连接着中央的祭坛。",
+      "interactables": [
+        {
+          "id": "int_sister",
+          "name": "妹妹",
+          "description": "她的皮肤冰冷如瓷，眼看就要完全变成人偶了。",
+          "dialogue": [
+            "姐姐...快走...完美的诅咒...无法停止..."
+          ]
+        },
+        {
+          "id": "int_ritual_circle",
+          "name": "鲜血法阵",
+          "description": "地上的法阵还在搏动。必须立刻用剪刀切断连接，破坏它！",
+          "isPuzzle": true,
+          "puzzleId": "puz_ritual_seal",
+          "winsGame": true,
+          "postInteractionMessage": "法阵被破坏了！妹妹身上的瓷化痕迹开始褪去。"
+        }
+      ],
+      "exits": []
+    }
+  },
+  "marketing": {
+    "bannerUrl": "./assets/game_banner_1080.jpg",
+    "iconUrl": "./assets/game_icon_512.png"
+  }
+}

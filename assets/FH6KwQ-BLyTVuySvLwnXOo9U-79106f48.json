@@ -1,0 +1,599 @@
+{
+  "meta": {
+    "name": "绝版放映：废稿地狱",
+    "author": "佚名",
+    "version": "1.0.3",
+    "description": "你被困在了一部永远无法完成的90年代恐怖动画中。这里的一切都由易燃的赛璐璐胶片构成，扭曲的原画试图将你抹除。你需要解开这些被遗弃场景中的谜题，逃离这个正在崩塌的二维世界。",
+    "style": "90s Retro Anime Horror, Celluloid aesthetic, high contrast",
+    "sceneStyle": "Hand-drawn anime backgrounds, slight VHS distortion, ominous shadows, wide angle lens, retro color palette",
+    "itemStyle": "Detailed cel animation props, solid black outlines, hard shading, isometric view, white background",
+    "musicStyle": "Lo-fi synth horror, distorted anime opening, eerie ambiance, vinyl crackle, industrial drone",
+    "endingMessage": "随着放映机的停止，周围崩坏的赛璐璐世界化为灰烬。你推开了那扇通往现实的沉重铁门，清晨的阳光刺痛了你的双眼。你逃出了那部永无止境的恐怖动画，但当你低头看手心时，似乎还残留着一抹未干的颜料。",
+    "endingSceneId": "scene_reality_exit",
+    "useBannerAsTitleBg": true,
+    "bgmUrl": "./assets/bgm.mp3",
+    "designConfig": {
+      "theme": "你醒来时发现自己被困在了一部未完成的90年代恐怖动画中，世界由易燃的赛璐璐胶片构成。为了防止自己像废稿一样被“擦除”，你需要在一帧帧崩坏的场景中寻找逃离现实的出口，而那些被舍弃的扭曲原画正在暗处窥视。",
+      "sceneCount": 9,
+      "itemCount": 12,
+      "puzzleCount": 7,
+      "requiredItems": "断裂的定位尺, 未干的红色赛璐璐片, 写有求救信号的律表, 生锈的打孔机, 一瓶名为“遗忘”的稀释剂",
+      "requiredScenes": "由于作画失误而扭曲的走廊, 堆满废弃胶片的焚化室, 在那不停闪烁的灯箱前, 色彩正在剥落的导演办公室"
+    }
+  },
+  "initialState": {
+    "currentSceneId": "scene_distorted_corridor",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "醒来时，空气中弥漫着胶片燃烧的刺鼻气味。",
+      "周围的墙壁不是混凝土，而是层层叠叠的赛璐璐画纸。",
+      "我好像被困在了一部崩坏的动画里……如果不快点逃走，我也会变成一张废稿被擦除。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_ruler": {
+      "id": "item_ruler",
+      "name": "断裂的定位尺",
+      "description": "一把锋利的金属尺，边缘已经磨损。上面刻着：“不要相信背景画”。",
+      "type": "TOOL",
+      "icon": "📏",
+      "image": "./assets/item_ruler.png"
+    },
+    "item_red_cel": {
+      "id": "item_red_cel",
+      "name": "未干的红色赛璐璐片",
+      "description": "一张画着血迹特效的透明胶片，颜料似乎永远不会干。透过它看东西可能会发现隐藏的信息。",
+      "type": "CLUE",
+      "icon": "🟥",
+      "image": "./assets/item_red_cel.png",
+      "clueForPuzzleId": "puz_hidden_msg"
+    },
+    "item_cue_sheet": {
+      "id": "item_cue_sheet",
+      "name": "写有求救信号的律表",
+      "description": "一张皱巴巴的动画律表，背面潦草地写着：“焚化室阀门密码是 4921”。",
+      "type": "NOTE",
+      "icon": "📄",
+      "image": "./assets/item_cue_sheet.png",
+      "clueForPuzzleId": "puz_incinerator_valve"
+    },
+    "item_hole_punch": {
+      "id": "item_hole_punch",
+      "name": "生锈的打孔机",
+      "description": "原本用于给画纸定位打孔的工具，非常沉重，也许可以用来做某种物理干涉。",
+      "type": "TOOL",
+      "icon": "🕳️",
+      "image": "./assets/item_hole_punch.png"
+    },
+    "item_thinner": {
+      "id": "item_thinner",
+      "name": "名为“遗忘”的稀释剂",
+      "description": "一瓶强力工业溶剂，标签上写着“遗忘”。能溶解顽固的油漆和胶水。",
+      "type": "TOOL",
+      "icon": "🧪",
+      "image": "./assets/item_thinner.png"
+    },
+    "item_poster_scraps": {
+      "id": "item_poster_scraps",
+      "name": "撕碎的海报碎片",
+      "description": "一张被撕碎的动画宣传海报，似乎可以拼凑起来。",
+      "type": "CLUE",
+      "icon": "🧩",
+      "image": "./assets/item_poster_scraps.png",
+      "clueForPuzzleId": "puz_poster_fix"
+    },
+    "item_key_director": {
+      "id": "item_key_director",
+      "name": "导演室钥匙",
+      "description": "一把黄铜钥匙，上面沾满了黑色的墨水。",
+      "type": "KEY",
+      "icon": "🔑",
+      "image": "./assets/item_key_director.png"
+    },
+    "item_vhs_tape": {
+      "id": "item_vhs_tape",
+      "name": "故障的录像带",
+      "description": "一盘没有标签的VHS录像带，磁条已经拉了出来。",
+      "type": "CLUE",
+      "icon": "📼",
+      "image": "./assets/item_vhs_tape.png"
+    },
+    "item_gloves": {
+      "id": "item_gloves",
+      "name": "白手套",
+      "description": "防止手汗弄脏原画的棉手套，可以隔热。",
+      "type": "TOOL",
+      "icon": "🧤",
+      "image": "./assets/item_gloves.png"
+    },
+    "item_storyboard": {
+      "id": "item_storyboard",
+      "name": "分镜草稿",
+      "description": "画着奇怪符号的分镜本：三角、圆圈、正方形、星星。",
+      "type": "CLUE",
+      "icon": "📒",
+      "image": "./assets/item_storyboard.png",
+      "clueForPuzzleId": "puz_locker_symbol"
+    },
+    "item_film_reel": {
+      "id": "item_film_reel",
+      "name": "完好的电影胶卷",
+      "description": "一盘未被污染的胶卷，这是逃离这里的关键。",
+      "type": "KEY",
+      "icon": "🎞️",
+      "image": "./assets/item_film_reel.png"
+    },
+    "item_flashlight": {
+      "id": "item_flashlight",
+      "name": "摄影灯手电筒",
+      "description": "原本是摄影棚用的便携灯，光线很强。手柄上刻着奇怪的符号序列：⚡Ω⏚⚛，似乎对应着某种电路连接。",
+      "type": "TOOL",
+      "icon": "🔦",
+      "image": "./assets/item_flashlight.png",
+      "clueForPuzzleId": "puz_lightbox_circuit"
+    }
+  },
+  "puzzles": {
+    "puz_locker_symbol": {
+      "id": "puz_locker_symbol",
+      "description": "储物柜的锁是由于四个奇怪的符号组成的。你需要按照正确的顺序按下它们。",
+      "type": "symbol",
+      "choices": [
+        "▲",
+        "✖",
+        "■",
+        "★",
+        "♦",
+        "●"
+      ],
+      "answer": "▲●■★",
+      "rewardFlag": "flag_locker_open",
+      "rewardMessage": "储物柜咔哒一声打开了。"
+    },
+    "puz_incinerator_valve": {
+      "id": "puz_incinerator_valve",
+      "description": "这道防火门由一个数字键盘控制。你需要输入4位安全代码。",
+      "type": "numeric",
+      "answer": "4921",
+      "rewardFlag": "flag_incinerator_open",
+      "rewardMessage": "液压门发出嘶嘶声，缓缓打开。"
+    },
+    "puz_poster_fix": {
+      "id": "puz_poster_fix",
+      "description": "墙上的海报被撕碎了。点击并交换碎片，将这幅关于'逃离'的画面复原。",
+      "type": "image_grid",
+      "linkedAssetId": "item_poster_scraps",
+      "gridSize": 3,
+      "answer": "solved",
+      "rewardFlag": "flag_poster_fixed",
+      "rewardMessage": "海报复原了，海报后面露出一个暗格。"
+    },
+    "puz_audio_safe": {
+      "id": "puz_audio_safe",
+      "description": "保险箱需要输入4位密码。你依稀记得刚才在收音机里听到的那个声音。",
+      "type": "numeric",
+      "answer": "8052",
+      "rewardFlag": "flag_safe_open",
+      "rewardMessage": "保险箱打开了，里面放着一把钥匙。"
+    },
+    "puz_hidden_msg": {
+      "id": "puz_hidden_msg",
+      "description": "墙上的画作乱七八糟，但似乎如果透过某种滤镜看，就能看到这道门的4位密码。",
+      "type": "numeric",
+      "answer": "3396",
+      "rewardFlag": "flag_archive_door_open",
+      "rewardMessage": "电子锁变为绿色，大门解锁。"
+    },
+    "puz_lightbox_circuit": {
+      "id": "puz_lightbox_circuit",
+      "description": "灯箱的线路板短路了。你需要按照正确的几何图形排列接通电源。",
+      "type": "symbol",
+      "choices": [
+        "⚙",
+        "⚠",
+        "⏚",
+        "⚛",
+        "⚡",
+        "Ω"
+      ],
+      "answer": "⚡Ω⏚⚛",
+      "rewardFlag": "flag_lightbox_on",
+      "rewardMessage": "灯箱闪烁了几下，亮了起来。"
+    },
+    "puz_final_projector": {
+      "id": "puz_final_projector",
+      "description": "放映机缺了一块关键的齿轮部件。你需要将碎片拼合回去才能启动它。",
+      "type": "image_grid",
+      "linkedAssetId": "item_film_reel",
+      "gridSize": 3,
+      "answer": "solved",
+      "rewardFlag": "flag_projector_fixed",
+      "rewardMessage": "放映机修好了，光束投射向银幕。"
+    }
+  },
+  "scenes": {
+    "scene_distorted_corridor": {
+      "id": "scene_distorted_corridor",
+      "title": "扭曲的走廊",
+      "imageUrl": "./assets/scene_distorted_corridor.jpg",
+      "description": "这里是一条由于作画失误而扭曲的走廊，透视完全崩坏，墙壁像融化的蜡一样下垂。",
+      "interactables": [
+        {
+          "id": "int_trash_bin",
+          "name": "废纸篓",
+          "description": "里面塞满了揉皱的画纸。",
+          "itemRewardId": "item_cue_sheet",
+          "postInteractionMessage": "废纸篓里只剩下一些没有意义的草图了。上面写着密码线索：4921。",
+          "clueForPuzzleId": "puz_incinerator_valve"
+        },
+        {
+          "id": "int_poster_wall",
+          "name": "撕碎的海报墙",
+          "description": "墙上有一块颜色不自然的空白，似乎原本贴着什么。",
+          "requiredItemId": "item_poster_scraps",
+          "lockedMessage": "这里缺了一张完整的海报，但我手里只有碎片，需要先把碎片拼起来。",
+          "isPuzzle": true,
+          "puzzleId": "puz_poster_fix",
+          "flagReward": "flag_poster_fixed",
+          "postInteractionMessage": "海报已经复原，暗格打开了。"
+        },
+        {
+          "id": "int_hidden_niche",
+          "name": "墙壁暗格",
+          "description": "海报后面藏着一个小空间。",
+          "hiddenIfFlag": "flag_got_ruler",
+          "requiredFlag": "flag_poster_fixed",
+          "itemRewardId": "item_ruler",
+          "postInteractionMessage": "暗格空了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_lightbox_room",
+          "label": "前往作画室"
+        }
+      ]
+    },
+    "scene_lightbox_room": {
+      "id": "scene_lightbox_room",
+      "title": "闪烁的作画室",
+      "imageUrl": "./assets/scene_lightbox_room.jpg",
+      "description": "在那不停闪烁的灯箱前，无数张只有眼睛的原画散落在地上，仿佛在注视着你。角落里有一个工具箱。",
+      "interactables": [
+        {
+          "id": "int_lightbox_desk",
+          "name": "透写台",
+          "description": "灯箱忽明忽暗，电路似乎接触不良。",
+          "isPuzzle": true,
+          "puzzleId": "puz_lightbox_circuit",
+          "postInteractionMessage": "透写台的灯光现在很稳定。光亮照亮了旁边的一张分镜草稿。"
+        },
+        {
+          "id": "int_storyboard_pickup",
+          "name": "分镜草稿",
+          "description": "一张画着奇怪符号的纸。",
+          "requiredFlag": "flag_lightbox_on",
+          "itemRewardId": "item_storyboard",
+          "postInteractionMessage": "分镜草稿已经被你拿走了。上面的符号顺序是：▲●■★。",
+          "clueForPuzzleId": "puz_locker_symbol"
+        },
+        {
+          "id": "int_tool_box",
+          "name": "维修工的工具箱",
+          "description": "一个打开的工具箱，可能有什么能用的东西。",
+          "itemRewardId": "item_flashlight",
+          "postInteractionMessage": "你拿走了手电筒。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_distorted_corridor",
+          "label": "返回走廊"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_break_room",
+          "label": "前往休息室"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_paint_storage",
+          "label": "前往颜料仓库"
+        }
+      ]
+    },
+    "scene_break_room": {
+      "id": "scene_break_room",
+      "title": "员工休息室",
+      "imageUrl": "./assets/scene_break_room.jpg",
+      "description": "这里的自动贩卖机流出的是黑色的墨水。角落里有一个收音机发出沙沙声。门口挂着一件旧大衣。",
+      "interactables": [
+        {
+          "id": "int_locker",
+          "name": "员工储物柜",
+          "description": "上面有一个带有四个奇怪符号按钮的锁。",
+          "isPuzzle": true,
+          "puzzleId": "puz_locker_symbol",
+          "postInteractionMessage": "储物柜开着，里面很乱。"
+        },
+        {
+          "id": "int_locker_contents",
+          "name": "储物柜内部",
+          "description": "储物柜里有一瓶东西。",
+          "requiredFlag": "flag_locker_open",
+          "itemRewardId": "item_thinner",
+          "postInteractionMessage": "你已经拿走了稀释剂。"
+        },
+        {
+          "id": "int_radio",
+          "name": "旧收音机",
+          "description": "收音机里不断循环播放着一段毫无感情的电子音。",
+          "audioMessage": "8052",
+          "postInteractionMessage": "收音机里不断重复着：8...0...5...2...",
+          "clueForPuzzleId": "puz_audio_safe"
+        },
+        {
+          "id": "int_coat_rack",
+          "name": "旧大衣",
+          "description": "大衣口袋里露出了一双白手套。",
+          "itemRewardId": "item_gloves",
+          "postInteractionMessage": "你获得了一双耐高温的白手套。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_lightbox_room",
+          "label": "返回作画室"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_sound_booth",
+          "label": "前往录音棚"
+        }
+      ]
+    },
+    "scene_paint_storage": {
+      "id": "scene_paint_storage",
+      "title": "颜料仓库",
+      "imageUrl": "./assets/scene_paint_storage.jpg",
+      "description": "货架上堆满了化学品。空气中弥漫着令人窒息的溶剂味道。北面有一扇被凝固的红色颜料封死的门。",
+      "interactables": [
+        {
+          "id": "int_paint_shelf",
+          "name": "颜料架",
+          "description": "架子深处黑漆漆的，好像塞着什么东西。你需要光源才能看清。",
+          "requiredItemId": "item_flashlight",
+          "lockedMessage": "这里太暗了，看不清架子深处有什么。",
+          "itemRewardId": "item_poster_scraps",
+          "postInteractionMessage": "用手电筒照亮后，你在架子深处找到了一堆碎纸片。"
+        },
+        {
+          "id": "int_sealed_door",
+          "name": "被颜料封死的门",
+          "description": "厚厚的红色颜料像胶水一样封住了这扇门，普通的方法打不开。",
+          "requiredItemId": "item_thinner",
+          "lockedMessage": "颜料太厚了，我需要某种强力溶剂才能化开它。",
+          "flagReward": "flag_paint_door_cleared",
+          "postInteractionMessage": "颜料被稀释剂溶解了，门露出了背后的密码锁。"
+        },
+        {
+          "id": "int_incinerator_lock",
+          "name": "焚化室密码锁",
+          "description": "溶解颜料后，露出了一个数字键盘。",
+          "requiredFlag": "flag_paint_door_cleared",
+          "isPuzzle": true,
+          "puzzleId": "puz_incinerator_valve",
+          "postInteractionMessage": "密码锁已解开，门开启。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_lightbox_room",
+          "label": "返回作画室"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_incinerator",
+          "label": "进入焚化室",
+          "locked": true,
+          "requiredFlag": "flag_incinerator_open"
+        }
+      ]
+    },
+    "scene_incinerator": {
+      "id": "scene_incinerator",
+      "title": "焚化室",
+      "imageUrl": "./assets/scene_incinerator.jpg",
+      "description": "堆满废弃胶片的焚化室，巨大的火炉轰鸣着，仿佛要吞噬一切不完美的画面。",
+      "interactables": [
+        {
+          "id": "int_ash_pile",
+          "name": "灰烬堆",
+          "description": "在未燃尽的灰烬中，有什么东西在闪光。但灰烬太烫了，不能直接用手碰。",
+          "requiredItemId": "item_gloves",
+          "lockedMessage": "灰烬还在燃烧，直接伸手会被烫伤。",
+          "itemRewardId": "item_red_cel",
+          "postInteractionMessage": "你戴着手套拨开灰烬，拿到了一张红色的赛璐璐片。"
+        },
+        {
+          "id": "int_broken_machine",
+          "name": "废弃机器",
+          "description": "一台坏掉的打孔设备。",
+          "itemRewardId": "item_hole_punch",
+          "postInteractionMessage": "你已经拿走了打孔机。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_paint_storage",
+          "label": "离开焚化室"
+        }
+      ]
+    },
+    "scene_sound_booth": {
+      "id": "scene_sound_booth",
+      "title": "录音棚",
+      "imageUrl": "./assets/scene_sound_booth.jpg",
+      "description": "这里十分安静，只有麦克风偶尔发出尖锐的啸叫。墙角有一个保险箱。西边通往导演室。",
+      "interactables": [
+        {
+          "id": "int_safe",
+          "name": "导演的保险箱",
+          "description": "需要密码才能打开。密码似乎和声音有关。",
+          "isPuzzle": true,
+          "puzzleId": "puz_audio_safe",
+          "postInteractionMessage": "保险箱打开了，里面是一把钥匙。"
+        },
+        {
+          "id": "int_safe_loot",
+          "name": "保险箱内部",
+          "description": "那是导演室的钥匙。",
+          "requiredFlag": "flag_safe_open",
+          "itemRewardId": "item_key_director",
+          "postInteractionMessage": "你拿走了导演室钥匙。"
+        },
+        {
+          "id": "int_director_door",
+          "name": "导演室大门",
+          "description": "通往导演室的门锁着。",
+          "requiredItemId": "item_key_director",
+          "lockedMessage": "门锁紧闭，我需要一把特殊的钥匙。",
+          "flagReward": "flag_director_door_open",
+          "postInteractionMessage": "门锁咔哒一声打开了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_break_room",
+          "label": "返回休息室"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_director_office",
+          "label": "前往导演室",
+          "locked": true,
+          "requiredFlag": "flag_director_door_open"
+        }
+      ]
+    },
+    "scene_director_office": {
+      "id": "scene_director_office",
+      "title": "色彩剥落的导演室",
+      "imageUrl": "./assets/scene_director_office.jpg",
+      "description": "这里的一切都在褪色，家具像枯萎的植物一样剥落。墙上挂着巨大的进度表。",
+      "interactables": [
+        {
+          "id": "int_director_desk",
+          "name": "导演办公桌",
+          "description": "桌子上有一盘保存完好的电影胶卷，但被锁在一个玻璃柜里。需要用东西砸开或者撬开。",
+          "requiredItemId": "item_ruler",
+          "lockedMessage": "玻璃柜很结实，我需要一个尖锐坚硬的工具来撬开它。",
+          "itemRewardId": "item_film_reel",
+          "postInteractionMessage": "玻璃柜被撬开了，胶卷已经到手。"
+        },
+        {
+          "id": "int_wall_painting",
+          "name": "抽象画",
+          "description": "墙上挂着一幅看不懂的画。如果有红色的滤镜，也许能看清上面的字。",
+          "requiredItemId": "item_red_cel",
+          "lockedMessage": "这幅画乱七八糟的，好像使用了某种视觉加密手段。",
+          "postInteractionMessage": "透过红色赛璐璐片，你看到了墙上隐藏的数字：3396。",
+          "clueForPuzzleId": "puz_hidden_msg"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_sound_booth",
+          "label": "返回录音棚"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_archive_hall",
+          "label": "前往资料馆"
+        }
+      ]
+    },
+    "scene_archive_hall": {
+      "id": "scene_archive_hall",
+      "title": "废弃资料馆",
+      "imageUrl": "./assets/scene_archive_hall.jpg",
+      "description": "这里存放着所有被废弃的原稿。尽头有一扇厚重的电子门，通往最后的放映室。",
+      "interactables": [
+        {
+          "id": "int_archive_door",
+          "name": "放映室大门",
+          "description": "这扇门需要输入密码才能通行。",
+          "isPuzzle": true,
+          "puzzleId": "puz_hidden_msg",
+          "postInteractionMessage": "大门已经解锁。"
+        },
+        {
+          "id": "int_door_lock_mech",
+          "name": "门锁",
+          "description": "门锁是好的，但门本身似乎卡住了，需要用打孔机给旁边的卡槽打孔才能强制复位。",
+          "requiredItemId": "item_hole_punch",
+          "lockedMessage": "即便输入了密码，机械结构也卡住了。旁边的控制带需要一个新的定位孔。",
+          "flagReward": "flag_final_door_ready",
+          "postInteractionMessage": "打孔完成，门禁系统重启成功。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_director_office",
+          "label": "返回导演室"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_final_cinema",
+          "label": "进入终末放映室",
+          "locked": true,
+          "requiredFlag": "flag_final_door_ready"
+        }
+      ]
+    },
+    "scene_final_cinema": {
+      "id": "scene_final_cinema",
+      "title": "终末放映室",
+      "imageUrl": "./assets/scene_final_cinema.jpg",
+      "description": "房间中央有一台巨大的旧式胶片放映机。银幕上是一片空白，等待着最后的画面。",
+      "interactables": [
+        {
+          "id": "int_projector",
+          "name": "旧放映机",
+          "description": "放映机似乎有些部件松动了，而且没有胶卷。",
+          "requiredItemId": "item_film_reel",
+          "lockedMessage": "没有胶卷，放映机无法工作。",
+          "isPuzzle": true,
+          "puzzleId": "puz_final_projector",
+          "postInteractionMessage": "放映机开始运转，光束打在银幕上，那是出口！",
+          "winsGame": true,
+          "targetSceneId": "scene_reality_exit"
+        }
+      ],
+      "exits": []
+    },
+    "scene_reality_exit": {
+      "id": "scene_reality_exit",
+      "title": "现实出口",
+      "imageUrl": "./assets/scene_reality_exit.jpg",
+      "description": "刺眼的阳光，真实的鸟鸣。你站在废弃的动画工作室外，一切噩梦都结束了。",
+      "interactables": [],
+      "exits": []
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

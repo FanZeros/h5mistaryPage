@@ -1,0 +1,589 @@
+{
+  "meta": {
+    "name": "静电维度",
+    "author": "零殇",
+    "version": "1.0.2",
+    "description": "你是一名迷失在“静电维度”中的无线电技师。这里是一座由无限增生的老旧广播设备构成的生物迷宫。你需要修复与血肉融合的电路，调频收听垂死恒星的最后忏悔，逃离这个以噪音为食的宇宙实体。",
+    "style": "Analog Horror, Biomechanical, High Contrast, Glitch Art, Gritty Industrial",
+    "sceneStyle": "Dark, VHS grain filter, pulsing neon red veins, rusted metal, flesh-merged machinery",
+    "itemStyle": "Pixelated, dithering effects, organic textures on mechanical objects",
+    "musicStyle": "Drone ambient, low frequency hums, static noise, distorted radio signals, slow heartbeat",
+    "endingMessage": "随着广播塔尖的信号穿透静电帷幕，现实的裂缝被强行撕开。你听到了宇宙深处传来的最后一声叹息，随后是死一般的寂静。你逃脱了，但那种频率……永远留在了你的脑海中。",
+    "endingSceneId": "scene_broadcast_tower",
+    "useBannerAsTitleBg": true,
+    "bgmUrl": "./assets/bgm.mp3",
+    "designConfig": {
+      "theme": "你是一名迷失在“静电维度”中的无线电技师，受困于一座由无限增生的老旧广播设备构成的生物迷宫。你需要通过修复那些与血肉融合的电路，调频收听垂死恒星的最后忏悔，通过解析复杂的音频波形谜题来逃离这个以噪音为食的宇宙实体。",
+      "sceneCount": 8,
+      "itemCount": 12,
+      "puzzleCount": 4,
+      "requiredItems": "嵌有活体视神经的真空管, 记录着未来尖叫声的磁带, 滴着黑色粘液的示波器探头, 频率共振音叉, 生物组织电路板, 死者声纹解码钥, 锈蚀的莫尔斯电码发报机, 标准波形参考图",
+      "requiredScenes": "脉动的中央控制室, 无尽电缆深渊, 骨质服务器大厅, 回声走廊, 静电弥漫的观测台, 非欧几里得广播塔尖, 被时间冻结的录音棚"
+    }
+  },
+  "initialState": {
+    "currentSceneId": "scene_frozen_studio",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "醒来时，耳边只有滋滋作响的白噪音。",
+      "空气中弥漫着臭氧和烧焦脂肪的味道。",
+      "这里是录音棚，但墙壁似乎在呼吸……"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_morse_device": {
+      "id": "item_morse_device",
+      "name": "锈蚀的莫尔斯电码发报机",
+      "description": "一台便携式发报机，按键上覆盖着干涸的血迹。它偶尔会自动发出滴答声，仿佛在复述某串数字。",
+      "type": "TOOL",
+      "icon": "📡",
+      "image": "./assets/item_morse_device.png",
+      "clueForPuzzleId": "puzzle_server_lock"
+    },
+    "item_circuit_diagram": {
+      "id": "item_circuit_diagram",
+      "name": "泛黄的接线图",
+      "description": "一张画满疯狂符号的图纸，上面标注着大门电路的正确连接方式。图纸上画着一个复杂的六边形结构。",
+      "type": "NOTE",
+      "icon": "📜",
+      "image": "./assets/item_circuit_diagram.png",
+      "clueForPuzzleId": "puzzle_door_circuit"
+    },
+    "item_future_tape": {
+      "id": "item_future_tape",
+      "name": "记录着未来尖叫声的磁带",
+      "description": "磁带标签上写着“观测台校准参数”。播放时能听到令人不安的尖叫声，那是宇宙热寂时的回响。",
+      "type": "CLUE",
+      "icon": "📼",
+      "image": "./assets/item_future_tape.png",
+      "clueForPuzzleId": "puzzle_star_align"
+    },
+    "item_waveform_record": {
+      "id": "item_waveform_record",
+      "name": "标准波形参考图",
+      "description": "一张打印出来的完美正弦波图像，虽然边缘已经焦黑，但仍能看清修复控制台所需的完整波形。",
+      "type": "CLUE",
+      "icon": "📈",
+      "image": "./assets/item_waveform_record.png",
+      "clueForPuzzleId": "puzzle_console_repair"
+    },
+    "item_optic_vacuum": {
+      "id": "item_optic_vacuum",
+      "name": "嵌有活体视神经的真空管",
+      "description": "玻璃管内有一根仍然活跃的视神经，在微弱的电流中抽搐。它是广播塔的视觉核心。",
+      "type": "KEY",
+      "icon": "👁️",
+      "image": "./assets/item_optic_vacuum.png"
+    },
+    "item_resonance_fork": {
+      "id": "item_resonance_fork",
+      "name": "频率共振音叉",
+      "description": "由不知名骨骼打磨而成的音叉，敲击时会引发周围血肉组织的共鸣退缩。",
+      "type": "TOOL",
+      "icon": "🔱",
+      "image": "./assets/item_resonance_fork.png"
+    },
+    "item_bio_circuit": {
+      "id": "item_bio_circuit",
+      "name": "生物组织电路板",
+      "description": "电路板上的铜线被血管取代，处理器是一块跳动的微型脑叶。",
+      "type": "KEY",
+      "icon": "🧠",
+      "image": "./assets/item_bio_circuit.png"
+    },
+    "item_slime_probe": {
+      "id": "item_slime_probe",
+      "name": "滴着黑色粘液的示波器探头",
+      "description": "探头尖端不断滴落粘稠的黑色液体，这是接入中央控制室生物接口的唯一工具。",
+      "type": "TOOL",
+      "icon": "💉",
+      "image": "./assets/item_slime_probe.png"
+    },
+    "item_voice_key": {
+      "id": "item_voice_key",
+      "name": "死者声纹解码钥",
+      "description": "一个存储了成千上万死者最后遗言的U盘，用于解锁广播塔的发射权限。",
+      "type": "KEY",
+      "icon": "🗝️",
+      "image": "./assets/item_voice_key.png"
+    },
+    "item_bone_pliers": {
+      "id": "item_bone_pliers",
+      "name": "骨质钳子",
+      "description": "用来剪断硬化肌腱或电缆的粗糙工具。",
+      "type": "TOOL",
+      "icon": "✂️",
+      "image": "./assets/item_bone_pliers.png"
+    },
+    "item_severed_finger": {
+      "id": "item_severed_finger",
+      "name": "技术员的断指",
+      "description": "指纹已经被磨平，但这根手指似乎指向某个特定的方向。",
+      "type": "NOTE",
+      "icon": "☝️",
+      "image": "./assets/item_severed_finger.png"
+    },
+    "item_maintenance_log": {
+      "id": "item_maintenance_log",
+      "name": "维护日志残页",
+      "description": "“那个东西在吃频率……只有把所有核心组件插回塔尖，才能超载它的食道。”",
+      "type": "NOTE",
+      "icon": "📄",
+      "image": "./assets/item_maintenance_log.png"
+    }
+  },
+  "puzzles": {
+    "puzzle_door_circuit": {
+      "id": "puzzle_door_circuit",
+      "description": "工作室大门的生物锁由复杂的神经回路构成。你需要用一笔画连接所有节点，接通电流。注意：只能在节点1和节点4这两个端点处断开（奇点）。",
+      "type": "one_line",
+      "points": [
+        {
+          "x": 30,
+          "y": 20
+        },
+        {
+          "x": 70,
+          "y": 20
+        },
+        {
+          "x": 90,
+          "y": 50
+        },
+        {
+          "x": 70,
+          "y": 80
+        },
+        {
+          "x": 30,
+          "y": 80
+        },
+        {
+          "x": 10,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 50
+        }
+      ],
+      "connections": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "answer": "1,2,3,4,5,0,1,6,0,2,6,3,5,6,4",
+      "rewardFlag": "flag_studio_door_open",
+      "rewardMessage": "随着一声湿润的撕裂声，电路接通，门锁上的肌肉松弛了。"
+    },
+    "puzzle_server_lock": {
+      "id": "puzzle_server_lock",
+      "description": "骨质服务器被一个生物识别锁保护着。终端屏幕上闪烁着“输入声纹代码”。你需要输入四位数字代码。",
+      "type": "numeric",
+      "answer": "6294",
+      "rewardFlag": "flag_server_unlocked",
+      "rewardMessage": "服务器发出一声满足的叹息，胸腔打开，露出了里面的电路板。"
+    },
+    "puzzle_star_align": {
+      "id": "puzzle_star_align",
+      "description": "观测台的望远镜镜头被静电云遮蔽。你需要根据磁带中的提示，按照正确的顺序排列星象符号以穿透迷雾。",
+      "type": "symbol",
+      "choices": [
+        "Ω",
+        "Ж",
+        "Ψ",
+        "§",
+        "¶",
+        "‡",
+        "⚛",
+        "⚡"
+      ],
+      "answer": "Ж§‡",
+      "rewardFlag": "flag_telescope_aligned",
+      "rewardMessage": "透镜聚焦成功。透过静电，你看到了一颗跳动的死星，它的光芒凝结成了一个真空管。"
+    },
+    "puzzle_console_repair": {
+      "id": "puzzle_console_repair",
+      "description": "控制台的界面支离破碎。你需要移动这些混乱的波形图块，参考那张打印出来的波形图，拼凑出完整的信号路径。",
+      "type": "image_grid",
+      "gridSize": 3,
+      "answer": "solved",
+      "linkedAssetId": "item_waveform_record",
+      "rewardFlag": "flag_console_fixed",
+      "rewardMessage": "波形稳定了。控制台吐出了一把沾满粘液的解码钥。"
+    }
+  },
+  "scenes": {
+    "scene_frozen_studio": {
+      "id": "scene_frozen_studio",
+      "title": "被时间冻结的录音棚",
+      "imageUrl": "./assets/scene_frozen_studio.jpg",
+      "description": "这里的一切都停滞在最后一次广播的瞬间。麦克风上长出了霉菌般的绒毛，隔音墙像腐烂的肉块一样剥落。",
+      "interactables": [
+        {
+          "id": "int_morse_pickup",
+          "name": "发报机",
+          "description": "角落里的一台发报机。",
+          "itemRewardId": "item_morse_device",
+          "hiddenIfFlag": "has_morse_device",
+          "postInteractionMessage": "你捡起了发报机，它在你手中冰冷刺骨。"
+        },
+        {
+          "id": "int_diagram_pickup",
+          "name": "墙上的图纸",
+          "description": "一张画着电路走线的草图被钉在墙上。",
+          "itemRewardId": "item_circuit_diagram",
+          "hiddenIfFlag": "has_diagram",
+          "postInteractionMessage": "你撕下了图纸，背面写着‘不要断开连接’。"
+        },
+        {
+          "id": "int_studio_door_puzzle",
+          "name": "生物门禁",
+          "description": "门控系统是一团纠结的神经和电线。需要重新连接回路。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_door_circuit",
+          "requiredItemId": "item_circuit_diagram",
+          "lockedMessage": "电路太复杂了，如果有一张图纸指导就好了。",
+          "flagReward": "flag_studio_door_open"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_echo_corridor",
+          "label": "进入回声走廊",
+          "requiredFlag": "flag_studio_door_open",
+          "locked": true
+        }
+      ]
+    },
+    "scene_echo_corridor": {
+      "id": "scene_echo_corridor",
+      "title": "回声走廊",
+      "imageUrl": "./assets/scene_echo_corridor.jpg",
+      "description": "一条无限延伸的金属走廊，两侧排列着无数跳动的扬声器。你的脚步声在这里被放大成雷鸣。",
+      "interactables": [
+        {
+          "id": "int_pliers_pickup",
+          "name": "散落的工具",
+          "description": "地上有一把用骨头打磨的钳子。",
+          "itemRewardId": "item_bone_pliers",
+          "hiddenIfFlag": "has_pliers",
+          "postInteractionMessage": "这把钳子很锋利，足以剪断硬化的肌腱。"
+        },
+        {
+          "id": "int_record_pickup",
+          "name": "地上的图纸",
+          "description": "一张被揉皱的纸团，展开看是一张波形图。",
+          "itemRewardId": "item_waveform_record",
+          "hiddenIfFlag": "has_record",
+          "postInteractionMessage": "你捡起了标准波形参考图，这在修复控制台时会很有用。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_frozen_studio",
+          "label": "返回录音棚"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_bone_server",
+          "label": "前往骨质服务器大厅"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_cable_abyss",
+          "label": "前往无尽电缆深渊"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_flesh_junction",
+          "label": "前往血肉交汇点"
+        }
+      ]
+    },
+    "scene_bone_server": {
+      "id": "scene_bone_server",
+      "title": "骨质服务器大厅",
+      "imageUrl": "./assets/scene_bone_server.jpg",
+      "description": "巨大的服务器机架由肋骨和脊柱构成，硬盘读写的声音听起来像是在磨牙。",
+      "interactables": [
+        {
+          "id": "int_server_puzzle",
+          "name": "主服务器终端",
+          "description": "终端屏幕闪烁着红光，要求输入四位声纹代码。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_server_lock",
+          "requiredItemId": "item_morse_device",
+          "lockedMessage": "我需要知道密码。或许那个发报机里记录的莫尔斯电码就是线索？",
+          "itemRewardId": "item_bio_circuit",
+          "postInteractionMessage": "你获得了生物组织电路板。"
+        },
+        {
+          "id": "int_morse_listen",
+          "name": "收听发报机",
+          "description": "按下发报机的播放键。",
+          "audioMessage": "6294",
+          "postInteractionMessage": "发报机发出一串急促的滴答声：6-2-9-4。",
+          "clueForPuzzleId": "puzzle_server_lock"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_echo_corridor",
+          "label": "返回走廊"
+        }
+      ]
+    },
+    "scene_cable_abyss": {
+      "id": "scene_cable_abyss",
+      "title": "无尽电缆深渊",
+      "imageUrl": "./assets/scene_cable_abyss.jpg",
+      "description": "脚下的网格地板下是深不见底的黑暗，只有无数粗大的黑色电缆像蟒蛇一样在深渊中蠕动。",
+      "interactables": [
+        {
+          "id": "int_tape_find",
+          "name": "悬挂的磁带",
+          "description": "一卷磁带被几根细电线缠绕在栏杆外。",
+          "requiredItemId": "item_bone_pliers",
+          "lockedMessage": "它被缠得太紧了，我需要剪断这些电线。",
+          "itemRewardId": "item_future_tape",
+          "postInteractionMessage": "你剪断电线，拿到了磁带。它看起来很古老。"
+        },
+        {
+          "id": "int_fork_find",
+          "name": "共振音叉",
+          "description": "一个奇怪的骨质叉子插在墙缝里。",
+          "itemRewardId": "item_resonance_fork",
+          "hiddenIfFlag": "has_fork",
+          "postInteractionMessage": "你拔出了音叉，周围的空气似乎随之震动。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_echo_corridor",
+          "label": "返回走廊"
+        }
+      ]
+    },
+    "scene_flesh_junction": {
+      "id": "scene_flesh_junction",
+      "title": "血肉交汇点",
+      "imageUrl": "./assets/scene_flesh_junction.jpg",
+      "description": "这里是所有管道的汇聚点。巨大的肉壁阻挡了去路，它们对声音极其敏感。",
+      "interactables": [
+        {
+          "id": "int_flesh_barrier",
+          "name": "颤动的肉壁",
+          "description": "一堵有生命的墙，阻挡了通往控制室和观测台的路。",
+          "requiredItemId": "item_resonance_fork",
+          "lockedMessage": "它太厚了，无法切开。但它似乎对特定频率有反应。",
+          "flagReward": "flag_barrier_cleared",
+          "postInteractionMessage": "你敲击音叉，肉壁在共振中痛苦地收缩，露出了一条通道。"
+        },
+        {
+          "id": "int_probe_pickup",
+          "name": "地上的探头",
+          "description": "一个粘糊糊的仪器部件被遗弃在角落。",
+          "itemRewardId": "item_slime_probe",
+          "hiddenIfFlag": "has_probe",
+          "postInteractionMessage": "你捡起了滴着黑色粘液的示波器探头。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_echo_corridor",
+          "label": "返回走廊"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_pulsing_control",
+          "label": "进入脉动的中央控制室",
+          "requiredFlag": "flag_barrier_cleared",
+          "locked": true
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_static_observatory",
+          "label": "进入静电弥漫的观测台",
+          "requiredFlag": "flag_barrier_cleared",
+          "locked": true
+        }
+      ]
+    },
+    "scene_static_observatory": {
+      "id": "scene_static_observatory",
+      "title": "静电弥漫的观测台",
+      "imageUrl": "./assets/scene_static_observatory.jpg",
+      "description": "透过巨大的穹顶，你看不到星星，只有无穷无尽的彩色雪花点和静电风暴。",
+      "interactables": [
+        {
+          "id": "int_telescope_puzzle",
+          "name": "生物望远镜",
+          "description": "望远镜的目镜是一个巨大的眼球。需要调整符号频率来通过它观察。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_star_align",
+          "requiredItemId": "item_future_tape",
+          "lockedMessage": "我不知道该校准到什么频率。也许那盘磁带里有记录？",
+          "itemRewardId": "item_optic_vacuum",
+          "postInteractionMessage": "校准成功。眼球眨了一下，吐出了嵌有视神经的真空管。"
+        },
+        {
+          "id": "int_tape_listen",
+          "name": "播放磁带",
+          "description": "将磁带放入控制台播放。",
+          "dialogue": [
+            "滋滋……观测记录……",
+            "必须按照这个顺序对齐……",
+            "Ж (Zhe)…… § (Section)…… ‡ (Double Dagger)……",
+            "重复…… Ж…… §…… ‡……"
+          ],
+          "postInteractionMessage": "磁带里传出诡异的声音：顺序是 Ж, §, ‡。",
+          "clueForPuzzleId": "puzzle_star_align"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_flesh_junction",
+          "label": "返回交汇点"
+        }
+      ]
+    },
+    "scene_pulsing_control": {
+      "id": "scene_pulsing_control",
+      "title": "脉动的中央控制室",
+      "imageUrl": "./assets/scene_pulsing_control.jpg",
+      "description": "这里是心脏。巨大的控制台由脏器和表盘组成，每一次跳动都伴随着电流声。",
+      "interactables": [
+        {
+          "id": "int_console_puzzle",
+          "name": "内脏控制台",
+          "description": "控制台的线路错乱不堪。需要接入探头并修复波形。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_console_repair",
+          "requiredItemId": "item_slime_probe",
+          "lockedMessage": "我无法直接接触那些裸露的神经，我需要那个滴着液体的探头。",
+          "itemRewardId": "item_voice_key",
+          "postInteractionMessage": "你获得了死者声纹解码钥。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_flesh_junction",
+          "label": "返回交汇点"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_broadcast_tower",
+          "label": "前往非欧几里得广播塔尖"
+        }
+      ]
+    },
+    "scene_broadcast_tower": {
+      "id": "scene_broadcast_tower",
+      "title": "非欧几里得广播塔尖",
+      "imageUrl": "./assets/scene_broadcast_tower.jpg",
+      "description": "空间在这里扭曲。巨大的天线直插云霄，仿佛要刺破现实的皮肤。这里有三个巨大的生物接口，等待着核心组件。",
+      "interactables": [
+        {
+          "id": "int_insert_circuit",
+          "name": "插入生物电路板",
+          "description": "塔基的插槽A，周围环绕着脉动的血管。",
+          "requiredItemId": "item_bio_circuit",
+          "lockedMessage": "这个插槽需要生物电路板来驱动。",
+          "postInteractionMessage": "你插入了电路板，塔身开始低沉地轰鸣。"
+        },
+        {
+          "id": "int_insert_vacuum",
+          "name": "插入视神经真空管",
+          "description": "塔基的插槽B，看起来像一个空洞的眼窝。",
+          "requiredItemId": "item_optic_vacuum",
+          "lockedMessage": "这个插槽需要视神经真空管来聚焦信号。",
+          "postInteractionMessage": "你插入了真空管，顶端的天线亮起了诡异的红光。"
+        },
+        {
+          "id": "int_insert_key",
+          "name": "插入声纹解码钥",
+          "description": "主发射终端的接口，等待着最后的授权。",
+          "requiredItemId": "item_voice_key",
+          "lockedMessage": "发射程序被锁定，需要声纹解码钥。",
+          "winsGame": true,
+          "postInteractionMessage": "你插入了解码钥。随着一声刺穿灵魂的尖啸，频率覆盖了整个维度。现实崩塌，你自由了……"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_pulsing_control",
+          "label": "返回控制室"
+        }
+      ]
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

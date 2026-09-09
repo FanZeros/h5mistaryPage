@@ -1,0 +1,515 @@
+{
+  "meta": {
+    "name": "梦境归档馆：虚空侵蚀",
+    "author": "零殇",
+    "version": "1.0",
+    "description": "在一个收集被遗忘梦境的档案馆中，一个名为“虚空梦境”的展品开始侵蚀现实，将一切拖入扭曲的迷宫。你需要解开谜团，阻止虚空，并找到逃离的方法。",
+    "style": "后现代超现实主义，模糊几何与扭曲透视，低饱和度色彩，偶发诡异光斑，漂浮失重感",
+    "sceneStyle": "Cinematic wide angle, dreamlike, distorted perspective, ethereal lighting, low saturation with neon accents, surreal architecture",
+    "itemStyle": "Isometric, clear focus, plain gradient background, slightly warped or glitch effect",
+    "musicStyle": "Ethereal ambient, dark dreamscape, unsettling drones, surreal synthwave, Lynchian atmosphere",
+    "endingMessage": "虚空终于退去，现实的边界重新变得清晰。你成功阻止了无尽的侵蚀，但那些梦境的低语将永远回响在你心间。或许，有些梦境，永远不该被唤醒。",
+    "endingSceneId": "scene_escape_sunrise",
+    "useBannerAsTitleBg": false,
+    "designConfig": {
+      "theme": "玩家受雇于一个偏远且神秘的“梦境归档馆”，专门收集并保存人类被遗忘的梦境与记忆碎片。在一个尘封已久的展区，玩家偶然发现了一个并非来自任何已知意识的“虚空梦境”展品，它似乎正在侵蚀现实，将博物馆拖入一个无尽的迷宫。",
+      "sceneCount": 8,
+      "itemCount": 8,
+      "puzzleCount": 4,
+      "requiredItems": "褪色的档案卡片, 扭曲的玻璃棱镜, 生锈的机械钥匙, 无字日记本",
+      "requiredScenes": "“虚空梦境”展区入口, 迷失的记忆长廊, 馆长办公室, 地下禁忌书库"
+    },
+    "bgmUrl": "./assets/bgm.mp3"
+  },
+  "initialState": {
+    "currentSceneId": "scene_entrance",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "记忆的潮汐冲刷着每个灵魂，留下无数被遗忘的沙砾。而我，作为梦境归档馆的管理员，职责便是收集这些无形的碎片。",
+      "今天，例行巡视将我带到了尘封已久的C区，那里存放着最古老、最晦涩的梦境。空气中弥漫着潮湿与某种异样的静电感。",
+      "一个从未见过的展台突兀地立在那里，没有标签，只有一团深不见底的虚无——‘虚空梦境’。它不属于任何已知意识，却散发着强烈的存在感。",
+      "触摸它的瞬间，世界开始扭曲。墙壁像液体般流动，地板变得不可信赖。整个博物馆，正在被拖入它所承诺的无尽迷宫……我必须找到出口，在彻底迷失之前。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_faded_card": {
+      "id": "item_faded_card",
+      "name": "褪色的档案卡片",
+      "description": "一张边缘破损的卡片，上面潦草地写着一组编号：7358。它似乎属于某个旧式储物柜。",
+      "type": "CLUE",
+      "icon": "./assets/item_faded_card.png",
+      "image": "./assets/item_faded_card.png",
+      "clueForPuzzleId": "puzzle_archive_code"
+    },
+    "item_prism": {
+      "id": "item_prism",
+      "name": "扭曲的玻璃棱镜",
+      "description": "一块表面布满裂纹的玻璃棱镜，光线穿过它时会产生诡异的扭曲效果。或许能揭示隐藏的真实。",
+      "type": "TOOL",
+      "icon": "./assets/item_prism.png",
+      "image": "./assets/item_prism.png"
+    },
+    "item_rusty_key": {
+      "id": "item_rusty_key",
+      "name": "生锈的机械钥匙",
+      "description": "一把老旧的机械钥匙，上面沾染着些许铁锈，看起来是用来开启某个传统锁具的。",
+      "type": "KEY",
+      "icon": "./assets/item_rusty_key.png",
+      "image": "./assets/item_rusty_key.png"
+    },
+    "item_blank_diary": {
+      "id": "item_blank_diary",
+      "name": "无字日记本",
+      "description": "一本封面空白的日记本，只有内页依稀可见一首关于‘光影之舞’的诗句，结尾是：‘光起初，影随形，界线交织，真伪难辨’。旁边画着一个模糊的方框形状：▰。",
+      "type": "CLUE",
+      "icon": "./assets/item_blank_diary.png",
+      "image": "./assets/item_blank_diary.png",
+      "clueForPuzzleId": "puzzle_librarian_riddle"
+    },
+    "item_broken_recorder": {
+      "id": "item_broken_recorder",
+      "name": "破损的录音笔",
+      "description": "一支破损的录音笔，内部似乎仍有电量。它反复播放着一段沙哑的低语：“…真伪难辨的角落，第三个符号是…◆…”",
+      "type": "CLUE",
+      "icon": "./assets/item_broken_recorder.png",
+      "image": "./assets/item_broken_recorder.png",
+      "clueForPuzzleId": "puzzle_librarian_riddle"
+    },
+    "item_curator_seal": {
+      "id": "item_curator_seal",
+      "name": "馆长的私人印章",
+      "description": "一枚雕刻着奇特徽记的印章，边缘磨损严重。这是馆长身份的象征，或许能用于激活某些特殊装置。",
+      "type": "KEY",
+      "icon": "./assets/item_curator_seal.png",
+      "image": "./assets/item_curator_seal.png"
+    },
+    "item_star_fragment": {
+      "id": "item_star_fragment",
+      "name": "漂浮的星图碎片",
+      "description": "一块散发着微光的透明碎片，上面描绘着扭曲的星象。其中三颗星被特别标记，形成一个图案：♦形，接着是▲形，最后是■形。",
+      "type": "CLUE",
+      "icon": "./assets/item_star_fragment.png",
+      "image": "./assets/item_star_fragment.png",
+      "clueForPuzzleId": "puzzle_dream_core"
+    },
+    "item_dream_core": {
+      "id": "item_dream_core",
+      "name": "梦境能量核心",
+      "description": "一颗跳动着微弱光芒的球体，它蕴含着纯粹的梦境能量，能够稳定或驱动某些虚空装置。这是逃离的关键。",
+      "type": "KEY",
+      "icon": "./assets/item_dream_core.png",
+      "image": "./assets/item_dream_core.png"
+    }
+  },
+  "puzzles": {
+    "puzzle_archive_code": {
+      "id": "puzzle_archive_code",
+      "description": "一个旧式的数字键盘锁，需要输入四位密码。",
+      "answer": "7358",
+      "rewardFlag": "flag_archive_unlocked",
+      "rewardMessage": "你听到一声轻微的咔哒声，档案柜的锁被打开了。",
+      "type": "numeric"
+    },
+    "puzzle_prism_symbols": {
+      "id": "puzzle_prism_symbols",
+      "description": "雕塑基座上有一个感应面板，需要输入正确的符号序列来激活它。",
+      "answer": "▲●★",
+      "rewardFlag": "flag_sculpture_revealed",
+      "rewardMessage": "雕塑基座发出微光，一个物体从内部升起。",
+      "type": "symbol",
+      "choices": [
+        "▲",
+        "▼",
+        "●",
+        "■",
+        "★",
+        "♦",
+        "▰",
+        "▱",
+        "◆"
+      ]
+    },
+    "puzzle_librarian_riddle": {
+      "id": "puzzle_librarian_riddle",
+      "description": "书架旁边的壁龛上有一个符号输入器，需要根据日记、录音笔和书架的提示来输入符号。",
+      "answer": "▰▱◆",
+      "rewardFlag": "flag_library_unlocked",
+      "rewardMessage": "壁龛旁的隐藏通道缓缓开启，通向一个祭坛。",
+      "type": "symbol",
+      "choices": [
+        "▲",
+        "▼",
+        "●",
+        "■",
+        "★",
+        "♦",
+        "▰",
+        "▱",
+        "◆"
+      ],
+      "requiredClueCount": 3
+    },
+    "puzzle_dream_core": {
+      "id": "puzzle_dream_core",
+      "description": "虚空之门上有着复杂的符文阵列，需要输入正确的符号序列并嵌入能量核心才能将其稳定。",
+      "answer": "♦▲■",
+      "rewardFlag": "flag_exit_activated",
+      "rewardMessage": "虚空之门发出了共鸣，前方的扭曲空间逐渐稳定下来，似乎通往了出口！",
+      "type": "symbol",
+      "choices": [
+        "▲",
+        "▼",
+        "●",
+        "■",
+        "★",
+        "♦",
+        "▰",
+        "▱",
+        "◆"
+      ]
+    }
+  },
+  "scenes": {
+    "scene_entrance": {
+      "id": "scene_entrance",
+      "title": "“虚空梦境”展区入口",
+      "imageUrl": "./assets/scene_entrance.jpg",
+      "description": "这里是梦境归档馆的入口区域，但一切都已扭曲。墙壁像蜡烛般融化，光线变得异常模糊，巨大的“虚空梦境”展品占据了中央，散发着令人不安的能量。",
+      "interactables": [
+        {
+          "id": "void_exhibit",
+          "name": "虚空展品",
+          "description": "一个深不见底的黑色立方体，其中流动着无法理解的色彩和形状。它似乎是所有扭曲的源头，但现在触摸它已经没有意义了。",
+          "postInteractionMessage": "虚空展品依旧在那里，但你感觉不到更多信息了。"
+        },
+        {
+          "id": "archive_cabinet",
+          "name": "旧式档案柜",
+          "description": "一个老旧的金属档案柜，锈迹斑斑。它的门紧闭着，上面有一个古老的数字键盘锁。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_archive_code",
+          "flagReward": "flag_archive_unlocked",
+          "postInteractionMessage": "档案柜的门已经打开了。"
+        },
+        {
+          "id": "cabinet_contents",
+          "name": "打开的档案柜",
+          "description": "档案柜门大开，里面散落着一些废弃文件，其中有一把生锈的机械钥匙。",
+          "requiredFlag": "flag_archive_unlocked",
+          "itemRewardId": "item_rusty_key",
+          "postInteractionMessage": "档案柜里已经空了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_memory_hallway",
+          "label": "前往迷失长廊"
+        }
+      ]
+    },
+    "scene_memory_hallway": {
+      "id": "scene_memory_hallway",
+      "title": "迷失的记忆长廊",
+      "imageUrl": "./assets/scene_memory_hallway.jpg",
+      "description": "长廊无限延伸，两侧的墙壁映射着模糊的人影和片段，仿佛是无尽的记忆碎片在流淌。空气中弥漫着淡淡的哀愁。",
+      "interactables": [
+        {
+          "id": "floating_fragments",
+          "name": "漂浮的记忆碎片",
+          "description": "一些发光的碎片在空中盘旋，触碰它们时，你似乎听到了远古的低语。其中一块碎片凝聚成一本无字日记本。",
+          "itemRewardId": "item_blank_diary",
+          "postInteractionMessage": "记忆碎片仍在漂浮，但你已经无法从中获取更多。"
+        },
+        {
+          "id": "distorted_sculpture",
+          "name": "扭曲的雕塑",
+          "description": "一尊由不规则几何体构成的雕塑，它的人形轮廓被极度拉伸和扭曲，基座上有一个感应面板。",
+          "requiredItemId": "item_prism",
+          "lockedMessage": "雕塑的光学感应器似乎需要某种棱镜来聚焦光线才能激活。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_prism_symbols",
+          "postInteractionMessage": "雕塑已经解锁，基座打开了。"
+        },
+        {
+          "id": "sculpture_reward",
+          "name": "打开的雕塑基座",
+          "description": "雕塑基座现在发出微光，一个漂浮的星图碎片从中显现。",
+          "requiredFlag": "flag_sculpture_revealed",
+          "itemRewardId": "item_star_fragment",
+          "postInteractionMessage": "雕塑基座已空。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_curator_office",
+          "label": "前往馆长办公室"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "scene_entrance",
+          "label": "返回展区入口"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_archive_storage",
+          "label": "前往档案库房"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_reflection_chamber",
+          "label": "前往倒影之室"
+        }
+      ]
+    },
+    "scene_curator_office": {
+      "id": "scene_curator_office",
+      "title": "馆长办公室",
+      "imageUrl": "./assets/scene_curator_office.jpg",
+      "description": "办公室里一片狼藉，文件、书籍和奇特的装置散落一地。巨大的窗外是虚空扭曲的景象，办公桌上似乎有未完成的研究。",
+      "interactables": [
+        {
+          "id": "curator_desk",
+          "name": "馆长办公桌",
+          "description": "一张厚重的木质办公桌，被虚空侵蚀得有些扭曲。桌上有一个上锁的抽屉。",
+          "requiredItemId": "item_rusty_key",
+          "lockedMessage": "抽屉被锁住了，需要一把钥匙。",
+          "flagReward": "flag_desk_unlocked",
+          "postInteractionMessage": "抽屉已经打开了。"
+        },
+        {
+          "id": "desk_contents",
+          "name": "打开的抽屉",
+          "description": "抽屉里找到一枚馆长的私人印章。",
+          "requiredFlag": "flag_desk_unlocked",
+          "itemRewardId": "item_curator_seal",
+          "postInteractionMessage": "抽屉里已经空了。"
+        },
+        {
+          "id": "desk_contents_recorder",
+          "name": "抽屉深处",
+          "description": "在抽屉的夹层中，你还发现了一支破损的录音笔。",
+          "requiredFlag": "flag_desk_unlocked",
+          "itemRewardId": "item_broken_recorder",
+          "postInteractionMessage": "抽屉夹层也已经检查过了。"
+        },
+        {
+          "id": "wall_banner",
+          "name": "墙上的横幅",
+          "description": "一面巨大的横幅挂在墙上，上面写着模糊的标语，似乎在警示着某种古老的威胁。",
+          "postInteractionMessage": "横幅上的文字已经模糊不清了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_memory_hallway",
+          "label": "返回迷失长廊"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_forbidden_library",
+          "label": "前往地下书库"
+        }
+      ]
+    },
+    "scene_forbidden_library": {
+      "id": "scene_forbidden_library",
+      "title": "地下禁忌书库",
+      "imageUrl": "./assets/scene_forbidden_library.jpg",
+      "description": "一排排高耸的书架直插虚空，上面摆满了古老而晦涩的书籍。空气中弥漫着纸张腐朽的气味，以及某种不祥的寂静。",
+      "interactables": [
+        {
+          "id": "old_bookshelf",
+          "name": "古老的书架",
+          "description": "一个摇摇欲坠的书架，上面堆满了禁忌的卷轴和手稿。一本封面印着‘界线’的古籍翻开着，内页描绘着代表边界的奇异形状：▱。",
+          "clueForPuzzleId": "puzzle_librarian_riddle",
+          "postInteractionMessage": "书架上的信息已经查看过了。"
+        },
+        {
+          "id": "dusty_altar",
+          "name": "尘封的祭坛",
+          "description": "一个被灰尘覆盖的石质祭坛，中央有一个凹槽，似乎需要某种特殊的物品来激活。",
+          "requiredItemId": "item_curator_seal",
+          "lockedMessage": "祭坛中央的凹槽与馆长的私人印章形状契合。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_librarian_riddle",
+          "hiddenIfFlag": "flag_library_unlocked",
+          "postInteractionMessage": "祭坛已经激活了。"
+        },
+        {
+          "id": "altar_reward",
+          "name": "祭坛核心",
+          "description": "祭坛激活后，梦境能量核心从虚空中浮现，发出柔和的光芒。",
+          "requiredFlag": "flag_library_unlocked",
+          "itemRewardId": "item_dream_core",
+          "postInteractionMessage": "祭坛已空，能量核心已被取走。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_curator_office",
+          "label": "返回馆长办公室"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_empty_gallery",
+          "label": "前往虚空画廊"
+        }
+      ]
+    },
+    "scene_archive_storage": {
+      "id": "scene_archive_storage",
+      "title": "废弃档案库",
+      "imageUrl": "./assets/scene_archive_storage.jpg",
+      "description": "这里是堆放废弃档案的储藏室，空气中弥漫着霉味。箱子和文件堆积如山，形成了一个个小迷宫。",
+      "interactables": [
+        {
+          "id": "messy_files",
+          "name": "凌乱的资料堆",
+          "description": "在废弃的资料堆中翻找，你找到了一张褪色的档案卡片。",
+          "itemRewardId": "item_faded_card",
+          "postInteractionMessage": "资料堆已被翻遍，没有什么新发现。"
+        },
+        {
+          "id": "discarded_terminal",
+          "name": "废弃的终端机",
+          "description": "一台老旧的终端机，屏幕闪烁着故障的文字。它似乎仍在运行，但需要特定的输入。",
+          "postInteractionMessage": "终端机已经无法提供更多信息了。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_memory_hallway",
+          "label": "返回迷失长廊"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "scene_broken_elevator",
+          "label": "前往损坏的电梯井"
+        }
+      ]
+    },
+    "scene_broken_elevator": {
+      "id": "scene_broken_elevator",
+      "title": "损坏的电梯井",
+      "imageUrl": "./assets/scene_broken_elevator.jpg",
+      "description": "一个被虚空扭曲的电梯井，缆绳断裂，轿厢坠毁在深渊中。控制面板破损严重，但似乎还有修复的可能。",
+      "interactables": [
+        {
+          "id": "damaged_panel",
+          "name": "损坏的控制面板",
+          "description": "电梯的控制面板布满裂痕，上面的线路错综复杂。需要馆长的私人印章才能尝试修复。",
+          "requiredItemId": "item_curator_seal",
+          "lockedMessage": "控制面板需要一个激活物，也许是馆长的印章。",
+          "dialogue": [
+            "你用馆长的印章按下了控制面板上一个隐藏的按钮。伴随着一阵电流声，面板上的指示灯亮起。",
+            "电梯井深处传来奇怪的声音，似乎有什么东西被激活了。"
+          ],
+          "flagReward": "flag_elevator_activated",
+          "postInteractionMessage": "控制面板已被激活，但电梯仍无法运行。"
+        },
+        {
+          "id": "abyss_bottom",
+          "name": "深渊边缘",
+          "description": "你小心翼翼地靠近深渊边缘，发现有一块发光的玻璃物体卡在下方断裂的横梁上。",
+          "itemRewardId": "item_prism",
+          "postInteractionMessage": "深渊底部一片漆黑，横梁上已经空无一物。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_archive_storage",
+          "label": "返回档案库房"
+        }
+      ]
+    },
+    "scene_empty_gallery": {
+      "id": "scene_empty_gallery",
+      "title": "虚空画廊",
+      "imageUrl": "./assets/scene_empty_gallery.jpg",
+      "description": "一个巨大的空旷房间，地板上刻画着复杂的几何图案。房间的尽头矗立着一扇不稳定的光门，仿佛通往另一个维度。",
+      "interactables": [
+        {
+          "id": "floor_pattern",
+          "name": "地板上的几何图案",
+          "description": "地板上的图案由线条和形状组成，与你手中的星图碎片有微妙的联系，它们似乎在指引一个方向，并与星图碎片的符号顺序相呼应。",
+          "clueForPuzzleId": "puzzle_dream_core",
+          "postInteractionMessage": "地板上的图案已经解读完毕。"
+        },
+        {
+          "id": "void_gate",
+          "name": "虚空之门",
+          "description": "一扇由纯粹虚空能量构成的光门，它不断扭曲和颤抖。门上有一个凹槽，形状与梦境能量核心完美契合，旁边还有符号输入器。",
+          "requiredItemId": "item_dream_core",
+          "lockedMessage": "虚空之门需要梦境能量核心来稳定其结构。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_dream_core",
+          "winsGame": true,
+          "postInteractionMessage": "虚空之门已经稳定开启，等待你离开。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_forbidden_library",
+          "label": "返回地下书库"
+        }
+      ]
+    },
+    "scene_reflection_chamber": {
+      "id": "scene_reflection_chamber",
+      "title": "倒影之室",
+      "imageUrl": "./assets/scene_reflection_chamber.jpg",
+      "description": "一个房间内充满着扭曲的镜子，每一面都反射出不同的、破碎的现实。你自己的倒影也变得怪异而陌生。",
+      "interactables": [
+        {
+          "id": "distorted_mirror",
+          "name": "扭曲的镜子",
+          "description": "一面巨大的镜子，其表面像水波般晃动。普通的视线无法看穿它，或许需要某种光学工具。",
+          "requiredItemId": "item_prism",
+          "lockedMessage": "镜子反射的光线异常混乱，你需要【扭曲的玻璃棱镜】来矫正视觉。",
+          "dialogue": [
+            "你举起扭曲的玻璃棱镜，透过它观察镜面。",
+            "棱镜修正了扭曲的光线，镜面上浮现出一组清晰的红色符号：▲ - ● - ★。",
+            "这似乎是某种密码。"
+          ],
+          "clueForPuzzleId": "puzzle_prism_symbols",
+          "postInteractionMessage": "镜子上显示的符号已经深深印在你的脑海里：▲ ● ★。"
+        },
+        {
+          "id": "floating_runes",
+          "name": "漂浮的符文",
+          "description": "一些发光的符文在房间中央漂浮，它们无规律地组合，但似乎又有着某种潜在的逻辑。",
+          "postInteractionMessage": "符文依然漂浮着，但你已经无法理解更多。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_memory_hallway",
+          "label": "返回迷失长廊"
+        }
+      ]
+    },
+    "scene_escape_sunrise": {
+      "id": "scene_escape_sunrise",
+      "title": "黎明破晓",
+      "imageUrl": "./assets/scene_escape_sunrise.jpg",
+      "description": "你穿过虚空之门，眼前不再是扭曲的梦境。清晨的阳光洒落在重新平静下来的博物馆外，天空湛蓝，鸟儿鸣唱。一切都恢复了原样，除了你心中那份永恒的记忆。",
+      "interactables": [],
+      "exits": []
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

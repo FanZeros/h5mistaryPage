@@ -1,0 +1,568 @@
+{
+  "meta": {
+    "name": "圣百合学园：镜之契约",
+    "author": "GameDesignerAI",
+    "version": "1.0.5",
+    "description": "昭和末期的废弃女子寄宿学校，四名少女被困于名为‘里世界’的永恒黄昏。在百合花香与腐烂气息中，揭开嫉妒与诅咒的真相。",
+    "style": "Anime Horror",
+    "sceneStyle": "Thick Paint Anime Background",
+    "itemStyle": "Detailed Anime Icon",
+    "endingMessage": "随着镜面重圆，黄昏的结界破碎。你看着手中渐渐恢复温度的同伴的手，在这所废弃学园的黎明中醒来。",
+    "bgmUrl": "./assets/bgm.mp3",
+    "designConfig": {
+      "theme": "昭和末期的废弃女子寄宿学校‘圣百合学园’，四名美少女因尝试传说中的‘镜之契约’而被困在了名为‘里世界’的永恒黄昏中。玩家需要操作主角，在充满百合花香与腐烂气息的校舍中探索，揭开同伴们表面亲密无间实则嫉妒扭曲的关系。",
+      "sceneCount": 8,
+      "itemCount": 10,
+      "puzzleCount": 4,
+      "requiredItems": "被撕碎的合影照片, 被撕碎的画布碎片, 生锈的裁缝剪刀, 写满诅咒的交换日记",
+      "requiredScenes": "挂满诡异肖像的美术室, 满地玻璃碎片的舞蹈房, 种满彼岸花的废弃中庭, 只有尽头亮着灯的无限走廊"
+    },
+    "useBannerAsTitleBg": true
+  },
+  "initialState": {
+    "currentSceneId": "scene_entrance",
+    "inventory": [],
+    "flags": {},
+    "log": [
+      "醒来时，周围充满了令人作呕的福尔马林味和浓郁的百合花香..."
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_scissors": {
+      "id": "item_scissors",
+      "name": "生锈的裁缝剪刀",
+      "description": "一把老旧的剪刀，刃口有暗红色的锈迹，似乎剪断过某种‘缘分’。",
+      "type": "TOOL",
+      "icon": "scissors_icon",
+      "image": "./assets/item_scissors.png"
+    },
+    "item_diary": {
+      "id": "item_diary",
+      "name": "写满诅咒的交换日记",
+      "description": "封面上画着两人撑伞的涂鸦，内页却写满了‘去死’和扭曲的数字‘1988’。",
+      "type": "CLUE",
+      "icon": "diary_icon",
+      "image": "./assets/item_diary.png",
+      "clueForPuzzleId": "puzzle_locker"
+    },
+    "item_art_key": {
+      "id": "item_art_key",
+      "name": "美术准备室钥匙",
+      "description": "挂着颜料干涸的挂件，可以打开美术室的门。",
+      "type": "KEY",
+      "icon": "key_art_icon",
+      "image": "./assets/item_art_key.png"
+    },
+    "item_portrait_pieces": {
+      "id": "item_portrait_pieces",
+      "name": "被撕碎的画布碎片",
+      "description": "几块破碎的油画帆布，上面画着扭曲的五官。",
+      "type": "TOOL",
+      "icon": "portrait_pieces_icon",
+      "image": "./assets/item_portrait_pieces.png"
+    },
+    "item_photo": {
+      "id": "item_photo",
+      "name": "被撕碎的合影照片",
+      "description": "四个少女的合影。照片上的发型和衣服颜色，似乎是复原那幅破损画像（拼图）的重要参照。",
+      "type": "CLUE",
+      "icon": "photo_icon",
+      "image": "./assets/item_photo.png",
+      "clueForPuzzleId": "puzzle_portrait"
+    },
+    "item_doll_arm": {
+      "id": "item_doll_arm",
+      "name": "陶瓷人偶的手臂",
+      "description": "冰冷、苍白，关节处不仅精致，还连着几根类似神经的红线。",
+      "type": "KEY",
+      "icon": "doll_arm_icon",
+      "image": "./assets/item_doll_arm.png"
+    },
+    "item_score": {
+      "id": "item_score",
+      "name": "乐谱残页",
+      "description": "很大张的《月光》的残谱，上面用红笔圈出了几个英文：TREBLE,FLAT,SHARP,NATURAL。",
+      "type": "CLUE",
+      "icon": "score_icon",
+      "image": "./assets/item_score.png",
+      "clueForPuzzleId": "puzzle_safe"
+    },
+    "item_courtyard_key": {
+      "id": "item_courtyard_key",
+      "name": "中庭铁门钥匙",
+      "description": "沉重的铁钥匙，缠绕着枯萎的彼岸花茎。",
+      "type": "KEY",
+      "icon": "key_courtyard_icon",
+      "image": "./assets/item_courtyard_key.png"
+    },
+    "item_tape": {
+      "id": "item_tape",
+      "name": "绝望的录音带",
+      "description": "磁带里除了哭声，还反复吟唱着‘五芒星’的绘制顺序，这似乎是解开中庭井盖封印的线索。",
+      "type": "CLUE",
+      "icon": "tape_icon",
+      "image": "./assets/item_tape.png",
+      "clueForPuzzleId": "puzzle_seal"
+    },
+    "item_mirror_shard": {
+      "id": "item_mirror_shard",
+      "name": "沾满灰尘的镜子碎片",
+      "description": "能够映照出真实世界的镜片，是打破诅咒的关键。",
+      "type": "KEY",
+      "icon": "mirror_shard_icon",
+      "image": "./assets/item_mirror_shard.png"
+    }
+  },
+  "puzzles": {
+    "puzzle_locker": {
+      "id": "puzzle_locker",
+      "description": "走廊尽头的鞋柜被一把生锈的数字锁锁住。锁上刻着：‘我们友谊开始的那一年’。",
+      "answer": "1988",
+      "rewardFlag": "locker_opened",
+      "rewardMessage": "锁‘咔哒’一声开了，里面的东西滚落出来。",
+      "type": "numeric"
+    },
+    "puzzle_portrait": {
+      "id": "puzzle_portrait",
+      "description": "画布上的少女脸庞支离破碎，只有拼凑完整才能平息她的怨气。",
+      "answer": "valid_grid",
+      "rewardFlag": "portrait_fixed",
+      "rewardMessage": "画像复原了，少女的嘴角似乎微微上扬，画布后弹出了一个暗格。",
+      "type": "image_grid",
+      "gridSize": 3,
+      "linkedAssetId": "item_portrait_pieces"
+    },
+    "puzzle_safe": {
+      "id": "puzzle_safe",
+      "description": "广播室的保险箱需要输入特定的音符符号组合才能打开。",
+      "answer": "TREBLE,FLAT,SHARP,NATURAL",
+      "rewardFlag": "safe_opened",
+      "rewardMessage": "保险箱沉重地打开了，里面放着一把缠绕花茎的钥匙。",
+      "type": "symbol",
+      "choices": [
+        "TREBLE",
+        "BASS",
+        "FLAT",
+        "SHARP",
+        "NATURAL",
+        "REST"
+      ]
+    },
+    "puzzle_seal": {
+      "id": "puzzle_seal",
+      "description": "井盖上覆盖着血色的咒印，必须一笔画出封印的轨迹才能将其解开。需要连接所有节点且不重复路径。",
+      "answer": "5,0,1,2,3,4,6,0,2,4,5,3,1,6",
+      "rewardFlag": "seal_broken",
+      "rewardMessage": "血色咒印消散了，井底升起一道微光。",
+      "type": "one_line",
+      "points": [
+        {
+          "x": 50,
+          "y": 10
+        },
+        {
+          "x": 20,
+          "y": 30
+        },
+        {
+          "x": 80,
+          "y": 30
+        },
+        {
+          "x": 20,
+          "y": 70
+        },
+        {
+          "x": 80,
+          "y": 70
+        },
+        {
+          "x": 15,
+          "y": 50
+        },
+        {
+          "x": 90,
+          "y": 50
+        }
+      ],
+      "connections": [
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          1,
+          6
+        ]
+      ]
+    }
+  },
+  "scenes": {
+    "scene_entrance": {
+      "id": "scene_entrance",
+      "title": "校舍入口",
+      "imageUrl": "./assets/scene_entrance.jpg",
+      "description": "破旧的木质玄关，鞋柜里塞满了发霉的室内鞋。外面的雨声很大，却掩盖不住走廊深处传来的关节摩擦声。",
+      "interactables": [
+        {
+          "id": "int_shoes",
+          "name": "杂乱的鞋堆",
+          "description": "一堆没人认领的鞋子，底下似乎压着什么东西。",
+          "itemRewardId": "item_scissors",
+          "postInteractionMessage": "你翻开散发着霉味的鞋子，找到了一把生锈的剪刀。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_corridor",
+          "label": "进入走廊"
+        }
+      ]
+    },
+    "scene_corridor": {
+      "id": "scene_corridor",
+      "title": "只有尽头亮着灯的无限走廊",
+      "imageUrl": "./assets/scene_corridor.jpg",
+      "description": "日光灯管在头顶滋滋作响，无论怎么走，前方的景色似乎都在无限重复。墙壁上贴满了寻人启事。",
+      "interactables": [
+        {
+          "id": "int_locker",
+          "name": "被锁住的储物柜",
+          "description": "贴满贴纸的储物柜，挂着一把显眼的数字锁。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_locker"
+        },
+        {
+          "id": "int_locker_open",
+          "name": "打开的储物柜",
+          "description": "储物柜门敞开着。",
+          "requiredFlag": "locker_opened",
+          "itemRewardId": "item_art_key",
+          "postInteractionMessage": "你在柜子里找到了美术室的钥匙。"
+        },
+        {
+          "id": "int_art_door",
+          "name": "美术室的门",
+          "description": "一扇油漆斑驳的木门，被锁住了。",
+          "requiredItemId": "item_art_key",
+          "rewardMessage": "你用钥匙打开了美术室的门。",
+          "viewIfFlags": [
+            {
+              "flag": "flag_art_door_unlocked",
+              "value": false
+            }
+          ],
+          "flagReward": "flag_art_door_unlocked"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_entrance",
+          "label": "返回入口"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_biology",
+          "label": "生物教室"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_art",
+          "label": "美术室",
+          "locked": true,
+          "requiredFlag": "flag_art_door_unlocked",
+          "lockedMessage": "美术室的门锁住了，需要钥匙才能打开。"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_principal",
+          "label": "校长室"
+        }
+      ]
+    },
+    "scene_biology": {
+      "id": "scene_biology",
+      "title": "生物教室",
+      "imageUrl": "./assets/scene_biology.jpg",
+      "description": "架子上的标本瓶里泡着奇怪的肉块，仿佛还在跳动。黑板上用红色粉笔写着‘谁是多余的？’。",
+      "interactables": [
+        {
+          "id": "int_desk",
+          "name": "布满划痕的课桌",
+          "description": "桌肚里塞着一本破旧的笔记本。",
+          "itemRewardId": "item_diary",
+          "postInteractionMessage": "你拿起了《交换日记》，里面的内容让人不寒而栗。"
+        },
+        {
+          "id": "int_cabinet",
+          "name": "生物角柜",
+          "description": "角落里放着鱼食和杂物的柜子，似乎有一张照片。",
+          "itemRewardId": "item_photo",
+          "postInteractionMessage": "你发现了一张被撕碎的合影照片，其中一人的脸被挖去了，令人不安。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_corridor",
+          "label": "返回走廊"
+        }
+      ]
+    },
+    "scene_art": {
+      "id": "scene_art",
+      "title": "挂满诡异肖像的美术室",
+      "imageUrl": "./assets/scene_art.jpg",
+      "description": "几十双画出来的眼睛似乎随着你的移动而转动。正中央放着一幅未完成的巨幅画像。",
+      "interactables": [
+        {
+          "id": "int_canvas",
+          "name": "被毁坏的画像",
+          "description": "画中人的五官错位了，而且缺失了关键部分。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_portrait",
+          "requiredItemId": "item_portrait_pieces",
+          "lockedMessage": "画布破损严重，你需要先找到缺失的碎片才能开始修复。"
+        },
+        {
+          "id": "int_canvas_solved",
+          "name": "暗格",
+          "description": "画像后的暗格打开了。",
+          "requiredFlag": "portrait_fixed",
+          "itemRewardId": "item_doll_arm",
+          "postInteractionMessage": "你获得了‘陶瓷人偶的手臂’，这触感像真的皮肤一样。"
+        },
+        {
+          "id": "int_statue",
+          "name": "石膏像",
+          "description": "石膏像碎了一地，里面似乎藏着什么，但需要工具凿开。",
+          "requiredItemId": "item_scissors",
+          "lockedMessage": "石膏非常坚硬，徒手无法取出里面的东西，也许那把生锈的剪刀能派上用场。",
+          "itemRewardId": "item_portrait_pieces",
+          "postInteractionMessage": "你用剪刀挑开了石膏碎片，终于找到了关键的‘被撕碎的画布碎片’。"
+        },
+        {
+          "id": "int_door_dance_fix",
+          "name": "舞蹈房门把手",
+          "description": "把手断了，只留下一个孔洞。也许可以用类似杠杆的东西插进去...",
+          "requiredItemId": "item_doll_arm",
+          "rewardMessage": "你将人偶手臂插入锁孔作为杠杆，门锁咔嗒一声开了。",
+          "viewIfFlags": [
+            {
+              "flag": "flag_dance_door_fixed",
+              "value": false
+            }
+          ],
+          "flagReward": "flag_dance_door_fixed"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_corridor",
+          "label": "返回走廊"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_dance",
+          "label": "舞蹈房",
+          "locked": true,
+          "requiredFlag": "flag_dance_door_fixed",
+          "lockedMessage": "门把手坏了，缺了一根杠杆..."
+        }
+      ]
+    },
+    "scene_dance": {
+      "id": "scene_dance",
+      "title": "满地玻璃碎片的舞蹈房",
+      "imageUrl": "./assets/scene_dance.jpg",
+      "description": "整面墙的镜子碎裂成无数片，反射着扭曲的倒影。地板上散落着带血的芭蕾舞鞋。",
+      "interactables": [
+        {
+          "id": "int_piano",
+          "name": "积灰的钢琴",
+          "description": "琴键上放着一张乐谱。",
+          "itemRewardId": "item_score",
+          "postInteractionMessage": "你拿到了‘乐谱残页’，上面圈出的符号似乎是某种密码。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_art",
+          "label": "返回美术室"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_broadcast",
+          "label": "广播室"
+        }
+      ]
+    },
+    "scene_broadcast": {
+      "id": "scene_broadcast",
+      "title": "广播室",
+      "imageUrl": "./assets/scene_broadcast.jpg",
+      "description": "麦克风里传出断断续续的啜泣声。角落里有一个巨大的保险箱。",
+      "interactables": [
+        {
+          "id": "int_safe",
+          "name": "音乐保险箱",
+          "description": "密码盘上刻着各种乐理符号。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_safe"
+        },
+        {
+          "id": "int_safe_open",
+          "name": "敞开的保险箱",
+          "description": "保险箱里放着一把钥匙。",
+          "requiredFlag": "safe_opened",
+          "itemRewardId": "item_courtyard_key",
+          "postInteractionMessage": "你获得了‘中庭铁门钥匙’。"
+        },
+        {
+          "id": "int_console",
+          "name": "广播控制台",
+          "description": "操作台上有一盘磁带。",
+          "itemRewardId": "item_tape",
+          "postInteractionMessage": "你拿走了这盘磁带。"
+        },
+        {
+          "id": "int_gate_courtyard",
+          "name": "通往中庭的铁门",
+          "description": "一扇缠绕着枯萎植物的沉重铁门。",
+          "requiredItemId": "item_courtyard_key",
+          "rewardMessage": "钥匙转动了沉重的锁芯，铁门打开了。",
+          "viewIfFlags": [
+            {
+              "flag": "flag_courtyard_unlocked",
+              "value": false
+            }
+          ],
+          "flagReward": "flag_courtyard_unlocked"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_dance",
+          "label": "返回舞蹈房"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_courtyard",
+          "label": "废弃中庭",
+          "locked": true,
+          "requiredFlag": "flag_courtyard_unlocked",
+          "lockedMessage": "铁门紧锁，上面缠绕着枯萎的植物。"
+        }
+      ]
+    },
+    "scene_courtyard": {
+      "id": "scene_courtyard",
+      "title": "种满彼岸花的废弃中庭",
+      "imageUrl": "./assets/scene_courtyard.jpg",
+      "description": "鲜红的彼岸花如血海般铺满地面。中央有一口枯井，井口被红色的绳索封印着。",
+      "interactables": [
+        {
+          "id": "int_well",
+          "name": "被封印的枯井",
+          "description": "井口的绳索构成了复杂的几何图形。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_seal"
+        },
+        {
+          "id": "int_well_solved",
+          "name": "井底",
+          "description": "封印解除后，你可以看到井底闪光的东西。",
+          "requiredFlag": "seal_broken",
+          "itemRewardId": "item_mirror_shard",
+          "postInteractionMessage": "你冒着危险爬下井口，捡到了‘沾满灰尘的镜子碎片’。"
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_broadcast",
+          "label": "返回广播室"
+        }
+      ]
+    },
+    "scene_principal": {
+      "id": "scene_principal",
+      "title": "校长室",
+      "imageUrl": "./assets/scene_principal.jpg",
+      "description": "房间中央立着一面巨大的穿衣镜框架，镜面早已破碎。这是最后的出口。",
+      "interactables": [
+        {
+          "id": "int_mirror_frame",
+          "name": "破碎的镜框",
+          "description": "只要补全镜子，就能逃离这个永恒黄昏的世界。",
+          "requiredItemId": "item_mirror_shard",
+          "winsGame": true,
+          "lockedMessage": "镜框空空如也，你必须找到那块能够映照真实的镜子碎片。",
+          "postInteractionMessage": "你颤抖着将镜片嵌入框架。光芒爆发，将恐怖的彼岸花海吞没..."
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_corridor",
+          "label": "返回走廊"
+        }
+      ]
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}

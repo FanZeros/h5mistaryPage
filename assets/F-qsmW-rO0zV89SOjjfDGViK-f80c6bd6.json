@@ -1,0 +1,493 @@
+{
+  "meta": {
+    "name": "往生傀儡戏院",
+    "author": "零殇",
+    "version": "1.1.0",
+    "description": "在暴雨夜醒来，你身处一座将人脑上传至陶瓷躯壳的废弃戏院。揭开生物机械的恐怖真相，寻找逃离数据地狱的方法。",
+    "style": "Eastern Folk Horror combined with Cyberpunk, Biomechanical aesthetics, dark and wet atmosphere, retro film grain",
+    "sceneStyle": "Cinematic wide angle, ominous atmospheric lighting, neon signs reflecting on wet surfaces, dilapidated traditional Chinese architecture merged with server cables",
+    "itemStyle": "Isometric view, sharp focus, biological textures mixed with rusted metal, studio lighting on dark background",
+    "musicStyle": "Dark ambient, rain sounds, traditional Erhu distortion, industrial throbbing, low frequency drone",
+    "endingMessage": "随着厚重的电子门缓缓开启，真实的雨水打在你的脸上。身后的戏院在数据洪流的过载中崩塌，你终于切断了连接，逃离了这个吞噬灵魂的陶瓷地狱。",
+    "useBannerAsTitleBg": true,
+    "bgmUrl": "./assets/bgm.mp3",
+    "designConfig": {
+      "theme": "玩家在暴雨夜醒来，发现自己身处一座名为“往生傀儡戏院”的废弃建筑中，这里曾是将人类意识上传至陶瓷躯壳的禁忌实验场。随着调查深入，你必须在血肉与机械交织的恐怖中寻找逃离这个数字化地狱的方法。",
+      "sceneCount": 8,
+      "itemCount": 8,
+      "puzzleCount": 3,
+      "requiredItems": "碎裂的瓷质义眼, 沾血的数据线香, 生锈的刻魂手术刀, 写满乱码的黄纸符",
+      "requiredScenes": "漏雨的戏台机房, 挂满残肢的后台走廊, 供奉主脑的香火大殿, 被水淹没的意识存储库"
+    }
+  },
+  "initialState": {
+    "currentSceneId": "scene_stage_server",
+    "inventory": [],
+    "flags": {
+      "server_room_unlocked": false,
+      "workshop_unlocked": false,
+      "water_drained": false,
+      "altar_ready": false,
+      "gate_powered": false,
+      "incense_active": false,
+      "eye_scanned": false
+    },
+    "log": [
+      "【系统启动...意识重构中...】",
+      "冰冷的雨水击打着头顶生锈的铁皮屋顶，发出令人心烦意乱的噪音。",
+      "你睁开眼，发现自己躺在一张冰冷的手术台上，周围并不是医院，而是一座荒废已久的老式戏台。",
+      "霓虹灯管滋滋作响，照亮了那些垂挂在梁上的——不是戏服，而是无数连接着数据线的陶瓷人偶。",
+      "这里是“往生傀儡戏院”。必须要逃出去。"
+    ],
+    "gameOver": false,
+    "gameWon": false
+  },
+  "items": {
+    "item_eye": {
+      "id": "item_eye",
+      "name": "碎裂的瓷质义眼",
+      "description": "一只精美的陶瓷眼球，瞳孔处是微型摄像头。表面有裂纹，似乎记录了原本主人的死前影像。",
+      "type": "KEY",
+      "icon": "👁️",
+      "image": "./assets/item_eye.png"
+    },
+    "item_incense": {
+      "id": "item_incense",
+      "name": "沾血的数据线香",
+      "description": "伪装成祭祀线香的数据传输线，顶端烧焦并沾有已经干涸的血迹，散发着焦糊的塑料味。",
+      "type": "TOOL",
+      "icon": "🕯️",
+      "image": "./assets/item_incense.png"
+    },
+    "item_scalpel": {
+      "id": "item_scalpel",
+      "name": "生锈的刻魂手术刀",
+      "description": "用于雕刻人偶面部同时也用于神经切割的手术刀，刀刃虽锈但依然锋利。",
+      "type": "TOOL",
+      "icon": "🔪",
+      "image": "./assets/item_scalpel.png"
+    },
+    "item_talisman": {
+      "id": "item_talisman",
+      "name": "写满乱码的黄纸符",
+      "description": "一张道家符咒，但上面的朱砂咒文被二进制代码覆盖。仔细看，上面画着几个特定的八卦符号：☲, ☵, ☳。",
+      "type": "CLUE",
+      "icon": "📜",
+      "image": "./assets/item_talisman.png"
+    },
+    "item_battery": {
+      "id": "item_battery",
+      "name": "神经元电池",
+      "description": "一块还在微微搏动的生物电池，发出幽幽的蓝光。",
+      "type": "TOOL",
+      "icon": "🔋",
+      "image": "./assets/item_battery.png"
+    },
+    "item_keycard": {
+      "id": "item_keycard",
+      "name": "戏班主的磁卡",
+      "description": "沾满油彩的门禁卡，属于在这个疯狂实验中失踪的班主。",
+      "type": "KEY",
+      "icon": "💳",
+      "image": "./assets/item_keycard.png"
+    },
+    "item_iron_key": {
+      "id": "item_iron_key",
+      "name": "沉重的铁钥匙",
+      "description": "一把造型古朴的铁钥匙，上面刻着“工坊”二字。",
+      "type": "KEY",
+      "icon": "🗝️",
+      "image": "./assets/item_iron_key.png"
+    },
+    "item_system_disk": {
+      "id": "item_system_disk",
+      "name": "主脑覆写盘",
+      "description": "这就逃离这里的关键。一张黑色的软盘，里面装载了能够欺骗门禁系统的病毒。",
+      "type": "KEY",
+      "icon": "💾",
+      "image": "./assets/item_system_disk.png"
+    }
+  },
+  "puzzles": {
+    "puzzle_server_lock": {
+      "id": "puzzle_server_lock",
+      "description": "输入经文控制室的门禁密码。提示：戏台背景板上那串闪烁的红色故障代码是多少？",
+      "answer": "9527",
+      "rewardFlag": "server_room_unlocked",
+      "rewardMessage": "密码正确。气压阀嘶嘶作响，控制室的门弹开了。",
+      "type": "numeric"
+    },
+    "puzzle_water_drain": {
+      "id": "puzzle_water_drain",
+      "description": "控制台显示水位过高。输入排水阀的压力阈值以启动排水系统。提示：化妆间镜子上用口红写着的日期年份。",
+      "answer": "1984",
+      "rewardFlag": "water_drained",
+      "rewardMessage": "泵机轰鸣启动，黑色的积水开始旋转着排空，露出了底部的物品。",
+      "type": "numeric"
+    },
+    "puzzle_altar_symbol": {
+      "id": "puzzle_altar_symbol",
+      "description": "主脑接口已激活。请输入黄纸符上记录的八卦验证码以覆写系统。",
+      "answer": "☲☵☳",
+      "rewardFlag": "altar_ready",
+      "rewardMessage": "符号匹配成功。主脑核心缓缓打开，吐出了一张黑色的磁盘。",
+      "type": "symbol",
+      "choices": [
+        "☰",
+        "☱",
+        "☲",
+        "☳",
+        "☴",
+        "☵",
+        "☶",
+        "☷",
+        "☯"
+      ]
+    }
+  },
+  "scenes": {
+    "scene_stage_server": {
+      "id": "scene_stage_server",
+      "title": "漏雨的戏台机房",
+      "imageUrl": "./assets/scene_stage_server.jpg",
+      "description": "戏台中央矗立着一座巨大的服务器机柜，像棺材一样竖立着。雨水从破损的屋顶落下，正好滴在裸露的电缆上，迸发出蓝色的电火花。背景板上有一串红色的故障代码【ERR: 9527】在不断闪烁。",
+      "interactables": [
+        {
+          "id": "int_loose_panel",
+          "name": "松动的地板",
+          "description": "戏台的一块木板似乎松动了，下面隐约透出蓝光。",
+          "itemRewardId": "item_battery",
+          "postInteractionMessage": "地板已经被撬开，里面空空如也。",
+          "dialogue": [
+            "你用力掰开木板。",
+            "下面藏着一块备用的生物电池。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_corridor",
+          "label": "前往后台走廊"
+        },
+        {
+          "direction": "south",
+          "targetSceneId": "scene_main_gate",
+          "label": "前往戏院正门"
+        }
+      ]
+    },
+    "scene_corridor": {
+      "id": "scene_corridor",
+      "title": "挂满残肢的后台走廊",
+      "imageUrl": "./assets/scene_corridor.jpg",
+      "description": "狭窄的走廊两侧挂满了废弃的义肢和陶瓷手臂，它们随着穿堂风轻轻碰撞，发出类似风铃的清脆声响。墙上贴满了符咒和电路图。",
+      "interactables": [
+        {
+          "id": "int_corpse_pile",
+          "name": "义肢堆",
+          "description": "一堆报废的陶瓷手臂和腿部零件堆在角落。",
+          "itemRewardId": "item_scalpel",
+          "postInteractionMessage": "你已经检查过这里了，没有什么有用的东西了。",
+          "dialogue": [
+            "你在陶瓷碎片中翻找。",
+            "小心翼翼地抽出了一把生锈的手术刀。"
+          ]
+        },
+        {
+          "id": "int_workshop_door",
+          "name": "工坊铁门",
+          "description": "通往傀儡工坊的铁门，上面刻着“闲人免进”。",
+          "requiredItemId": "item_iron_key",
+          "flagReward": "workshop_unlocked",
+          "postInteractionMessage": "锁芯转动，铁门已经打开。",
+          "lockedMessage": "门被锁住了，锁孔上方刻着“工坊”二字。",
+          "dialogue": [
+            "你插入沉重的铁钥匙，用力转动。",
+            "咔嚓一声，通往工坊的路打开了。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_stage_server",
+          "label": "返回戏台机房"
+        },
+        {
+          "direction": "west",
+          "targetSceneId": "scene_dressing_room",
+          "label": "进入废弃化妆间"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_workshop",
+          "label": "进入傀儡工坊",
+          "locked": true,
+          "requiredFlag": "workshop_unlocked"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_incense_hall",
+          "label": "前往香火大殿"
+        }
+      ]
+    },
+    "scene_dressing_room": {
+      "id": "scene_dressing_room",
+      "title": "废弃的化妆间",
+      "imageUrl": "./assets/scene_dressing_room.jpg",
+      "description": "化妆镜破碎不堪，桌上散乱着油彩和芯片。镜面上有人用鲜红的口红写着“1984”四个数字。角落里坐着一个奇怪的人体模型。",
+      "interactables": [
+        {
+          "id": "int_sewn_mannequin",
+          "name": "缝合的人体模型",
+          "description": "这个模型的胸腔被粗糙的线缝合着，里面似乎藏着什么东西。",
+          "requiredItemId": "item_scalpel",
+          "itemRewardId": "item_keycard",
+          "postInteractionMessage": "模型的胸腔已被剖开，线路裸露在外。",
+          "lockedMessage": "缝合线非常坚韧，徒手无法扯开。",
+          "dialogue": [
+            "你用生锈的手术刀割开了缝合线。",
+            "在它的胸腔里，你找到了一张满是油彩的磁卡。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "east",
+          "targetSceneId": "scene_corridor",
+          "label": "返回后台走廊"
+        }
+      ]
+    },
+    "scene_control_room": {
+      "id": "scene_control_room",
+      "title": "经文控制室",
+      "imageUrl": "./assets/scene_control_room.jpg",
+      "description": "墙壁上滚动着无数绿色的代码经文。中央控制台的屏幕发出幽暗的光。角落里堆放着一些祭祀用品。",
+      "interactables": [
+        {
+          "id": "int_control_terminal",
+          "name": "经文终端",
+          "description": "一台古老的终端机，需要密码才能访问。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_server_lock",
+          "itemRewardId": "item_iron_key",
+          "postInteractionMessage": "终端已解锁，储物格已打开。",
+          "dialogue": [
+            "终端解锁成功。",
+            "储物格弹开，里面是一把沉重的铁钥匙。"
+          ]
+        },
+        {
+          "id": "int_shelf_supplies",
+          "name": "祭祀架",
+          "description": "架子上摆放着一些奇怪的电子元件。",
+          "itemRewardId": "item_incense",
+          "postInteractionMessage": "架子上的线香已经被拿走了。",
+          "dialogue": [
+            "你在架子上发现了一把伪装成线香的数据线。",
+            "这应该是用于连接主脑的某种接口。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_incense_hall",
+          "label": "返回香火大殿"
+        }
+      ]
+    },
+    "scene_workshop": {
+      "id": "scene_workshop",
+      "title": "傀儡工坊",
+      "imageUrl": "./assets/scene_workshop.jpg",
+      "description": "这里是制造陶瓷躯壳的地方。工作台上摆满了未完成的头颅，空洞的眼眶注视着你。空气中弥漫着烧瓷和臭氧的味道。",
+      "interactables": [
+        {
+          "id": "int_workbench",
+          "name": "精密工作台",
+          "description": "一个用于组装义眼的工作台。",
+          "itemRewardId": "item_eye",
+          "postInteractionMessage": "工作台上只剩下一些废弃的铜线。",
+          "dialogue": [
+            "你在工作台上发现了一个完成度很高的义眼。",
+            "它似乎能通过某种生物验证。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_corridor",
+          "label": "返回后台走廊"
+        },
+        {
+          "direction": "east",
+          "targetSceneId": "scene_repository",
+          "label": "前往意识存储库"
+        }
+      ]
+    },
+    "scene_repository": {
+      "id": "scene_repository",
+      "title": "被水淹没的意识存储库",
+      "imageUrl": "./assets/scene_repository.jpg",
+      "description": "巨大的地下空间，排列着无数类似灵位的服务器刀片。地面积水严重，浑浊的水面上漂浮着垃圾。",
+      "interactables": [
+        {
+          "id": "int_drain_valve",
+          "name": "排水控制阀",
+          "description": "控制水位的电子阀门。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_water_drain",
+          "dialogue": [
+            "排水系统启动。"
+          ],
+          "postInteractionMessage": "水已排空，露出了底部的地面。"
+        },
+        {
+          "id": "int_floor_debris",
+          "name": "淤泥中的杂物",
+          "description": "水排干后，淤泥中露出的物品。",
+          "requiredFlag": "water_drained",
+          "itemRewardId": "item_talisman",
+          "postInteractionMessage": "你已经拿走了符咒。",
+          "dialogue": [
+            "你在淤泥中捡起一张未被浸泡的黄纸符。",
+            "这似乎具有某种防水涂层，上面画着奇怪的符号。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "west",
+          "targetSceneId": "scene_workshop",
+          "label": "返回傀儡工坊"
+        }
+      ]
+    },
+    "scene_incense_hall": {
+      "id": "scene_incense_hall",
+      "title": "供奉主脑的香火大殿",
+      "imageUrl": "./assets/scene_incense_hall.jpg",
+      "description": "一座宏伟的殿堂，正中央供奉的不是神像，而是一个巨大的、搏动的生物大脑，浸泡在福尔马林罐中。周围香烟缭绕，连接着无数电缆。",
+      "interactables": [
+        {
+          "id": "int_data_burner",
+          "name": "数据香炉",
+          "description": "大脑前方的一个接口插槽，形状像香炉。",
+          "requiredItemId": "item_incense",
+          "flagReward": "incense_active",
+          "postInteractionMessage": "数据线香正在燃烧传输数据，系统底层协议已激活。",
+          "dialogue": [
+            "你将沾血的数据线香插入插槽。",
+            "系统发出一声蜂鸣，主脑的供能协议开启。"
+          ]
+        },
+        {
+          "id": "int_retina_scanner",
+          "name": "视网膜扫描仪",
+          "description": "一个突出在外的扫描装置，似乎需要特定的眼球。",
+          "requiredItemId": "item_eye",
+          "requiredFlag": "incense_active",
+          "flagReward": "eye_scanned",
+          "lockedMessage": "扫描仪没有反应，似乎需要先通过香炉激活底层协议。",
+          "postInteractionMessage": "扫描仪已通过验证，操作面板已升起。",
+          "dialogue": [
+            "你举起碎裂的瓷质义眼对准扫描仪。",
+            "红光扫过，验证通过。主脑的操作面板升起来了。"
+          ]
+        },
+        {
+          "id": "int_mainframe_puzzle",
+          "name": "主脑接口面板",
+          "description": "主脑的操作界面，需要输入特定的八卦符号序列。",
+          "isPuzzle": true,
+          "puzzleId": "puzzle_altar_symbol",
+          "itemRewardId": "item_system_disk",
+          "requiredFlag": "eye_scanned",
+          "lockedMessage": "面板被锁定，需要先通过生物验证。",
+          "hiddenIfFlag": "altar_ready",
+          "postInteractionMessage": "主脑已经被覆写。",
+          "dialogue": [
+            "符号正确。",
+            "你获得了主脑覆写盘。"
+          ]
+        },
+        {
+          "id": "int_door_control",
+          "name": "控制室大门",
+          "description": "通往经文控制室的电子门。",
+          "requiredItemId": "item_keycard",
+          "flagReward": "server_room_unlocked",
+          "postInteractionMessage": "门已经解锁。",
+          "lockedMessage": "需要特定的磁卡才能打开。",
+          "dialogue": [
+            "磁卡刷过，门开了。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "south",
+          "targetSceneId": "scene_corridor",
+          "label": "返回后台走廊"
+        },
+        {
+          "direction": "north",
+          "targetSceneId": "scene_control_room",
+          "label": "进入经文控制室",
+          "locked": true,
+          "requiredFlag": "server_room_unlocked"
+        }
+      ]
+    },
+    "scene_main_gate": {
+      "id": "scene_main_gate",
+      "title": "戏院正门",
+      "imageUrl": "./assets/scene_main_gate.jpg",
+      "description": "巨大的朱红色大门被厚重的电子锁封死。透过门缝，你能看到外面漆黑的雨夜和自由的世界。",
+      "interactables": [
+        {
+          "id": "int_power_slot",
+          "name": "备用电源插槽",
+          "description": "门禁系统屏幕漆黑，提示‘LOW POWER’。",
+          "requiredItemId": "item_battery",
+          "flagReward": "gate_powered",
+          "postInteractionMessage": "电源已接通，系统待机中。",
+          "dialogue": [
+            "你插入了神经元电池，系统屏幕亮了起来。"
+          ]
+        },
+        {
+          "id": "int_final_lock",
+          "name": "中央门禁系统",
+          "description": "控制整个戏院封锁状态的主终端。",
+          "requiredItemId": "item_system_disk",
+          "requiredFlag": "gate_powered",
+          "lockedMessage": "系统没有电力，无法读取磁盘。",
+          "winsGame": true,
+          "dialogue": [
+            "你插入了主脑覆写盘。",
+            "病毒迅速蔓延，绿色的指示灯逐一亮起。",
+            "大门轰然开启。"
+          ]
+        }
+      ],
+      "exits": [
+        {
+          "direction": "north",
+          "targetSceneId": "scene_stage_server",
+          "label": "返回戏台机房"
+        }
+      ]
+    }
+  },
+  "marketing": {
+    "iconUrl": "./assets/game_icon_512.png",
+    "bannerUrl": "./assets/game_banner_1080.jpg"
+  }
+}
