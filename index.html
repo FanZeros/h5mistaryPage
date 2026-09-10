@@ -4,7 +4,16 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <script src="coi-serviceworker.js"></script>
+  <script src="sw-coop.js"></script>
+  <script>
+  (function () {
+    var flag = 'coopReloaded';
+    if (window.crossOriginIsolated) { sessionStorage.removeItem(flag); return; }
+    if (sessionStorage.getItem(flag)) { return; }
+    sessionStorage.setItem(flag, '1');
+    navigator.serviceWorker.register('sw-coop.js').then(function () { location.reload(); });
+  })();
+  </script>
   <script>
 (function () {
   // 强制登录服务走离线路径：公开页面不要求 TapTap 登录（与本地 http 行为一致）
