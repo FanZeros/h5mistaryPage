@@ -7,7 +7,8 @@
   <script src="sw-coop.js"></script>
   <style>
     /* 隐藏引导器在独立运行模式注入的调试 UI（悬浮球 + eruda 入口） */
-    .fab-main, .fab-icon, .eruda-entry-btn, .eruda { display: none !important; }
+    .fab-main, .fab-icon { display: none !important; }
+    #eruda, .eruda-entry-btn, .eruda-icon-tool { display: none !important; }
     /* 隐藏加载屏 Logo 与右下角水印 */
     #loading-logo, #watermark-logo { display: none !important; }
   </style>
@@ -207,6 +208,17 @@
     </div>
   </div>
 
+  <script>
+  (function () {
+    function purgeEruda() {
+      var root = document.getElementById('eruda');
+      if (root) { root.remove(); return; }
+      var btn = document.querySelector('.eruda-entry-btn');
+      if (btn) { btn.remove(); }
+    }
+    new MutationObserver(purgeEruda).observe(document.documentElement, { childList: true, subtree: true });
+  })();
+  </script>
   <script crossorigin="anonymous" src="https://tapcode-sce.spark.xd.com/src/web/src/index.min.js"></script>
 
 </body>
