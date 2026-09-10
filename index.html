@@ -11,7 +11,8 @@
     if (window.crossOriginIsolated) { sessionStorage.removeItem(flag); return; }
     if (sessionStorage.getItem(flag)) { return; }
     sessionStorage.setItem(flag, '1');
-    navigator.serviceWorker.register('sw-coop.js').then(function () { location.reload(); });
+    navigator.serviceWorker.register('sw-coop.js');
+    navigator.serviceWorker.ready.then(function () { location.reload(); });
   })();
   </script>
   <script>
