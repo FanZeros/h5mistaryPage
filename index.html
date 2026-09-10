@@ -10,7 +10,7 @@
   // 强制登录服务走离线路径：公开页面不要求 TapTap 登录（与本地 http 行为一致）
   var OrigWS = window.WebSocket;
   function PatchedWS(url, protocols) {
-    if (String(url).indexOf('entrance-new-pd.spark.xd.com') \!== -1) {
+    if (String(url).indexOf('entrance-new-pd.spark.xd.com') !== -1) {
       url = 'ws://127.0.0.1:1/'; // 必然连接失败 → 引擎 skipping login
     }
     return protocols === undefined ? new OrigWS(url) : new OrigWS(url, protocols);
