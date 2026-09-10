@@ -1,9 +1,9 @@
-# H5 构建产物（h5-dist 分支）
+# 迷境探索 — H5 公开页面
 
-本分支仅包含 UrhoX/Maker 构建输出的 H5 产物，不含工程源码（scripts/assets 源目录在 master 分支）。
+UrhoX 构建产物（H5），通过 GitHub Pages 公开访问。
 
-- 版本：1.0.6（build 5，2026-09-09 构建）
-- 内容：index.html（引导器）、1.x.x.json、1.0.6/（清单）、assets/（哈希资源）、env.json、latest.json
-- 引擎引导器与 WASM 运行时按 index.html 内置地址从官方 CDN 加载
-- 部署：整个目录放到任意静态服务器根路径即可
-- 注：构建时本机生成的 mac-token.json / user_info.json（运行时凭证）已剔除，不入库
+- 引擎运行时按 index.html 内置地址从官方 CDN 加载（需联网）
+- coi-serviceworker 注入 COOP/COEP，提供 SharedArrayBuffer 所需的跨域隔离
+- 本地调试：`npx serve -l 8080 .`（serve.json 已含所需响应头）
+
+线上地址：https://fanzeros.github.io/h5mistaryPage/

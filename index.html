@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <script src="coi-serviceworker.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   
   <title>TapTap Maker</title>
@@ -148,7 +149,7 @@
 <body oncontextmenu="return false;">
 
   <div id="loading-screen">
-    <img id="loading-logo" src="https://tapcode-sce.spark.xd.com/src/web/src/LogoLarge.png" alt="UrhoX" onerror="this.style.display='none'">
+    <img id="loading-logo" crossorigin="anonymous" src="https://tapcode-sce.spark.xd.com/src/web/src/LogoLarge.png" alt="UrhoX" onerror="this.style.display='none'">
     <div id="loading-container">
       <div id="loading-progress-bg">
         <div id="loading-progress-bar"></div>
@@ -160,7 +161,7 @@
 
   <canvas id="canvas"></canvas>
 
-  <img id="watermark-logo" src="https://tapcode-sce.spark.xd.com/src/web/src/Logo.png" alt="" onerror="this.style.display='none'">
+  <img id="watermark-logo" crossorigin="anonymous" src="https://tapcode-sce.spark.xd.com/src/web/src/Logo.png" alt="" onerror="this.style.display='none'">
 
   <!-- 对话框 -->
   <div id="dialog-overlay">
@@ -174,7 +175,7 @@
     </div>
   </div>
 
-  <script src="https://tapcode-sce.spark.xd.com/src/web/src/index.min.js"></script>
+  <script crossorigin="anonymous" src="https://tapcode-sce.spark.xd.com/src/web/src/index.min.js"></script>
 
 </body>
 </html>
