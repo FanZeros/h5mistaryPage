@@ -1,6 +1,6 @@
 // 最小 COOP/COEP Service Worker：
 // 仅对顶层导航响应注入跨域隔离头，其余请求直通（不破坏 Range/流式下载）。
-var BASE = self.location.pathname.replace(/index\.html$/, '');
+var BASE = self.location.pathname.replace(/sw-coop\.js$/, '');
 self.addEventListener('install', function () { self.skipWaiting(); });
 self.addEventListener('activate', function (e) { e.waitUntil(self.clients.claim()); });
 self.addEventListener('fetch', function (e) {
